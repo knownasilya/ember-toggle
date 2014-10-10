@@ -6,19 +6,25 @@ export default Ember.Component.extend({
   off: 'Off',
   on: 'On',
 
-  inputClasses: function () {
+  inputClasses: Ember.computed('themeClass', function () {
     var themeClass = this.get('themeClass');
 
     return ['x-toggle', themeClass];
-  }.property('themeClass'),
+  }),
 
-  themeClass: function () {
+  themeClass: Ember.computed('theme', function () {
     var theme = this.get('theme') || 'default';
 
     return 'x-toggle-' + theme;
-  }.property('theme'),
+  }),
 
-  generatedId: function () {
+  generatedId: Ember.computed(function () {
     return this.get('elementId') + '-x-toggle';
-  }.property()
+  }),
+
+  wasToggled: Ember.observer('toggled', function () {
+    var toggled = this.get('toggled');
+
+    this.sendAction('toggle', toggled);
+  })
 });
