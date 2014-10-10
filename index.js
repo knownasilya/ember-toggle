@@ -2,28 +2,31 @@ module.exports = {
   name: 'ember-cli-toggle',
 
   included: function(app) {
-    this.app = app;
-
-    var config = this.project.config(this.app.env);
-    var toggleConfig = config['ember-cli-toggle'];
-
     app.import('vendor/ember-cli-toggle/base.css');
 
-    if (toggleConfig && Object.keys(toggleConfig).length) {
+    // Use configuration to decide which theme css files
+    // to import, thus not populating the user's app
+    this.importThemes(app);
+  },
+
+  importThemes: function(app) {
+    var projectConfig = this.project.config(app.env);
+    var config = projectConfig['ember-cli-toggle'];
+
+    if (config && Object.keys(config).length) {
       var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip'];
+      var included = config.includedThemes;
+      var excluded = config.excludedThemes;
       var themes = [];
 
-      if (toggleConfig.includedThemes) {
-        themes = themes.concat(toggleConfig.includedThemes);
-      }     
-
-      if (!themes.length) {
+      if (included && Array.isArray(included)) {
+        themes = themes.concat(included);
+      }
+      else {
         themes = allThemes;
       }
 
-      if (toggleConfig.excludedThemes) {
-        var excluded = toggleConfig.excludedThemes;
-
+      if (excluded && Array.isArray(excluded)) {
         themes = themes.filter(function (theme) {
           return excluded.indexOf(theme) === -1;
         });
@@ -36,8 +39,7 @@ module.exports = {
       themes.forEach(function (theme) {
         app.import('vendor/ember-cli-toggle/themes/' + theme + '.css');
       });
-
-      toggleConfig.userThemes = themes;
     }
   }
 };
+
