@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+var observer = Ember.observer;
+var on = Ember.on;
+var computed = Ember.computed;
+
 export default Ember.Component.extend({
   tagName: 'span',
   theme: 'default',
@@ -7,7 +11,7 @@ export default Ember.Component.extend({
   on: 'On',
   toggled: false,
 
-  inputClasses: Ember.observer('themeClass', 'inputCheckbox', function () {
+  inputClasses: on('init', observer('themeClass', 'inputCheckbox', function () {
     var themeClass = this.get('themeClass');
     var input = this.get('inputCheckbox');
 
@@ -16,21 +20,21 @@ export default Ember.Component.extend({
 
       input.set('classNames', inputClasses.concat(['x-toggle', themeClass]));
     }
-  }).on('init'),
+  }),
 
-  themeClass: Ember.computed('theme', function () {
+  themeClass: computed('theme', function () {
     var theme = this.get('theme') || 'default';
 
     return 'x-toggle-' + theme;
   }),
 
-  generatedId: Ember.computed(function () {
+  generatedId: computed(function () {
     return this.get('elementId') + '-x-toggle';
   }),
 
-  wasToggled: Ember.observer('toggled', function () {
+  wasToggled: on('init', observer('toggled', function () {
     var toggled = this.get('toggled');
     
     this.sendAction('toggle', toggled);
-  }).on('init')
+  })
 });
