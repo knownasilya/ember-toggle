@@ -16,6 +16,19 @@ in your template:
 {{x-toggle theme='skewed' toggle='enablePartyMode'}}
 ```
 
+### Configuring
+
+Add a configuration for `ember-cli-toggle` to include only the themes that
+you will use.
+
+```js
+ENV['ember-cli-toggle'] = {
+  includedThemes: ['light', 'default', 'flip'],
+  excludedThemes: ['flip'],
+  defaultTheme: 'light' // defaults to 'default'
+};
+```
+
 ## Contributing
 
 Outlines how to begin contributing to this Ember-CLI project.
