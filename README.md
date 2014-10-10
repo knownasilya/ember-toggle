@@ -29,6 +29,9 @@ ENV['ember-cli-toggle'] = {
 };
 ```
 
+To exclude or not include a theme, means that it's css styles will not be bundled with
+your application, thus not polluting your app.
+
 ## Contributing
 
 Outlines how to begin contributing to this Ember-CLI project.
