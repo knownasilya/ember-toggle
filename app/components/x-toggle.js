@@ -7,11 +7,16 @@ export default Ember.Component.extend({
   on: 'On',
   toggled: false,
 
-  inputClasses: Ember.computed('themeClass', function () {
+  inputClasses: Ember.observer('themeClass', 'inputCheckbox', function () {
     var themeClass = this.get('themeClass');
+    var input = this.get('inputCheckbox');
 
-    return ['x-toggle', themeClass];
-  }),
+    if (input) {
+      var inputClasses = input.get('classNames') || [];
+
+      input.set('classNames', inputClasses.concat(['x-toggle', themeClass]));
+    }
+  }).on('init'),
 
   themeClass: Ember.computed('theme', function () {
     var theme = this.get('theme') || 'default';
