@@ -20,7 +20,7 @@ export default Ember.Component.extend({
 
       input.set('classNames', inputClasses.concat(['x-toggle', themeClass]));
     }
-  }),
+  })),
 
   themeClass: computed('theme', function () {
     var theme = this.get('theme') || 'default';
@@ -36,5 +36,5 @@ export default Ember.Component.extend({
     var toggled = this.get('toggled');
     
     this.sendAction('toggle', toggled);
-  })
+  }))
 });
