@@ -8,12 +8,12 @@ First install with `npm install --save-dev ember-cli-toggle`, and add one of the
 in your template:
 
 ```hbs
-{{x-toggle}}
-{{x-toggle theme='light'}}
-{{x-toggle theme='ios'}}
-{{x-toggle theme='flat'}}
-{{x-toggle theme='flip' off='Nope' on='Yep'}}
-{{x-toggle theme='skewed'}}
+{{x-toggle toggle='startCar'}}
+{{x-toggle theme='light' toggle='enableLayer'}}
+{{x-toggle theme='ios' toggle='muteVolume'}}
+{{x-toggle theme='flat' toggle='disableTest'}}
+{{x-toggle theme='flip' off='Nope' on='Yep' toggle='haveFun'}}
+{{x-toggle theme='skewed' toggle='enablePartyMode'}}
 ```
 
 ## Contributing
