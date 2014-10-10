@@ -1,0 +1,53 @@
+.x-toggle-flip + .x-toggle-btn {
+  padding: 2px;
+  -webkit-transition: all .2s ease;
+          transition: all .2s ease;
+  font-family: sans-serif;
+  -webkit-perspective: 100px;
+          perspective: 100px;
+}
+.x-toggle-flip + .x-toggle-btn:after, .x-toggle-flip + .x-toggle-btn:before {
+  display: inline-block;
+  -webkit-transition: all .4s ease;
+          transition: all .4s ease;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  line-height: 2em;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 4px;
+}
+.x-toggle-flip + .x-toggle-btn:after {
+  content: attr(data-tg-on);
+  background: #02C66F;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.x-toggle-flip + .x-toggle-btn:before {
+  background: #FF3A19;
+  content: attr(data-tg-off);
+}
+.x-toggle-flip + .x-toggle-btn:active:before {
+  -webkit-transform: rotateY(-20deg);
+          transform: rotateY(-20deg);
+}
+.x-toggle-flip:checked + .x-toggle-btn:before {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.x-toggle-flip:checked + .x-toggle-btn:after {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  left: 0;
+  background: #7FC6A6;
+}
+.x-toggle-flip:checked + .x-toggle-btn:active:after {
+  -webkit-transform: rotateY(20deg);
+          transform: rotateY(20deg);
+}

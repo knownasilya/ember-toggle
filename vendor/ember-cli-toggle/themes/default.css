@@ -1,0 +1,16 @@
+.x-toggle-default + .x-toggle-btn {
+  padding: 0.1em;
+  background-color: #E7E7E7;
+  border-radius: 0.2em;
+  transition: background-color 0.2s;
+}
+
+.x-toggle-default:checked + .x-toggle-btn {
+  background-color: #797979;
+}
+
+.x-toggle-default + .x-toggle-btn:after {
+  background-color: #FFFFFF;
+  transition: left 0.2s;
+  border-radius: 0.2em;
+}

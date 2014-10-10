@@ -1,12 +1,14 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 var observer = Ember.observer;
 var on = Ember.on;
 var computed = Ember.computed;
+var config = ENV['ember-cli-toggle'];
 
 export default Ember.Component.extend({
   tagName: 'span',
-  theme: 'default',
+  theme: config.defaultTheme || 'default',
   off: 'Off',
   on: 'On',
   toggled: false,
