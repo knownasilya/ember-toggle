@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   theme: 'default',
   off: 'Off',
   on: 'On',
+  toggled: false,
 
   inputClasses: Ember.computed('themeClass', function () {
     var themeClass = this.get('themeClass');
@@ -24,7 +25,7 @@ export default Ember.Component.extend({
 
   wasToggled: Ember.observer('toggled', function () {
     var toggled = this.get('toggled');
-
+    
     this.sendAction('toggle', toggled);
-  })
+  }).on('init')
 });

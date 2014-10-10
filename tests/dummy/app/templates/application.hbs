@@ -2,9 +2,13 @@
 
 {{outlet}}
 
-{{x-toggle}}
+{{x-toggle toggle='checkboxToggled'}}
 {{x-toggle theme='light'}}
 {{x-toggle theme='ios'}}
 {{x-toggle theme='flat'}}
-{{x-toggle theme='flip' off='Nope' on='Yep'}}
+{{x-toggle theme='flip' off='Nope' on='Yep' toggle='checkboxToggled'}}
 {{x-toggle theme='skewed'}}
+
+<p>
+  Is toggled: {{toggled}}
+</p>
