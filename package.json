@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-toggle",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -10,11 +10,11 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": "https://github.com/knownasilya/ember-cli-toggle",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Ilya Radchenko",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.2.0",

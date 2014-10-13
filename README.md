@@ -1,5 +1,7 @@
 # ember-cli-toggle
 
+[![NPM][npm-badge]][npm-badge-url]
+
 Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
 
 ## Usage
@@ -61,3 +63,6 @@ Outlines how to begin contributing to this Ember-CLI project.
 * `ember build`
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+[npm-badge]: https://nodei.co/npm/ember-cli-toggle.png?downloads=true&stars=true
+[npm-badge-url]: https://nodei.co/npm/ember-cli-toggle/
