@@ -13,10 +13,10 @@ in your template:
 ```hbs
 {{x-toggle toggle='startCar'}}
 {{x-toggle theme='light' toggle='enableLayer'}}
-{{x-toggle theme='ios' toggle='muteVolume'}}
+{{x-toggle theme='ios' size='small' toggle='muteVolume'}}
 {{x-toggle theme='flat' toggle='disableTest'}}
 {{x-toggle theme='flip' off='Nope' on='Yep' toggle='haveFun'}}
-{{x-toggle theme='skewed' toggle='enablePartyMode'}}
+{{x-toggle theme='skewed' size='large' toggle='enablePartyMode'}}
 ```
 
 ### Configuring
