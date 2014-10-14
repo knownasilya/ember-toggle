@@ -13,7 +13,7 @@ module.exports = {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-cli-toggle'];
 
-    if (config && Object.keys(config).length) {
+    if (config) {
       var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip'];
       var included = config.includedThemes;
       var excluded = config.excludedThemes;
