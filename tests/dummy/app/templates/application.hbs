@@ -1,8 +1,9 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<h2 id='title'>ember-cli-toggle</h2>
 
 {{outlet}}
 
 {{x-toggle toggle='checkboxToggled'}}
+{{x-toggle theme='default'}}
 {{x-toggle theme='light'}}
 {{x-toggle theme='ios'}}
 {{x-toggle theme='flat'}}
@@ -12,3 +13,39 @@
 <p>
   Is toggled: {{toggled}}
 </p>
+
+<div class="default-sizes sizes">
+  {{x-toggle size='small'}}
+  {{x-toggle size='medium'}}
+  {{x-toggle size='large'}}
+</div>
+
+<div class="light-sizes sizes">
+  {{x-toggle size='small' theme='light'}}
+  {{x-toggle size='medium' theme='light'}}
+  {{x-toggle size='large' theme='light'}}
+</div>
+
+<div class="ios-sizes sizes">
+  {{x-toggle size='small' theme='ios'}}
+  {{x-toggle size='medium' theme='ios'}}
+  {{x-toggle size='large' theme='ios'}}
+</div>
+
+<div class="flat-sizes sizes">
+  {{x-toggle size='small' theme='flat'}}
+  {{x-toggle size='medium' theme='flat'}}
+  {{x-toggle size='large' theme='flat'}}
+</div>
+
+<div class="flip-sizes sizes">
+  {{x-toggle size='small' theme='flip'}}
+  {{x-toggle size='medium' theme='flip'}}
+  {{x-toggle size='large' theme='flip'}}
+</div>
+
+<div class="skewed-sizes sizes">
+  {{x-toggle size='small' theme='skewed'}}
+  {{x-toggle size='medium' theme='skewed'}}
+  {{x-toggle size='large' theme='skewed'}}
+</div>

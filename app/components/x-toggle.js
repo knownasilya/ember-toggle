@@ -11,18 +11,8 @@ export default Ember.Component.extend({
   theme: config.defaultTheme || 'default',
   off: 'Off',
   on: 'On',
+  size: config.defaultSize || 'medium',
   toggled: false,
-
-  inputClasses: on('init', observer('themeClass', 'inputCheckbox', function () {
-    var themeClass = this.get('themeClass');
-    var input = this.get('inputCheckbox');
-
-    if (input) {
-      var inputClasses = input.get('classNames') || [];
-
-      input.set('classNames', inputClasses.concat(['x-toggle', themeClass]));
-    }
-  })),
 
   themeClass: computed('theme', function () {
     var theme = this.get('theme') || 'default';
@@ -30,7 +20,14 @@ export default Ember.Component.extend({
     return 'x-toggle-' + theme;
   }),
 
-  generatedId: computed(function () {
+  sizeClass: computed('size', 'themeClass', function () {
+    var size = this.get('size') || 'medium';
+    var themeClass = this.get('themeClass');
+
+    return themeClass + '-' + size;
+  }),
+
+  forId: computed(function () {
     return this.get('elementId') + '-x-toggle';
   }),
 

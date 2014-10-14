@@ -1,4 +1,4 @@
-.x-toggle-flip + .x-toggle-btn {
+.x-toggle-flip.x-toggle-btn {
   padding: 2px;
   -webkit-transition: all .2s ease;
           transition: all .2s ease;
@@ -6,7 +6,9 @@
   -webkit-perspective: 100px;
           perspective: 100px;
 }
-.x-toggle-flip + .x-toggle-btn:after, .x-toggle-flip + .x-toggle-btn:before {
+
+.x-toggle-flip.x-toggle-btn:after,
+.x-toggle-flip.x-toggle-btn:before {
   display: inline-block;
   -webkit-transition: all .4s ease;
           transition: all .4s ease;
@@ -23,31 +25,71 @@
           backface-visibility: hidden;
   border-radius: 4px;
 }
-.x-toggle-flip + .x-toggle-btn:after {
+
+.x-toggle-flip.x-toggle-btn:after {
   content: attr(data-tg-on);
   background: #02C66F;
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
 }
-.x-toggle-flip + .x-toggle-btn:before {
+
+.x-toggle-flip.x-toggle-btn:before {
   background: #FF3A19;
   content: attr(data-tg-off);
 }
-.x-toggle-flip + .x-toggle-btn:active:before {
+
+.x-toggle-flip.x-toggle-btn:active:before {
   -webkit-transform: rotateY(-20deg);
           transform: rotateY(-20deg);
 }
-.x-toggle-flip:checked + .x-toggle-btn:before {
+
+.x-toggle:checked + .x-toggle-flip.x-toggle-btn:before {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
-.x-toggle-flip:checked + .x-toggle-btn:after {
+
+.x-toggle:checked + .x-toggle-flip.x-toggle-btn:after {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
   left: 0;
   background: #7FC6A6;
 }
-.x-toggle-flip:checked + .x-toggle-btn:active:after {
+
+.x-toggle:checked + .x-toggle-flip.x-toggle-btn:active:after {
   -webkit-transform: rotateY(20deg);
           transform: rotateY(20deg);
+}
+
+.x-toggle-flip-small {
+  width: 3em;
+  height: 1.6em;
+}
+
+.x-toggle-flip.x-toggle-flip-small:before,
+.x-toggle-flip.x-toggle-flip-small:after {
+  line-height: 2.2em; 
+  font-size: 0.8em;
+}
+
+.x-toggle-flip.x-toggle-flip-medium {
+  width: 4em;
+  height: 2.1em;
+  padding: 3px;
+}
+
+.x-toggle-flip.x-toggle-flip-medium:before,
+.x-toggle-flip.x-toggle-flip-medium:after {
+  line-height: 2.3em; 
+}
+
+.x-toggle-flip.x-toggle-flip-large {
+  width: 4.7em;
+  height: 2.6em;
+  padding: 4px;
+}
+
+.x-toggle-flip.x-toggle-flip-large:before,
+.x-toggle-flip.x-toggle-flip-large:after {
+  line-height: 2.4em;
+  font-size: 1.1em;
 }

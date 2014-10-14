@@ -1,2 +1,6 @@
-{{input id=generatedId type='checkbox' checked=toggled viewName='inputCheckbox'}}
-<label class='x-toggle-btn' {{bind-attr for=generatedId data-tg-off=off data-tg-on=on}}></label>
+{{input id=forId type='checkbox' checked=toggled class='x-toggle'}}
+<label {{bind-attr class=':x-toggle-btn themeClass sizeClass'
+  for=forId
+  data-tg-off=off
+  data-tg-on=on}}>
+</label>

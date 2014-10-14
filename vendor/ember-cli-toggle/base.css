@@ -33,7 +33,7 @@
   background: none;
 }
 
-.x-toggle + .x-toggle-btn {
+.x-toggle-btn {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -46,8 +46,8 @@
   cursor: pointer;
 }
 
-.x-toggle + .x-toggle-btn:after,
-.x-toggle + .x-toggle-btn:before {
+.x-toggle-btn:after,
+.x-toggle-btn:before {
   position: relative;
   display: block;
   content: "";
@@ -55,11 +55,11 @@
   height: 100%;
 }
 
-.x-toggle + .x-toggle-btn:after {
+.x-toggle-btn:after {
   left: 0;
 }
 
-.x-toggle + .x-toggle-btn:before {
+.x-toggle-btn:before {
   display: none;
 }
 
