@@ -9,8 +9,8 @@ var config = ENV['ember-cli-toggle'];
 export default Ember.Component.extend({
   tagName: 'span',
   theme: config.defaultTheme || 'default',
-  off: 'Off',
-  on: 'On',
+  off: config.defaultOff || 'Off',
+  on: config.defaultOn || 'On',
   size: config.defaultSize || 'medium',
   toggled: false,
 

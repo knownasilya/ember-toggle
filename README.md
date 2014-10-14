@@ -28,7 +28,10 @@ you will use.
 ENV['ember-cli-toggle'] = {
   includedThemes: ['light', 'default', 'flip'],
   excludedThemes: ['flip'],
-  defaultTheme: 'light' // defaults to 'default'
+  defaultTheme: 'light',  // defaults to 'default'
+  defaultSize: 'small',   // defaults to 'medium'
+  defaultOff: 'False',    // defaults to 'Off'
+  defaultOn: 'True'       // defaults to 'On'
 };
 ```
 
