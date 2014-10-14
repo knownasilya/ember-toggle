@@ -31,7 +31,11 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "toggle",
+    "switch",
+    "component",
+    "ember"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
