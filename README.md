@@ -19,6 +19,17 @@ in your template:
 {{x-toggle theme='skewed' size='large' toggle='enablePartyMode'}}
 ```
 
+### Available Options
+
+* `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'. 
+            Defaults to 'default' if not specified.
+* `size` -  One of 'small', 'medium', 'large'.
+            Defaults to 'medium' if not specified.
+* `on` - Defaults to 'On'.
+* `off` - Defaults to 'Off'.
+* `toggle` - The toggle action, which has one argument e.g. `isToggled`.
+* `toggled` - Defaults to `false`, meaning not enabled by default.
+
 ### Configuring
 
 Add a configuration for `ember-cli-toggle` to include only the themes that
