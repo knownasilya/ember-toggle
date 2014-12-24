@@ -45,6 +45,7 @@ ENV['ember-cli-toggle'] = {
   defaultOn: 'True'       // defaults to 'On'
 };
 ```
+> note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
 
 To exclude or not include a theme, means that it's css styles will not be bundled with
 your application, thus not polluting your app.
