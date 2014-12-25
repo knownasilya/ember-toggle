@@ -21,7 +21,7 @@ in your template:
 
 You can also show text labels on either side of toggle switch with: 
 ````hbs
-{{x-togggle on='hey' off='ho' toggle='letsGo' showLabel='true'}}
+{{x-toggle on='hey' off='ho' toggle='letsGo' showLabel='true'}}
 ````
 Which would look like (using "default" theme): 
 
@@ -32,13 +32,12 @@ include the label within the control (e.g., `skew` and `flip`).
 
 ### Available Options
 
-* `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'. 
-            Defaults to 'default' if not specified.
-* `size` -  One of 'small', 'medium', 'large'.
-            Defaults to 'medium' if not specified.
+* `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'. Defaults to 'default' if not specified.
+* `size` -  One of 'small', 'medium', 'large'. Defaults to 'medium' if not specified.
 * `on` - Defaults to 'On'.
 * `off` - Defaults to 'Off'.
 * `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
+* `colors` - either a hash or an array of values, if an array it is assumed to be of form [#onColor, #offColor]
 * `toggle` - The toggle action, which has one argument e.g. `isToggled`.
 * `toggled` - Defaults to `false`, meaning not enabled by default.
 
@@ -55,6 +54,11 @@ ENV['ember-cli-toggle'] = {
   defaultSize: 'small',   // defaults to 'medium'
   defaultOff: 'False',    // defaults to 'Off'
   defaultOn: 'True'       // defaults to 'On'
+  colors: {
+	bevelOn: 'lightgrey',
+	bevelOff: 'darkgrey',
+	fontOn: 'green'
+  }
 };
 ```
 > note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
@@ -65,6 +69,35 @@ your application, thus not polluting your app.
 _Note: Including a blank array e.g. `includeThemes: []` will not include any themes, leaving
 you to define your own theme styles. See the `vendor/ember-cli-toggle/themes` directory
 for reference._
+
+#### More on Colors ####
+![ ](vendor/ember-cli-toggle/example-images/color-context.png)
+
+The colors (along with transitions between colors) are all done with CSS versus a Javascript driven solution like jQuery or Velocity. This is fine but does make providing a completely flexible color solution a bit more complicated. In order to provide the appropriate flexibility while maintaining the CSS simplicity we must understand the color requirements in a structured fashion: 
+
+1. There are two states "on" and "off" which in CSS are represented as based on the existance or lack of the psuedo property `:checked` on the **label** property
+1. There are multiple conceptual targets in the various themes which map to CSS properties but sometimes with overlap (e.g., both the bevel and the background use the CSS `background-color` property for their color settings)
+
+So this leads to a design which behaves with the following constraints:
+
+1. Color options are defined at *build time* not *run time*. This means there is not an unlimited set of choices but only those defined at build. Out of the box the color options are: `['none','white','black','green','yellow', 'red','grey','lightgrey','darkgrey']`. 
+	> The colors included are a superset of the colors used in the current set of themes so that there is always the option of explicitly setting a theme to it's default characteristics
+2. Themes will by default always behave as they are designed in CSS. If and when you override that behaviour you must do that explicitly based on the "state" (e.g., *on* or *off*) as well as the "target" (e.g., *background*, *bevel*, *font*, and *border*). So if for instance you wanted to use the flat theme but wanted the border to ALWAYS be *lightgrey* then you would would do this within a template like this:
+
+	````hbs
+	{{x-toggle theme="fixed" colorBevelOff="lightgrey" colorBevelOn="lightgrey"}}
+	````
+
+	or if you're into shorthand you could get away with just:
+
+	````hbs
+	{{x-toggle theme="fixed" colorBevelOn="lightgrey"}}
+	````
+
+	This is equivelent because the default color for the fixed theme's border is lightgrey.
+
+
+[^background-color]: the background color also is synonymous with the border color unless explicitly differentiated 
 
 ## Contributing
 
