@@ -1,6 +1,16 @@
+{{#if showText}}
+	<span class="toggle-text toggle-prefix">
+		{{on}}
+	</span>
+{{/if}}
 {{input id=forId type='checkbox' checked=toggled class='x-toggle'}}
 <label {{bind-attr class=':x-toggle-btn themeClass sizeClass'
   for=forId
   data-tg-off=off
   data-tg-on=on}}>
 </label>
+{{#if showText}}
+	<span class="toggle-text toggle-postfix">
+		{{off}}
+	</span>
+{{/if}}

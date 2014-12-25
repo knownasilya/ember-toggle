@@ -66,3 +66,27 @@
 .x-toggle:checked + .x-toggle-btn:after {
   left: 50%;
 }
+
+.x-toggle-container .toggle-text {
+	display: inline-flex;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.x-toggle-container .toggle-text .small {
+	padding-bottom: 1.0rem;
+}
+.x-toggle-container .toggle-text .medium {
+	padding-bottom: 1.5rem;
+}
+.x-toggle-container .toggle-text .large {
+	padding-bottom: 2.0rem;
+}
+
+.x-toggle-container .toggle-text.toggle-prefix {
+	padding-right: 0.25rem;
+}
+
+.x-toggle-container .toggle-text.toggle-postfix {
+	padding-left: 0.25rem;
+}
