@@ -17,18 +17,18 @@
   background: #9FD6AE;
 }
 
-.x-toggle-light-small {
+.x-toggle-light.small {
   width: 3em;
   height: 1.6em;
 }
 
-.x-toggle-light.x-toggle-light-medium {
+.x-toggle-light.medium {
   width: 4em;
   height: 2.1em;
   padding: 3px;
 }
 
-.x-toggle-light.x-toggle-light-large {
+.x-toggle-light.large {
   width: 4.7em;
   height: 2.6em;
   padding: 4px;

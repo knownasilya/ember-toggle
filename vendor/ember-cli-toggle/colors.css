@@ -1,0 +1,7 @@
+.bevel-green-off {
+	background-color: #9FD6AE !important;
+}
+
+.bevel-green-on:checked {
+	background-color: #9FD6AE !important;
+}

@@ -17,5 +17,6 @@ var app = new EmberAddon();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 app.import('vendor/ember-cli-toggle/base.css');
+app.import('vendor/ember-cli-toggle/colors.css');
 
 module.exports = app.toTree();

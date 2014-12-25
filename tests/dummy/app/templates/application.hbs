@@ -49,3 +49,35 @@
   {{x-toggle size='medium' theme='skewed'}}
   {{x-toggle size='large' theme='skewed'}}
 </div>
+
+<h2>Text Labels</h2> 
+<pre>
+\{{x-toggle showLabels="true" on="hey" off="ho"}}
+</pre>
+<div class="default-style text-labels">
+	<table class="demo-table">
+		<tr>
+			<td>
+				<div class="default-theme">
+					{{x-toggle size='small' on='hey' off='ho' showLabels="true" theme='default'}}<br/>
+					{{x-toggle size='medium' on='hey' off='ho' showLabels="true" theme='default'}}<br/>
+					{{x-toggle size='large' on='hey' off='ho' showLabels="true" theme='default'}}
+				</div>
+			</td>
+			<td>
+				<div class="flat-theme">
+					{{x-toggle size='small' on='hey' off='ho' showLabels="true" theme='flat'}}<br/>
+					{{x-toggle size='medium' on='hey' off='ho' showLabels="true" theme='flat'}}<br/>
+					{{x-toggle size='large' on='hey' off='ho' showLabels="true" theme='flat'}}
+				</div>
+			</td>
+			<td>
+				<div class="light-theme">
+					{{x-toggle size='small' on='hey' off='ho' showLabels="true" theme='light'}}<br/>
+					{{x-toggle size='medium' on='hey' off='ho' showLabels="true" theme='light'}}<br/>
+					{{x-toggle size='large' on='hey' off='ho' showLabels="true" theme='light'}}
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
