@@ -22,10 +22,6 @@ export default Ember.Component.extend({
     return 'x-toggle-' + theme;
   }),
 
-  sizeClass: computed('size', 'themeClass', function () {
-    return this.get('size');
-  }),
-
   forId: computed(function () {
     return this.get('elementId') + '-x-toggle';
   }),
