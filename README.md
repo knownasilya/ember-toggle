@@ -19,6 +19,17 @@ in your template:
 {{x-toggle theme='skewed' size='large' toggle='enablePartyMode'}}
 ```
 
+You can also show text labels on either side of toggle switch with: 
+````hbs
+{{x-togggle on='hey' off='ho' toggle='letsGo' showLabel='true'}}
+````
+Which would look like (using "default" theme): 
+
+![ ](vendor/ember-cli-toggle/example-images/show-labels.png)
+
+This option is available on all themes but is a less sensible choice for those themes which actually 
+include the label within the control (e.g., `skew` and `flip`).
+
 ### Available Options
 
 * `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'. 
@@ -27,6 +38,7 @@ in your template:
             Defaults to 'medium' if not specified.
 * `on` - Defaults to 'On'.
 * `off` - Defaults to 'Off'.
+* `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
 * `toggle` - The toggle action, which has one argument e.g. `isToggled`.
 * `toggled` - Defaults to `false`, meaning not enabled by default.
 

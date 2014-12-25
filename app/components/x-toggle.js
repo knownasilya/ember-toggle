@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   theme: config.defaultTheme || 'default',
   off: config.defaultOff || 'Off',
   on: config.defaultOn || 'On',
-  showText: config.defaultShowText || false,
+  showLabels: config.defaultShowLabels || false,
   size: config.defaultSize || 'medium',
   toggled: false,
 
