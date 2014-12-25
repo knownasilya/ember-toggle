@@ -24,18 +24,18 @@
   background: #7FC6A6;
 }
 
-.x-toggle-flat-small {
+.x-toggle-flat.small {
   width: 3em;
   height: 1.6em;
 }
 
-.x-toggle-flat.x-toggle-flat-medium {
+.x-toggle-flat.medium {
   width: 4em;
   height: 2.1em;
   padding: 3px;
 }
 
-.x-toggle-flat.x-toggle-flat-large {
+.x-toggle-flat.large {
   width: 4.7em;
   height: 2.6em;
   padding: 4px;

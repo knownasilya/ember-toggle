@@ -1,5 +1,5 @@
 {{#if showText}}
-	<span class="toggle-text toggle-prefix">
+	<span  {{bind-attr class=":toggle-text :toggle-prefix sizeClass"}}>
 		{{on}}
 	</span>
 {{/if}}
@@ -10,7 +10,7 @@
   data-tg-on=on}}>
 </label>
 {{#if showText}}
-	<span class="toggle-text toggle-postfix">
+	<span {{bind-attr class=":toggle-text :toggle-postfix sizeClass"}}>
 		{{off}}
 	</span>
 {{/if}}

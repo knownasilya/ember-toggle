@@ -23,10 +23,7 @@ export default Ember.Component.extend({
   }),
 
   sizeClass: computed('size', 'themeClass', function () {
-    var size = this.get('size') || 'medium';
-    var themeClass = this.get('themeClass');
-
-    return themeClass + '-' + size;
+    return this.get('size');
   }),
 
   forId: computed(function () {

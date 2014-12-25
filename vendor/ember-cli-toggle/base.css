@@ -73,14 +73,17 @@
 	height: 100%;
 }
 
-.x-toggle-container .toggle-text .small {
+.x-toggle-container .toggle-text.small {
 	padding-bottom: 1.0rem;
+	font-size: 0.9rem;
 }
-.x-toggle-container .toggle-text .medium {
+.x-toggle-container .toggle-text.medium {
 	padding-bottom: 1.5rem;
+	font-size: 1.0rem;
 }
-.x-toggle-container .toggle-text .large {
+.x-toggle-container .toggle-text.large {
 	padding-bottom: 2.0rem;
+	font-size: 1.2rem;
 }
 
 .x-toggle-container .toggle-text.toggle-prefix {
