@@ -1,4 +1,4 @@
-<h2 id='title'>ember-cli-toggle</h2>
+<h1 id='title'>ember-cli-toggle</h1>
 
 {{outlet}}
 
@@ -14,6 +14,7 @@
   Is toggled: {{toggled}}
 </p>
 
+<h2>Sizes and Themes</h2> 
 <div class="default-sizes sizes">
   {{x-toggle size='small'}}
   {{x-toggle size='medium'}}
@@ -52,31 +53,66 @@
 
 <h2>Text Labels</h2> 
 <pre>
-\{{x-toggle showLabels="true" on="hey" off="ho"}}
+\{{x-toggle showLabels="true" off="hey" on="ho"}}
 </pre>
 <div class="default-style text-labels">
 	<table class="demo-table">
 		<tr>
 			<td>
 				<div class="default-theme">
-					{{x-toggle size='small' on='hey' off='ho' showLabels="true" theme='default'}}<br/>
-					{{x-toggle size='medium' on='hey' off='ho' showLabels="true" theme='default'}}<br/>
-					{{x-toggle size='large' on='hey' off='ho' showLabels="true" theme='default'}}
+					{{x-toggle size='small' off='hey' on='ho' showLabels="true" theme='default'}}<br/>
+					{{x-toggle size='medium' off='hey' on='ho' showLabels="true" theme='default'}}<br/>
+					{{x-toggle size='large' off='hey' on='ho' showLabels="true" theme='default'}}
 				</div>
 			</td>
 			<td>
 				<div class="flat-theme">
-					{{x-toggle size='small' on='hey' off='ho' showLabels="true" theme='flat'}}<br/>
-					{{x-toggle size='medium' on='hey' off='ho' showLabels="true" theme='flat'}}<br/>
-					{{x-toggle size='large' on='hey' off='ho' showLabels="true" theme='flat'}}
+					{{x-toggle size='small' off='hey' on='ho' showLabels="true" theme='flat'}}<br/>
+					{{x-toggle size='medium' off='hey' on='ho' showLabels="true" theme='flat'}}<br/>
+					{{x-toggle size='large' off='hey' on='ho' showLabels="true" theme='flat'}}
 				</div>
 			</td>
 			<td>
 				<div class="light-theme">
-					{{x-toggle size='small' on='hey' off='ho' showLabels="true" theme='light'}}<br/>
-					{{x-toggle size='medium' on='hey' off='ho' showLabels="true" theme='light'}}<br/>
-					{{x-toggle size='large' on='hey' off='ho' showLabels="true" theme='light'}}
+					{{x-toggle size='small' off='hey' on='ho' showLabels="true" theme='light'}}<br/>
+					{{x-toggle size='medium' off='hey' on='ho' showLabels="true" theme='light'}}<br/>
+					{{x-toggle size='large' off='hey' on='ho' showLabels="true" theme='light'}}
 				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<h2>Bindings</h2> 
+<pre>
+\{{x-toggle toggled=boundToggle value=boundValue off="hey" on="ho"}}
+</pre>
+<div class="default-style text-labels">
+	<table class="demo-table">
+		<tr>
+			<td>
+				<div class="default-theme">
+					{{x-toggle off='Hey:hey' on='Ho:ho' toggled=boundToggle value=boundValue}}
+				</div>
+			</td>
+			<td>
+				toggled: <i>{{#if boundToggle}}true{{else}}false{{/if}}</i>
+			</td>
+			<td>
+				value: {{input value=boundValue}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="default-theme">
+					{{x-toggle off='Hey:hey' on='Ho:ho' toggled=bT2 value=bV2}}
+				</div>
+			</td>
+			<td>
+				toggled: <i>{{#if bT2}}true{{else}}false{{/if}}</i>
+			</td>
+			<td>
+				value: {{bV2}}
 			</td>
 		</tr>
 	</table>
