@@ -55,7 +55,7 @@ export default Ember.Component.extend({
 	  		  this.set('toggled', false);
 			  this.set('value',offState);
 	  	  }
-	  }, 1000);
+	  }, 500);
   }))
   
 });
