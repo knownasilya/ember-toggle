@@ -62,36 +62,36 @@
   left: 10%;
 }
 
-.x-toggle-skewed-small {
+.x-toggle-skewed.small {
   width: 3em;
   height: 1.6em;
 }
 
-.x-toggle-skewed.x-toggle-skewed-small:before,
-.x-toggle-skewed.x-toggle-skewed-small:after {
+.x-toggle-skewed.small:before,
+.x-toggle-skewed.small:after {
   line-height: 2.2em;
   font-size: 0.8em;
 }
 
-.x-toggle-skewed.x-toggle-skewed-medium {
+.x-toggle-skewed.medium {
   width: 4em;
   height: 2.1em;
   padding: 3px;
 }
 
-.x-toggle-skewed.x-toggle-skewed-medium:before,
-.x-toggle-skewed.x-toggle-skewed-medium:after {
+.x-toggle-skewed.medium:before,
+.x-toggle-skewed.medium:after {
   line-height: 1.9em;
 }
 
-.x-toggle-skewed.x-toggle-skewed-large {
+.x-toggle-skewed.large {
   width: 4.7em;
   height: 2.6em;
   padding: 4px;
 }
 
-.x-toggle-skewed.x-toggle-skewed-large:before,
-.x-toggle-skewed.x-toggle-skewed-large:after {
+.x-toggle-skewed.large:before,
+.x-toggle-skewed.large:after {
   line-height: 2em;
   font-size: 1.1em;
 }
