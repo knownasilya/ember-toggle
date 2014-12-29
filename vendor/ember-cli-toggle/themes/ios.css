@@ -35,18 +35,18 @@
   margin-left: -.8em;
 }
 
-.x-toggle-ios-small {
+.x-toggle-ios.small {
   width: 3em;
   height: 1.6em;
 }
 
-.x-toggle-ios.x-toggle-ios-medium {
+.x-toggle-ios.medium {
   width: 4em;
   height: 2.1em;
   padding: 3px;
 }
 
-.x-toggle-ios.x-toggle-ios-large {
+.x-toggle-ios.large {
   width: 4.7em;
   height: 2.6em;
   padding: 4px;

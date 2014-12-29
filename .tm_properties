@@ -1,0 +1,3 @@
+include="{$include,.travis.yml,.jshintrc,.gitignore}"
+excludeInFileChooser="{$exclude,node_modules,bower_components,dist,tmp}"
+excludeInFolderSearch="{$exclude,node_modules,bower_components,dist,tmp}"

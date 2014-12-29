@@ -60,36 +60,36 @@
           transform: rotateY(20deg);
 }
 
-.x-toggle-flip-small {
+.x-toggle-flip.small {
   width: 3em;
   height: 1.6em;
 }
 
-.x-toggle-flip.x-toggle-flip-small:before,
-.x-toggle-flip.x-toggle-flip-small:after {
+.x-toggle-flip.small:before,
+.x-toggle-flip.small:after {
   line-height: 2.2em; 
   font-size: 0.8em;
 }
 
-.x-toggle-flip.x-toggle-flip-medium {
+.x-toggle-flip.medium {
   width: 4em;
   height: 2.1em;
   padding: 3px;
 }
 
-.x-toggle-flip.x-toggle-flip-medium:before,
-.x-toggle-flip.x-toggle-flip-medium:after {
+.x-toggle-flip.medium:before,
+.x-toggle-flip.medium:after {
   line-height: 2.3em; 
 }
 
-.x-toggle-flip.x-toggle-flip-large {
+.x-toggle-flip.large {
   width: 4.7em;
   height: 2.6em;
   padding: 4px;
 }
 
-.x-toggle-flip.x-toggle-flip-large:before,
-.x-toggle-flip.x-toggle-flip-large:after {
+.x-toggle-flip.large:before,
+.x-toggle-flip.large:after {
   line-height: 2.4em;
   font-size: 1.1em;
 }
