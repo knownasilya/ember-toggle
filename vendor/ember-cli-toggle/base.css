@@ -33,6 +33,10 @@
   background: none;
 }
 
+.x-toggle-btn.x-toggle-disabled {
+  cursor: not-allowed;
+}
+
 .x-toggle-btn {
   -webkit-user-select: none;
      -moz-user-select: none;
