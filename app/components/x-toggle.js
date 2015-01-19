@@ -14,6 +14,7 @@ export default Ember.Component.extend({
   on: config.defaultOn || 'On',
   showLabels: config.defaultShowLabels || false,
   size: config.defaultSize || 'medium',
+  disabled: false,
   value: false,
   toggled: false,
 
