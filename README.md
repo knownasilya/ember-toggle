@@ -64,9 +64,9 @@ is set to anything other than the two accepted value states it will reset to its
 * `off` - The label for the *off* state. Defaults to 'Off'.
 * `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
 * `toggle` - The toggle action, which has one argument e.g. `isToggled`.
-* `toggled` - Defaults to `false`, meaning not enabled by default.
+* `toggled` - Defaults to `false`, meaning not enabled by default. When `true`, an `x-toggle-container-checked` class is set on the component.
 * `disabled` - Defaults to `false`, which means you can click the toggle.
-  When `true`, an `.x-toggle-disabled` class is set.
+  When `true`, an `.x-toggle-disabled` class is set on the toggle and an `.x-toggle-container-disabled` class is set on the component.
 
 ### Configuring
 
