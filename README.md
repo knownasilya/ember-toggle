@@ -1,6 +1,6 @@
 # ember-cli-toggle [![Build Status][travis-badge]][travis-badge-url]
 
-Checkbox based Toggle Switch component for Ember.  
+Checkbox based Toggle Switch component for Ember.
 Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
 
 [![NPM][npm-badge]][npm-badge-url]
@@ -20,43 +20,43 @@ in your template:
 ```
 
 #### Labels
-You can also show text labels on either side of toggle switch with: 
+You can also show text labels on either side of toggle switch with:
 ````hbs
 {{x-toggle showLabel='true' off='hey' on='ho' toggle='letsGo'}}
 ````
-Which would look like (using "default" theme): 
+Which would look like (using "default" theme):
 
 ![ ](vendor/ember-cli-toggle/example-images/show-labels.png)
 
-This option is available on all themes but is a less sensible choice for those themes which actually 
+This option is available on all themes but is a less sensible choice for those themes which actually
 include the label within the control (e.g., `skew` and `flip`).
 
 #### Binding ####
 
-It's perfectly normal to *not* need bindings for a toggle switch as the "toggle" property allows the container to catch thrown actions 
+It's perfectly normal to *not* need bindings for a toggle switch as the "toggle" property allows the container to catch thrown actions
 which happen at each state transition. Sometimes, however, it's easier to just bind your toggle switch to a property on the container. This is possible with use of the `value` binding:
 
 ````hbs
 {{x-toggle value=controller.heyOrHo showLabel='true' off='hey' on='ho'}}
 ````
 
-This will ensure that the bound property is always set to the *true* or *false* value and as it's a two way binding this will allow the toggle 
-control to automatically update its UI when the value is changed external to the component as well. 
+This will ensure that the bound property is always set to the *true* or *false* value and as it's a two way binding this will allow the toggle
+control to automatically update its UI when the value is changed external to the component as well.
 
-Finally, it is sometimes the case that rather than a *true* or *false* value the toggle is meant to move between two discrete, but non-boolean states. 
-In order to support this functionality there is an overloaded form of setting the `on` and `off` properties which not only sets a "label" 
+Finally, it is sometimes the case that rather than a *true* or *false* value the toggle is meant to move between two discrete, but non-boolean states.
+In order to support this functionality there is an overloaded form of setting the `on` and `off` properties which not only sets a "label"
 for the state but also a "value". In our "hey" versus "ho" example you might do the following:
 
 ````hbs
 {{x-toggle value=controller.heyOrHo showLabel='true' off='Hey:hey' on='Ho:ho'}}
 ````
 
-With this configuration the "value" for the **on** state will be `hey` and in the **off** state it will be `ho`. If the bound property 
+With this configuration the "value" for the **on** state will be `hey` and in the **off** state it will be `ho`. If the bound property
 is set to anything other than the two accepted value states it will reset to its "off state".
 
 ### Available Options
 
-* `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'. 
+* `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
             Defaults to 'default' if not specified.
 * `size` -  One of 'small', 'medium', 'large'.
             Defaults to 'medium' if not specified.
@@ -64,9 +64,9 @@ is set to anything other than the two accepted value states it will reset to its
 * `off` - The label for the *off* state. Defaults to 'Off'.
 * `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
 * `toggle` - The toggle action, which has one argument e.g. `isToggled`.
-* `toggled` - Defaults to `false`, meaning not enabled by default.
+* `toggled` - Defaults to `false`, meaning not enabled by default. When `true`, an `.x-toggle-container-checked` class is set on the component.
 * `disabled` - Defaults to `false`, which means you can click the toggle.
-  When `true`, an `.x-toggle-disabled` class is set.
+  When `true`, an `.x-toggle-disabled` class is set on the toggle and an `.x-toggle-container-disabled` class is set on the component.
 
 ### Configuring
 

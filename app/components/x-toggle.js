@@ -8,6 +8,7 @@ var config = ENV['ember-cli-toggle'];
 
 export default Ember.Component.extend({
   tagName: 'span',
+  classNameBindings: ['toggled:x-toggle-container-checked', 'disabled:x-toggle-container-disabled'],
   classNames: ['x-toggle-container'],
   theme: config.defaultTheme || 'default',
   off: config.defaultOff || 'Off',
