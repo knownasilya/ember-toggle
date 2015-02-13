@@ -1,0 +1,15 @@
+// Flat theme variables
+// --------------------------------------------------
+
+$toggle-flat-padding:                          2px !default;
+$toggle-flat-border-radius:                    2em !default;
+$toggle-flat-border-color:                     #f2f2f2 !default;
+$toggle-flat-border-width:                     4px !default;
+$toggle-flat-background-color:                 #fff !default;
+$toggle-flat-transition-duration:              .2s !default;
+
+$toggle-flat-button-border-radius:             1em !default;
+$toggle-flat-button-background-color:          $toggle-flat-border-color !default;
+
+$toggle-flat-checked-border-color:             #7fc6a6 !default;
+$toggle-flat-checked-button-background-color:  $toggle-flat-checked-border-color !default;

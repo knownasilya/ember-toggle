@@ -1,0 +1,18 @@
+.#{$toggle-css-prefix}-default {
+  .#{$toggle-css-prefix}:checked + & {
+    &.#{$toggle-css-prefix}-btn { background-color: $toggle-default-checked-background-color; }
+  }
+
+  &.#{$toggle-css-prefix}-btn {
+    background-color: $toggle-default-background-color;
+    padding: $toggle-default-padding;
+    border-radius: $toggle-default-border-radius;
+    transition: background-color $toggle-default-transition-duration;
+
+    &:after {
+      background-color: $toggle-default-button-background-color;
+      border-radius: $toggle-default-border-radius;
+      transition: left $toggle-default-button-transition-duration;
+    }
+  }
+}

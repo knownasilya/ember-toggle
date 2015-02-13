@@ -1,0 +1,40 @@
+.#{$toggle-css-prefix}-ios {
+  .#{$toggle-css-prefix}:checked + & {
+    &.#{$toggle-css-prefix}-btn {
+      background-color: $toggle-ios-checked-background-color;
+
+      &:active {
+        box-shadow: none;
+
+        &:after { margin-left: -.8em; }
+      }
+    }
+  }
+
+  &.#{$toggle-css-prefix}-btn {
+    background-color: $toggle-ios-background-color;
+    padding: $toggle-ios-padding;
+    border: {
+      width: 1px;
+      style: solid;
+      color: $toggle-ios-border-color;
+      radius: $toggle-ios-border-radius;
+    }
+    transition: all $toggle-ios-transition-duration ease;
+
+    &:after {
+      background-color: $toggle-ios-button-background-color;
+      border-radius: $toggle-ios-button-border-radius;
+      box-shadow: 0 0 0 1px rgba(#000,.1), 0 4px 0 rgba(#000,.08);
+      transition: left $toggle-ios-button-transition-duration cubic-bezier(.175,.885,.32,1.275),
+                  padding $toggle-ios-button-transition-duration ease,
+                  margin $toggle-ios-button-transition-duration ease;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 2em $toggle-ios-active-background-color;
+
+      &:after { padding-right: .8em; }
+    }
+  }
+}

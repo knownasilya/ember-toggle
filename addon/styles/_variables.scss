@@ -1,0 +1,35 @@
+//
+// Toggle variables
+// --------------------------------------------------
+
+
+$toggle-css-prefix:                            x-toggle !default;
+
+$toggle-base-width:                            4em !default;
+$toggle-base-height:                           2em !default;
+
+
+// Themes
+// --------------------------------------------------
+
+@import "variables/default";
+@import "variables/flat";
+@import "variables/flip";
+@import "variables/ios";
+@import "variables/light";
+@import "variables/skewed";
+
+
+// Sizing
+// --------------------------------------------------
+
+$toggle-small-width:                           3em !default;
+$toggle-small-height:                          1.6em !default;
+
+$toggle-medium-width:                          4em !default;
+$toggle-medium-height:                         2.1em !default;
+$toggle-medium-padding:                        3px !default;
+
+$toggle-large-width:                           4.7em !default;
+$toggle-large-height:                          2.6em !default;
+$toggle-large-padding:                         4px !default;

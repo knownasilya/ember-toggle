@@ -1,0 +1,18 @@
+.#{$toggle-css-prefix}-light {
+  .#{$toggle-css-prefix}:checked + & {
+    &.x-toggle-btn { background-color: $toggle-light-checked-background-color; }
+  }
+
+  &.#{$toggle-css-prefix}-btn {
+    background-color: $toggle-light-background-color;
+    padding: $toggle-light-padding;
+    border-radius: $toggle-light-border-radius;
+    transition: all $toggle-light-transition-duration ease;
+
+    &:after {
+      background-color: $toggle-light-button-background-color;
+      border-radius: $toggle-light-button-border-radius;
+      transition: all $toggle-light-button-transition-duration ease;
+    }
+  }
+}
