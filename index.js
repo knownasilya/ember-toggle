@@ -8,7 +8,7 @@ module.exports = {
 
 
   treeForStyles: function () {
-    this._super.treeForStyles();
+    
     return compileSass([__dirname + '/addon/styles/'], 'default.scss', '/assets/toggle-theme.css');
   }
 };
