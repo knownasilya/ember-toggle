@@ -1,7 +1,8 @@
 # ember-cli-toggle [![Build Status][travis-badge]][travis-badge-url]
 
 Checkbox based Toggle Switch component for Ember.
-Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
+Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.  
+Here's the official [demo] using this component.
 
 [![NPM][npm-badge]][npm-badge-url]
 
@@ -122,3 +123,4 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 [npm-badge-url]: https://nodei.co/npm/ember-cli-toggle/
 [travis-badge]: https://travis-ci.org/knownasilya/ember-cli-toggle.svg
 [travis-badge-url]: https://travis-ci.org/knownasilya/ember-cli-toggle
+[demo]: http://knownasilya.github.io/ember-cli-toggle/
