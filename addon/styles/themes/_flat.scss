@@ -1,0 +1,31 @@
+.#{$toggle-css-prefix}-flat {
+  .#{$toggle-css-prefix}:checked + & {
+    &.#{$toggle-css-prefix}-btn {
+      border-color: $toggle-flat-checked-border-color;
+
+      &:after {
+        background-color: $toggle-flat-checked-button-background-color;
+        left: 50%;
+      }
+    }
+  }
+
+  &.#{$toggle-css-prefix}-btn {
+    background:-color $toggle-flat-background-color;
+    padding: $toggle-flat-padding;
+    border: {
+      width: $toggle-flat-border-width;
+      style: solid;
+      color: $toggle-flat-border-color;
+      radius: $toggle-flat-border-radius;
+    }
+    transition: all $toggle-flat-transition-duration ease;
+
+    &:after {
+      content: "";
+      background-color: $toggle-flat-button-background-color;
+      border-radius: $toggle-flat-button-border-radius;
+      transition: all $toggle-flat-transition-duration ease;
+    }
+  }
+}

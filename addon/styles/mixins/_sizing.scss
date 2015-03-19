@@ -1,0 +1,8 @@
+// Toggle sizing
+// --------------------------------------------------
+
+@mixin toggle-sizing($toggle-width, $toggle-height, $toggle-padding: null) {
+  width: $toggle-width;
+  height: $toggle-height;
+  padding: $toggle-padding;
+}

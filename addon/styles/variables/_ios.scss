@@ -1,0 +1,16 @@
+// iOS theme variables
+// --------------------------------------------------
+
+$toggle-ios-padding:                           2px !default;
+$toggle-ios-border-radius:                     2em !default;
+$toggle-ios-border-color:                      #e8eae9 !default;
+$toggle-ios-background-color:                  #fbfbfb !default;
+$toggle-ios-transition-duration:               .4s !default;
+
+$toggle-ios-button-border-radius:              $toggle-ios-border-radius !default;
+$toggle-ios-button-background-color:           $toggle-ios-background-color !default;
+$toggle-ios-button-transition-duration:        .3s !default;
+
+$toggle-ios-active-background-color:           $toggle-ios-border-color !default;
+
+$toggle-ios-checked-background-color:          #86d993 !default;

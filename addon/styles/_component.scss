@@ -1,0 +1,86 @@
+//
+// Toggle component
+// --------------------------------------------------
+
+
+.#{$toggle-css-prefix} {
+  display: none;
+  box-sizing: border-box;
+
+  *,
+  *:before,
+  *:after,
+  &:before,
+  &:after,
+  + .#{$toggle-css-prefix}-btn { box-sizing: border-box; }
+
+  *::selection
+  *:before::selection,
+  *:after::selection,
+  &::selection,
+  &:before::selection,
+  &:after::selection,
+  + .#{$toggle-css-prefix}-btn::selection { background: none; }
+}
+
+
+.#{$toggle-css-prefix}-btn {
+  .#{$toggle-css-prefix}:checked + & {
+    &:after {
+      left: 50%;
+    }
+  }
+  user-select: none;
+  outline: 0;
+  display: inline-block;
+  width: $toggle-base-width;
+  height: $toggle-base-height;
+  position: relative;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+  }
+
+  &:before { display: none; }
+
+  &:after { left: 0; }
+
+  &.small { @include toggle-sizing($toggle-small-width, $toggle-small-height); }
+  &.medium { @include toggle-sizing($toggle-medium-width, $toggle-medium-height, $toggle-medium-padding); }
+  &.large { @include toggle-sizing($toggle-large-width, $toggle-large-height, $toggle-large-padding); }
+
+  &.#{$toggle-css-prefix}-disabled { cursor: not-allowed; }
+}
+
+.#{$toggle-css-prefix}-container {
+  .toggle-text {
+    display: inline-flex;
+    vertical-align: middle;
+    height: 100%;
+
+    &.small {
+      padding-bottom: 1rem;
+      font-size: .9rem;
+    }
+
+    &.medium {
+      padding-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    &.large {
+      padding-bottom: 2rem;
+      font-size: 1.2rem;
+    }
+
+    &.toggle-prefix { padding-right: .25rem; }
+
+    &.toggle-postfix { padding-left: .25rem; }
+  }
+}

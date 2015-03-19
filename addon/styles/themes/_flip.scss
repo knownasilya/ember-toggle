@@ -1,0 +1,73 @@
+.#{$toggle-css-prefix}-flip {
+  .#{$toggle-css-prefix}:checked + & {
+    &.#{$toggle-css-prefix}-btn {
+      &:before { transform: rotateY(180deg); }
+
+      &:after {
+        background-color: $toggle-flip-checked-background-color;
+        transform: rotateY(0);
+        left: 0;
+      }
+
+      &:active:after { transform: rotateY(20deg); }
+    }
+  }
+
+  &.#{$toggle-css-prefix}-btn {
+    padding: $toggle-flip-padding;
+    font-family: sans-serif;
+    perspective: 100px;
+    transition: all $toggle-flip-transition-duration ease;
+
+    &:before,
+    &:after {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      line-height: $toggle-flip-line-height;
+      font-weight: bold;
+      color: $toggle-flip-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      border-radius: $toggle-flip-border-radius;
+      transition: all $toggle-flip-transition-duration ease;
+    }
+
+    &:before {
+      background-color: $toggle-flip-background-color;
+      content: attr(data-tg-off);
+    }
+
+    &:after {
+      background-color: $toggle-flip-checked-background-color;
+      content: attr(data-tg-on);
+      transform: rotateY(-180deg);
+    }
+
+    &.active:before { transform: rotateY(-20deg); }
+  }
+
+  &.small {
+    &:before,
+    &:after {
+      line-height: 2.2em;
+      font-size: 0.8em;
+    }
+  }
+
+  &.medium {
+    &:before,
+    &:after { line-height: 2.3em; }
+  }
+
+  &.large {
+    &:before,
+    &:after {
+      line-height: 2.4em;
+      font-size: 1.1em;
+    }
+  }
+}
