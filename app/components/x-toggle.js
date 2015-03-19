@@ -57,16 +57,16 @@ export default Ember.Component.extend({
 
   valueObserver: on('init', observer('value', function() {
 	  Ember.run.debounce(this, function () {
-	  	  var value = this.get('value');
-	  	  var offState = this.get('off').substr(this.get('off').indexOf(':') + 1) || false;
-	  	  var onState = this.get('on').substr(this.get('on').indexOf(':') + 1) || true;
+      var value = this.get('value');
+      var offState = this.get('off').substr(this.get('off').indexOf(':') + 1) || false;
+      var onState = this.get('on').substr(this.get('on').indexOf(':') + 1) || true;
 
-	  	  if (value === onState) {
-          this.set('toggled', true);
-	  	  } else {
-	  		  this.set('toggled', false);
-          this.set('value', offState);
-	  	  }
+      if (value === onState) {
+        this.set('toggled', true);
+      } else {
+        this.set('toggled', false);
+        this.set('value', offState);
+      }
 	  }, 500);
   }))
 });
