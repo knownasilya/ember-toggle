@@ -68,5 +68,9 @@ export default Ember.Component.extend({
         this.set('value', offState);
       }
 	  }, 500);
-  }))
+  })),
+
+  click: function (event) {
+    event.stopPropagation();
+  }
 });
