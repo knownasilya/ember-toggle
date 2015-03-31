@@ -43,8 +43,10 @@ export default Ember.Component.extend({
 
   wasToggled: on('init', observer('toggled', function () {
     var toggled = this.get('toggled');
-    var offState = this.get('off').substr(this.get('off').indexOf(':') + 1) || false;
-    var onState = this.get('on').substr(this.get('on').indexOf(':') + 1) || true;
+    var offIndex = this.get('off').indexOf(':');
+    var onIndex = this.get('on').indexOf(':');
+    var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
+    var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
 
     this.sendAction('toggle', toggled);
 
@@ -58,8 +60,10 @@ export default Ember.Component.extend({
   valueObserver: on('init', observer('value', function() {
 	  Ember.run.debounce(this, function () {
       var value = this.get('value');
-      var offState = this.get('off').substr(this.get('off').indexOf(':') + 1) || false;
-      var onState = this.get('on').substr(this.get('on').indexOf(':') + 1) || true;
+      var offIndex = this.get('off').indexOf(':');
+      var onIndex = this.get('on').indexOf(':');
+      var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
+      var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
 
       if (value === onState) {
         this.set('toggled', true);
