@@ -21,22 +21,22 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('changing value changes state', function (assert) {
+test('changing toggled changes state', function (assert) {
   assert.expect(3);
 
   var component = this.subject();
 
-  assert.equal(this.$('input.x-toggle').attr('checked'), false, 'unchecked by default');
+  assert.equal(this.$('input.x-toggle').prop('checked'), false, 'unchecked by default');
 
   Ember.run(function () {
-    component.set('value', true);
+    component.set('toggled', true);
   });
 
-  assert.equal(this.$('input.x-toggle').attr('checked'), true, 'checked when value: true');
+  assert.equal(this.$('input.x-toggle').prop('checked'), true, 'checked when toggled: true');
 
   Ember.run(function () {
-    component.set('value', false);
+    component.set('toggled', false);
   });
 
-  assert.equal(this.$('input.x-toggle').attr('checked'), false, 'unchecked when value: false');
+  assert.equal(this.$('input.x-toggle').prop('checked'), false, 'unchecked when toggled: false');
 });
