@@ -25,7 +25,7 @@ in your template:
 #### Labels
 You can also show text labels on either side of toggle switch with:
 ````hbs
-{{x-toggle showLabel='true' off='hey' on='ho' toggle='letsGo'}}
+{{x-toggle showLabels=true off='Hey' on='Ho' toggle='letsGo'}}
 ````
 Which would look like (using "default" theme):
 
@@ -40,7 +40,7 @@ It's perfectly normal to *not* need bindings for a toggle switch as the "toggle"
 which happen at each state transition. Sometimes, however, it's easier to just bind your toggle switch to a property on the container. This is possible with use of the `value` binding:
 
 ````hbs
-{{x-toggle value=controller.heyOrHo showLabel='true' off='hey' on='ho'}}
+{{x-toggle value=controller.heyOrHo showLabels=true off='Hey' on='Ho'}}
 ````
 
 This will ensure that the bound property is always set to the *true* or *false* value and as it's a two way binding this will allow the toggle
@@ -51,7 +51,7 @@ In order to support this functionality there is an overloaded form of setting th
 for the state but also a "value". In our "hey" versus "ho" example you might do the following:
 
 ````hbs
-{{x-toggle value=controller.heyOrHo showLabel='true' off='Hey:hey' on='Ho:ho'}}
+{{x-toggle value=controller.heyOrHo showLabels=true off='Hey:hey' on='Ho:ho'}}
 ````
 
 With this configuration the "value" for the **on** state will be `hey` and in the **off** state it will be `ho`. If the bound property
@@ -80,10 +80,11 @@ you will use.
 ENV['ember-cli-toggle'] = {
   includedThemes: ['light', 'default', 'flip'],
   excludedThemes: ['flip'],
-  defaultTheme: 'light',  // defaults to 'default'
-  defaultSize: 'small',   // defaults to 'medium'
-  defaultOff: 'False',    // defaults to 'Off'
-  defaultOn: 'True'       // defaults to 'On'
+  defaultShowLabels: true, // defaults to false
+  defaultTheme: 'light',   // defaults to 'default'
+  defaultSize: 'small',    // defaults to 'medium'
+  defaultOff: 'False',     // defaults to 'Off'
+  defaultOn: 'True'        // defaults to 'On'
 };
 ```
 > note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
