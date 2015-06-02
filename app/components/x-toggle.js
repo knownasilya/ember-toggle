@@ -1,10 +1,13 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
 
-var observer = Ember.observer;
-var on = Ember.on;
-var computed = Ember.computed;
-var config = ENV['ember-cli-toggle'] || {};
+const {
+  on,
+  run,
+  computed,
+  observer
+} = Ember;
+const config = ENV['ember-cli-toggle'] || {};
 
 export default Ember.Component.extend({
   tagName: 'span',
@@ -19,26 +22,34 @@ export default Ember.Component.extend({
   value: false,
   toggled: false,
 
-  onLabel: computed('on', function () {
-  	return this.get('on').indexOf(':') > -1
-      ? this.get('on').substr(0,this.get('on').indexOf(':'))
-      : this.get('on');
+  onLabel: computed('on', {
+    get() {
+      return this.get('on').indexOf(':') > -1
+        ? this.get('on').substr(0,this.get('on').indexOf(':'))
+        : this.get('on');
+    }
   }),
 
-  offLabel: computed('off', function () {
-  	return this.get('off').indexOf(':') > -1
-      ? this.get('off').substr(0,this.get('off').indexOf(':'))
-      : this.get('off');
+  offLabel: computed('off', {
+    get() {
+      return this.get('off').indexOf(':') > -1
+        ? this.get('off').substr(0,this.get('off').indexOf(':'))
+        : this.get('off');
+    }
   }),
 
-  themeClass: computed('theme', function () {
-    var theme = this.get('theme') || 'default';
+  themeClass: computed('theme', {
+    get() {
+      var theme = this.get('theme') || 'default';
 
-    return 'x-toggle-' + theme;
+      return 'x-toggle-' + theme;
+    }
   }),
 
-  forId: computed(function () {
-    return this.get('elementId') + '-x-toggle';
+  forId: computed({
+    get() {
+      return this.get('elementId') + '-x-toggle';
+    }
   }),
 
   wasToggled: on('init', observer('toggled', function () {
@@ -58,7 +69,7 @@ export default Ember.Component.extend({
   })),
 
   valueObserver: on('init', observer('value', function() {
-	  Ember.run.debounce(this, function () {
+	  var debounce = run.debounce(this, function () {
       var value = this.get('value');
       var offIndex = this.get('off').indexOf(':');
       var onIndex = this.get('on').indexOf(':');
@@ -72,9 +83,19 @@ export default Ember.Component.extend({
         this.set('value', offState);
       }
 	  }, 500);
+
+    this.set('debounce', debounce);
   })),
 
-  click: function (event) {
+  clearDebounce: on('willDestroyElement', function () {
+    var debounce = this.get('debounce');
+
+    if (debounce) {
+      run.cancel(debounce);
+    }
+  }),
+
+  click(event) {
     event.stopPropagation();
   }
 });
