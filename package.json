@@ -36,7 +36,7 @@
     "ember-try": "0.0.2"
   },
   "dependencies": {
-    "ember-cli-babel": "^4.0.0"
+    "ember-cli-babel": "^5.0.0"
   },
   "keywords": [
     "ember-addon",
@@ -46,6 +46,7 @@
     "ember"
   ],
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://knownasilya.github.io/ember-cli-toggle/"
   }
 }
