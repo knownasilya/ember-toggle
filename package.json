@@ -33,7 +33,7 @@
     "ember-export-application-global": "^1.0.2",
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-cli-github-pages": "0.0.2",
-    "ember-try": "0.0.2"
+    "ember-try": "0.0.7"
   },
   "dependencies": {
     "ember-cli-babel": "^5.0.0"
