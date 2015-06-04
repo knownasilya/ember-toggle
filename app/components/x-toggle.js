@@ -22,34 +22,26 @@ export default Ember.Component.extend({
   value: false,
   toggled: false,
 
-  onLabel: computed('on', {
-    get() {
-      return this.get('on').indexOf(':') > -1
-        ? this.get('on').substr(0,this.get('on').indexOf(':'))
-        : this.get('on');
-    }
+  onLabel: computed('on', function () {
+    return this.get('on').indexOf(':') > -1
+      ? this.get('on').substr(0,this.get('on').indexOf(':'))
+      : this.get('on');
   }),
 
-  offLabel: computed('off', {
-    get() {
-      return this.get('off').indexOf(':') > -1
-        ? this.get('off').substr(0,this.get('off').indexOf(':'))
-        : this.get('off');
-    }
+  offLabel: computed('off', function () {
+    return this.get('off').indexOf(':') > -1
+      ? this.get('off').substr(0,this.get('off').indexOf(':'))
+      : this.get('off');
   }),
 
-  themeClass: computed('theme', {
-    get() {
-      var theme = this.get('theme') || 'default';
+  themeClass: computed('theme', function () {
+    var theme = this.get('theme') || 'default';
 
-      return 'x-toggle-' + theme;
-    }
+    return 'x-toggle-' + theme;
   }),
 
-  forId: computed({
-    get() {
-      return this.get('elementId') + '-x-toggle';
-    }
+  forId: computed(function () {
+    return this.get('elementId') + '-x-toggle';
   }),
 
   wasToggled: on('init', observer('toggled', function () {
