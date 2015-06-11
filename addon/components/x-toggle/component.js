@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import ENV from '../config/environment';
 import layout from './template';
 
 const {
@@ -8,32 +7,26 @@ const {
   computed,
   observer
 } = Ember;
-const config = ENV['ember-cli-toggle'] || {};
 
 export default Ember.Component.extend({
   layout: layout,
   tagName: 'span',
   classNameBindings: ['toggled:x-toggle-container-checked', 'disabled:x-toggle-container-disabled'],
   classNames: ['x-toggle-container'],
-  theme: config.defaultTheme || 'default',
-  off: config.defaultOff || 'Off',
-  on: config.defaultOn || 'On',
-  showLabels: config.defaultShowLabels || false,
-  size: config.defaultSize || 'medium',
   disabled: false,
   value: false,
   toggled: false,
 
   onLabel: computed('on', function () {
-    return this.get('on').indexOf(':') > -1
-      ? this.get('on').substr(0,this.get('on').indexOf(':'))
-      : this.get('on');
+    return this.get('on').indexOf(':') > -1 ?
+      this.get('on').substr(0,this.get('on').indexOf(':')) :
+      this.get('on');
   }),
 
   offLabel: computed('off', function () {
-    return this.get('off').indexOf(':') > -1
-      ? this.get('off').substr(0,this.get('off').indexOf(':'))
-      : this.get('off');
+    return this.get('off').indexOf(':') > -1 ?
+      this.get('off').substr(0,this.get('off').indexOf(':')) :
+      this.get('off');
   }),
 
   themeClass: computed('theme', function () {
