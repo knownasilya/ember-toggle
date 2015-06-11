@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
+import layout from './template';
 
 const {
   on,
@@ -10,6 +11,7 @@ const {
 const config = ENV['ember-cli-toggle'] || {};
 
 export default Ember.Component.extend({
+  layout: layout,
   tagName: 'span',
   classNameBindings: ['toggled:x-toggle-container-checked', 'disabled:x-toggle-container-disabled'],
   classNames: ['x-toggle-container'],

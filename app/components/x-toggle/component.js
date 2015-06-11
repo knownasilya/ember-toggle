@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-toggle/components/x-toggle/component';
