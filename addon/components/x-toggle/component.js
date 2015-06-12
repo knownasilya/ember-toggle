@@ -50,7 +50,7 @@ export default Ember.Component.extend({
       var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
       var state = toggled ? onState : offState;
 
-      this.sendAction('on-toggle', toggled, state)
+      this.sendAction('on-toggle', toggled, state);
 	  }, 500);
 
     this.set('debounce', debounce);
