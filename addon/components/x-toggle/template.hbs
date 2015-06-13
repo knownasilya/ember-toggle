@@ -1,0 +1,19 @@
+{{#if showLabels}}
+	<span class="toggle-text toggle-prefix {{size}}">
+		{{offLabel}}
+	</span>
+{{/if}}
+
+{{input id=forId type='checkbox' checked=isToggled class='x-toggle' disabled=disabled}}
+
+<label class="x-toggle-btn {{themeClass}} {{size}} {{if disabled 'x-toggle-disabled'}}"
+  for={{forId}}
+  data-tg-off={{offLabel}}
+  data-tg-on={{onLabel}}>
+</label>
+
+{{#if showLabels}}
+	<span class="toggle-text toggle-postfix {{size}}">
+		{{onLabel}}
+	</span>
+{{/if}}
