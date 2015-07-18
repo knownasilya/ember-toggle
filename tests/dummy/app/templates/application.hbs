@@ -85,34 +85,34 @@
 
 <h2>Bindings</h2> 
 <pre>
-\{{x-toggle toggled=toggled off="Hey:hey" on="Ho:ho"}}
+\{{x-toggle toggled=boundTog value=boundVal off="Hey:hey" on="Ho:ho"}}
 </pre>
 <div class="default-style text-labels">
 	<table class="demo-table">
 		<tr>
 			<td>
 				<div class="default-theme">
-					{{x-toggle off='Hey:hey' on='Ho:ho' toggled=toggled on-toggle='overloaded'}}
+					{{x-toggle off='Hey:hey' on='Ho:ho' toggled=boundToggle value=boundValue}}
 				</div>
 			</td>
 			<td>
-				toggled: <i>{{if toggled 'true' 'false'}}</i>
+				toggled: <i>{{#if boundToggle}}true{{else}}false{{/if}}</i>
 			</td>
 			<td>
-				value: {{input value=state}}
+				value: {{input value=boundValue}}
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="default-theme">
-					{{x-toggle off='Hey:hey' on='Ho:ho' toggled=toggled2 on-toggle='overloaded2'}}
+					{{x-toggle off='Hey:hey' on='Ho:ho' toggled=bT2 value=bV2}}
 				</div>
 			</td>
 			<td>
-				toggled: <i>{{if toggled2 'true' 'false'}}</i>
+				toggled: <i>{{#if bT2}}true{{else}}false{{/if}}</i>
 			</td>
 			<td>
-				value: {{state2}}
+				value: {{bV2}}
 			</td>
 		</tr>
 	</table>
