@@ -42,7 +42,12 @@ export default Ember.Component.extend({
   }),
 
   toggledChanged: observer('isToggled', function () {
-	  var debounce = run.debounce(this, function () {
+    var debounce = this.get('debounce');
+    if (debounce) {
+      run.cancel(debounce);
+    }
+
+	  debounce = run.debounce(this, function () {
       var toggled = this.get('isToggled');
       var offIndex = this.get('off').indexOf(':');
       var onIndex = this.get('on').indexOf(':');
@@ -51,6 +56,7 @@ export default Ember.Component.extend({
       var state = toggled ? onState : offState;
 
       this.sendAction('on-toggle', toggled, state);
+      this.set('debounce', null);
 	  }, 500);
 
     this.set('debounce', debounce);
