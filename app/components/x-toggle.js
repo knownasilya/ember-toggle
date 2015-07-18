@@ -73,6 +73,8 @@ export default Ember.Component.extend({
           this.set('toggled', false);
           this.set('value', offState);
         }
+
+        this.set('debounce', null);
       }, 500);
 
       this.set('debounce', debounce);
