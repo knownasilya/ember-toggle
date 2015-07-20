@@ -10,7 +10,7 @@ Here's the official [demo] using this component.
 
 ## Usage
 
-First install with `npm install --save-dev ember-cli-toggle`, and add one of the following
+First install with `ember install ember-cli-toggle`, and add one of the following
 in your template:
 
 ```hbs
