@@ -19,30 +19,39 @@ export default Ember.Component.extend({
     'disabled:x-toggle-container-disabled'
   ],
 
-  onLabel: computed('on', function () {
-    return this.get('on').indexOf(':') > -1 ?
-      this.get('on').substr(0,this.get('on').indexOf(':')) :
-      this.get('on');
+  onLabel: computed('on', {
+    get() {
+      return this.get('on').indexOf(':') > -1 ?
+        this.get('on').substr(0,this.get('on').indexOf(':')) :
+        this.get('on');
+    }
   }),
 
-  offLabel: computed('off', function () {
-    return this.get('off').indexOf(':') > -1 ?
-      this.get('off').substr(0,this.get('off').indexOf(':')) :
-      this.get('off');
+  offLabel: computed('off', {
+    get() {
+      return this.get('off').indexOf(':') > -1 ?
+        this.get('off').substr(0,this.get('off').indexOf(':')) :
+        this.get('off');
+    }
   }),
 
-  themeClass: computed('theme', function () {
-    var theme = this.get('theme') || 'default';
+  themeClass: computed('theme', {
+    get() {
+      var theme = this.get('theme') || 'default';
 
-    return 'x-toggle-' + theme;
+      return `x-toggle-${theme}`;
+    }
   }),
 
-  forId: computed(function () {
-    return this.get('elementId') + '-x-toggle';
+  forId: computed({
+    get() {
+      return `${this.get('elementId')}-x-toggle`;
+    }
   }),
 
   toggledChanged: observer('isToggled', function () {
     var debounce = this.get('debounce');
+
     if (debounce) {
       run.cancel(debounce);
     }
@@ -55,7 +64,7 @@ export default Ember.Component.extend({
       var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
       var state = toggled ? onState : offState;
 
-      this.sendAction('on-toggle', toggled, state);
+      this.sendAction('ontoggle', toggled, state);
       this.set('debounce', null);
 	  }, 500);
 
