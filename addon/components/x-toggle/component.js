@@ -56,22 +56,28 @@ export default Ember.Component.extend({
   })),
 
   valueObserver: on('init', observer('value', function() {
-	  var debounce = run.debounce(this, function () {
-      var value = this.get('value');
-      var offIndex = this.get('off').indexOf(':');
-      var onIndex = this.get('on').indexOf(':');
-      var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
-      var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
+    var debounce = this.get('debounce');
 
-      if (value === onState) {
-        this.set('toggled', true);
-      } else {
-        this.set('toggled', false);
-        this.set('value', offState);
-      }
-	  }, 500);
+    if (!debounce) {
+      debounce = run.debounce(this, function () {
+        var value = this.get('value');
+        var offIndex = this.get('off').indexOf(':');
+        var onIndex = this.get('on').indexOf(':');
+        var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
+        var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
 
-    this.set('debounce', debounce);
+        if (value === onState) {
+          this.set('toggled', true);
+        } else {
+          this.set('toggled', false);
+          this.set('value', offState);
+        }
+
+        this.set('debounce', null);
+      }, 500);
+
+      this.set('debounce', debounce);
+    }
   })),
 
   clearDebounce: on('willDestroyElement', function () {
@@ -79,6 +85,7 @@ export default Ember.Component.extend({
 
     if (debounce) {
       run.cancel(debounce);
+      this.set('debounce', null);
     }
   }),
 
