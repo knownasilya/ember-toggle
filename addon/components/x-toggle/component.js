@@ -46,7 +46,7 @@ export default Ember.Component.extend({
     var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
     var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
 
-    this.sendAction('toggle', toggled);
+    this.sendAction('toggle', toggled, this.get('name'));
 
     if (toggled === false) {
       this.set('value', offState);
