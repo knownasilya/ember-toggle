@@ -16,6 +16,7 @@ export default Ember.Component.extend({
   disabled: false,
   value: false,
   toggled: false,
+  name: 'default',
 
   onLabel: computed('on', function () {
     return this.get('on').indexOf(':') > -1 ?
