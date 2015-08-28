@@ -69,14 +69,16 @@ is set to anything other than the two accepted value states it will reset to its
 * `toggled` - Defaults to `false`, meaning not enabled by default. When `true`, an `.x-toggle-container-checked` class is set on the component.
 * `disabled` - Defaults to `false`, which means you can click the toggle.
   When `true`, an `.x-toggle-disabled` class is set on the toggle and an `.x-toggle-container-disabled` class is set on the component.
+* `name` - A name to differentiate multiple toggles, gets passed to the `toggle` action. Defaults to 'default'.
 
 #### Actions
 
-* `toggle` - The toggle action, which has two arguments i.e. `isToggled` and `toggleName`.
+* `toggle` - The toggle action, which has two arguments i.e. `isToggled` and `toggleName`. The `toggleName` is set by
+  the `name` attribute on the toggle, e.g. `{{x-toggle toggle='switchToggled' name='typeA'}}`.
 
 ```js
 actions: {
-  toggle(isToggled, toggleName) {
+  switchToggled(isToggled, toggleName) {
     switch(toggleName) {
       case 'typeA': {
         // do something
