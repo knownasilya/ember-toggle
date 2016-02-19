@@ -1,5 +1,5 @@
 import XToggle from 'ember-cli-toggle/components/x-toggle/component';
-import ENV from '../../config/environment';
+import ENV from '../config/environment';
 
 const config = ENV['ember-cli-toggle'] || {};
 
