@@ -1,12 +1,7 @@
 import Ember from 'ember';
 import layout from './template';
 
-const {
-  on,
-  run,
-  computed,
-  observer
-} = Ember;
+const { on, run, computed, observer } = Ember;
 
 export default Ember.Component.extend({
   layout: layout,
@@ -18,16 +13,18 @@ export default Ember.Component.extend({
   toggled: false,
   name: 'default',
 
-  onLabel: computed('on', function () {
-    return this.get('on').indexOf(':') > -1 ?
-      this.get('on').substr(0,this.get('on').indexOf(':')) :
-      this.get('on');
+  onLabelValue: computed('onLabel', function () {
+    var on = this.get('onLabel');
+    var index = on.indexOf(':');
+
+    return index > -1 ? on.substr(0, index) : on;
   }),
 
-  offLabel: computed('off', function () {
-    return this.get('off').indexOf(':') > -1 ?
-      this.get('off').substr(0,this.get('off').indexOf(':')) :
-      this.get('off');
+  offLabelValue: computed('offLabel', function () {
+    var off = this.get('offLabel');
+    var index = off.indexOf(':');
+
+    return index > -1 ? off.substr(0, index) : off;
   }),
 
   themeClass: computed('theme', function () {
@@ -42,10 +39,10 @@ export default Ember.Component.extend({
 
   wasToggled: on('init', observer('toggled', function () {
     var toggled = this.get('toggled');
-    var offIndex = this.get('off').indexOf(':');
-    var onIndex = this.get('on').indexOf(':');
-    var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
-    var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
+    var offIndex = this.get('offLabel').indexOf(':');
+    var onIndex = this.get('onLabel').indexOf(':');
+    var offState = offIndex > -1 ? this.get('offLabel').substr(offIndex + 1) : false;
+    var onState = onIndex > -1 ? this.get('onLabel').substr(onIndex + 1) : true;
 
     this.sendAction('toggle', toggled, this.get('name'));
 
@@ -62,10 +59,10 @@ export default Ember.Component.extend({
     if (!debounce) {
       debounce = run.debounce(this, function () {
         var value = this.get('value');
-        var offIndex = this.get('off').indexOf(':');
-        var onIndex = this.get('on').indexOf(':');
-        var offState = offIndex > -1 ? this.get('off').substr(offIndex + 1) : false;
-        var onState = onIndex > -1 ? this.get('on').substr(onIndex + 1) : true;
+        var offIndex = this.get('offLabel').indexOf(':');
+        var onIndex = this.get('onLabel').indexOf(':');
+        var offState = offIndex > -1 ? this.get('offLabel').substr(offIndex + 1) : false;
+        var onState = onIndex > -1 ? this.get('onLabel').substr(onIndex + 1) : true;
 
         if (value === onState) {
           this.set('toggled', true);

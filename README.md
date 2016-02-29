@@ -18,15 +18,17 @@ in your template:
 {{x-toggle theme='light' toggle='enableLayer'}}
 {{x-toggle theme='ios' size='small' toggle='muteVolume'}}
 {{x-toggle theme='flat' toggle='disableTest'}}
-{{x-toggle theme='flip' off='Nope' on='Yep' toggle='haveFun'}}
+{{x-toggle theme='flip' offLabel='Nope' onLabel='Yep' toggle='haveFun'}}
 {{x-toggle theme='skewed' size='large' toggle='enablePartyMode'}}
 ```
 
 #### Labels
 You can also show text labels on either side of toggle switch with:
+
 ````hbs
-{{x-toggle showLabels=true off='Hey' on='Ho' toggle='letsGo'}}
+{{x-toggle showLabels=true offLabel='Hey' onLabel='Ho' toggle='letsGo'}}
 ````
+
 Which would look like (using "default" theme):
 
 ![ ](vendor/ember-cli-toggle/example-images/show-labels.png)
@@ -40,18 +42,18 @@ It's perfectly normal to *not* need bindings for a toggle switch as the "toggle"
 which happen at each state transition. Sometimes, however, it's easier to just bind your toggle switch to a property on the container. This is possible with use of the `value` binding:
 
 ````hbs
-{{x-toggle value=controller.heyOrHo showLabels=true off='Hey' on='Ho'}}
+{{x-toggle value=controller.heyOrHo showLabels=true offLabel='Hey' onLabel='Ho'}}
 ````
 
 This will ensure that the bound property is always set to the *true* or *false* value and as it's a two way binding this will allow the toggle
 control to automatically update its UI when the value is changed external to the component as well.
 
 Finally, it is sometimes the case that rather than a *true* or *false* value the toggle is meant to move between two discrete, but non-boolean states.
-In order to support this functionality there is an overloaded form of setting the `on` and `off` properties which not only sets a "label"
+In order to support this functionality there is an overloaded form of setting the `onLabel` and `offLabel` properties which not only sets a "label"
 for the state but also a "value". In our "hey" versus "ho" example you might do the following:
 
 ````hbs
-{{x-toggle value=controller.heyOrHo showLabels=true off='Hey:hey' on='Ho:ho'}}
+{{x-toggle value=controller.heyOrHo showLabels=true offLabel='Hey:hey' onLabel='Ho:ho'}}
 ````
 
 With this configuration the "value" for the **on** state will be `hey` and in the **off** state it will be `ho`. If the bound property
@@ -63,8 +65,8 @@ is set to anything other than the two accepted value states it will reset to its
             Defaults to 'default' if not specified.
 * `size` -  One of 'small', 'medium', 'large'.
             Defaults to 'medium' if not specified.
-* `on` - The label for the *on* state. Defaults to 'On'.
-* `off` - The label for the *off* state. Defaults to 'Off'.
+* `onLabel` - The label for the *on* state. Defaults to 'On'.
+* `offLabel` - The label for the *off* state. Defaults to 'Off'.
 * `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
 * `toggled` - Defaults to `false`, meaning not enabled by default. When `true`, an `.x-toggle-container-checked` class is set on the component.
 * `disabled` - Defaults to `false`, which means you can click the toggle.
@@ -110,8 +112,8 @@ ENV['ember-cli-toggle'] = {
   defaultShowLabels: true, // defaults to false
   defaultTheme: 'light',   // defaults to 'default'
   defaultSize: 'small',    // defaults to 'medium'
-  defaultOff: 'False',     // defaults to 'Off'
-  defaultOn: 'True'        // defaults to 'On'
+  defaultOffLabel: 'False',     // defaults to 'Off'
+  defaultOnLabel: 'True'        // defaults to 'On'
 };
 ```
 > note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
@@ -125,29 +127,7 @@ for reference._
 
 ## Contributing
 
-Outlines how to begin contributing to this Ember-CLI project.
-
-### Installation
-
-* `git clone` this repository
-* `npm install`
-* `bower install`
-
-### Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+See [CONTRIBUTING.md] for details.
 
 [npm-badge]: https://nodei.co/npm/ember-cli-toggle.png?downloads=true&stars=true
 [npm-badge-url]: https://nodei.co/npm/ember-cli-toggle/
@@ -156,3 +136,4 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 [ember-observer-badge]: http://emberobserver.com/badges/ember-cli-toggle.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-cli-toggle
 [demo]: http://knownasilya.github.io/ember-cli-toggle/
+[CONTRIBUTING.md]: CONTRIBUTING.md
