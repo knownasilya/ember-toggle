@@ -2,16 +2,16 @@
 
 {{outlet}}
 
-{{x-toggle toggle='checkboxToggled'}}
-{{x-toggle theme='default'}}
-{{x-toggle theme='light'}}
-{{x-toggle theme='ios'}}
-{{x-toggle theme='flat'}}
-{{x-toggle theme='flip' offLabel='Nope' onLabel='Yep' toggle='checkboxToggled'}}
-{{x-toggle theme='skewed'}}
+{{x-toggle name=1 toggle='checkboxToggled'}}
+{{x-toggle name=2 theme='default' toggle='checkboxToggled'}}
+{{x-toggle name=3 theme='light' toggle='checkboxToggled'}}
+{{x-toggle name=4 theme='ios' toggle='checkboxToggled'}}
+{{x-toggle name=5 theme='flat' toggle='checkboxToggled'}}
+{{x-toggle name=6 theme='flip' offLabel='Nope' onLabel='Yep' toggle='checkboxToggled'}}
+{{x-toggle name=7 theme='skewed' toggle='checkboxToggled'}}
 
 <p>
-  Is toggled: {{toggled}}
+  Is toggled: {{toggled}} by: {{toggledBy}}
 </p>
 
 <h2>Sizes and Themes</h2> 
