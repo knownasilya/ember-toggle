@@ -8,6 +8,8 @@ Here's the official [demo] using this component.
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
+See the ***0.x*** branch for 0.x code and fixes.
+
 ## Usage
 
 First install with `npm install --save-dev ember-cli-toggle`, and add one of the following
