@@ -82,7 +82,6 @@ test('toggle action fires when toggled changed from true to false', function (as
 
   Ember.run(() => {
     component.set('toggle', (toggleVal) => {
-      console.log(toggleVal);
       assert.notOk(toggleVal);
     });
   });
