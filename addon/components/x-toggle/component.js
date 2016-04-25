@@ -5,9 +5,7 @@ const { on, run, computed, observer } = Ember;
 
 export default Ember.Component.extend({
   layout: layout,
-  tagName: 'span',
-  classNameBindings: ['toggled:x-toggle-container-checked', 'disabled:x-toggle-container-disabled'],
-  classNames: ['x-toggle-container'],
+  tagName: '',
   disabled: false,
   value: false,
   toggled: false,
@@ -87,7 +85,9 @@ export default Ember.Component.extend({
     }
   }),
 
-  click(event) {
-    event.stopPropagation();
+  actions: {
+    onClick(e) {
+      e.stopPropagation();
+    }
   }
 });
