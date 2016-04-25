@@ -1,27 +1,38 @@
 import Ember from 'ember';
 import layout from './template';
 
-const { on, run, computed, observer } = Ember;
+const { run, computed } = Ember;
 const a = Ember.A;
 
 export default Ember.Component.extend({
   layout: layout,
   tagName: '',
+
+  name: 'default',
   disabled: false,
   value: false,
-  toggled: false,
-  name: 'default',
+
+  toggled: computed('value', function() {
+    const {value, onLabelValue, offLabelValue} = this.getProperties('value', 'onLabelValue', 'offLabelValue');
+    const validValues = a([onLabelValue, offLabelValue]);
+
+    if(validValues.contains(value)) {
+      return value === onLabelValue;
+    } else {
+      return undefined;
+    }
+  }),
 
   init() {
     this._super(...arguments);
     run.schedule('afterRender', () => {
       // if value is not set to a valid state suggest a default to the container
-      const {value, onLabelValue, offLabelValue} = this.getProperties('value', 'onLabelValue', 'offLabelValue');
-      const validValues = a([onLabelValue, offLabelValue]);
-      if(!validValues.contains(value)) {
+      const {state, onLabelValue, offLabelValue} = this.getProperties('state', 'onLabelValue', 'offLabelValue');
+
+      if(state === undefined) {
         const response = this.ddau('onToggle', {
           code: 'suggestion',
-          oldValue: value,
+          oldValue: undefined,
           newValue: offLabelValue,
           context: this
         }, offLabelValue);
@@ -30,8 +41,8 @@ export default Ember.Component.extend({
           this.set('disabled', true);
           this.ddau('onError', {
             code: 'invalid-value',
-            value: value,
-            validValues: validValues,
+            value: undefined,
+            validValues: [onLabelValue, offLabelValue],
             context: this
           });
         }
@@ -40,17 +51,13 @@ export default Ember.Component.extend({
   },
 
   onLabelValue: computed('onLabel', function () {
-    var on = this.get('onLabel');
-    var index = on.indexOf(':');
-
-    return index > -1 ? on.substr(0, index) : on;
+    const [label, value] = this.get('onLabel').split(':');
+    return value ? value : label;
   }),
 
   offLabelValue: computed('offLabel', function () {
-    var off = this.get('offLabel');
-    var index = off.indexOf(':');
-
-    return index > -1 ? off.substr(0, index) : off;
+    const [label, value] = this.get('offLabel').split(':');
+    return value ? value : label;
   }),
 
   themeClass: computed('theme', function () {
@@ -61,56 +68,6 @@ export default Ember.Component.extend({
 
   forId: computed(function () {
     return this.get('elementId') + '-x-toggle';
-  }),
-
-  wasToggled: on('init', observer('toggled', function () {
-    var toggled = this.get('toggled');
-    var offIndex = this.get('offLabel').indexOf(':');
-    var onIndex = this.get('onLabel').indexOf(':');
-    var offState = offIndex > -1 ? this.get('offLabel').substr(offIndex + 1) : false;
-    var onState = onIndex > -1 ? this.get('onLabel').substr(onIndex + 1) : true;
-
-    this.sendAction('toggle', toggled, this.get('name'));
-
-    if (toggled === false) {
-      this.set('value', offState);
-    } else {
-      this.set('value', onState);
-    }
-  })),
-
-  valueObserver: on('init', observer('value', function() {
-    var debounce = this.get('debounce');
-
-    if (!debounce) {
-      debounce = run.debounce(this, function () {
-        var value = this.get('value');
-        var offIndex = this.get('offLabel').indexOf(':');
-        var onIndex = this.get('onLabel').indexOf(':');
-        var offState = offIndex > -1 ? this.get('offLabel').substr(offIndex + 1) : false;
-        var onState = onIndex > -1 ? this.get('onLabel').substr(onIndex + 1) : true;
-
-        if (value === onState) {
-          this.set('toggled', true);
-        } else {
-          this.set('toggled', false);
-          this.set('value', offState);
-        }
-
-        this.set('debounce', null);
-      }, 500);
-
-      this.set('debounce', debounce);
-    }
-  })),
-
-  clearDebounce: on('willDestroyElement', function () {
-    var debounce = this.get('debounce');
-
-    if (debounce) {
-      run.cancel(debounce);
-      this.set('debounce', null);
-    }
   }),
 
   actions: {
@@ -133,7 +90,9 @@ export default Ember.Component.extend({
     } else if (this.attrs[action]) {
       return this.attrs[action](hash);
     } else {
-      return false;
+      // assume that container is using old-style actions
+      this.sendAction(action, hash);
+      return undefined;
     }
   }
 });
