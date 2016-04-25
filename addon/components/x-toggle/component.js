@@ -4,60 +4,68 @@ import layout from './template';
 const { run, computed } = Ember;
 const a = Ember.A;
 
-export default Ember.Component.extend({
+const xToggle = Ember.Component.extend({
   layout: layout,
   tagName: '',
 
   name: 'default',
   disabled: false,
-  value: false,
-
-  toggled: computed('value', function() {
-    const {value, onLabelValue, offLabelValue} = this.getProperties('value', 'onLabelValue', 'offLabelValue');
-    const validValues = a([onLabelValue, offLabelValue]);
-
-    if(validValues.contains(value)) {
-      return value === onLabelValue;
-    } else {
-      return undefined;
-    }
-  }),
+  value: 'off',
+  offLabel: 'Off:off',
+  onLabel: 'On:on',
 
   init() {
     this._super(...arguments);
     run.schedule('afterRender', () => {
       // if value is not set to a valid state suggest a default to the container
-      const {state, onLabelValue, offLabelValue} = this.getProperties('state', 'onLabelValue', 'offLabelValue');
+      const {toggled, _onValue, _offValue} = this.getProperties('toggled', '_onValue', '_offValue');
 
-      if(state === undefined) {
+      if(toggled === undefined) {
         const response = this.ddau('onToggle', {
           code: 'suggestion',
           oldValue: undefined,
-          newValue: offLabelValue,
+          newValue: _offValue,
           context: this
-        }, offLabelValue);
+        }, _offValue);
         // if container rejects suggestion disable control and throw error
         if(response === false) {
           this.set('disabled', true);
           this.ddau('onError', {
             code: 'invalid-value',
             value: undefined,
-            validValues: [onLabelValue, offLabelValue],
+            validValues: [_onValue, _offValue],
             context: this
-          });
+          }, null);
         }
       }
     });
   },
 
-  onLabelValue: computed('onLabel', function () {
-    const [label, value] = this.get('onLabel').split(':');
-    return value ? value : label;
+  toggled: computed('value', function() {
+    const {value, _onValue, _offValue} = this.getProperties('value', '_onValue', '_offValue');
+    const validValues = a([_onValue, _offValue]);
+
+    if(validValues.contains(value)) {
+      return value === _onValue;
+    } else {
+      return undefined;
+    }
   }),
 
-  offLabelValue: computed('offLabel', function () {
-    const [label, value] = this.get('offLabel').split(':');
-    return value ? value : label;
+  _onValue: computed('onLabel', function () {
+    const attrs = this.get('onLabel').split(':');
+    return attrs.length === 1 ? attrs[0] : attrs[1];
+  }),
+  _onLabel: computed('onLabel', function () {
+    return this.get('onLabel').split(':')[0];
+  }),
+
+  _offValue: computed('offLabel', function () {
+    const attrs = this.get('offLabel').split(':');
+    return attrs.length === 1 ? attrs[0] : attrs[1];
+  }),
+  _offLabel: computed('offLabel', function () {
+    return this.get('offLabel').split(':')[0];
   }),
 
   themeClass: computed('theme', function () {
@@ -72,7 +80,17 @@ export default Ember.Component.extend({
 
   actions: {
     onClick(e) {
+      const {toggled,_offValue, _onValue} = this.getProperties('toggled', '_offValue', '_onValue');
       e.stopPropagation();
+
+      run.next(() => {
+        this.ddau('onToggle', {
+          code: 'toggled',
+          oldValue: !toggled ? _offValue : _onValue,
+          newValue: toggled ? _offValue : _onValue,
+          context: this
+        }, toggled ? _offValue : _onValue);
+      });
     }
   },
 
@@ -96,3 +114,6 @@ export default Ember.Component.extend({
     }
   }
 });
+
+xToggle[Ember.NAME_KEY] = 'x-toggle';
+export default xToggle;

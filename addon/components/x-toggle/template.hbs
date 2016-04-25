@@ -6,7 +6,7 @@
 
   {{#if showLabels}}
   	<span class="toggle-text toggle-prefix off-label">
-  		{{offLabelValue}}
+  		{{_offLabel}}
   	</span>
   {{/if}}
 
@@ -14,13 +14,13 @@
 
   <label class="x-toggle-btn {{themeClass}} {{size}} {{if disabled 'x-toggle-disabled'}}"
     for={{forId}}
-    data-tg-off={{offLabelValue}}
-    data-tg-on={{onLabelValue}}>
+    data-tg-off={{_offValue}}
+    data-tg-on={{_onValue}}>
   </label>
 
   {{#if showLabels}}
   	<span class="toggle-text toggle-postfix {{size}} on-label">
-  		{{onLabelValue}}
+  		{{_onLabel}}
   	</span>
   {{/if}}
 
