@@ -43,8 +43,9 @@
       -ms-user-select: none;
           user-select: none;
   outline: 0;
-  display: inline-block;
-  width: 4em;
+  display: flex;
+  flex-basis: 4em;
+  min-width: 4em;
   height: 2em;
   position: relative;
   cursor: pointer;
@@ -71,21 +72,26 @@
   left: 50%;
 }
 
-.x-toggle-container .toggle-text {
-	display: inline-flex;
-	vertical-align: middle;
-	height: 100%;
+.x-toggle-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: auto;
 }
 
-.x-toggle-container .toggle-text.small {
+.x-toggle-container .toggle-text {
+	display: flex;
+}
+
+.x-toggle-container.small {
 	padding-bottom: 1.0rem;
 	font-size: 0.9rem;
 }
-.x-toggle-container .toggle-text.medium {
+.x-toggle-container.medium {
 	padding-bottom: 1.5rem;
 	font-size: 1.0rem;
 }
-.x-toggle-container .toggle-text.large {
+.x-toggle-container.large {
 	padding-bottom: 2.0rem;
 	font-size: 1.2rem;
 }
