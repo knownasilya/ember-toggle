@@ -2,6 +2,7 @@ import Ember from 'ember';
 import layout from './template';
 
 const { on, run, computed, observer } = Ember;
+const a = Ember.A;
 
 export default Ember.Component.extend({
   layout: layout,
@@ -10,6 +11,33 @@ export default Ember.Component.extend({
   value: false,
   toggled: false,
   name: 'default',
+
+  init() {
+    this._super(...arguments);
+    run.schedule('afterRender', () => {
+      // if value is not set to a valid state suggest a default to the container
+      const {value, onLabelValue, offLabelValue} = this.getProperties('value', 'onLabelValue', 'offLabelValue');
+      const validValues = a([onLabelValue, offLabelValue]);
+      if(!validValues.contains(value)) {
+        const response = this.ddau('onToggle', {
+          code: 'suggestion',
+          oldValue: value,
+          newValue: offLabelValue,
+          context: this
+        }, offLabelValue);
+        // if container rejects suggestion disable control and throw error
+        if(response === false) {
+          this.set('disabled', true);
+          this.ddau('onError', {
+            code: 'invalid-value',
+            value: value,
+            validValues: validValues,
+            context: this
+          });
+        }
+      }
+    });
+  },
 
   onLabelValue: computed('onLabel', function () {
     var on = this.get('onLabel');
@@ -88,6 +116,24 @@ export default Ember.Component.extend({
   actions: {
     onClick(e) {
       e.stopPropagation();
+    }
+  },
+
+  /**
+   * Provide a DDAU "action" or "mut" response
+   * @param  {string } action The name of the exposed action property
+   * @param  {hash}    hash   A hash of attributes that are passed back to a "action"
+   * @param  {mixed}   value  A value that is passed to the "update" function (aka, mut helper) if available
+   * @return {boolean}        Pass back true if `mut` not used; if used then proxies mut's response back
+   */
+  ddau(action, hash, value) {
+    if (this.attrs[action] && this.attrs[action].update) {
+      this.attrs[action].update(value);
+      return true;
+    } else if (this.attrs[action]) {
+      return this.attrs[action](hash);
+    } else {
+      return false;
     }
   }
 });

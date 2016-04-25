@@ -1,7 +1,5 @@
 <h1 id='title'>ember-cli-toggle</h1>
 
-{{outlet}}
-
 {{x-toggle name=1 toggle='checkboxToggled'}}
 {{x-toggle name=2 theme='default' toggle='checkboxToggled'}}
 {{x-toggle name=3 theme='light' toggle='checkboxToggled'}}
@@ -14,7 +12,7 @@
   Is toggled: {{toggled}} by: {{toggledBy}}
 </p>
 
-<h2>Sizes and Themes</h2> 
+<h2>Sizes and Themes</h2>
 <div class="default-sizes sizes">
   {{x-toggle size='small'}}
   {{x-toggle size='medium'}}
@@ -51,7 +49,7 @@
   {{x-toggle size='large' theme='skewed'}}
 </div>
 
-<h2>Text Labels</h2> 
+<h2>Text Labels</h2>
 <pre>
 \{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}
 </pre>
@@ -83,7 +81,7 @@
 	</table>
 </div>
 
-<h2>Bindings</h2> 
+<h2>Bindings</h2>
 <pre>
 \{{x-toggle toggled=boundTog value=boundVal offLabel="Hey:hey" onLabel="Ho:ho"}}
 </pre>
@@ -124,4 +122,3 @@
 </pre>
 {{x-toggle value=disabledTest disabled=true}}<br>
 {{disabledTest}} &lt;== Won&#39;t change
-
