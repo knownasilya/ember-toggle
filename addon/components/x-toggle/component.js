@@ -91,6 +91,21 @@ const xToggle = Ember.Component.extend({
           context: this
         }, toggled ? _offValue : _onValue);
       });
+    },
+    setToValue(state, e) {
+      const {toggled,_offValue, _onValue} = this.getProperties('toggled', '_offValue', '_onValue');
+      e.stopPropagation();
+
+      if(toggled !== state) {
+        run.next(() => {
+          this.ddau('onToggle', {
+            code: 'set',
+            oldValue: state ? _offValue : _onValue,
+            newValue: !state ? _offValue : _onValue,
+            context: this
+          }, !state ? _offValue : _onValue);
+        });
+      }
     }
   },
 

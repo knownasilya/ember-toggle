@@ -72,6 +72,13 @@
   left: 50%;
 }
 
+.x-toggle-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
 .x-toggle-container {
   display: flex;
   flex-wrap: nowrap;
@@ -101,8 +108,6 @@
   min-width: 100%;
   max-width: 100%;
 }
-
-
 
 .x-toggle-container .toggle-text.toggle-prefix {
 	padding-right: 0.25rem;

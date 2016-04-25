@@ -100,37 +100,22 @@
 </table>
 
 
-<h2>Text Labels</h2>
-<pre>
-\{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}
-</pre>
-<div class="default-style text-labels">
-	<table class="demo-table">
-		<tr>
-			<td>
-				<div class="default-theme">
-					{{x-toggle size='small' offLabel='hey' onLabel='ho' showLabels="true" theme='default'}}<br/>
-					{{x-toggle size='medium' offLabel='hey' onLabel='ho' showLabels="true" theme='default'}}<br/>
-					{{x-toggle size='large' offLabel='hey' onLabel='ho' showLabels="true" theme='default'}}
-				</div>
-			</td>
-			<td>
-				<div class="flat-theme">
-					{{x-toggle size='small' offLabel='hey' onLabel='ho' showLabels="true" theme='flat'}}<br/>
-					{{x-toggle size='medium' offLabel='hey' onLabel='ho' showLabels="true" theme='flat'}}<br/>
-					{{x-toggle size='large' offLabel='hey' onLabel='ho' showLabels="true" theme='flat'}}
-				</div>
-			</td>
-			<td>
-				<div class="light-theme">
-					{{x-toggle size='small' offLabel='hey' onLabel='ho' showLabels="true" theme='light'}}<br/>
-					{{x-toggle size='medium' offLabel='hey' onLabel='ho' showLabels="true" theme='light'}}<br/>
-					{{x-toggle size='large' offLabel='hey' onLabel='ho' showLabels="true" theme='light'}}
-				</div>
-			</td>
-		</tr>
-	</table>
-</div>
+<h2>Labels &amp; Values</h2>
+
+<table>
+  <tr>
+    <td>{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}</td>
+    <td><pre><code>\{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}</code></pre></td>
+    <td>Simple labels</td>
+  </tr>
+  <tr>
+    <td>{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}</td>
+    <td><pre><code>\{{x-toggle showLabels="true" offLabel="Hey:hey" onLabel="Ho:ho"}}</code></pre></td>
+    <td>Discrete Labels and Values</td>
+  </tr>
+</table>
+
+
 
 <h2>Bindings</h2>
 <pre>

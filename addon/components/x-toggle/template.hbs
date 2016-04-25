@@ -1,27 +1,26 @@
-<span
-  id={{elementId}}
-  class="x-toggle-container {{size}}{{if toggled ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}"
-  onclick={{action 'onClick'}}
->
-
+<span class="x-toggle-component">
   {{#if showLabels}}
-  	<span class="toggle-text toggle-prefix off-label">
+  	<span class="toggle-text toggle-prefix off-label" onclick={{action 'setToValue' false}}>
   		{{_offLabel}}
   	</span>
   {{/if}}
+  <span
+    id={{elementId}}
+    class="x-toggle-container {{size}}{{if toggled ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}"
+    onclick={{action 'onClick'}}
+  >
+    {{input id=forId type='checkbox' checked=toggled class='x-toggle' disabled=disabled name=name}}
 
-  {{input id=forId type='checkbox' checked=toggled class='x-toggle' disabled=disabled name=name}}
-
-  <label class="x-toggle-btn {{themeClass}} {{size}} {{if disabled 'x-toggle-disabled'}}"
-    for={{forId}}
-    data-tg-off={{_offValue}}
-    data-tg-on={{_onValue}}>
-  </label>
+    <label class="x-toggle-btn {{themeClass}} {{size}} {{if disabled 'x-toggle-disabled'}}"
+      for={{forId}}
+      data-tg-off={{_offValue}}
+      data-tg-on={{_onValue}}>
+    </label>
+  </span>
 
   {{#if showLabels}}
-  	<span class="toggle-text toggle-postfix {{size}} on-label">
+  	<span class="toggle-text toggle-postfix {{size}} on-label" onclick={{action 'setToValue' true}}>
   		{{_onLabel}}
   	</span>
   {{/if}}
-
 </span>
