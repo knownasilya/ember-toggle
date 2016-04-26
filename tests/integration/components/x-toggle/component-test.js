@@ -11,7 +11,7 @@ test('it renders', function(assert) {
   assert.equal(this.$().find('label').length, 1);
 });
 
-test('changing disabled has effect on component', function(assert) {
+test('changing disabled property disables component', function(assert) {
   this.set('disabled', true);
   this.render(hbs`{{x-toggle
     value='off'
@@ -34,10 +34,64 @@ test('changing container\'s value changes toggled state', function(assert) {
   this.render(hbs`{{x-toggle
     value=myValue
     onToggle=(action 'onToggle')
+    onValue='On:on'
+    offValue='Off:off'
   }}`);
   this.set('myValue', 'on'); // trigger a toggle
   setTimeout(() => {
     assert.equal(true, false, 'timed out waiting for toggle');
     done();
   }, 500);
+});
+
+test('changing container\'s value to invalid state prompts "suggestion"', function(assert) {
+  const done = assert.async();
+  this.on('onToggle', (hash) => {
+    this.set('myValue', hash.newValue);
+
+    assert.equal(hash.code, 'suggestion', 'onToggle code is a suggestion');
+    assert.equal(hash.oldValue, 'foobar', 'hash value had been in an invalid state');
+    assert.equal(hash.newValue, 'off', 'suggested new state is the "off" state');
+    done();
+
+    return true;
+  });
+  this.render(hbs`{{x-toggle
+    value='foobar'
+    onToggle=(action 'onToggle')
+    onValue='On:on'
+    offValue='Off:off'
+  }}`);
+
+  setTimeout(() => {
+    assert.equal(true, false, 'timed out waiting for suggestion');
+    done();
+  }, 1000);
+});
+
+test('rejecting "suggestion" disables component', function(assert) {
+  const done = assert.async();
+  this.on('onToggle', (hash) => {
+    assert.equal(hash.code, 'suggestion', 'onToggle code is a suggestion');
+    assert.equal(hash.oldValue, 'foobar', 'hash value had been in an invalid state');
+    assert.equal(hash.newValue, 'off', 'suggested new state is the "off" state');
+
+    this.set('done', true);
+    done();
+
+    return false; // reject suggestion
+  });
+  this.render(hbs`{{x-toggle
+    value='foobar'
+    onToggle=(action 'onToggle')
+    onValue='On:on'
+    offValue='Off:off'
+  }}`);
+
+  setTimeout(() => {
+    if(!this.get('done')) {
+      assert.equal(true, false, 'timed out waiting for suggestion');
+      done();
+    }
+  }, 1000);
 });
