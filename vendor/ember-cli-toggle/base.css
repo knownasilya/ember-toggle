@@ -87,8 +87,9 @@
   padding: 0 5px;
 }
 
-.x-toggle-container .toggle-text {
+.x-toggle-component .toggle-text {
 	display: flex;
+  cursor: pointer;
 }
 
 .x-toggle-container.small {

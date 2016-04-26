@@ -109,7 +109,7 @@
     <td>Simple labels</td>
   </tr>
   <tr>
-    <td>{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}</td>
+    <td>{{x-toggle showLabels="true" offLabel="Hey:hey" onLabel="Ho:ho"}}</td>
     <td><pre><code>\{{x-toggle showLabels="true" offLabel="Hey:hey" onLabel="Ho:ho"}}</code></pre></td>
     <td>Discrete Labels and Values</td>
   </tr>
@@ -163,5 +163,7 @@
 <pre>
 \{{x-toggle value=disabledTest disabled=true}}
 </pre>
-{{x-toggle value=disabledTest disabled=true}}<br>
-{{disabledTest}} &lt;== Won&#39;t change
+<span class='flexy'>
+  {{x-toggle value=disabledTest disabled=true}}<br>
+  {{disabledTest}} &lt;== Won&#39;t change
+</span>
