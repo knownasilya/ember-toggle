@@ -1,5 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import emberVersionGTE from 'ember-test-helpers/has-ember-version';
 
 moduleForComponent('x-toggle', 'Integration | Component | x toggle', {
   integration: true
@@ -110,65 +111,67 @@ test('clicking component triggers onToggle action', function(assert) {
 
 });
 
-test('clicking component works with default on/off and mut helper', function(assert) {
-  this.set('value', 'Off');
-  this.render(hbs`{{x-toggle
-    value=value
-    onToggle=(mut value)
-  }}`);
-  assert.equal(this.get('value'), 'off');
-  this.$('div.x-toggle-btn').click();
-  assert.equal(this.get('value'), 'on');
-});
+if (emberVersionGTE(2,0)) {
+  test('clicking component works with default on/off and mut helper', function(assert) {
+    this.set('value', 'Off');
+    this.render(hbs`{{x-toggle
+      value=value
+      onToggle=(mut value)
+    }}`);
+    assert.equal(this.get('value'), 'off');
+    this.$('div.x-toggle-btn').click();
+    assert.equal(this.get('value'), 'on');
+  });
 
-test('component toggles when container changes value', function(assert) {
-  this.set('value', 'off');
-  this.render(hbs`{{x-toggle
-    value=value
-    onToggle=(mut value)
-  }}`);
-  assert.equal(this.get('value'), 'off');
-  this.set('value', 'on');
-  assert.equal(this.get('value'), 'on');
-});
+  test('component toggles when container changes value', function(assert) {
+    this.set('value', 'off');
+    this.render(hbs`{{x-toggle
+      value=value
+      onToggle=(mut value)
+    }}`);
+    assert.equal(this.get('value'), 'off');
+    this.set('value', 'on');
+    assert.equal(this.get('value'), 'on');
+  });
 
-test('clicking component works with bespoke values and mut helper', function(assert) {
-  this.set('value', 'foo');
-  this.render(hbs`{{x-toggle
-    value=value
-    offLabel='Foo::foo'
-    onLabel='Bar::bar'
-    onToggle=(mut value)
-  }}`);
-  assert.equal(this.get('value'), 'foo');
-  assert.equal(this.$('div.x-toggle-btn').data('tg-off'), 'Foo', '"off" property set on toggle');
-  assert.equal(this.$('div.x-toggle-btn').data('tg-on'), 'Bar', '"on" property set on toggle');
-  this.$('div.x-toggle-btn').click();
-  assert.equal(this.get('value'), 'bar', 'click toggles value');
-});
+  test('clicking component works with bespoke values and mut helper', function(assert) {
+    this.set('value', 'foo');
+    this.render(hbs`{{x-toggle
+      value=value
+      offLabel='Foo::foo'
+      onLabel='Bar::bar'
+      onToggle=(mut value)
+    }}`);
+    assert.equal(this.get('value'), 'foo');
+    assert.equal(this.$('div.x-toggle-btn').data('tg-off'), 'Foo', '"off" property set on toggle');
+    assert.equal(this.$('div.x-toggle-btn').data('tg-on'), 'Bar', '"on" property set on toggle');
+    this.$('div.x-toggle-btn').click();
+    assert.equal(this.get('value'), 'bar', 'click toggles value');
+  });
 
-test('clicking component works with boolean true/false', function(assert) {
-  this.set('value', false);
-  this.render(hbs`{{x-toggle
-    value=value
-    onToggle=(mut value)
-    onLabel=true
-    offLabel=false
-  }}`);
-  assert.equal(this.get('value'), false);
-  this.$('div.x-toggle-btn').click();
-  assert.equal(this.get('value'), true);
-});
+  test('clicking component works with boolean true/false', function(assert) {
+    this.set('value', false);
+    this.render(hbs`{{x-toggle
+      value=value
+      onToggle=(mut value)
+      onLabel=true
+      offLabel=false
+    }}`);
+    assert.equal(this.get('value'), false);
+    this.$('div.x-toggle-btn').click();
+    assert.equal(this.get('value'), true);
+  });
 
-test('clicking component works with boolean true/false and discrete labels', function(assert) {
-  this.set('value', false);
-  this.render(hbs`{{x-toggle
-    value=value
-    onToggle=(mut value)
-    onLabel='Yes::true'
-    offLabel='No::false'
-  }}`);
-  assert.equal(this.get('value'), false);
-  this.$('div.x-toggle-btn').click();
-  assert.equal(this.get('value'), true);
-});
+  test('clicking component works with boolean true/false and discrete labels', function(assert) {
+    this.set('value', false);
+    this.render(hbs`{{x-toggle
+      value=value
+      onToggle=(mut value)
+      onLabel='Yes::true'
+      offLabel='No::false'
+    }}`);
+    assert.equal(this.get('value'), false);
+    this.$('div.x-toggle-btn').click();
+    assert.equal(this.get('value'), true);
+  });
+}
