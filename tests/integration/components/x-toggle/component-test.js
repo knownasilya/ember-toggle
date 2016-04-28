@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
-const { run } = Ember;
+// import Ember from 'ember';
+// const { run } = Ember;
 
 
 moduleForComponent('x-toggle', 'Integration | Component | x toggle', {
@@ -79,7 +79,7 @@ test('rejecting "suggestion" disables component', function(assert) {
     assert.equal(hash.oldValue, 'foobar', 'hash value had been in an invalid state');
     assert.equal(hash.newValue, 'off', 'suggested new state is the "off" state');
 
-    this.set('done', true);
+    this.set('completed', true);
     done();
 
     return false; // reject suggestion
@@ -92,37 +92,72 @@ test('rejecting "suggestion" disables component', function(assert) {
   }}`);
 
   setTimeout(() => {
-    if(!this.get('done')) {
+    if(!this.get('completed')) {
       assert.equal(true, false, 'timed out waiting for suggestion');
       done();
     }
   }, 1000);
 });
 
-test('clicking component toggles state (using "on"/"off" states)', function(assert) {
-  this.set('myValue', 'Off');
+test('clicking component triggers onToggle action', function(assert) {
+  const done = assert.async();
+  this.set('myValue', 'off');
+  this.on('onToggle', hash => {
+    assert.equal(hash.code, 'toggled', 'onToggle code is toggle');
+    assert.equal(hash.oldValue, 'off', 'proper old value');
+    assert.equal(hash.newValue, 'on', 'proper new value');
+
+    this.set('completed', true);
+    done();
+  });
   this.render(hbs`{{x-toggle
     value=myValue
-    offValue='Off'
-    onValue='On'
-    onToggle=(mut myValue)
+    onToggle=(action 'onToggle')
   }}`);
-  assert.equal(this.get('myValue'), 'Off');
-  this.$('.x-toggle-component label').click();
-  run.next(() => {
-    assert.equal(this.get('myValue'), 'On');
-  });
+  this.$('div.x-toggle-btn').click();
+
+  setTimeout(() => {
+    if(!this.get('completed')) {
+      assert.equal(true, false, 'timed out waiting for toggle event');
+      done();
+    }
+  }, 1000);
+
 });
 
-test('clicking component toggles state (using boolean states)', function(assert) {
+test('clicking component works with default on/off and mut helper', function(assert) {
+  this.set('value', 'Off');
+  this.render(hbs`{{x-toggle
+    value=value
+    onToggle=(mut value)
+  }}`);
+  assert.equal(this.get('value'), 'off');
+  this.$('div.x-toggle-btn').click();
+  assert.equal(this.get('value'), 'on');
+});
+
+test('clicking component works with bespoke on/off values and mut helper', function(assert) {
+  this.set('value', 'bar');
+  this.render(hbs`{{x-toggle
+    value=value
+    onValue='Foo:foo'
+    offValue='Bar:bar'
+    onToggle=(mut value)
+  }}`);
+  assert.equal(this.get('value'), 'bar');
+  this.$('div.x-toggle-btn').click();
+  assert.equal(this.get('value'), 'foo');
+});
+
+test('clicking component works with default true/false and mut helper', function(assert) {
   this.set('value', false);
   this.render(hbs`{{x-toggle
     value=value
     onToggle=(mut value)
-    onValue='On:true'
-    offValue='Off:false'
+    onValue=true
+    offValue=false
   }}`);
   assert.equal(this.get('value'), false);
-  this.$('.x-toggle-component label').click();
+  this.$('div.x-toggle-btn').click();
   assert.equal(this.get('value'), true);
 });

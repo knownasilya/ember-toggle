@@ -1,7 +1,8 @@
 import Ember from 'ember';
+const { computed, typeOf } = Ember;  // jshint ignore:line
+
 import layout from './template';
 
-const { run, computed } = Ember;
 const a = Ember.A;
 
 const xToggle = Ember.Component.extend({
@@ -11,8 +12,22 @@ const xToggle = Ember.Component.extend({
   name: 'default',
   disabled: false,
   value: 'off',
-  offLabel: 'Off:off',
-  onLabel: 'On:on',
+  onLabel: computed({
+    set(_,value) {
+      return value;
+    },
+    get() {
+      return this.get('defaultOnLabel');
+    }
+  }),
+  offLabel: computed({
+    set(_,value) {
+      return value;
+    },
+    get() {
+      return this.get('defaultOffLabel');
+    }
+  }),
 
   init() {
     this._super(...arguments);
@@ -37,10 +52,6 @@ const xToggle = Ember.Component.extend({
         }, null);
       }
     }
-    run.schedule('afterRender', () => {
-      this.notifyPropertyChanged('_onValue');
-      this.notifyPropertyChanged('_offValue');
-    });
   },
 
   toggled: computed('value','onValue','offValue', function() {
