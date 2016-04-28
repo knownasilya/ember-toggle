@@ -19,9 +19,6 @@ const xToggle = Ember.Component.extend({
     // if value is not set to a valid state suggest a default to the container
     const {toggled, _onValue, _offValue} = this.getProperties('toggled', '_onValue', '_offValue');
 
-    if (this.name === '3') {
-      console.log(`NUMBER THREE: ${_offValue}/${_onValue}`);
-    }
     if(toggled === undefined) {
       const response = this.ddau('onToggle', {
         code: 'suggestion',
@@ -40,6 +37,10 @@ const xToggle = Ember.Component.extend({
         }, null);
       }
     }
+    run.schedule('afterRender', () => {
+      this.notifyPropertyChanged('_onValue');
+      this.notifyPropertyChanged('_offValue');
+    });
   },
 
   toggled: computed('value','onValue','offValue', function() {
@@ -47,10 +48,8 @@ const xToggle = Ember.Component.extend({
     const validValues = a([_onValue, _offValue]);
 
     if(validValues.contains(value)) {
-      console.log('valid value: ', value);
       return value === _onValue;
     } else {
-      console.log('invalid value: ', value, validValues);
       return undefined;
     }
   }),
@@ -67,7 +66,7 @@ const xToggle = Ember.Component.extend({
 
   _onValue: computed('onLabel', function () {
     const attrs = String(this.get('onLabel')).split(':');
-    console.log(`${this.elementId}: on value is:` , this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]));
+
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _onLabel: computed('onLabel', function () {
@@ -76,7 +75,7 @@ const xToggle = Ember.Component.extend({
 
   _offValue: computed('offLabel', function () {
     const attrs = String(this.get('offLabel')).split(':');
-    console.log('Off value: ', this.get('offLabel'));
+
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _offLabel: computed('offLabel', function () {
@@ -134,7 +133,6 @@ const xToggle = Ember.Component.extend({
    */
   ddau(action, hash, value) {
     if (this.attrs[action] && this.attrs[action].update) {
-      console.log(`updating to "${value}"`);
       this.attrs[action].update(value);
       return true;
     } else if (this.attrs[action]) {
