@@ -1,5 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
+const { run } = Ember;
+
 
 moduleForComponent('x-toggle', 'Integration | Component | x toggle', {
   integration: true
@@ -97,16 +100,18 @@ test('rejecting "suggestion" disables component', function(assert) {
 });
 
 test('clicking component toggles state (using "on"/"off" states)', function(assert) {
-  this.set('value', 'off');
+  this.set('myValue', 'Off');
   this.render(hbs`{{x-toggle
-    value=value
-    onToggle=(mut value)
-    onValue='On:on'
-    offValue='Off:off'
+    value=myValue
+    offValue='Off'
+    onValue='On'
+    onToggle=(mut myValue)
   }}`);
-  assert.equal(this.get('value'), 'off');
+  assert.equal(this.get('myValue'), 'Off');
   this.$('.x-toggle-component label').click();
-  assert.equal(this.get('value'), 'on');
+  run.next(() => {
+    assert.equal(this.get('myValue'), 'On');
+  });
 });
 
 test('clicking component toggles state (using boolean states)', function(assert) {

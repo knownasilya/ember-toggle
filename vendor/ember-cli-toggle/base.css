@@ -119,3 +119,10 @@
 .x-toggle-container .toggle-text.toggle-postfix {
 	padding-left: 0.25rem;
 }
+
+.x-toggle-component label.off-label {
+  padding-right: 0.5rem;
+}
+.x-toggle-component label.on-label {
+  padding-left: 0.5rem;
+}

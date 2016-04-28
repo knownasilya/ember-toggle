@@ -4,21 +4,35 @@
 
 <table>
   <tr>
-    <td>{{x-toggle name=2 theme='default'}}</td>
+    <td>{{x-toggle
+      name=1
+      theme='default'
+      value=v1
+      onToggle=(mut v1)
+    }}</td>
     <td>default</td>
-    <td>{{x-toggle name=3 theme='light' }}</td>
+    <td>{{x-toggle name=2 theme='light' value=v2 onToggle=(action 'clicked' 'v2') }}</td>
     <td>light</td>
   </tr>
   <tr>
-    <td>{{x-toggle name=4 theme='ios' }}</td>
+    <td>
+      {{x-toggle
+        name=3
+        theme='ios'
+        value=v3
+        onValue='Foo:foo'
+        offValue='Bar:bar'
+        onToggle=(mut v3)
+      }}
+    </td>
     <td>ios</td>
-    <td>{{x-toggle name=5 theme='flat' }}</td>
+    <td>{{x-toggle name=4 theme='flat'  value=v4 onToggle=(mut v4)}}</td>
     <td>flat</td>
   </tr>
   <tr>
-    <td>{{x-toggle name=6 theme='flip' offLabel='Nope' onLabel='Yep'}}</td>
+    <td>{{x-toggle name=5 theme='flip' offLabel='Nope' onLabel='Yep' value=v5 onToggle=(mut v5)}}</td>
     <td>flip</td>
-    <td>{{x-toggle name=7 theme='skewed'}}</td>
+    <td>{{x-toggle name=6 theme='skewed' value=v6 onToggle=(mut v6)}}</td>
     <td>skewed</td>
   </tr>
 </table>
@@ -33,68 +47,68 @@
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small'}}
+      {{x-toggle size='small' value=v7 onToggle=(mut v7)}}
     </td>
     <td>
-      {{x-toggle size='medium'}}
+      {{x-toggle size='medium' value=v7 onToggle=(mut v7)}}
     </td>
     <td>
-      {{x-toggle size='large'}}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      {{x-toggle size='small' theme='light'}}
-    </td>
-    <td>
-      {{x-toggle size='medium' theme='light'}}
-    </td>
-    <td>
-      {{x-toggle size='large' theme='light'}}
+      {{x-toggle size='large' value=v7 onToggle=(mut v7)}}
     </td>
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' theme='ios'}}
+      {{x-toggle size='small' theme='light' value=v10 onToggle=(mut v10)}}
     </td>
     <td>
-      {{x-toggle size='medium' theme='ios'}}
+      {{x-toggle size='medium' theme='light' value=v10 onToggle=(mut v10)}}
     </td>
     <td>
-      {{x-toggle size='large' theme='ios'}}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      {{x-toggle size='small' theme='flat'}}
-    </td>
-    <td>
-      {{x-toggle size='medium' theme='flat'}}
-    </td>
-    <td>
-      {{x-toggle size='large' theme='flat'}}
+      {{x-toggle size='large' theme='light' value=v10 onToggle=(mut v10)}}
     </td>
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' theme='flip'}}
+      {{x-toggle size='small' theme='ios' value=v13 onToggle=(mut v13)}}
     </td>
     <td>
-      {{x-toggle size='medium' theme='flip'}}
+      {{x-toggle size='medium' theme='ios' value=v13 onToggle=(mut v13)}}
     </td>
     <td>
-      {{x-toggle size='large' theme='flip'}}
+      {{x-toggle size='large' theme='ios' value=v13 onToggle=(mut v13)}}
     </td>
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' theme='skewed'}}
+      {{x-toggle size='small' theme='flat' value=v16 onToggle=(mut v16)}}
     </td>
     <td>
-      {{x-toggle size='medium' theme='skewed'}}
+      {{x-toggle size='medium' theme='flat' value=v16 onToggle=(mut v16)}}
     </td>
     <td>
-      {{x-toggle size='large' theme='skewed'}}
+      {{x-toggle size='large' theme='flat' value=v16 onToggle=(mut v16)}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {{x-toggle size='small' theme='flip' value=v19 onToggle=(mut v19)}}
+    </td>
+    <td>
+      {{x-toggle size='medium' theme='flip' value=v19 onToggle=(mut v19)}}
+    </td>
+    <td>
+      {{x-toggle size='large' theme='flip' value=v19 onToggle=(mut v19)}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {{x-toggle size='small' theme='skewed' value=v20 onToggle=(mut v20)}}
+    </td>
+    <td>
+      {{x-toggle size='medium' theme='skewed' value=v20 onToggle=(mut v20)}}
+    </td>
+    <td>
+      {{x-toggle size='large' theme='skewed' value=v20 onToggle=(mut v20)}}
     </td>
   </tr>
 </table>
@@ -104,13 +118,33 @@
 
 <table>
   <tr>
-    <td>{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}</td>
-    <td><pre><code>\{{x-toggle showLabels="true" offLabel="hey" onLabel="ho"}}</code></pre></td>
+    <td>
+      {{x-toggle
+        showLabels="true"
+        offLabel="hey"
+        onLabel="ho"
+        value=lv1 onToggle=(mut lv1)
+      }}
+  </td>
+    <td><pre><code>\{{x-toggle
+  showLabels="true"
+  offLabel="hey"
+  onLabel="ho"
+}}</code></pre></td>
     <td>Simple labels</td>
   </tr>
   <tr>
-    <td>{{x-toggle showLabels="true" offLabel="Hey:hey" onLabel="Ho:ho"}}</td>
-    <td><pre><code>\{{x-toggle showLabels="true" offLabel="Hey:hey" onLabel="Ho:ho"}}</code></pre></td>
+    <td>{{x-toggle
+      showLabels="true"
+      offLabel="Hey:hey"
+      onLabel="Ho:ho"
+      value=lv2 onToggle=(mut lv2)
+    }}</td>
+    <td><pre><code>\{{x-toggle
+  showLabels="true"
+  offLabel="Hey:hey"
+  onLabel="Ho:ho"
+}}</code></pre></td>
     <td>Discrete Labels and Values</td>
   </tr>
 </table>

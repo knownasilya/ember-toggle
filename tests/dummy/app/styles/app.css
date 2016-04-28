@@ -26,3 +26,7 @@ row {
   width: 100%;
   display: flex;
 }
+
+td {
+  padding: 0.25rem 0.5rem;
+}

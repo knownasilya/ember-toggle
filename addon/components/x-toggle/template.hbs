@@ -1,15 +1,14 @@
-<span class="x-toggle-component">
+<span id="{{elementId}}" class="x-toggle-component">
   {{#if showLabels}}
-  	<span class="toggle-text toggle-prefix off-label" onclick={{action 'setToValue' false}}>
+  	<label id='off-label-{{elementId}}' for={{forId}} class="toggle-text toggle-prefix off-label" onclick={{action 'setToValue' false}}>
   		{{_offLabel}}
-  	</span>
+  	</label>
   {{/if}}
   <span
-    id={{elementId}}
     class="x-toggle-container {{size}}{{if toggled ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}"
   >
     <input
-      id={{forId}}
+      id="input-{{elementId}}"
       name={{name}}
       type='checkbox'
       checked={{toggled}}
@@ -17,18 +16,22 @@
       disabled={{disabled}}
     >
 
-    <label class="x-toggle-btn {{themeClass}} {{size}} {{if disabled 'x-toggle-disabled'}}"
-      for={{forId}}
+    <div
+      id="visual-{{elementId}}"
+      class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}{{invalidState}}"
       data-tg-off={{_offValue}}
       data-tg-on={{_onValue}}
       onclick={{action 'onClick'}}
+      for="input-{{elementId}}"
+      aria-role="checkbox"
+      aria-owns="input-{{elementId}}"
     >
-    </label>
+    </div>
   </span>
 
   {{#if showLabels}}
-  	<span class="toggle-text toggle-postfix {{size}} on-label" onclick={{action 'setToValue' true}}>
+  	<label id='on-label-{{elementId}}' for="input-{{elementId}}" class="toggle-text toggle-postfix {{size}} on-label" onclick={{action 'setToValue' true}}>
   		{{_onLabel}}
-  	</span>
+  	</label>
   {{/if}}
 </span>

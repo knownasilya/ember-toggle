@@ -16,40 +16,46 @@ const xToggle = Ember.Component.extend({
 
   init() {
     this._super(...arguments);
-    run.schedule('afterRender', () => {
-      // if value is not set to a valid state suggest a default to the container
-      const {toggled, _onValue, _offValue} = this.getProperties('toggled', '_onValue', '_offValue');
+    // if value is not set to a valid state suggest a default to the container
+    const {toggled, _onValue, _offValue} = this.getProperties('toggled', '_onValue', '_offValue');
 
-      if(toggled === undefined) {
-        const response = this.ddau('onToggle', {
-          code: 'suggestion',
-          oldValue: undefined,
-          newValue: _offValue,
+    if (this.name === '3') {
+      console.log(`NUMBER THREE: ${_offValue}/${_onValue}`);
+    }
+    if(toggled === undefined) {
+      const response = this.ddau('onToggle', {
+        code: 'suggestion',
+        oldValue: undefined,
+        newValue: _offValue,
+        context: this
+      }, _offValue);
+      // if container rejects suggestion disable control and throw error
+      if(response === false) {
+        this.set('disabled', true);
+        this.ddau('onError', {
+          code: 'invalid-value',
+          value: undefined,
+          validValues: [_onValue, _offValue],
           context: this
-        }, _offValue);
-        // if container rejects suggestion disable control and throw error
-        if(response === false) {
-          this.set('disabled', true);
-          this.ddau('onError', {
-            code: 'invalid-value',
-            value: undefined,
-            validValues: [_onValue, _offValue],
-            context: this
-          }, null);
-        }
+        }, null);
       }
-    });
+    }
   },
 
-  toggled: computed('value', function() {
+  toggled: computed('value','onValue','offValue', function() {
     const {value, _onValue, _offValue} = this.getProperties('value', '_onValue', '_offValue');
     const validValues = a([_onValue, _offValue]);
 
     if(validValues.contains(value)) {
+      console.log('valid value: ', value);
       return value === _onValue;
     } else {
+      console.log('invalid value: ', value, validValues);
       return undefined;
     }
+  }),
+  invalidState: computed('toggled', function() {
+    return Ember.typeOf(this.get('toggled')) === 'undefined' ? ' invalid-state' : '';
   }),
 
   _preferBoolean(value) {
@@ -60,7 +66,8 @@ const xToggle = Ember.Component.extend({
   },
 
   _onValue: computed('onLabel', function () {
-    const attrs = this.get('onLabel').split(':');
+    const attrs = String(this.get('onLabel')).split(':');
+    console.log(`${this.elementId}: on value is:` , this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]));
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _onLabel: computed('onLabel', function () {
@@ -68,7 +75,8 @@ const xToggle = Ember.Component.extend({
   }),
 
   _offValue: computed('offLabel', function () {
-    const attrs = this.get('offLabel').split(':');
+    const attrs = String(this.get('offLabel')).split(':');
+    console.log('Off value: ', this.get('offLabel'));
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _offLabel: computed('offLabel', function () {
@@ -87,19 +95,24 @@ const xToggle = Ember.Component.extend({
 
   actions: {
     onClick(e) {
-      const {toggled,_offValue, _onValue} = this.getProperties('toggled', '_offValue', '_onValue');
+      const {value, _offValue, _onValue} = this.getProperties('value', '_offValue', '_onValue');
       e.stopPropagation();
+      e.preventDefault();
+      const currentState = value === _onValue;
+      const oldValue = currentState ? _onValue : _offValue;
+      const newValue = currentState ? _offValue : _onValue;
 
       this.ddau('onToggle', {
         code: 'toggled',
-        oldValue: !toggled ? _offValue : _onValue,
-        newValue: toggled ? _offValue : _onValue,
+        oldValue: oldValue,
+        newValue: newValue,
         context: this
-      }, !toggled ? _offValue : _onValue);
+      }, newValue);
     },
     setToValue(state, e) {
       const {toggled,_offValue, _onValue} = this.getProperties('toggled', '_offValue', '_onValue');
       e.stopPropagation();
+      e.preventDefault();
 
       if(toggled !== state) {
         this.ddau('onToggle', {
@@ -121,6 +134,7 @@ const xToggle = Ember.Component.extend({
    */
   ddau(action, hash, value) {
     if (this.attrs[action] && this.attrs[action].update) {
+      console.log(`updating to "${value}"`);
       this.attrs[action].update(value);
       return true;
     } else if (this.attrs[action]) {
