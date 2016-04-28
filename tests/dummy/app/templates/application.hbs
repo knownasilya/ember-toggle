@@ -20,13 +20,13 @@
         name=3
         theme='ios'
         value=v3
-        onValue='Foo:foo'
-        offValue='Bar:bar'
-        onToggle=(mut v3)
+        onLabel=true
+        offLabel=false
+        onToggle=(action 'rejected')
       }}
     </td>
     <td>ios</td>
-    <td>{{x-toggle name=4 theme='flat'  value=v4 onToggle=(mut v4)}}</td>
+    <td>{{x-toggle name=4 theme='flat' value=v4 onToggle=(mut v4)}}</td>
     <td>flat</td>
   </tr>
   <tr>

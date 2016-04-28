@@ -15,6 +15,9 @@ export default Ember.Controller.extend({
     clicked(target, hash) {
       console.log(hash);
       this.set(target, hash.newValue);
+    },
+    rejected() {
+      return false;
     }
 	}
 });

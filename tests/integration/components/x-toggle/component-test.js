@@ -11,7 +11,7 @@ moduleForComponent('x-toggle', 'Integration | Component | x toggle', {
 test('it renders', function(assert) {
   this.render(hbs`{{x-toggle}}`);
 
-  assert.equal(this.$().find('label').length, 1);
+  assert.equal(this.$().find('div.x-toggle-btn').length, 1);
 });
 
 test('changing disabled property disables component', function(assert) {
@@ -23,69 +23,19 @@ test('changing disabled property disables component', function(assert) {
   assert.equal($('input.x-toggle').prop('disabled'), true);
 });
 
-test('changing container\'s value changes toggled state', function(assert) {
-  const done = assert.async();
-  this.set('myValue', 'off');
-  this.on('onToggle', function(hash) {
-    this.set('myValue', hash.newValue);
-
-    assert.equal(hash.code, 'toggled', 'onToggle code is a toggle event, not a suggestion');
-    assert.equal(hash.oldValue, 'off', 'hash value had been in "off" state');
-    assert.equal(hash.newValue, 'on', 'but has been toggled to "on" state');
-    done();
-  });
-  this.render(hbs`{{x-toggle
-    value=myValue
-    onToggle=(action 'onToggle')
-    onValue='On:on'
-    offValue='Off:off'
-  }}`);
-  this.set('myValue', 'on'); // trigger a toggle
-  setTimeout(() => {
-    assert.equal(true, false, 'timed out waiting for toggle');
-    done();
-  }, 500);
-});
-
-test('changing container\'s value to invalid state prompts "suggestion"', function(assert) {
-  const done = assert.async();
-  this.on('onToggle', (hash) => {
-    this.set('myValue', hash.newValue);
-
-    assert.equal(hash.code, 'suggestion', 'onToggle code is a suggestion');
-    assert.equal(hash.oldValue, 'foobar', 'hash value had been in an invalid state');
-    assert.equal(hash.newValue, 'off', 'suggested new state is the "off" state');
-    done();
-
-    return true;
-  });
-  this.render(hbs`{{x-toggle
-    value='foobar'
-    onToggle=(action 'onToggle')
-    onValue='On:on'
-    offValue='Off:off'
-  }}`);
-
-  setTimeout(() => {
-    assert.equal(true, false, 'timed out waiting for suggestion');
-    done();
-  }, 1000);
-});
-
-test('rejecting "suggestion" disables component', function(assert) {
+test('rejecting "suggestion" disables component and sets "invalid-state" class', function(assert) {
   const done = assert.async();
   this.on('onToggle', (hash) => {
     assert.equal(hash.code, 'suggestion', 'onToggle code is a suggestion');
-    assert.equal(hash.oldValue, 'foobar', 'hash value had been in an invalid state');
     assert.equal(hash.newValue, 'off', 'suggested new state is the "off" state');
 
     this.set('completed', true);
-    done();
 
     return false; // reject suggestion
   });
+  this.set('value', 'foobar');
   this.render(hbs`{{x-toggle
-    value='foobar'
+    value=value
     onToggle=(action 'onToggle')
     onValue='On:on'
     offValue='Off:off'
@@ -95,9 +45,47 @@ test('rejecting "suggestion" disables component', function(assert) {
     if(!this.get('completed')) {
       assert.equal(true, false, 'timed out waiting for suggestion');
       done();
+    } else {
+      assert.equal(this.$('input').prop('disabled'), true);
+      assert.equal(this.$('div.x-toggle-btn.invalid-state').length, 1, 'the "invalid-state" set on visual control');
+
+      done();
     }
-  }, 1000);
+  }, 50);
 });
+
+test('initializing with invalid state can be ignored but results in "invalid-state" class still', function(assert) {
+  const done = assert.async();
+  this.on('onToggle', (hash) => {
+    assert.equal(hash.code, 'suggestion', 'onToggle code is a suggestion');
+    assert.equal(hash.newValue, 'off', 'suggested new state is the "off" state');
+
+    this.set('completed', true);
+
+    return null; // ignore the suggestion
+  });
+  this.set('value', 'foobar');
+  this.render(hbs`{{x-toggle
+    value=value
+    onToggle=(action 'onToggle')
+    onValue='On:on'
+    offValue='Off:off'
+  }}`);
+
+  setTimeout(() => {
+    if(!this.get('completed')) {
+      assert.equal(true, false, 'timed out waiting for suggestion');
+      done();
+    } else {
+      assert.equal(this.$('input').prop('disabled'), false);
+      assert.equal(this.$('div.x-toggle-btn.invalid-state').length, 1, 'the "invalid-state" set on visual control');
+
+      done();
+    }
+  }, 50);
+});
+
+
 
 test('clicking component triggers onToggle action', function(assert) {
   const done = assert.async();
@@ -136,17 +124,30 @@ test('clicking component works with default on/off and mut helper', function(ass
   assert.equal(this.get('value'), 'on');
 });
 
-test('clicking component works with bespoke on/off values and mut helper', function(assert) {
-  this.set('value', 'bar');
+test('component toggles when container changes value', function(assert) {
+  this.set('value', 'off');
   this.render(hbs`{{x-toggle
     value=value
-    onValue='Foo:foo'
-    offValue='Bar:bar'
     onToggle=(mut value)
   }}`);
-  assert.equal(this.get('value'), 'bar');
-  this.$('div.x-toggle-btn').click();
+  assert.equal(this.get('value'), 'off');
+  this.set('value', 'on');
+  assert.equal(this.get('value'), 'on');
+});
+
+test('clicking component works with bespoke values and mut helper', function(assert) {
+  this.set('value', 'foo');
+  this.render(hbs`{{x-toggle
+    value=value
+    offLabel='Foo:foo'
+    onLabel='Bar:bar'
+    onToggle=(mut value)
+  }}`);
   assert.equal(this.get('value'), 'foo');
+  assert.equal(this.$('div.x-toggle-btn').data('tg-off'), 'Foo', '"off" property set on toggle');
+  assert.equal(this.$('div.x-toggle-btn').data('tg-on'), 'Bar', '"on" property set on toggle');
+  this.$('div.x-toggle-btn').click();
+  assert.equal(this.get('value'), 'bar', 'click toggles value');
 });
 
 test('clicking component works with default true/false and mut helper', function(assert) {
@@ -154,8 +155,8 @@ test('clicking component works with default true/false and mut helper', function
   this.render(hbs`{{x-toggle
     value=value
     onToggle=(mut value)
-    onValue=true
-    offValue=false
+    onLabel=true
+    offLabel=false
   }}`);
   assert.equal(this.get('value'), false);
   this.$('div.x-toggle-btn').click();
