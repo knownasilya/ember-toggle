@@ -61,7 +61,7 @@ const xToggle = Ember.Component.extend({
 
   _onValue: computed('onLabel', function () {
     const attrs = this.get('onLabel').split(':');
-    return this.preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
+    return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _onLabel: computed('onLabel', function () {
     return this.get('onLabel').split(':')[0];
@@ -69,7 +69,7 @@ const xToggle = Ember.Component.extend({
 
   _offValue: computed('offLabel', function () {
     const attrs = this.get('offLabel').split(':');
-    return this.preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
+    return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _offLabel: computed('offLabel', function () {
     return this.get('offLabel').split(':')[0];
