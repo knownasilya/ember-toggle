@@ -95,3 +95,29 @@ test('rejecting "suggestion" disables component', function(assert) {
     }
   }, 1000);
 });
+
+test('clicking component toggles state (using "on"/"off" states)', function(assert) {
+  this.set('value', 'off');
+  this.render(hbs`{{x-toggle
+    value=value
+    onToggle=(mut value)
+    onValue='On:on'
+    offValue='Off:off'
+  }}`);
+  assert.equal(this.get('value'), 'off');
+  this.$('.x-toggle-component label').click();
+  assert.equal(this.get('value'), 'on');
+});
+
+test('clicking component toggles state (using boolean states)', function(assert) {
+  this.set('value', false);
+  this.render(hbs`{{x-toggle
+    value=value
+    onToggle=(mut value)
+    onValue='On:true'
+    offValue='Off:false'
+  }}`);
+  assert.equal(this.get('value'), false);
+  this.$('.x-toggle-component label').click();
+  assert.equal(this.get('value'), true);
+});
