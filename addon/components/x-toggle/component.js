@@ -1,30 +1,93 @@
 import Ember from 'ember';
+const { computed, typeOf } = Ember;  // jshint ignore:line
+
 import layout from './template';
 
-const { on, run, computed, observer } = Ember;
+const a = Ember.A;
 
-export default Ember.Component.extend({
+const xToggle = Ember.Component.extend({
   layout: layout,
-  tagName: 'span',
-  classNameBindings: ['toggled:x-toggle-container-checked', 'disabled:x-toggle-container-disabled'],
-  classNames: ['x-toggle-container'],
-  disabled: false,
-  value: false,
-  toggled: false,
+  tagName: '',
+
   name: 'default',
-
-  onLabelValue: computed('onLabel', function () {
-    var on = this.get('onLabel');
-    var index = on.indexOf(':');
-
-    return index > -1 ? on.substr(0, index) : on;
+  disabled: false,
+  value: 'off',
+  onLabel: undefined,
+  _on: computed('onLabel', function() {
+    const {onLabel, defaultOnLabel} = this.getProperties('onLabel', 'defaultOnLabel');
+    return typeOf(onLabel) === 'undefined' ? defaultOnLabel : onLabel;
+  }),
+  offLabel: undefined,
+  _off: computed('offLabel', function() {
+    const {offLabel, defaultOffLabel} = this.getProperties('offLabel', 'defaultOffLabel');
+    return typeOf(offLabel) === 'undefined' ? defaultOffLabel : offLabel;
   }),
 
-  offLabelValue: computed('offLabel', function () {
-    var off = this.get('offLabel');
-    var index = off.indexOf(':');
+  init() {
+    this._super(...arguments);
+    // if value is not set to a valid state suggest a default to the container
+    const {toggled, _onValue, _offValue} = this.getProperties('toggled', '_onValue', '_offValue');
 
-    return index > -1 ? off.substr(0, index) : off;
+    if(toggled === undefined) {
+      const response = this.ddau('onToggle', {
+        code: 'suggestion',
+        oldValue: undefined,
+        newValue: _offValue,
+        context: this
+      }, _offValue);
+      // if container rejects suggestion disable control and throw error
+      if(response === false) {
+        this.set('disabled', true);
+        this.ddau('onError', {
+          code: 'invalid-value',
+          value: undefined,
+          validValues: [_onValue, _offValue],
+          context: this
+        }, null);
+      }
+    }
+  },
+
+  toggled: computed('value','onValue','offValue', function() {
+    const {value, _onValue, _offValue} = this.getProperties('value', '_onValue', '_offValue');
+    const validValues = a([_onValue, _offValue]);
+
+    if(validValues.contains(value)) {
+      return value === _onValue;
+    } else {
+      return undefined;
+    }
+  }),
+  invalidState: computed('toggled', function() {
+    return Ember.typeOf(this.get('toggled')) === 'undefined' ? ' invalid-state' : '';
+  }),
+
+  _preferBoolean(value) {
+    if(value === 'true') { return true; }
+    if(value === 'false') { return false; }
+
+    return value;
+  },
+
+  _onValue: computed('_on', function () {
+    const attrs = String(this.get('_on') || '').split('::');
+
+    return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
+  }),
+  _onLabel: computed('_on', function () {
+    const _on = String(this.get('_on')) || '';
+    return _on.split('::')[0];
+  }),
+
+  _offValue: computed('_off', function () {
+    const attrs = String(this.get('_off') || '').split('::');
+
+    return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
+  }),
+  _offLabel: computed('_off', function () {
+    const _off = String(this.get('_off')) || '';
+
+    return _off.split('::')[0];
   }),
 
   themeClass: computed('theme', function () {
@@ -37,57 +100,58 @@ export default Ember.Component.extend({
     return this.get('elementId') + '-x-toggle';
   }),
 
-  wasToggled: on('init', observer('toggled', function () {
-    var toggled = this.get('toggled');
-    var offIndex = this.get('offLabel').indexOf(':');
-    var onIndex = this.get('onLabel').indexOf(':');
-    var offState = offIndex > -1 ? this.get('offLabel').substr(offIndex + 1) : false;
-    var onState = onIndex > -1 ? this.get('onLabel').substr(onIndex + 1) : true;
+  actions: {
+    onClick(e) {
+      const {value, _offValue, _onValue} = this.getProperties('value', '_offValue', '_onValue');
+      e.stopPropagation();
+      e.preventDefault();
+      const currentState = value === _onValue;
+      const oldValue = currentState ? _onValue : _offValue;
+      const newValue = currentState ? _offValue : _onValue;
 
-    this.sendAction('toggle', toggled, this.get('name'));
+      this.ddau('onToggle', {
+        code: 'toggled',
+        oldValue: oldValue,
+        newValue: newValue,
+        context: this
+      }, newValue);
+    },
+    setToValue(state, e) {
+      const {toggled,_offValue, _onValue} = this.getProperties('toggled', '_offValue', '_onValue');
+      e.stopPropagation();
+      e.preventDefault();
 
-    if (toggled === false) {
-      this.set('value', offState);
+      if(toggled !== state) {
+        this.ddau('onToggle', {
+          code: 'set',
+          oldValue: state ? _offValue : _onValue,
+          newValue: !state ? _offValue : _onValue,
+          context: this
+        }, !state ? _offValue : _onValue);
+      }
+    }
+  },
+
+  /**
+   * Provide a DDAU "action" or "mut" response
+   * @param  {string } action The name of the exposed action property
+   * @param  {hash}    hash   A hash of attributes that are passed back to a "action"
+   * @param  {mixed}   value  A value that is passed to the "update" function (aka, mut helper) if available
+   * @return {boolean}        Pass back true if `mut` not used; if used then proxies mut's response back
+   */
+  ddau(action, hash, value) {
+    if (this.attrs[action] && this.attrs[action].update) {
+      this.attrs[action].update(value);
+      return true;
+    } else if (this.attrs[action]) {
+      return this.attrs[action](hash);
     } else {
-      this.set('value', onState);
+      // assume that container is using old-style actions
+      this.sendAction(action, hash);
+      return undefined;
     }
-  })),
-
-  valueObserver: on('init', observer('value', function() {
-    var debounce = this.get('debounce');
-
-    if (!debounce) {
-      debounce = run.debounce(this, function () {
-        var value = this.get('value');
-        var offIndex = this.get('offLabel').indexOf(':');
-        var onIndex = this.get('onLabel').indexOf(':');
-        var offState = offIndex > -1 ? this.get('offLabel').substr(offIndex + 1) : false;
-        var onState = onIndex > -1 ? this.get('onLabel').substr(onIndex + 1) : true;
-
-        if (value === onState) {
-          this.set('toggled', true);
-        } else {
-          this.set('toggled', false);
-          this.set('value', offState);
-        }
-
-        this.set('debounce', null);
-      }, 500);
-
-      this.set('debounce', debounce);
-    }
-  })),
-
-  clearDebounce: on('willDestroyElement', function () {
-    var debounce = this.get('debounce');
-
-    if (debounce) {
-      run.cancel(debounce);
-      this.set('debounce', null);
-    }
-  }),
-
-  click(event) {
-    event.stopPropagation();
   }
 });
+
+xToggle[Ember.NAME_KEY] = 'x-toggle';
+export default xToggle;
