@@ -30,13 +30,13 @@ You can set both labels (what is displayed to the user) and the values associate
 {{x-toggle
   value=myValue
   showLabels=true
-  onValue='Male:male'
-  offValue='Female:female'
+  onValue='Enabled::true'
+  offValue='Disabled::false'
   onToggle=(mut myValue)
 }}
 ````
 
-In the above example we are disquishing between the "label" and what that label's "value" is by using the color delimiter. If `label === value` you can just put in a singular value. Also note that by default labels _are_ passed as part of the `onToggle` action but not displayed in the UI. If you want them to display then you must set `showLabels` to `true`.
+In the above example we are disquishing between the "label" and what that label's "value" is by using the double-colon (`::`) delimiter. If `label === value` you can just put in a singular value. Also note that by default labels _are_ passed as part of the `onToggle` action but not displayed in the UI. If you want them to display then you must set `showLabels` to `true`.
 
 #### Themes
 
