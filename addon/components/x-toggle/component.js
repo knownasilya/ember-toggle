@@ -12,20 +12,24 @@ const xToggle = Ember.Component.extend({
   name: 'default',
   disabled: false,
   value: 'off',
-  onLabel: computed({
+  onLabel: undefined,
+  _on: computed('onLabel', {
     set(_,value) {
-      return value;
+      return this.get('onLabel') || value;
     },
     get() {
-      return this.get('defaultOnLabel');
+      const {onLabel, defaultOnLabel} = this.getProperties('onLabel', 'defaultOnLabel');
+      return onLabel ? onLabel : defaultOnLabel;
     }
   }),
-  offLabel: computed({
+  offLabel: undefined,
+  _off: computed('offLabel', {
     set(_,value) {
-      return value;
+      return this.get('offLabel') || value;
     },
     get() {
-      return this.get('defaultOffLabel');
+      const {offLabel, defaultOffLabel} = this.getProperties('offLabel', 'defaultOffLabel');
+      return offLabel ? offLabel : defaultOffLabel;
     }
   }),
 
@@ -75,22 +79,22 @@ const xToggle = Ember.Component.extend({
     return value;
   },
 
-  _onValue: computed('onLabel', function () {
-    const attrs = String(this.get('onLabel')).split(':');
+  _onValue: computed('_on', function () {
+    const attrs = String(this.get('_on')).split(':');
 
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
-  _onLabel: computed('onLabel', function () {
-    return this.get('onLabel').split(':')[0];
+  _onLabel: computed('_on', function () {
+    return this.get('_on').split(':')[0];
   }),
 
-  _offValue: computed('offLabel', function () {
-    const attrs = String(this.get('offLabel')).split(':');
+  _offValue: computed('_off', function () {
+    const attrs = String(this.get('_off')).split(':');
 
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
-  _offLabel: computed('offLabel', function () {
-    return this.get('offLabel').split(':')[0];
+  _offLabel: computed('_off', function () {
+    return this.get('_off').split(':')[0];
   }),
 
   themeClass: computed('theme', function () {
