@@ -20,9 +20,7 @@
         name=3
         theme='ios'
         value=v3
-        onLabel=true
-        offLabel=false
-        onToggle=(action 'rejected')
+        onToggle=(mut v3)
       }}
     </td>
     <td>ios</td>
@@ -149,12 +147,11 @@
   </tr>
 </table>
 
-
-
 <h2>Bindings</h2>
-<pre>
-\{{x-toggle value=boundValue offLabel="Hey:hey" onLabel="Ho:ho" onToggle=(mut boundValue)}}
-</pre>
+<h4>Mut Helper</h4>
+<p>
+  The <code>mut</code> helper is a simple way to update a property on the container component while maintaining the benefits of DDAU.
+</p>
 <div class="default-style text-labels">
 	<table class="demo-table">
 		<tr>
@@ -173,6 +170,9 @@
 			<td>
 				value: {{input value=boundValue}}
 			</td>
+      <td>
+        <pre><code>\{{x-toggle value=boundValue offLabel="Hey:hey" onLabel="Ho:ho" onToggle=(mut boundValue)}}</code></pre>
+      </td>
 		</tr>
 		<tr>
 			<td>
@@ -192,6 +192,58 @@
 		</tr>
 	</table>
 </div>
+
+<h4>Action Helper</h4>
+<table class='condensed'>
+  <tr>
+    <td style='width: 50%; vertical-align: top'>
+      The <code>action</code> helper returns a hash of values in the structure defined to the right. Also note, if you return the boolean value of <code>false</code> to "suggestion" then the component will disable itself. Suggestions are sent when the value is not a valid value.
+      <p>
+        <b>Note:</b> if you open the developer console you'll see the action push it's payload to the console.
+      </p>
+    </td>
+    <td style='vertical-align: top'>
+      <pre><code>{
+  code: 'toggled',
+  newValue: &lt;value>,
+  oldValue: &lt;value>,
+  context: &lt;object>
+}</code></pre>
+    </td>
+    <td style='vertical-align: top'>
+      <pre><code>{
+  code: 'suggestion',
+  newValue: &lt;value>,
+  oldValue: &lt;value>,
+  context: &lt;object>
+}</code></pre>
+    </td>
+  </tr>
+</table>
+
+<div class="default-style text-labels">
+	<table class="demo-table">
+		<tr>
+			<td>
+				<div class="default-theme">
+					{{x-toggle
+            offLabel='Hey:hey'
+            onLabel='Ho:ho'
+            showLabels=true
+            value=actionBound
+            onToggle=(action 'clicked' 'actionBound')
+          }}
+				</div>
+			</td>
+
+			<td>
+				value: {{input value=actionBound}}
+			</td>
+		</tr>
+	</table>
+</div>
+
+
 
 <h2>Disabled</h2>
 <pre>

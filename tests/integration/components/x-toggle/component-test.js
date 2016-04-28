@@ -1,8 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-// import Ember from 'ember';
-// const { run } = Ember;
-
 
 moduleForComponent('x-toggle', 'Integration | Component | x toggle', {
   integration: true
@@ -37,8 +34,8 @@ test('rejecting "suggestion" disables component and sets "invalid-state" class',
   this.render(hbs`{{x-toggle
     value=value
     onToggle=(action 'onToggle')
-    onValue='On:on'
-    offValue='Off:off'
+    onValue='On::on'
+    offValue='Off::off'
   }}`);
 
   setTimeout(() => {
@@ -68,8 +65,8 @@ test('initializing with invalid state can be ignored but results in "invalid-sta
   this.render(hbs`{{x-toggle
     value=value
     onToggle=(action 'onToggle')
-    onValue='On:on'
-    offValue='Off:off'
+    onValue='On::on'
+    offValue='Off::off'
   }}`);
 
   setTimeout(() => {
@@ -139,8 +136,8 @@ test('clicking component works with bespoke values and mut helper', function(ass
   this.set('value', 'foo');
   this.render(hbs`{{x-toggle
     value=value
-    offLabel='Foo:foo'
-    onLabel='Bar:bar'
+    offLabel='Foo::foo'
+    onLabel='Bar::bar'
     onToggle=(mut value)
   }}`);
   assert.equal(this.get('value'), 'foo');
@@ -150,13 +147,26 @@ test('clicking component works with bespoke values and mut helper', function(ass
   assert.equal(this.get('value'), 'bar', 'click toggles value');
 });
 
-test('clicking component works with default true/false and mut helper', function(assert) {
+test('clicking component works with boolean true/false', function(assert) {
   this.set('value', false);
   this.render(hbs`{{x-toggle
     value=value
     onToggle=(mut value)
     onLabel=true
     offLabel=false
+  }}`);
+  assert.equal(this.get('value'), false);
+  this.$('div.x-toggle-btn').click();
+  assert.equal(this.get('value'), true);
+});
+
+test('clicking component works with boolean true/false and discrete labels', function(assert) {
+  this.set('value', false);
+  this.render(hbs`{{x-toggle
+    value=value
+    onToggle=(mut value)
+    onLabel='Yes::true'
+    offLabel='No::false'
   }}`);
   assert.equal(this.get('value'), false);
   this.$('div.x-toggle-btn').click();

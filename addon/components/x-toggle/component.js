@@ -13,27 +13,14 @@ const xToggle = Ember.Component.extend({
   disabled: false,
   value: 'off',
   onLabel: undefined,
-  _on: computed('onLabel', {
-    set(_, value) {
-      // const {onLabel, defaultOnLabel} = this.getProperties('onLabel', 'defaultOnLabel');
-      // return typeOf(onLabel) === undefined ? defaultOnLabel : onLabel;
-      return value;
-    },
-    get() {
-      const {onLabel, defaultOnLabel} = this.getProperties('onLabel', 'defaultOnLabel');
-      return typeOf(onLabel) === 'undefined' ? defaultOnLabel : onLabel;
-    }
+  _on: computed('onLabel', function() {
+    const {onLabel, defaultOnLabel} = this.getProperties('onLabel', 'defaultOnLabel');
+    return typeOf(onLabel) === 'undefined' ? defaultOnLabel : onLabel;
   }),
   offLabel: undefined,
-  _off: computed('offLabel', {
-    set(_,value) {
-      // return typeOf(value) === undefined ? String(this.get('offLabel')) : value;
-      return value;
-    },
-    get() {
-      const {offLabel, defaultOffLabel} = this.getProperties('offLabel', 'defaultOffLabel');
-      return typeOf(offLabel) === 'undefined' ? defaultOffLabel : offLabel;
-    }
+  _off: computed('offLabel', function() {
+    const {offLabel, defaultOffLabel} = this.getProperties('offLabel', 'defaultOffLabel');
+    return typeOf(offLabel) === 'undefined' ? defaultOffLabel : offLabel;
   }),
 
   init() {
@@ -83,24 +70,24 @@ const xToggle = Ember.Component.extend({
   },
 
   _onValue: computed('_on', function () {
-    const attrs = String(this.get('_on') || '').split(':');
+    const attrs = String(this.get('_on') || '').split('::');
 
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _onLabel: computed('_on', function () {
     const _on = String(this.get('_on')) || '';
-    return _on.split(':')[0];
+    return _on.split('::')[0];
   }),
 
   _offValue: computed('_off', function () {
-    const attrs = String(this.get('_off') || '').split(':');
+    const attrs = String(this.get('_off') || '').split('::');
 
     return this._preferBoolean(attrs.length === 1 ? attrs[0] : attrs[1]);
   }),
   _offLabel: computed('_off', function () {
     const _off = String(this.get('_off')) || '';
 
-    return _off.split(':')[0];
+    return _off.split('::')[0];
   }),
 
   themeClass: computed('theme', function () {

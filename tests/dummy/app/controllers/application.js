@@ -13,7 +13,11 @@ export default Ember.Controller.extend({
       });
 		},
     clicked(target, hash) {
-      console.log(hash);
+      if(hash.code === 'toggled') {
+        console.log('toggled: ', hash);
+      } else {
+        console.log('suggestion: ', hash);
+      }
       this.set(target, hash.newValue);
     },
     rejected() {

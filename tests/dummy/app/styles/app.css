@@ -27,6 +27,16 @@ row {
   display: flex;
 }
 
-td {
+table td {
   padding: 0.25rem 0.5rem;
+}
+
+h4 {
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
+
+table.condensed td {
+  margin: 0;
+  padding: 0;
 }
