@@ -45,7 +45,6 @@
   outline: 0;
   display: flex;
   flex-basis: 4em;
-  min-width: 4em;
   height: 2em;
   position: relative;
   cursor: pointer;

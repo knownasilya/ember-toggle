@@ -1,5 +1,5 @@
 .x-toggle-default.x-toggle-btn {
-  padding: 0.1em;
+  padding: 0.16em 0.1em;
   background-color: #E7E7E7;
   border-radius: 0.2em;
   transition: background-color 0.2s;
@@ -28,6 +28,6 @@
 
 .x-toggle-default.large {
   width: 4.7em;
-  height: 2.6em;
+  height: 2.1em;
   padding: 4px;
 }

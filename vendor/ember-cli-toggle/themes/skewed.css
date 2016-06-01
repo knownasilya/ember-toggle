@@ -86,12 +86,12 @@
 
 .x-toggle-skewed.large {
   width: 4.7em;
-  height: 2.6em;
+  height: 2.1em;
   padding: 4px;
 }
 
 .x-toggle-skewed.large:before,
 .x-toggle-skewed.large:after {
-  line-height: 2em;
+  line-height: 1.7em;
   font-size: 1.1em;
 }
