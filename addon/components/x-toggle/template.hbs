@@ -1,37 +1,36 @@
-<span id="{{elementId}}" class="x-toggle-component">
-  {{#if showLabels}}
-  	<label id='off-label-{{elementId}}' for={{forId}} class="toggle-text toggle-prefix off-label" onclick={{action 'setToValue' false}}>
-  		{{_offLabel}}
-  	</label>
-  {{/if}}
-  <span
-    class="x-toggle-container {{size}}{{if toggled ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}"
+{{#if showLabels}}
+  <label id='off-label-{{elementId}}' for={{forId}} class="toggle-text toggle-prefix off-label" onclick={{action 'setToValue' false}}>
+    {{_offLabel}}
+  </label>
+{{/if}}
+
+<span
+  class="x-toggle-container {{size}}{{if toggled ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}"
+>
+  <input
+    id="input-{{elementId}}"
+    name={{name}}
+    type='checkbox'
+    checked={{toggled}}
+    class='x-toggle'
+    disabled={{disabled}}
   >
-    <input
-      id="input-{{elementId}}"
-      name={{name}}
-      type='checkbox'
-      checked={{toggled}}
-      class='x-toggle'
-      disabled={{disabled}}
-    >
 
-    <div
-      id="visual-{{elementId}}"
-      class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}{{invalidState}}"
-      data-tg-off={{_offLabel}}
-      data-tg-on={{_onLabel}}
-      onclick={{action 'onClick'}}
-      for="input-{{elementId}}"
-      aria-role="checkbox"
-      aria-owns="input-{{elementId}}"
-    >
-    </div>
-  </span>
-
-  {{#if showLabels}}
-  	<label id='on-label-{{elementId}}' for="input-{{elementId}}" class="toggle-text toggle-postfix {{size}} on-label" onclick={{action 'setToValue' true}}>
-  		{{_onLabel}}
-  	</label>
-  {{/if}}
+  <div
+    id="visual-{{elementId}}"
+    class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}{{invalidState}}"
+    data-tg-off={{_offLabel}}
+    data-tg-on={{_onLabel}}
+    onclick={{action 'onClick'}}
+    for="input-{{elementId}}"
+    aria-role="checkbox"
+    aria-owns="input-{{elementId}}"
+  >
+  </div>
 </span>
+
+{{#if showLabels}}
+  <label id='on-label-{{elementId}}' for="input-{{elementId}}" class="toggle-text toggle-postfix {{size}} on-label" onclick={{action 'setToValue' true}}>
+    {{_onLabel}}
+  </label>
+{{/if}}
