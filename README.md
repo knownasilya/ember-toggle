@@ -12,10 +12,6 @@ See the ***0.x*** branch for 0.x code and fixes.
 
 ## Install
 
-`npm install ember-cli-toggle`
-
-### Install as an Ember addon
-
 `ember install ember-cli-toggle`
 
 ## Basic Usage
