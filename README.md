@@ -30,8 +30,8 @@ You can set both labels (what is displayed to the user) and the values associate
 {{x-toggle
   value=myValue
   showLabels=true
-  onValue='Enabled::true'
-  offValue='Disabled::false'
+  onLabel='Enabled::true'
+  offLabel='Disabled::false'
   onToggle=(mut myValue)
 }}
 ````
