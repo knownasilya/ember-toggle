@@ -54,7 +54,7 @@ const xToggle = Ember.Component.extend({
     const { value, _onValue, _offValue } = this.getProperties('value', '_onValue', '_offValue');
     const validValues = a([_onValue, _offValue]);
 
-    if(validValues.contains(value)) {
+    if(validValues.includes(value)) {
       return value === _onValue;
     } else {
       return undefined;
