@@ -25,31 +25,6 @@ const xToggle = Ember.Component.extend({
     return typeOf(offLabel) === 'undefined' ? defaultOffLabel : offLabel;
   }),
 
-  init() {
-    this._super(...arguments);
-    // if value is not set to a valid state suggest a default to the container
-    const { toggled, _onValue, _offValue } = this.getProperties('toggled', '_onValue', '_offValue');
-
-    if (toggled === undefined) {
-      const response = this.ddau('onToggle', {
-        code: 'suggestion',
-        oldValue: undefined,
-        newValue: _offValue,
-        context: this
-      }, _offValue);
-      // if container rejects suggestion disable control and throw error
-      if (response === false) {
-        this.set('disabled', true);
-        this.ddau('onError', {
-          code: 'invalid-value',
-          value: undefined,
-          validValues: [_onValue, _offValue],
-          context: this
-        }, null);
-      }
-    }
-  },
-
   toggled: computed('value', 'onValue', 'offValue', function() {
     const { value, _onValue, _offValue } = this.getProperties('value', '_onValue', '_offValue');
     const validValues = a([_onValue, _offValue]);
