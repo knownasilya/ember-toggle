@@ -15,8 +15,6 @@ module.exports = {
 
     this.app = target;
 
-    target.import('vendor/ember-cli-toggle/base.css');
-
     // Use configuration to decide which theme css files
     // to import, thus not populating the user's app
     this.importThemes(target);
@@ -27,11 +25,14 @@ module.exports = {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-cli-toggle'];
     var themes = [];
+    var excludeBaseStyles = false;
 
     if (config) {
       var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip'];
       var included = config.includedThemes;
       var excluded = config.excludedThemes;
+      
+      excludeBaseStyles = config.excludeBaseStyles || false;
 
       if (included && Array.isArray(included)) {
         themes = themes.concat(included);
@@ -49,6 +50,10 @@ module.exports = {
       themes = themes.filter(function (theme) {
         return theme && allThemes.indexOf(theme) !== -1;
       });
+    }
+    
+    if (!excludeBaseStyles) {
+      app.import('vendor/ember-cli-toggle/base.css');
     }
 
     themes = themes.length ? themes : ['default'];
