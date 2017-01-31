@@ -49,7 +49,7 @@ test('clicking component triggers onToggle action', function(assert) {
 
 if (emberVersionGTE(2,0)) {
   test('clicking component works with default on/off and mut helper', function(assert) {
-    this.set('value', 'Off');
+    this.set('value', 'off');
     this.render(hbs`{{x-toggle
       value=value
       onToggle=(mut value)
