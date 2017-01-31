@@ -63,10 +63,9 @@ include the label within the control (e.g., `skew` and `flip`).
 
 #### Binding / DDAU ####
 
-The DDAU (_data down, actions up_) design pattern should be familiar to you (if not please google it and see what the fuss is about). This component plays along and publishes two actions:
+The DDAU (_data down, actions up_) design pattern should be familiar to you (if not please google it and see what the fuss is about). This component plays along and publishes one action:
 
 - **onToggle** - whenever a click event causes the control to want to toggle this event is fired and the container is then responsible for toggling the value to the _other_ valid state.
-- **onError** - if the container sets the `value` to an invalid state (aka, neither the "on" or "off" values), the component will fire a `onToggle` suggestion to move back to the "off" state but if that is denied then the component is put into a "disabled" state and this event fires.
 
 So a basic usage would be as follows:
 
@@ -77,7 +76,7 @@ So a basic usage would be as follows:
 }}
 ````
 
-This accepts the default on/off values of true/false and even if `myValue` starts out as "undefined" the `mut` helper will initialize the control to the "false" state. After that click on the control triggers the `onToggle` action which calls the `mut` helper's `update()` function and updates the containers `myValue`.
+This accepts the default on/off values of true/false. After that click on the control triggers the `onToggle` action which calls the `mut` helper's `update()` function and updates the containers `myValue`.
 
 When we use the `action` helper instead of `mut`, the data we get back is more robust than just the new value that the toggle would like to change to. The data is packaged in a single hash that looks like this for the onToggle action:
 
