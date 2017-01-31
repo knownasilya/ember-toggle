@@ -112,11 +112,12 @@ you will use.
 ENV['ember-cli-toggle'] = {
   includedThemes: ['light', 'default', 'flip'],
   excludedThemes: ['flip'],
-  defaultShowLabels: true, // defaults to false
-  defaultTheme: 'light',   // defaults to 'default'
-  defaultSize: 'small',    // defaults to 'medium'
-  defaultOffLabel: 'False',     // defaults to 'Off'
-  defaultOnLabel: 'True'        // defaults to 'On'
+  excludeBaseStyles: false, // defaults to false
+  defaultShowLabels: true,  // defaults to false
+  defaultTheme: 'light',    // defaults to 'default'
+  defaultSize: 'small',     // defaults to 'medium'
+  defaultOffLabel: 'False', // defaults to 'Off'
+  defaultOnLabel: 'True'    // defaults to 'On'
 };
 ```
 > note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
@@ -127,6 +128,8 @@ your application, thus not polluting your app.
 > **Note:** including a blank array e.g. `includeThemes: []` will not include any themes, leaving
 you to define your own theme styles. See the `vendor/ember-cli-toggle/themes` directory
 for reference.
+> **Note:** you may also want to set `excludeBaseStyles: true` so that this addon doesn't include the styles
+used by all the themes.
 
 ## Contributing
 
