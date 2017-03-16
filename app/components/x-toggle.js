@@ -1,7 +1,8 @@
-import XToggle from 'ember-cli-toggle/components/x-toggle/component';
+
+import XToggle from 'ember-toggle/components/x-toggle/component';
 import ENV from '../config/environment';
 
-const config = ENV['ember-cli-toggle'] || {};
+const config = ENV['ember-toggle'] || {};
 
 export default XToggle.extend({
   theme: config.defaultTheme || 'default',

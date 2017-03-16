@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    rootURL: '/ember-cli-toggle/',
+    rootURL: '/ember-toggle/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'ember-cli-toggle': {
+    'ember-toggle': {
       //includedThemes: ['light', 'ios', 'flip'],
       //excludedThemes: ['flip'],
       //defaultTheme: 'light',

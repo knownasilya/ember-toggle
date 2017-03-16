@@ -1,4 +1,4 @@
-# ember-cli-toggle
+# ember-toggle
 
 Checkbox based Toggle Switch component for Ember.
 Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.  
@@ -12,7 +12,7 @@ See the ***0.x*** branch for 0.x code and fixes.
 
 ## Install
 
-`ember install ember-cli-toggle`
+`ember install ember-toggle`
 
 ## Basic Usage
 
@@ -49,7 +49,7 @@ There are many `themes` which change the visual appearance of the switch. Check 
   - flip
   - skewed
 
-![ ](vendor/ember-cli-toggle/example-images/show-labels.png)
+![ ](vendor/ember-toggle/example-images/show-labels.png)
 > example of "default" theme
 
 
@@ -105,11 +105,11 @@ When we use the `action` helper instead of `mut`, the data we get back is more r
 
 ### Configuring
 
-Add a configuration for `ember-cli-toggle` to include only the themes that
+Add a configuration for `ember-toggle` to include only the themes that
 you will use.
 
 ```js
-ENV['ember-cli-toggle'] = {
+ENV['ember-toggle'] = {
   includedThemes: ['light', 'default', 'flip'],
   excludedThemes: ['flip'],
   excludeBaseStyles: false, // defaults to false
@@ -126,7 +126,7 @@ To exclude or not include a theme, means that it's css styles will not be bundle
 your application, thus not polluting your app.
 
 > **Note:** including a blank array e.g. `includeThemes: []` will not include any themes, leaving
-you to define your own theme styles. See the `vendor/ember-cli-toggle/themes` directory
+you to define your own theme styles. See the `vendor/ember-toggle/themes` directory
 for reference.
 > **Note:** you may also want to set `excludeBaseStyles: true` so that this addon doesn't include the styles
 used by all the themes.
@@ -135,11 +135,11 @@ used by all the themes.
 
 See [CONTRIBUTING.md] for details.
 
-[npm-badge]: https://nodei.co/npm/ember-cli-toggle.png?downloads=true&stars=true
-[npm-badge-url]: https://nodei.co/npm/ember-cli-toggle/
-[travis-badge]: https://travis-ci.org/knownasilya/ember-cli-toggle.svg
-[travis-badge-url]: https://travis-ci.org/knownasilya/ember-cli-toggle
-[ember-observer-badge]: http://emberobserver.com/badges/ember-cli-toggle.svg
-[ember-observer-url]: http://emberobserver.com/addons/ember-cli-toggle
-[demo]: http://knownasilya.github.io/ember-cli-toggle/
+[npm-badge]: https://nodei.co/npm/ember-toggle.png?downloads=true&stars=true
+[npm-badge-url]: https://nodei.co/npm/ember-toggle/
+[travis-badge]: https://travis-ci.org/knownasilya/ember-toggle.svg
+[travis-badge-url]: https://travis-ci.org/knownasilya/ember-toggle
+[ember-observer-badge]: http://emberobserver.com/badges/ember-toggle.svg
+[ember-observer-url]: http://emberobserver.com/addons/ember-toggle
+[demo]: http://knownasilya.github.io/ember-toggle/
 [CONTRIBUTING.md]: CONTRIBUTING.md

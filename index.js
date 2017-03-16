@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-toggle',
+  name: 'ember-toggle',
 
   included: function(app, parentAddon) {
     var target = (parentAddon || app);
@@ -23,7 +23,7 @@ module.exports = {
 
   importThemes: function(app) {
     var projectConfig = this.project.config(app.env);
-    var config = projectConfig['ember-cli-toggle'];
+    var config = projectConfig['ember-toggle'];
     var themes = [];
     var excludeBaseStyles = false;
 
@@ -53,13 +53,13 @@ module.exports = {
     }
     
     if (!excludeBaseStyles) {
-      app.import('vendor/ember-cli-toggle/base.css');
+      app.import('vendor/ember-toggle/base.css');
     }
 
     themes = themes.length ? themes : ['default'];
 
     themes.forEach(function (theme) {
-      app.import('vendor/ember-cli-toggle/themes/' + theme + '.css');
+      app.import('vendor/ember-toggle/themes/' + theme + '.css');
     });
   }
 };
