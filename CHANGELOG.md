@@ -1,0 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/knownasilya/ember-toggle/compare/v3.0.0...v4.0.0) (2017-03-16)
+
+
+### Features
+
+* Rename Addon ([0bdcc89](https://github.com/knownasilya/ember-toggle/commit/0bdcc89))
+
+
+### BREAKING CHANGES
+
+* Addon is now named `ember-toggle`, make sure to update your `config/environment.js` accordingly.
+
+_This is due to the fact that the `ember-cli-*` naming convention for Ember Addons is
+meant mainly for extending the CLI in some way, which this addon doesn't do. Also it's shorter and easier to remember._

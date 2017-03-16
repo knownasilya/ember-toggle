@@ -1,4 +1,5 @@
 {
   "name": "ember-toggle",
-  "dependencies": {}
+  "dependencies": {},
+  "version": "4.0.0"
 }
