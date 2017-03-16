@@ -9,7 +9,8 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "release": "standard-version"
   },
   "repository": "https://github.com/knownasilya/ember-toggle",
   "engines": {
