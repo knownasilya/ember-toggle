@@ -1,14 +1,12 @@
 # ember-toggle
 
 Checkbox based Toggle Switch component for Ember.
-Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.  
+Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
 Here's the official [demo] using this component.
 
-[![NPM][npm-badge]][npm-badge-url]  
+[![NPM][npm-badge]][npm-badge-url]
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
-
-See the ***0.x*** branch for 0.x code and fixes.
 
 ## Install
 
@@ -16,52 +14,43 @@ See the ***0.x*** branch for 0.x code and fixes.
 
 ## Basic Usage
 
-````hbs
+```hbs
 {{x-toggle value=myValue onToggle=(mut myValue)}}
-````
+```
 
 > by default the allowed values are boolean `true` and `false`
 
-#### Labels
 
-You can set both labels (what is displayed to the user) and the values associated with this label:
-
-````hbs
-{{x-toggle
-  value=myValue
-  showLabels=true
-  onLabel='Enabled::true'
-  offLabel='Disabled::false'
-  onToggle=(mut myValue)
-}}
-````
-
-In the above example we are disquishing between the "label" and what that label's "value" is by using the double-colon (`::`) delimiter. If `label === value` you can just put in a singular value. Also note that by default labels _are_ passed as part of the `onToggle` action but not displayed in the UI. If you want them to display then you must set `showLabels` to `true`.
-
-#### Themes
+### Themes
 
 There are many `themes` which change the visual appearance of the switch. Check the demo for examples, valid values include:
 
-  - default
-  - ios
-  - light
-  - flat
-  - flip
-  - skewed
+  - `'default'`
+  - `'ios'`
+  - `'light'`
+  - `'flat'`
+  - `'flip'`
+  - `'skewed'`
 
 ![ ](vendor/ember-toggle/example-images/show-labels.png)
 > example of "default" theme
 
+_Note: By default only the `default` theme is included, see the Configuration section to import other themes._
+
 
 #### Size
 
-You can also adjust the size of the widget by use of the `size` property. Valid sizes are small, medium, and large.
+You can also adjust the size of the widget by use of the `size` property. Valid sizes are:
+
+  - `'small'`
+  - `'medium'
+  - `'large'`
 
 
 This option is available on all themes but is a less sensible choice for those themes which actually
 include the label within the control (e.g., `skew` and `flip`).
 
-#### Binding / DDAU ####
+### Binding / DDAU
 
 The DDAU (_data down, actions up_) design pattern should be familiar to you (if not please google it and see what the fuss is about). This component plays along and publishes one action:
 
@@ -69,25 +58,41 @@ The DDAU (_data down, actions up_) design pattern should be familiar to you (if 
 
 So a basic usage would be as follows:
 
-````hbs
+```hbs
 {{x-toggle
   value=myValue
   onToggle=(mut myValue)
 }}
-````
+```
 
 This accepts the default on/off values of true/false. After that click on the control triggers the `onToggle` action which calls the `mut` helper's `update()` function and updates the containers `myValue`.
 
 When we use the `action` helper instead of `mut`, the data we get back is more robust than just the new value that the toggle would like to change to. The data is packaged in a single hash that looks like this for the onToggle action:
 
-````js
+```js
 {
   code: <short-descriptive-string>,
   oldValue: <mixed>,
   newValue: <mixed>, // suggested value
   context: <object> // reference back to the toggle object giving access to all properties such as "name", etc.
 }
-````
+```
+
+### Labels
+
+You can set both labels (what is displayed to the user) and the values associated with this label:
+
+```hbs
+{{x-toggle
+  value=myValue
+  showLabels=true
+  onLabel='Enabled::true'
+  offLabel='Disabled::false'
+  onToggle=(mut myValue)
+}}
+```
+
+In the above example we are disquishing between the "label" and what that label's "value" is by using the double-colon (`::`) delimiter. If `label === value` you can just put in a singular value. Also note that by default labels _are_ passed as part of the `onToggle` action but not displayed in the UI. If you want them to display then you must set `showLabels` to `true`.
 
 
 ### Available Options
