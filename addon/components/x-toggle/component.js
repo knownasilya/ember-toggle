@@ -1,9 +1,7 @@
 import Ember from 'ember';
-const { computed, typeOf } = Ember;  // jshint ignore:line
-
 import layout from './template';
 
-const a = Ember.A;
+const { A, computed, typeOf } = Ember;  // jshint ignore:line
 
 const xToggle = Ember.Component.extend({
   layout: layout,
@@ -16,20 +14,20 @@ const xToggle = Ember.Component.extend({
   offLabel: undefined,
 
   _on: computed('onLabel', function() {
-    const {onLabel, defaultOnLabel} = this.getProperties('onLabel', 'defaultOnLabel');
+    const { onLabel, defaultOnLabel } = this.getProperties('onLabel', 'defaultOnLabel');
     return typeOf(onLabel) === 'undefined' ? defaultOnLabel : onLabel;
   }),
 
   _off: computed('offLabel', function() {
-    const {offLabel, defaultOffLabel} = this.getProperties('offLabel', 'defaultOffLabel');
+    const { offLabel, defaultOffLabel } = this.getProperties('offLabel', 'defaultOffLabel');
     return typeOf(offLabel) === 'undefined' ? defaultOffLabel : offLabel;
   }),
 
   toggled: computed('value', 'onValue', 'offValue', function() {
     const { value, _onValue, _offValue } = this.getProperties('value', '_onValue', '_offValue');
-    const validValues = a([_onValue, _offValue]);
+    const validValues = A([_onValue, _offValue]);
 
-    if(validValues.includes(value)) {
+    if (validValues.includes(value)) {
       return value === _onValue;
     } else {
       return undefined;
@@ -41,8 +39,13 @@ const xToggle = Ember.Component.extend({
   }),
 
   _preferBoolean(value) {
-    if(value === 'true') { return true; }
-    if(value === 'false') { return false; }
+    if (value === 'true') {
+      return true;
+    }
+
+    if (value === 'false') {
+      return false;
+    }
 
     return value;
   },
@@ -82,12 +85,13 @@ const xToggle = Ember.Component.extend({
 
   actions: {
     onClick(e) {
-      const {value, _offValue, _onValue} = this.getProperties('value', '_offValue', '_onValue');
-      e.stopPropagation();
-      e.preventDefault();
+      const { value, _offValue, _onValue } = this.getProperties('value', '_offValue', '_onValue');
       const currentState = value === _onValue;
       const oldValue = currentState ? _onValue : _offValue;
       const newValue = currentState ? _offValue : _onValue;
+
+      e.stopPropagation();
+      e.preventDefault();
 
       this.ddau('onToggle', {
         code: 'toggled',
@@ -98,11 +102,12 @@ const xToggle = Ember.Component.extend({
     },
 
     setToValue(state, e) {
-      const {toggled,_offValue, _onValue} = this.getProperties('toggled', '_offValue', '_onValue');
+      const { toggled, _offValue, _onValue } = this.getProperties('toggled', '_offValue', '_onValue');
+
       e.stopPropagation();
       e.preventDefault();
 
-      if(toggled !== state) {
+      if (toggled !== state) {
         this.ddau('onToggle', {
           code: 'set',
           oldValue: state ? _offValue : _onValue,
@@ -121,6 +126,10 @@ const xToggle = Ember.Component.extend({
    * @return {boolean}        Pass back true if `mut` not used; if used then proxies mut's response back
    */
   ddau(action, hash, value) {
+    if (this.get('disabled')) {
+      return;
+    }
+
     if (this.attrs[action] && this.attrs[action].update) {
       this.attrs[action].update(value);
       return true;
@@ -135,4 +144,5 @@ const xToggle = Ember.Component.extend({
 });
 
 xToggle[Ember.NAME_KEY] = 'x-toggle';
+
 export default xToggle;
