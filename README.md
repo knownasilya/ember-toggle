@@ -43,7 +43,7 @@ _Note: By default only the `default` theme is included, see the Configuration se
 You can also adjust the size of the widget by use of the `size` property. Valid sizes are:
 
   - `'small'`
-  - `'medium'
+  - `'medium'`
   - `'large'`
 
 
