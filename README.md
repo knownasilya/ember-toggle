@@ -25,7 +25,8 @@ Here's the official [demo] using this component.
 
 ![ ](vendor/ember-toggle/example-images/themes.png)
 
-There are many `themes` which change the visual appearance of the switch. Check the demo for examples, valid values include:
+There are many `themes` which change the visual appearance of the toggle.
+Check the [demo] for interactive examples.
 
   - `'default'`
   - `'ios'`
@@ -43,7 +44,7 @@ There are many `themes` which change the visual appearance of the switch. Check 
 _Note: By default only the `default` theme is included, see the Configuration section to import other themes._
 
 
-#### Size
+### Size
 
 You can also adjust the size of the widget by use of the `size` property. Valid sizes are:
 
@@ -145,9 +146,9 @@ used by all the themes.
 
 See [CONTRIBUTING.md] for details.
 
-[npm-badge]: https://nodei.co/npm/ember-toggle.png?downloads=true&stars=true
-[npm-badge-url]: https://nodei.co/npm/ember-toggle/
-[travis-badge]: https://travis-ci.org/knownasilya/ember-toggle.svg
+[npm-badge]: https://img.shields.io/npm/v/ember-toggle.svg
+[npm-badge-url]: https://www.npmjs.com/package/ember-toggle
+[travis-badge]: https://img.shields.io/travis/knownasilya/ember-toggle.svg
 [travis-badge-url]: https://travis-ci.org/knownasilya/ember-toggle
 [ember-observer-badge]: http://emberobserver.com/badges/ember-toggle.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-toggle
