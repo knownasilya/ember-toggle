@@ -18,10 +18,12 @@ Here's the official [demo] using this component.
 {{x-toggle value=myValue onToggle=(mut myValue)}}
 ```
 
-> by default the allowed values are boolean `true` and `false`
+> By default the allowed values are boolean `true` and `false`
 
 
 ### Themes
+
+![ ](vendor/ember-toggle/example-images/themes.png)
 
 There are many `themes` which change the visual appearance of the switch. Check the demo for examples, valid values include:
 
@@ -32,8 +34,11 @@ There are many `themes` which change the visual appearance of the switch. Check 
   - `'flip'`
   - `'skewed'`
 
-![ ](vendor/ember-toggle/example-images/show-labels.png)
-> example of "default" theme
+> Example of changing the theme
+
+```hbs
+{{x-toggle value=toggled theme='ios' onToggle=(mut toggled)}}
+```
 
 _Note: By default only the `default` theme is included, see the Configuration section to import other themes._
 
