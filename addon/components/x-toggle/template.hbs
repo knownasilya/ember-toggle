@@ -7,14 +7,13 @@
 <span
   class="x-toggle-container {{size}}{{if toggled ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}"
 >
-  <input
-    id="input-{{elementId}}"
-    name={{name}}
+  {{input
+    id=(concat 'input-' elementId)
+    name=name
     type='checkbox'
-    checked={{toggled}}
+    checked=toggled
     class='x-toggle'
-    disabled={{disabled}}
-  >
+    disabled=disabled}}
 
   <div
     id="visual-{{elementId}}"
