@@ -15,11 +15,8 @@ Here's the official [demo] using this component.
 ## Basic Usage
 
 ```hbs
-{{x-toggle value=myValue onToggle=(mut myValue)}}
+{{x-toggle value=myValue onToggle=(action (mut myValue))}}
 ```
-
-> By default the allowed values are boolean `true` and `false`
-
 
 ### Themes
 
@@ -38,7 +35,7 @@ Check the [demo] for interactive examples.
 > Example of changing the theme
 
 ```hbs
-{{x-toggle value=toggled theme='ios' onToggle=(mut toggled)}}
+{{x-toggle value=toggled theme='ios' onToggle=(action (mut toggled))}}
 ```
 
 _Note: By default only the `default` theme is included, see the Configuration section to import other themes._
@@ -56,34 +53,6 @@ You can also adjust the size of the widget by use of the `size` property. Valid 
 This option is available on all themes but is a less sensible choice for those themes which actually
 include the label within the control (e.g., `skew` and `flip`).
 
-### Binding / DDAU
-
-The DDAU (_data down, actions up_) design pattern should be familiar to you (if not please google it and see what the fuss is about). This component plays along and publishes one action:
-
-- **onToggle** - whenever a click event causes the control to want to toggle this event is fired and the container is then responsible for toggling the value to the _other_ valid state.
-
-So a basic usage would be as follows:
-
-```hbs
-{{x-toggle
-  value=myValue
-  onToggle=(mut myValue)
-}}
-```
-
-This accepts the default on/off values of true/false. After that click on the control triggers the `onToggle` action which calls the `mut` helper's `update()` function and updates the containers `myValue`.
-
-When we use the `action` helper instead of `mut`, the data we get back is more robust than just the new value that the toggle would like to change to. The data is packaged in a single hash that looks like this for the onToggle action:
-
-```js
-{
-  code: <short-descriptive-string>,
-  oldValue: <mixed>,
-  newValue: <mixed>, // suggested value
-  context: <object> // reference back to the toggle object giving access to all properties such as "name", etc.
-}
-```
-
 ### Labels
 
 You can set both labels (what is displayed to the user) and the values associated with this label:
@@ -92,13 +61,13 @@ You can set both labels (what is displayed to the user) and the values associate
 {{x-toggle
   value=myValue
   showLabels=true
-  onLabel='Enabled::true'
-  offLabel='Disabled::false'
-  onToggle=(mut myValue)
+  onLabel='Enabled'
+  offLabel='Disabled'
+  onToggle=(action (mut myValue))
 }}
 ```
 
-In the above example we are disquishing between the "label" and what that label's "value" is by using the double-colon (`::`) delimiter. If `label === value` you can just put in a singular value. Also note that by default labels _are_ passed as part of the `onToggle` action but not displayed in the UI. If you want them to display then you must set `showLabels` to `true`.
+If you want your labels to be display, then you must set `showLabels` to `true`.
 
 
 ### Available Options
