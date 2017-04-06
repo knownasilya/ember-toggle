@@ -1,6 +1,10 @@
 {{#if show}}
   <label id='{{type}}-label-{{switchId}}' for={{switchId}} class="toggle-text toggle-prefix {{type}}-label"
     onclick={{action onClick value}}>
-    {{label}}
+    {{#if hasBlock}}
+      {{yield label}}
+    {{else}}
+      {{label}}
+    {{/if}}
   </label>
 {{/if}}
