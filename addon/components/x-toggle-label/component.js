@@ -23,5 +23,8 @@ export default Component.extend({
     get() {
       return this.get('value') ? 'on' : 'off';
     }
-  })
+  }),
+  click() {
+    this.clickAction();
+  }
 });

@@ -20,25 +20,12 @@ export default Component.extend({
   }),
 
   actions: {
-    onClick(e) {
-      let value = this.get('value');
+    sendToggle(value) {
+      let onToggle = this.get('onToggle');
 
-      e.stopPropagation();
-      e.preventDefault();
-
-      this.sendToggle(!value);
-    },
-
-    setToValue(value) {
-      this.sendToggle(value);
-    }
-  },
-
-  sendToggle(value) {
-    let onToggle = this.get('onToggle');
-
-    if (typeof onToggle === 'function') {
-      onToggle(value);
+      if (typeof onToggle === 'function') {
+        onToggle(value);
+      }
     }
   }
 });
