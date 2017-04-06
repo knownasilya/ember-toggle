@@ -6,7 +6,19 @@ moduleForComponent('x-toggle-label', 'Integration | Component | x toggle label',
 });
 
 test('it renders', function(assert) {
-  this.render(hbs`{{x-toggle-label label='test' value=true switchId='test' show=true}}`);
+  this.set('onClick', () => {});
+  this.render(hbs`{{x-toggle-label onClick=onClick label='test' value=true switchId='test' show=true}}`);
 
   assert.equal(this.$().text().trim(), 'test');
+});
+
+test('it renders in block form', function(assert) {
+  this.set('onClick', () => {});
+  this.render(hbs`
+    {{#x-toggle-label onClick=onClick label='test' value=true switchId='test' show=true as |value|}}
+      hi {{value}}
+    {{/x-toggle-label}}
+  `);
+
+  assert.equal(this.$().text().trim(), 'hi test');
 });
