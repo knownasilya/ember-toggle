@@ -1,0 +1,19 @@
+<span class="x-toggle-container {{size}}{{if value ' x-toggle-container-checked'}}{{if disabled ' x-toggle-container-disabled'}}">
+  <input id="{{forId}}"
+    name={{name}}
+    type='checkbox'
+    checked={{toggled}}
+    changed={{action onChangeValue value='target.checked'}}
+    class='x-toggle'
+    disabled={{disabled}}>
+
+  <div id="x-toggle-visual-{{forId}}"
+    class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}"
+    onclick={{action onClick}}
+    data-tg-on={{onLabel}}
+    data-tg-off={{offLabel}}
+    for={{forId}}
+    aria-role="checkbox"
+    aria-owns={{forId}}>
+  </div>
+</span>
