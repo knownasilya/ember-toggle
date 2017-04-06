@@ -1,6 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import emberVersionGTE from 'ember-test-helpers/has-ember-version';
+import $ from 'jquery';
 
 moduleForComponent('x-toggle', 'Integration | Component | x toggle', {
   integration: true
