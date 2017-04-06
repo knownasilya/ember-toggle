@@ -8,6 +8,8 @@ const ToggleComponent = Ember.Component.extend({
   classNames: ['x-toggle-component'],
 
   name: 'default',
+  onLabel: 'On',
+  offLabel: 'Off',
   disabled: false,
   value: false,
 
