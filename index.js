@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
       var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip'];
       var included = config.includedThemes;
       var excluded = config.excludedThemes;
-      
+
       excludeBaseStyles = config.excludeBaseStyles || false;
 
       if (included && Array.isArray(included)) {
@@ -51,7 +51,7 @@ module.exports = {
         return theme && allThemes.indexOf(theme) !== -1;
       });
     }
-    
+
     if (!excludeBaseStyles) {
       app.import('vendor/ember-toggle/base.css');
     }

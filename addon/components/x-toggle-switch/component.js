@@ -1,15 +1,14 @@
-import Ember from 'ember';
+import Component from 'ember-component';
+import computed from 'ember-computed';
 import layout from './template';
 
-const { computed } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
-  tagName: '',
+  tagName: 'span',
+  classNames: ['x-toggle-container'],
+  classNameBindings: ['size', 'disabled:x-toggle-container-disabled', 'value:x-toggle-container-checked'],
 
-  themeClass: computed('theme', function () {
-    var theme = this.get('theme') || 'default';
-
-    return 'x-toggle-' + theme;
-  }),
+  themeClass: computed('theme', function() {
+    return `x-toggle-${this.get('theme') || 'default'}`;
+  })
 });
