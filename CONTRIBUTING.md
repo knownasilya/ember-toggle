@@ -34,3 +34,16 @@ ember github-pages:commit --message <message describing demo release>
 ```
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+## Commit Messages
+
+We're using `standard-version` for changelog generation and releases. Have a look at the conventions [here].
+
+The following additional prefixes, are used as well.
+
+- `docs`
+- `chore`
+- `tests`
+- `demo` (regarding the dummy app, since it's made public)
+
+[here]: https://www.npmjs.com/package/standard-version#commit-message-convention-at-a-glance
