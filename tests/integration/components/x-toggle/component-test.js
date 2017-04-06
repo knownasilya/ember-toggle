@@ -129,4 +129,23 @@ if (emberVersionGTE(2,0)) {
     this.set('value', false);
     assert.equal(this.$('.x-toggle-container').hasClass('x-toggle-container-checked'), false);
   });
+
+  test('can render in block form', function(assert) {
+    this.set('value', false);
+    this.set('show', false);
+
+    this.render(hbs`
+      {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+        {{toggle.offLabel}}
+        {{toggle.onLabel}}
+        {{toggle.switch}}
+      {{/x-toggle}}
+    `);
+
+    this.set('value', true);
+    assert.equal(this.$('.x-toggle-container').hasClass('x-toggle-container-checked'), true);
+
+    this.set('value', false);
+    assert.equal(this.$('.x-toggle-container').hasClass('x-toggle-container-checked'), false);
+  });
 }

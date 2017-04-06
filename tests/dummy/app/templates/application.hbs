@@ -8,10 +8,10 @@
       name=1
       theme='default'
       value=v1
-      onToggle=(mut v1)
+      onToggle=(action (mut v1))
     }}</td>
     <td>default</td>
-    <td>{{x-toggle name=2 theme='light' value=v2 onToggle=(action 'clicked' 'v2') }}</td>
+    <td>{{x-toggle name=2 theme='light' value=v2 onToggle=(action (mut v2))}}</td>
     <td>light</td>
   </tr>
   <tr>
@@ -20,17 +20,17 @@
         name=3
         theme='ios'
         value=v3
-        onToggle=(mut v3)
+        onToggle=(action (mut v3))
       }}
     </td>
     <td>ios</td>
-    <td>{{x-toggle name=4 theme='flat' value=v4 onToggle=(mut v4)}}</td>
+    <td>{{x-toggle name=4 theme='flat' value=v4 onToggle=(action (mut v4))}}</td>
     <td>flat</td>
   </tr>
   <tr>
-    <td>{{x-toggle name=5 theme='flip' offLabel='Nope' onLabel='Yep' value=v5 onToggle=(mut v5)}}</td>
+    <td>{{x-toggle name=5 theme='flip' offLabel='Nope' onLabel='Yep' value=v5 onToggle=(action (mut v5))}}</td>
     <td>flip</td>
-    <td>{{x-toggle name=6 theme='skewed' value=v6 onToggle=(mut v6)}}</td>
+    <td>{{x-toggle name=6 theme='skewed' value=v6 onToggle=(action (mut v6))}}</td>
     <td>skewed</td>
   </tr>
 </table>
@@ -45,181 +45,94 @@
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' value=v7 onToggle=(mut v7)}}
+      {{x-toggle size='small' value=v7 onToggle=(action (mut v7))}}
     </td>
     <td>
-      {{x-toggle size='medium' value=v7 onToggle=(mut v7)}}
+      {{x-toggle size='medium' value=v7 onToggle=(action (mut v7))}}
     </td>
     <td>
-      {{x-toggle size='large' value=v7 onToggle=(mut v7)}}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      {{x-toggle size='small' theme='light' value=v10 onToggle=(mut v10)}}
-    </td>
-    <td>
-      {{x-toggle size='medium' theme='light' value=v10 onToggle=(mut v10)}}
-    </td>
-    <td>
-      {{x-toggle size='large' theme='light' value=v10 onToggle=(mut v10)}}
+      {{x-toggle size='large' value=v7 onToggle=(action (mut v7))}}
     </td>
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' theme='ios' value=v13 onToggle=(mut v13)}}
+      {{x-toggle size='small' theme='light' value=v10 onToggle=(action (mut v10))}}
     </td>
     <td>
-      {{x-toggle size='medium' theme='ios' value=v13 onToggle=(mut v13)}}
+      {{x-toggle size='medium' theme='light' value=v10 onToggle=(action (mut v10))}}
     </td>
     <td>
-      {{x-toggle size='large' theme='ios' value=v13 onToggle=(mut v13)}}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      {{x-toggle size='small' theme='flat' value=v16 onToggle=(mut v16)}}
-    </td>
-    <td>
-      {{x-toggle size='medium' theme='flat' value=v16 onToggle=(mut v16)}}
-    </td>
-    <td>
-      {{x-toggle size='large' theme='flat' value=v16 onToggle=(mut v16)}}
+      {{x-toggle size='large' theme='light' value=v10 onToggle=(action (mut v10))}}
     </td>
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' theme='flip' value=v19 onToggle=(mut v19)}}
+      {{x-toggle size='small' theme='ios' value=v13 onToggle=(action (mut v13))}}
     </td>
     <td>
-      {{x-toggle size='medium' theme='flip' value=v19 onToggle=(mut v19)}}
+      {{x-toggle size='medium' theme='ios' value=v13 onToggle=(action (mut v13))}}
     </td>
     <td>
-      {{x-toggle size='large' theme='flip' value=v19 onToggle=(mut v19)}}
+      {{x-toggle size='large' theme='ios' value=v13 onToggle=(action (mut v13))}}
     </td>
   </tr>
   <tr>
     <td>
-      {{x-toggle size='small' theme='skewed' value=v20 onToggle=(mut v20)}}
+      {{x-toggle size='small' theme='flat' value=v16 onToggle=(action (mut v16))}}
     </td>
     <td>
-      {{x-toggle size='medium' theme='skewed' value=v20 onToggle=(mut v20)}}
+      {{x-toggle size='medium' theme='flat' value=v16 onToggle=(action (mut v16))}}
     </td>
     <td>
-      {{x-toggle size='large' theme='skewed' value=v20 onToggle=(mut v20)}}
+      {{x-toggle size='large' theme='flat' value=v16 onToggle=(action (mut v16))}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {{x-toggle size='small' theme='flip' value=v19 onToggle=(action (mut v19))}}
+    </td>
+    <td>
+      {{x-toggle size='medium' theme='flip' value=v19 onToggle=(action (mut v19))}}
+    </td>
+    <td>
+      {{x-toggle size='large' theme='flip' value=v19 onToggle=(action (mut v19))}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {{x-toggle size='small' theme='skewed' value=v20 onToggle=(action (mut v20))}}
+    </td>
+    <td>
+      {{x-toggle size='medium' theme='skewed' value=v20 onToggle=(action (mut v20))}}
+    </td>
+    <td>
+      {{x-toggle size='large' theme='skewed' value=v20 onToggle=(action (mut v20))}}
     </td>
   </tr>
 </table>
 
 
-<h2>Labels &amp; Values</h2>
+<h2>Labels</h2>
 
 <table>
   <tr>
     <td>
       {{x-toggle
-        showLabels="true"
+        showLabels=true
         offLabel="hey"
         onLabel="ho"
-        value=lv1 onToggle=(mut lv1)
+        value=lv1 onToggle=(action (mut lv1))
       }}
   </td>
     <td><pre><code>\{{x-toggle
-  showLabels="true"
+  showLabels=true
   offLabel="hey"
   onLabel="ho"
 }}</code></pre></td>
-    <td>Simple labels</td>
-  </tr>
-  <tr>
-    <td>{{x-toggle
-      showLabels="true"
-      offLabel="Hey:hey"
-      onLabel="Ho:ho"
-      value=lv2 onToggle=(mut lv2)
-    }}</td>
-    <td><pre><code>\{{x-toggle
-  showLabels="true"
-  offLabel="Hey:hey"
-  onLabel="Ho:ho"
-}}</code></pre></td>
-    <td>Discrete Labels and Values</td>
   </tr>
 </table>
 
-<h2>Bindings</h2>
-<h4>Mut Helper</h4>
-<p>
-  The <code>mut</code> helper is a simple way to update a property on the container component while maintaining the benefits of DDAU.
-</p>
-<div class="default-style text-labels">
-	<table class="demo-table">
-		<tr>
-			<td>
-				<div class="default-theme">
-					{{x-toggle
-            offLabel='Hey:hey'
-            onLabel='Ho:ho'
-            showLabels=true
-            value=boundValue
-            onToggle=(mut boundValue)
-          }}
-				</div>
-			</td>
-
-			<td>
-				value: {{input value=boundValue}}
-			</td>
-      <td>
-        <pre><code>\{{x-toggle value=boundValue offLabel="Hey:hey" onLabel="Ho:ho" onToggle=(mut boundValue)}}</code></pre>
-      </td>
-		</tr>
-		<tr>
-			<td>
-				<div class="default-theme">
-					{{x-toggle
-            offLabel='Hey:hey'
-            onLabel='Ho:ho'
-            showLabels=true
-            value=bV2
-            onToggle=(mut bV2)
-          }}
-				</div>
-			</td>
-			<td>
-				value: {{bV2}}
-			</td>
-		</tr>
-	</table>
-</div>
-
-<h4>Action Helper</h4>
-<table class='condensed'>
-  <tr>
-    <td style='width: 50%; vertical-align: top'>
-      The <code>action</code> helper returns a hash of values in the structure defined to the right. Also note, if you return the boolean value of <code>false</code> to "suggestion" then the component will disable itself. Suggestions are sent when the value is not a valid value.
-      <p>
-        <b>Note:</b> if you open the developer console you'll see the action push it's payload to the console.
-      </p>
-    </td>
-    <td style='vertical-align: top'>
-      <pre><code>{
-  code: 'toggled',
-  newValue: &lt;value>,
-  oldValue: &lt;value>,
-  context: &lt;object>
-}</code></pre>
-    </td>
-    <td style='vertical-align: top'>
-      <pre><code>{
-  code: 'suggestion',
-  newValue: &lt;value>,
-  oldValue: &lt;value>,
-  context: &lt;object>
-}</code></pre>
-    </td>
-  </tr>
-</table>
+<h4>Action</h4>
 
 <div class="default-style text-labels">
 	<table class="demo-table">
@@ -227,11 +140,11 @@
 			<td>
 				<div class="default-theme">
 					{{x-toggle
-            offLabel='Hey:hey'
-            onLabel='Ho:ho'
+            offLabel='Hey'
+            onLabel='Ho'
             showLabels=true
             value=actionBound
-            onToggle=(action 'clicked' 'actionBound')
+            onToggle=(action (mut actionBound))
           }}
 				</div>
 			</td>
@@ -252,4 +165,21 @@
 <span class='flexy'>
   {{x-toggle value=disabledTest disabled=true}}<br>
   {{disabledTest}} &lt;== Won&#39;t change
+</span>
+
+
+<h2>Block Form</h2>
+<pre>
+\{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+  \{{toggle.offLabel}}
+  \{{toggle.onLabel}}
+  \{{toggle.switch}}
+\{{/x-toggle}}
+</pre>
+<span class='flexy'>
+  {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+    {{toggle.offLabel}}
+    {{toggle.onLabel}}
+    {{toggle.switch}}
+  {{/x-toggle}}
 </span>

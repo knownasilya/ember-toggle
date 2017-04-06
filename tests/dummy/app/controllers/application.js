@@ -3,23 +3,24 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	boundToggle: false,
 	bV2: 'ho',
-  v1: 'Off',
-
 
 	actions: {
 		checkboxToggled(toggled, toggledBy) {
 			this.setProperties({
-        toggled, toggledBy
+        toggled,
+        toggledBy
       });
 		},
+
     clicked(target, hash) {
-      if(hash.code === 'toggled') {
+      if (hash.code === 'toggled') {
         console.log('toggled: ', hash);
       } else {
         console.log('suggestion: ', hash);
       }
       this.set(target, hash.newValue);
     },
+
     rejected() {
       return false;
     }
