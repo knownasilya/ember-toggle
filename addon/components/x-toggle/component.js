@@ -16,12 +16,6 @@ const ToggleComponent = Ember.Component.extend({
   // private
   toggled: computed.readOnly('value'),
 
-  themeClass: computed('theme', function () {
-    var theme = this.get('theme') || 'default';
-
-    return 'x-toggle-' + theme;
-  }),
-
   forId: computed(function () {
     return this.get('elementId') + '-x-toggle';
   }),

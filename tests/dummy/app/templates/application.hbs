@@ -171,15 +171,23 @@
 <h2>Block Form</h2>
 <pre>
 \{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
-  \{{toggle.offLabel}}
-  \{{toggle.onLabel}}
-  \{{toggle.switch}}
+  \{{#toggle.offLabel as |label|}}
+    &lt;b&gt;\{{label}}&lt;/b&gt;
+  \{{/toggle.offLabel}}
+  \{{#toggle.onLabel as |label|}}
+    &lt;b&gt;\{{label}}&lt;/b&gt;
+  \{{/toggle.onLabel}}
+  \{{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
 \{{/x-toggle}}
 </pre>
 <span class='flexy'>
   {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
-    {{toggle.offLabel}}
-    {{toggle.onLabel}}
-    {{toggle.switch}}
+    {{#toggle.offLabel as |label|}}
+      <b>{{label}}</b>
+    {{/toggle.offLabel}}
+    {{#toggle.onLabel as |label|}}
+      <b>{{label}}</b>
+    {{/toggle.onLabel}}
+    {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
   {{/x-toggle}}
 </span>
