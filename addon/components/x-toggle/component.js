@@ -1,16 +1,15 @@
-import Ember from 'ember';
+import Component from 'ember-component';
+import computed from 'ember-computed';
 import layout from './template';
 
-const { computed } = Ember;  // jshint ignore:line
-
-const ToggleComponent = Ember.Component.extend({
-  layout: layout,
+export default Component.extend({
+  layout,
   classNames: ['x-toggle-component'],
 
+  disabled: false,
   name: 'default',
   onLabel: 'On',
   offLabel: 'Off',
-  disabled: false,
   value: false,
 
   // private
@@ -19,14 +18,6 @@ const ToggleComponent = Ember.Component.extend({
   forId: computed(function () {
     return this.get('elementId') + '-x-toggle';
   }),
-
-  sendToggle(value) {
-    let onToggle = this.get('onToggle');
-
-    if (typeof onToggle === 'function') {
-      onToggle(value);
-    }
-  },
 
   actions: {
     onClick(e) {
@@ -38,15 +29,16 @@ const ToggleComponent = Ember.Component.extend({
       this.sendToggle(!value);
     },
 
-    setToValue(value, e) {
-      e.stopPropagation();
-      e.preventDefault();
-      
+    setToValue(value) {
       this.sendToggle(value);
+    }
+  },
+
+  sendToggle(value) {
+    let onToggle = this.get('onToggle');
+
+    if (typeof onToggle === 'function') {
+      onToggle(value);
     }
   }
 });
-
-ToggleComponent[Ember.NAME_KEY] = 'x-toggle';
-
-export default ToggleComponent;

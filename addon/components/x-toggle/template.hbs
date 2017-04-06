@@ -11,19 +11,19 @@
       offLabel=offLabel
       onLabel=onLabel
       forId=forId)
-    offLabel=(component 'x-toggle-label' onClick=(action 'setToValue')
+    offLabel=(component 'x-toggle-label'
       label=offLabel
       value=false
       show=showLabels
       switchId=forId)
-    onLabel=(component 'x-toggle-label' onClick=(action 'setToValue')
+    onLabel=(component 'x-toggle-label'
       label=onLabel
       value=true
       show=showLabels
       switchId=forId)
   )}}
 {{else}}
-  {{x-toggle-label onClick=(action 'setToValue')
+  {{x-toggle-label
     label=offLabel
     value=false
     show=showLabels
@@ -41,7 +41,7 @@
     onLabel=onLabel
     forId=forId}}
 
-  {{x-toggle-label onClick=(action 'setToValue')
+  {{x-toggle-label
     label=onLabel
     value=true
     show=showLabels
