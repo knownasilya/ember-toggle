@@ -8,6 +8,10 @@ Here's the official [demo] using this component.
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
+:warning: Experimentation is going on in the [simplify] branch.  
+Please test the new features with `ember install ember-toggle@next` or `ember install ember-toggle@5.0.0-alpha.0`.  
+The normal installation below is stable and usable right now.
+
 ## Install
 
 `ember install ember-toggle`
@@ -154,3 +158,4 @@ See [CONTRIBUTING.md] for details.
 [ember-observer-url]: http://emberobserver.com/addons/ember-toggle
 [demo]: http://knownasilya.github.io/ember-toggle/
 [CONTRIBUTING.md]: CONTRIBUTING.md
+[simplify]: https://github.com/knownasilya/ember-toggle/tree/simplify
