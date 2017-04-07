@@ -6,9 +6,8 @@ moduleForComponent('x-toggle-switch', 'Integration | Component | x toggle switch
 });
 
 test('it renders', function(assert) {
-  this.set('onClick', () => {});
-  this.set('onChangeValue', () => {});
-  this.render(hbs`{{x-toggle-switch onClick=(action onClick) onChangeValue=(action onChangeValue)}}`);
+  this.set('sendToggle', () => {});
+  this.render(hbs`{{x-toggle-switch sendToggle=(action sendToggle)}}`);
 
   assert.equal(this.$().text().trim(), '');
 });
