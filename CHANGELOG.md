@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-alpha.1"></a>
+# [5.0.0-alpha.1](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.0...v5.0.0-alpha.1) (2017-04-07)
+
+
+### Bug Fixes
+
+* simplify (#66) ([b3d04af](https://github.com/knownasilya/ember-toggle/commit/b3d04af))
+* **dummy:** Add labels to disabled toggle ([dbbf670](https://github.com/knownasilya/ember-toggle/commit/dbbf670))
+* the toggle switch explicit on and off (#67) ([283946f](https://github.com/knownasilya/ember-toggle/commit/283946f))
+
+
+
 <a name="5.0.0-alpha.0"></a>
 # [5.0.0-alpha.0](https://github.com/knownasilya/ember-toggle/compare/v4.0.2...v5.0.0-alpha.0) (2017-04-06)
 
