@@ -71,6 +71,9 @@ test('clicking component labels triggers onToggle action', function(assert) {
 
   this.$('.off-label').click();
   assert.equal(this.get('value'), false, 'clicking off label toggles value to false');
+
+  this.$('.off-label').click();
+  assert.equal(this.get('value'), false, 'clicking off label again, value stays false');
 });
 
 if (emberVersionGTE(2,0)) {

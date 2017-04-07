@@ -4,12 +4,11 @@
   class='x-toggle'
   id={{forId}}
   name={{name}}
-  onchange={{action onChangeValue value='target.checked'}}
+  onchange={{action sendToggle value='target.checked'}}
   type='checkbox'>
 
 <div id="x-toggle-visual-{{forId}}"
   class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}"
-  onclick={{action onClick}}
   data-tg-on={{onLabel}}
   data-tg-off={{offLabel}}
   for={{forId}}

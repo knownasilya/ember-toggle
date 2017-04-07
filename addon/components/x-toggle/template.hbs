@@ -1,49 +1,53 @@
 {{#if hasBlock}}
   {{yield (hash
-    switch=(component 'x-toggle-switch' onClick=(action 'onClick')
-      onChangeValue=(action 'setToValue')
-      value=value
-      theme=theme
-      size=size
+    switch=(component 'x-toggle-switch'
       disabled=disabled
-      toggled=toggled
+      forId=forId
       name=name
       offLabel=offLabel
       onLabel=onLabel
-      forId=forId)
+      size=size
+      sendToggle=(action 'sendToggle')
+      theme=theme
+      toggled=toggled
+      value=value)
     offLabel=(component 'x-toggle-label'
       label=offLabel
-      value=false
+      sendToggle=(action 'sendToggle')
       show=showLabels
-      switchId=forId)
+      switchId=forId
+      value=false)
     onLabel=(component 'x-toggle-label'
       label=onLabel
-      value=true
+      sendToggle=(action 'sendToggle')
       show=showLabels
-      switchId=forId)
+      switchId=forId
+      value=true)
   )}}
 {{else}}
   {{x-toggle-label
     label=offLabel
-    value=false
+    sendToggle=(action 'sendToggle')
     show=showLabels
-    switchId=forId}}
+    switchId=forId
+    value=false}}
 
-  {{x-toggle-switch onClick=(action 'onClick')
-    onChangeValue=(action 'setToValue')
-    value=value
-    theme=theme
-    size=size
+  {{x-toggle-switch
     disabled=disabled
-    toggled=toggled
+    forId=forId
     name=name
     offLabel=offLabel
     onLabel=onLabel
-    forId=forId}}
+    sendToggle=(action 'sendToggle')
+    size=size
+    theme=theme
+    toggled=toggled
+    value=value}}
 
   {{x-toggle-label
     label=onLabel
-    value=true
+    sendToggle=(action 'sendToggle')
     show=showLabels
-    switchId=forId}}
+    switchId=forId
+    value=true}}
 {{/if}}
