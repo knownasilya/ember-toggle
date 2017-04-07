@@ -15,7 +15,7 @@ export default Component.extend({
   // private
   toggled: computed.readOnly('value'),
 
-  forId: computed(function () {
+  forId: computed(function() {
     return this.get('elementId') + '-x-toggle';
   }),
 

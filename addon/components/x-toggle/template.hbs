@@ -12,24 +12,25 @@
       toggled=toggled
       value=value)
     offLabel=(component 'x-toggle-label'
-      clickAction=(action 'sendToggle' false)
       label=offLabel
+      sendToggle=(action 'sendToggle')
       show=showLabels
       switchId=forId
       value=false)
     onLabel=(component 'x-toggle-label'
-      clickAction=(action 'sendToggle' true)
       label=onLabel
+      sendToggle=(action 'sendToggle')
       show=showLabels
       switchId=forId
       value=true)
   )}}
 {{else}}
   {{x-toggle-label
-    clickAction=(action 'sendToggle' false)
     label=offLabel
+    sendToggle=(action 'sendToggle')
     show=showLabels
-    switchId=forId}}
+    switchId=forId
+    value=false}}
 
   {{x-toggle-switch
     disabled=disabled
@@ -44,8 +45,9 @@
     value=value}}
 
   {{x-toggle-label
-    clickAction=(action 'sendToggle' true)
     label=onLabel
+    sendToggle=(action 'sendToggle')
     show=showLabels
-    switchId=forId}}
+    switchId=forId
+    value=true}}
 {{/if}}
