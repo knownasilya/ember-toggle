@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-alpha.3"></a>
+# [5.0.0-alpha.3](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.2...v5.0.0-alpha.3) (2017-04-10)
+
+
+### Bug Fixes
+
+* **styles:** tweak large size, making it less awkward ([395824d](https://github.com/knownasilya/ember-toggle/commit/395824d))
+* label wrapping and internal div label (#69) ([2bcc44a](https://github.com/knownasilya/ember-toggle/commit/2bcc44a))
+
+
+
 <a name="5.0.0-alpha.2"></a>
 # [5.0.0-alpha.2](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2017-04-10)
 
