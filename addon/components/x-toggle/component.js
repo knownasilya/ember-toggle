@@ -23,7 +23,7 @@ export default Component.extend({
     sendToggle(value) {
       let onToggle = this.get('onToggle');
 
-      if (typeof onToggle === 'function') {
+      if (value !== this.get('value') && typeof onToggle === 'function') {
         onToggle(value);
       }
     }
