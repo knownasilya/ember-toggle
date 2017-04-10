@@ -8,7 +8,7 @@
 .x-toggle *,
 .x-toggle *:after,
 .x-toggle *:before,
-.x-toggle + .x-toggle-btn {
+.x-toggle + label > .x-toggle-btn {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
@@ -19,7 +19,7 @@
 .x-toggle *::-moz-selection,
 .x-toggle *:after::-moz-selection,
 .x-toggle *:before::-moz-selection,
-.x-toggle + .x-toggle-btn::-moz-selection {
+.x-toggle + label > .x-toggle-btn::-moz-selection {
   background: none;
 }
 
@@ -29,15 +29,15 @@
 .x-toggle *::selection,
 .x-toggle *:after::selection,
 .x-toggle *:before::selection,
-.x-toggle + .x-toggle-btn::selection {
+.x-toggle + label > .x-toggle-btn::selection {
   background: none;
 }
 
-.x-toggle-btn.x-toggle-disabled {
+label > .x-toggle-btn.x-toggle-disabled {
   cursor: not-allowed;
 }
 
-.x-toggle-btn {
+label > .x-toggle-btn {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -50,8 +50,8 @@
   cursor: pointer;
 }
 
-.x-toggle-btn:after,
-.x-toggle-btn:before {
+label > .x-toggle-btn:after,
+label > .x-toggle-btn:before {
   position: relative;
   display: block;
   content: "";
@@ -59,15 +59,15 @@
   height: 100%;
 }
 
-.x-toggle-btn:after {
+label > .x-toggle-btn:after {
   left: 0;
 }
 
-.x-toggle-btn:before {
+label > .x-toggle-btn:before {
   display: none;
 }
 
-.x-toggle:checked + .x-toggle-btn:after {
+.x-toggle:checked + label > .x-toggle-btn:after {
   left: 50%;
 }
 

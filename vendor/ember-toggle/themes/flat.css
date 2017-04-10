@@ -15,11 +15,11 @@
   border-radius: 1em;
 }
 
-.x-toggle:checked + .x-toggle-flat.x-toggle-btn {
+.x-toggle:checked + .label x-toggle-flat.x-toggle-btn {
   border: 4px solid #7FC6A6;
 }
 
-.x-toggle:checked + .x-toggle-flat.x-toggle-btn:after {
+.x-toggle:checked + label .x-toggle-flat.x-toggle-btn:after {
   left: 50%;
   background: #7FC6A6;
 }

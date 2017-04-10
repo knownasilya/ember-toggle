@@ -46,19 +46,19 @@
   left: -10%;
 }
 
-.x-toggle:checked + .x-toggle-skewed.x-toggle-btn {
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn {
   background: #86d993;
 }
 
-.x-toggle:checked + .x-toggle-skewed.x-toggle-btn:before {
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn:before {
   left: -100%;
 }
 
-.x-toggle:checked + .x-toggle-skewed.x-toggle-btn:after {
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn:after {
   left: 0;
 }
 
-.x-toggle:checked + .x-toggle-skewed.x-toggle-btn:active:after {
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn:active:after {
   left: 10%;
 }
 

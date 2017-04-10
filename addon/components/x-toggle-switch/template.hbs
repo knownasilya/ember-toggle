@@ -7,11 +7,13 @@
   onchange={{action sendToggle value='target.checked'}}
   type='checkbox'>
 
-<div id="x-toggle-visual-{{forId}}"
-  class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}"
-  data-tg-on={{onLabel}}
-  data-tg-off={{offLabel}}
-  for={{forId}}
-  aria-role="checkbox"
-  aria-owns={{forId}}>
-</div>
+<label for="{{forId}}">
+  <div
+    aria-owns="{{forId}}"
+    aria-role="checkbox"
+    class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}"
+    data-tg-on="{{onLabel}}"
+    data-tg-off="{{offLabel}}"
+    id="x-toggle-visual-{{forId}}">
+  </div>
+</label>

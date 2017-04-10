@@ -13,7 +13,7 @@
           transition: all .2s ease;
 }
 
-.x-toggle:checked + .x-toggle-light.x-toggle-btn {
+.x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
   background: #9FD6AE;
 }
 
