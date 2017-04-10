@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-alpha.2"></a>
+# [5.0.0-alpha.2](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2017-04-10)
+
+
+### Bug Fixes
+
+* check value before sending action (#68) ([42a95a5](https://github.com/knownasilya/ember-toggle/commit/42a95a5))
+
+
+
 <a name="5.0.0-alpha.1"></a>
 # [5.0.0-alpha.1](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.0...v5.0.0-alpha.1) (2017-04-07)
 
