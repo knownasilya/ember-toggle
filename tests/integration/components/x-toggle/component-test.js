@@ -155,9 +155,10 @@ if (emberVersionGTE(2, 0)) {
 
   test('onToggle not called unless value changes', function(assert) {
     this.set('timesCalled', 0);
-    this.on('onToggle', () => {
+    this.on('onToggle', (value) => {
       const timesCalled = this.get('timesCalled') + 1;
       this.set('timesCalled', timesCalled);
+      this.set('value', value);
     });
 
     this.set('value', false);
