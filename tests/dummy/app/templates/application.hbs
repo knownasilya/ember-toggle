@@ -174,10 +174,12 @@
   \{{#toggle.offLabel as |label|}}
     &lt;b&gt;\{{label}}&lt;/b&gt;
   \{{/toggle.offLabel}}
+
+  \{{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+
   \{{#toggle.onLabel as |label|}}
     &lt;b&gt;\{{label}}&lt;/b&gt;
   \{{/toggle.onLabel}}
-  \{{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
 \{{/x-toggle}}
 </pre>
 <span class='flexy'>
@@ -185,9 +187,11 @@
     {{#toggle.offLabel as |label|}}
       <b>{{label}}</b>
     {{/toggle.offLabel}}
+
+    {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+
     {{#toggle.onLabel as |label|}}
       <b>{{label}}</b>
     {{/toggle.onLabel}}
-    {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
   {{/x-toggle}}
 </span>
