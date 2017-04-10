@@ -4,6 +4,7 @@ const { Logger: { log } } = Ember;
 export default Ember.Controller.extend({
   boundToggle: false,
   bV2: 'ho',
+  toggleLabelValue: false,
 
   actions: {
     checkboxToggled(toggled, toggledBy) {
@@ -24,6 +25,9 @@ export default Ember.Controller.extend({
 
     rejected() {
       return false;
+    },
+    toggleLabelTest(value) {
+      this.set('toggleLabelValue', value);
     }
   }
 });

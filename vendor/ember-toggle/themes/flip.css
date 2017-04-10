@@ -43,19 +43,19 @@
           transform: rotateY(-20deg);
 }
 
-.x-toggle:checked + .x-toggle-flip.x-toggle-btn:before {
+.x-toggle:checked + label > .x-toggle-flip.x-toggle-btn:before {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-.x-toggle:checked + .x-toggle-flip.x-toggle-btn:after {
+.x-toggle:checked + label > .x-toggle-flip.x-toggle-btn:after {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
   left: 0;
   background: #7FC6A6;
 }
 
-.x-toggle:checked + .x-toggle-flip.x-toggle-btn:active:after {
+.x-toggle:checked + label > .x-toggle-flip.x-toggle-btn:active:after {
   -webkit-transform: rotateY(20deg);
           transform: rotateY(20deg);
 }
