@@ -9,7 +9,7 @@ Here's the official [demo] using this component.
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
 :warning: Experimentation is going on in the [simplify] branch.  
-Please test the new features with `ember install ember-toggle@next` or `ember install ember-toggle@5.0.0-alpha.0`.  
+Please test the new features with `ember install ember-toggle@next` or `ember install ember-toggle@5.0.0-alpha.3`.  
 The normal installation below is stable and usable right now.
 
 ## Install
