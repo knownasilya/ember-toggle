@@ -43,7 +43,7 @@ test('clicking component triggers onToggle action', function(assert) {
   this.$('div.x-toggle-btn').click();
 
   setTimeout(() => {
-    if(!this.get('completed')) {
+    if (!this.get('completed')) {
       assert.equal(true, false, 'timed out waiting for toggle event');
       done();
     }
@@ -76,7 +76,7 @@ test('clicking component labels triggers onToggle action', function(assert) {
   assert.equal(this.get('value'), false, 'clicking off label again, value stays false');
 });
 
-if (emberVersionGTE(2,0)) {
+if (emberVersionGTE(2, 0)) {
   test('clicking component works with bespoke values and mut helper', function(assert) {
     this.set('value', false);
     this.render(hbs`{{x-toggle
@@ -151,5 +151,31 @@ if (emberVersionGTE(2,0)) {
 
     this.set('value', false);
     assert.equal(this.$('.x-toggle-container').hasClass('x-toggle-container-checked'), false);
+  });
+
+  test('onToggle not called unless value changes', function(assert) {
+    this.set('timesCalled', 0);
+    this.on('onToggle', () => {
+      const timesCalled = this.get('timesCalled') + 1;
+      this.set('timesCalled', timesCalled);
+    });
+
+    this.set('value', false);
+    this.set('show', false);
+
+    this.render(hbs`
+      {{#x-toggle value=value showLabels=true onToggle=(action 'onToggle') as |toggle|}}
+        {{toggle.offLabel}}
+        {{toggle.onLabel}}
+        {{toggle.switch}}
+      {{/x-toggle}}
+    `);
+
+    this.$('.on-label').click();
+    assert.equal(this.get('value'), true, 'clicking on label toggles value true');
+    assert.equal(this.get('timesCalled'), 1, 'should call onToggle once');
+    this.$('.on-label').click();
+    assert.equal(this.get('value'), true, 'clicking on label again stays true');
+    assert.equal(this.get('timesCalled'), 1, 'should not call onToggle again if value does not change');
   });
 }
