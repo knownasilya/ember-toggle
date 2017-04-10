@@ -10,14 +10,5 @@ export default Component.extend({
 
   themeClass: computed('theme', function() {
     return `x-toggle-${this.get('theme') || 'default'}`;
-  }),
-
-  click(e) {
-    const value = this.get('value');
-
-    e.stopPropagation();
-    e.preventDefault();
-
-    this.sendToggle(!value);
-  }
+  })
 });
