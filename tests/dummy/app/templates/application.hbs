@@ -123,39 +123,39 @@
         onLabel="ho"
         value=lv1 onToggle=(action (mut lv1))
       }}
-  </td>
+    </td>
     <td><pre><code>\{{x-toggle
   showLabels=true
   offLabel="hey"
   onLabel="ho"
-}}</code></pre></td>
+}}</code></pre>
+    </td>
   </tr>
 </table>
 
 <h4>Action</h4>
 
 <div class="default-style text-labels">
-	<table class="demo-table">
-		<tr>
-			<td>
-				<div class="default-theme">
-					{{x-toggle
+  <table class="demo-table">
+    <tr>
+      <td>
+        <div class="default-theme">
+          {{x-toggle
             offLabel='Hey'
             onLabel='Ho'
             showLabels=true
             value=actionBound
             onToggle=(action (mut actionBound))
           }}
-				</div>
-			</td>
+        </div>
+      </td>
 
-			<td>
-				value: {{input value=actionBound}}
-			</td>
-		</tr>
-	</table>
+      <td>
+        value: {{input value=actionBound}}
+      </td>
+    </tr>
+  </table>
 </div>
-
 
 
 <h2>Disabled</h2>
@@ -180,7 +180,7 @@
   \{{#toggle.onLabel as |label|}}
     &lt;b&gt;\{{label}}&lt;/b&gt;
   \{{/toggle.onLabel}}
-\{{/x-toggle}}
+  \{{/x-toggle}}
 </pre>
 <span class='flexy'>
   {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
@@ -194,4 +194,13 @@
       <b>{{label}}</b>
     {{/toggle.onLabel}}
   {{/x-toggle}}
+</span>
+
+<span class='flexy'>
+  <label>
+  {{x-toggle
+    onToggle=(action 'toggleLabelTest')
+    value=(readonly toggleLabelValue)}}
+    Wrapped in Label Test
+  </label>
 </span>

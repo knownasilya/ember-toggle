@@ -23,15 +23,15 @@
   padding-right: .8em;
 }
 
-.x-toggle:checked + .x-toggle-ios.x-toggle-btn {
+.x-toggle:checked + label > .x-toggle-ios.x-toggle-btn {
   background: #86d993;
 }
 
-.x-toggle:checked + .x-toggle-ios.x-toggle-btn:active {
+.x-toggle:checked + label > .x-toggle-ios.x-toggle-btn:active {
   box-shadow: none;
 }
 
-.x-toggle:checked + .x-toggle-ios.x-toggle-btn:active:after {
+.x-toggle:checked + label > .x-toggle-ios.x-toggle-btn:active:after {
   margin-left: -.8em;
 }
 

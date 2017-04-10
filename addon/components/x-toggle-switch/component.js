@@ -13,11 +13,10 @@ export default Component.extend({
   }),
 
   click(e) {
-    const value = this.get('value');
+    const clickedElement = this.$(e.target);
 
-    e.stopPropagation();
-    e.preventDefault();
-
-    this.sendToggle(!value);
+    if (clickedElement.is('input')) {
+      this.sendToggle(!this.get('value'));
+    }
   }
 });
