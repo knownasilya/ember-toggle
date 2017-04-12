@@ -1,9 +1,11 @@
 import Ember from 'ember';
+import computed from 'ember-computed';
 const { Logger: { log } } = Ember;
 
 export default Ember.Controller.extend({
   boundToggle: false,
   bV2: 'ho',
+  notToggleLabelValue: computed.not('toggleLabelValue'),
   toggleLabelValue: false,
 
   actions: {
@@ -25,6 +27,9 @@ export default Ember.Controller.extend({
 
     rejected() {
       return false;
+    },
+    notToggleLabelTest(value) {
+      this.set('toggleLabelValue', !value);
     },
     toggleLabelTest(value) {
       this.set('toggleLabelValue', value);
