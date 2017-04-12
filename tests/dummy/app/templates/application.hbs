@@ -196,11 +196,37 @@
   {{/x-toggle}}
 </span>
 
+<h2>Wrapped in a single label</h2>
+<pre>
+&lt;label&gt;
+  \{{x-toggle
+    onToggle=(action 'toggleLabelTest')
+    value=(readonly toggleLabelValue)}}
+   Wrapped in Label Test
+&lt;/label&gt;
+</pre>
 <span class='flexy'>
   <label>
   {{x-toggle
     onToggle=(action 'toggleLabelTest')
     value=(readonly toggleLabelValue)}}
     Wrapped in Label Test
+  </label>
+</span>
+
+<pre>
+&lt;label&gt;
+  \{{x-toggle
+    onToggle=(action 'notToggleLabelTest')
+    value=(readonly notToggleLabelValue)}}
+   Negated test
+&lt;/label&gt;
+</pre>
+<span class='flexy'>
+  <label>
+  {{x-toggle
+    onToggle=(action 'notToggleLabelTest')
+    value=(readonly notToggleLabelValue)}}
+    Negated test
   </label>
 </span>

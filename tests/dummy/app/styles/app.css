@@ -18,6 +18,13 @@ pre {
   display: flex;
 }
 
+.flexy > label {
+  align-items: center;
+  display: flex;
+  flex: 1 0 auto;
+  padding: 10px 0;
+}
+
 .fill {
   flex: 1 0;
 }
