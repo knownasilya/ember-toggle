@@ -1,5 +1,6 @@
 import Component from 'ember-component';
 import computed from 'ember-computed';
+import service from 'ember-service/inject';
 import layout from './template';
 
 export default Component.extend({
@@ -8,14 +9,17 @@ export default Component.extend({
   classNames: ['x-toggle-container'],
   classNameBindings: ['size', 'disabled:x-toggle-container-disabled', 'value:x-toggle-container-checked'],
 
+  browserChecker: service(),
+
   themeClass: computed('theme', function() {
     return `x-toggle-${this.get('theme') || 'default'}`;
   }),
 
   click(e) {
     const clickedElement = this.$(e.target);
+    const isIE = this.get('browserChecker.isExplorer');
 
-    if (clickedElement.is('input')) {
+    if (isIE || clickedElement.is('input')) {
       this.sendToggle(!this.get('value'));
     }
   }
