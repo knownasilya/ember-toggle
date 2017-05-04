@@ -13,14 +13,5 @@ export default Component.extend({
 
   themeClass: computed('theme', function() {
     return `x-toggle-${this.get('theme') || 'default'}`;
-  }),
-
-  click(e) {
-    const clickedElement = this.$(e.target);
-    const isIE = this.get('browserChecker.isExplorer');
-
-    if (isIE || clickedElement.is('input')) {
-      this.sendToggle(!this.get('value'));
-    }
-  }
+  })
 });
