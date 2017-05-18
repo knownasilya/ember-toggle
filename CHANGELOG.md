@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-alpha.5"></a>
+# [5.0.0-alpha.5](https://github.com/knownasilya/ember-toggle/compare/v4.0.2...v5.0.0-alpha.5) (2017-05-18)
+
+
+### Bug Fixes
+
+* **styles:** tweak large size, making it less awkward ([4dca99a](https://github.com/knownasilya/ember-toggle/commit/4dca99a))
+* Allow theme on switch, update dummy app more ([5174457](https://github.com/knownasilya/ember-toggle/commit/5174457))
+* **dummy:** Add labels to disabled toggle ([a57cd7c](https://github.com/knownasilya/ember-toggle/commit/a57cd7c))
+* check value before sending action (#68) ([2094f0c](https://github.com/knownasilya/ember-toggle/commit/2094f0c))
+* label wrapping and internal div label (#69) ([2052f6c](https://github.com/knownasilya/ember-toggle/commit/2052f6c))
+* remove browser-check ([b1a34a7](https://github.com/knownasilya/ember-toggle/commit/b1a34a7))
+* remove injection of browser checker ([93c7f47](https://github.com/knownasilya/ember-toggle/commit/93c7f47))
+* **ie:** Only check if input when not IE (#71) ([2fa01f5](https://github.com/knownasilya/ember-toggle/commit/2fa01f5))
+* removing a double trigger due to the visual toggle already being surrounded by a label ([16f5c66](https://github.com/knownasilya/ember-toggle/commit/16f5c66))
+* simplify (#66) ([24122ae](https://github.com/knownasilya/ember-toggle/commit/24122ae))
+* the toggle switch explicit on and off (#67) ([b756aba](https://github.com/knownasilya/ember-toggle/commit/b756aba))
+
+
+### Features
+
+* Add yield to labels, and fix their tests ([973e47d](https://github.com/knownasilya/ember-toggle/commit/973e47d))
+* dummy app and split into components, block form ([8b295cf](https://github.com/knownasilya/ember-toggle/commit/8b295cf))
+* simplify all the things ([eee5f25](https://github.com/knownasilya/ember-toggle/commit/eee5f25))
+
+
+### BREAKING CHANGES
+
+* Removed label values and made the action simple, passing only a single boolean value.
+
+Fixes the value change bug. More changes to come.
+
+
+
 <a name="5.0.0-alpha.4"></a>
 # [5.0.0-alpha.4](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.3...v5.0.0-alpha.4) (2017-04-13)
 

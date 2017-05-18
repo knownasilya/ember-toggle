@@ -1,6 +1,6 @@
 {
   "name": "ember-toggle",
-  "version": "5.0.0-alpha.4",
+  "version": "5.0.0-alpha.5",
   "description": "Checkbox based toggle switch component for Ember.js",
   "keywords": [
     "ember-addon",
