@@ -1,0 +1,1 @@
+export { default } from 'ember-toggle/components/ember-toggle/component';

@@ -1,5 +1,7 @@
 {
   "name": "ember-toggle",
-  "dependencies": {},
+  "dependencies": {
+    "ember": "ember#canary"
+  },
   "version": "5.0.0-alpha.5"
 }
