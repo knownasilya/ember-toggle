@@ -2,6 +2,17 @@
 
 Outlines how to begin contributing to this Ember-CLI project.
 
+## Releasing a new version
+
+See https://www.npmjs.com/package/standard-version for instructions on generating change logs and commit formats.
+
+```bash
+npm run release
+```
+
+Will do the work of generating the changelog and bumping the version, tagging.
+You just need to copy the command it provides to push and publish the changes.
+
 ## Installation
 
 * `git clone` this repository
