@@ -1,6 +1,10 @@
-import Component from 'ember-component';
-import computed from 'ember-computed';
+import Ember from 'ember';
 import layout from './template';
+
+const {
+  Component,
+  computed,
+} = Ember;
 
 export default Component.extend({
   layout,
