@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-alpha.6"></a>
+# [5.0.0-alpha.6](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.5...v5.0.0-alpha.6) (2017-07-08)
+
+
+### Bug Fixes
+
+* moving components that get merged into the app tree to use a 'classic' syntax so it doesn't conflict with 'pod moudle prefies' that might be set in the app (#76) ([ae054bb](https://github.com/knownasilya/ember-toggle/commit/ae054bb))
+
+
+
 <a name="5.0.0-alpha.5"></a>
 # [5.0.0-alpha.5](https://github.com/knownasilya/ember-toggle/compare/v4.0.2...v5.0.0-alpha.5) (2017-05-18)
 
