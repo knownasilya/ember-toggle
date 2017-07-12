@@ -1,8 +1,8 @@
-import Ember from 'ember';
-import computed from 'ember-computed';
-const { Logger: { log } } = Ember;
+import Controller from "@ember/controller"
+import { computed } from "@ember/object"
+import { debug } from "@ember/debug"
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   boundToggle: false,
   bV2: 'ho',
   notToggleLabelValue: computed.not('toggleLabelValue'),
@@ -18,9 +18,9 @@ export default Ember.Controller.extend({
 
     clicked(target, hash) {
       if (hash.code === 'toggled') {
-        log('toggled: ', hash);
+        debug('toggled: ', hash);
       } else {
-        log('suggestion: ', hash);
+        debug('suggestion: ', hash);
       }
       this.set(target, hash.newValue);
     },
