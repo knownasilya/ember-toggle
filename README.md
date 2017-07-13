@@ -115,6 +115,23 @@ for reference.
 > **Note:** you may also want to set `excludeBaseStyles: true` so that this addon doesn't include the styles
 used by all the themes.
 
+## Advanced Usage
+
+If you need custom labels, or additional markup, or non-standard behavior, you are in the right section.
+
+The `x-toggle` component also provides a composable component API.
+
+```hbs
+{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+  {{toggle.offLabel}}
+  {{toggle.switch}}
+  {{toggle.onLabel}}
+{{/x-toggle}}
+```
+
+The above is a simple example that returns a basic toggle, but you can see how
+this could be used to wrap the switch or the labels in custom markup or logic.
+
 ## Contributing
 
 See [CONTRIBUTING.md] for details.
