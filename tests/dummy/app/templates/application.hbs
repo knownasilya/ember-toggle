@@ -196,6 +196,26 @@
   {{/x-toggle}}
 </span>
 
+<h2>Block Form - Single Toggle Label</h2>
+<pre>
+\{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+  \{{#toggle.label value=(not value) as |label|}}
+    &lt;b&gt;turn \{{if value 'on' 'off'}}&lt;/b&gt;
+  \{{/toggle.label}}
+
+  \{{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+\{{/x-toggle}}
+</pre>
+<span class='flexy'>
+  {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+    {{#toggle.label value=(not value)}}
+      <b>turn {{if value 'off' 'on'}}</b>
+    {{/toggle.label}}
+
+    {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+  {{/x-toggle}}
+</span>
+
 <h2>Wrapped in a single label</h2>
 <pre>
 &lt;label&gt;
