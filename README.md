@@ -132,6 +132,22 @@ The `x-toggle` component also provides a composable component API.
 The above is a simple example that returns a basic toggle, but you can see how
 this could be used to wrap the switch or the labels in custom markup or logic.
 
+### Single Label
+
+This format allows greater flexibility with labels, like the single label use-case.
+
+```hbs
+{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+  {{#toggle.label value=(not value)}}
+    <b>turn {{if value 'off' 'on'}}</b>
+  {{/toggle.label}}
+
+  {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+{{/x-toggle}}
+```
+
+> Note: The `not` helper is a custom Ember helper in the above example.
+
 ## Contributing
 
 See [CONTRIBUTING.md] for details.
