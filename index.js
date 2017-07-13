@@ -23,7 +23,7 @@ module.exports = {
 
   importThemes: function(app) {
     var projectConfig = this.project.config(app.env);
-    var config = projectConfig['ember-toggle'];
+    var config = projectConfig['ember-toggle'] || {};
     var themes = [];
     var excludeBaseStyles = false;
 
