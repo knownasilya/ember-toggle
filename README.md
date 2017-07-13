@@ -8,10 +8,6 @@ Here's the official [demo] using this component.
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
-:warning: Please test the new features with `ember install ember-toggle@next`
-or `ember install ember-toggle@5.0.0-alpha.5`.  
-The normal installation below is stable and usable right now.
-
 ## Install
 
 `ember install ember-toggle`
