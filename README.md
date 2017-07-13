@@ -118,7 +118,7 @@ If you need custom labels, or additional markup, or non-standard behavior, you a
 The `x-toggle` component also provides a composable component API.
 
 ```hbs
-{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
   {{toggle.offLabel}}
   {{toggle.switch}}
   {{toggle.onLabel}}
