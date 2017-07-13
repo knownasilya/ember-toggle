@@ -157,7 +157,6 @@
   </table>
 </div>
 
-
 <h2>Disabled</h2>
 <pre>
 \{{x-toggle value=disabledTest disabled=true showLabels=true}}
@@ -166,7 +165,6 @@
   {{x-toggle value=disabledTest disabled=true showLabels=true}}<br><br><br>
   value here: {{disabledTest}} &lt;== Won&#39;t change
 </span>
-
 
 <h2>Block Form</h2>
 <pre>
@@ -180,7 +178,7 @@
   \{{#toggle.onLabel as |label|}}
     &lt;b&gt;\{{label}}&lt;/b&gt;
   \{{/toggle.onLabel}}
-  \{{/x-toggle}}
+\{{/x-toggle}}
 </pre>
 <span class='flexy'>
   {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
