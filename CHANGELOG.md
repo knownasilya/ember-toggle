@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.7...v5.0.0) (2017-07-13)
+
+
+
 <a name="5.0.0-alpha.7"></a>
 # [5.0.0-alpha.7](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.6...v5.0.0-alpha.7) (2017-07-13)
 
