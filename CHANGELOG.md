@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-alpha.7"></a>
+# [5.0.0-alpha.7](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.6...v5.0.0-alpha.7) (2017-07-13)
+
+
+### Bug Fixes
+
+* **build:** make sure default config is used ([25d79d8](https://github.com/knownasilya/ember-toggle/commit/25d79d8))
+* **dep:** bump babel to 6.6 ([a30fd59](https://github.com/knownasilya/ember-toggle/commit/a30fd59))
+* **shims:** moving to the new style module api format using ember-cli-babel 6.6 rather then a beta version of the shims (#81) ([da264a1](https://github.com/knownasilya/ember-toggle/commit/da264a1)), closes [#79](https://github.com/knownasilya/ember-toggle/issues/79)
+
+
+
 <a name="5.0.0-alpha.6"></a>
 # [5.0.0-alpha.6](https://github.com/knownasilya/ember-toggle/compare/v5.0.0-alpha.5...v5.0.0-alpha.6) (2017-07-08)
 
