@@ -25,6 +25,8 @@
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
+    "ember-gestures": "^0.4.7",
+    "ember-hammertime": "^1.2.4",
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0"
   },
   "devDependencies": {
