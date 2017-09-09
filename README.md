@@ -1,6 +1,6 @@
 # ember-toggle
 
-Checkbox based Toggle Switch component with touch/drag support for Ember.
+Checkbox based Toggle Switch component with swipe/drag support for Ember.
 
 Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
 Here's the official [demo] using this component.
