@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/knownasilya/ember-toggle/compare/v5.0.2...v5.1.0) (2017-09-09)
+
+
+### Bug Fixes
+
+* **styles:** large container sizing fixed ([345ff35](https://github.com/knownasilya/ember-toggle/commit/345ff35))
+* Properly remove listener, look for destroyed state before setting properties (#87) ([a9ee22b](https://github.com/knownasilya/ember-toggle/commit/a9ee22b))
+
+
+### Features
+
+* Enable toggling with a panning mouse/finger gesture, fixes #49 (#85) ([398f8d6](https://github.com/knownasilya/ember-toggle/commit/398f8d6)), closes [#49](https://github.com/knownasilya/ember-toggle/issues/49) [#85](https://github.com/knownasilya/ember-toggle/issues/85)
+
+
+
 <a name="5.0.2"></a>
 ## [5.0.2](https://github.com/knownasilya/ember-toggle/compare/v5.0.1...v5.0.2) (2017-07-13)
 
