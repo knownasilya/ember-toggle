@@ -31,6 +31,10 @@ export default Component.extend(RecognizerMixin, {
     this._disableLabelUntilMouseUp();
   },
 
+  willDestroyElement() {
+    this._removeListener()
+  },
+
   /*
     When you pan with a mouse and release the mouse button over the <label>
     element, a click event happens and returns the toggle to its initial
@@ -44,10 +48,31 @@ export default Component.extend(RecognizerMixin, {
       return;
     }
 
-    this.set('labelDisabled', true);
+    const _listener = () => {
+      next(() => {
+        if (this.get('isDestroying') || this.get('isDestroyed')) {
+          return;
+        }
 
-    document.addEventListener('mouseup', () => {
-      next(() => this.set('labelDisabled', false));
+        this._removeListener()
+        this.set('labelDisabled', false);
+      });
+    };
+
+    this.setProperties({
+      labelDisabled: true,
+      _listener
     });
+
+    document.addEventListener('mouseup', _listener);
+  },
+
+  _removeListener() {
+      const _listener = this.get('_listener')
+
+      if (_listener) {
+        document.removeEventListener('mouseup', _listener)
+        this.set('_listener', null)
+      }
   }
 });
