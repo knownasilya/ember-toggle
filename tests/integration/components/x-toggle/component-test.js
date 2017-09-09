@@ -179,4 +179,21 @@ if (emberVersionGTE(2, 0)) {
     assert.equal(this.get('value'), true, 'clicking on label again stays true');
     assert.equal(this.get('timesCalled'), 1, 'should not call onToggle again if value does not change');
   });
+
+  test('swipe gestures', function(assert) {
+    this.set('value', false);
+
+    this.render(hbs`{{x-toggle
+      value=value
+      onToggle=(action (mut value))
+    }}`);
+
+    const $toggle = this.$('.x-toggle-container');
+
+    $toggle.trigger('panright');
+    assert.equal(this.get('value'), true, 'swiping right should enable');
+
+    $toggle.trigger('panleft');
+    assert.equal(this.get('value'), false, 'swiping left should disable');
+  });
 }

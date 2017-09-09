@@ -29,7 +29,7 @@
 }
 
 .x-toggle-skewed.x-toggle-btn:after {
-  left: 100%;
+  left: -110%;
   content: attr(data-tg-on);
 }
 
@@ -42,24 +42,16 @@
   background: #888;
 }
 
-.x-toggle-skewed.x-toggle-btn:active:before {
-  left: -10%;
-}
-
 .x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn {
   background: #86d993;
 }
 
 .x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn:before {
-  left: -100%;
+  left: 100%;
 }
 
 .x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn:after {
   left: 0;
-}
-
-.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn:active:after {
-  left: 10%;
 }
 
 .x-toggle-skewed.small {
