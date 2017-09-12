@@ -191,9 +191,24 @@ if (emberVersionGTE(2, 0)) {
     const $toggle = this.$('.x-toggle-container');
 
     $toggle.trigger('panright');
-    assert.equal(this.get('value'), true, 'swiping right should enable');
+    assert.equal(this.get('value'), true, 'panning right should enable');
 
     $toggle.trigger('panleft');
-    assert.equal(this.get('value'), false, 'swiping left should disable');
+    assert.equal(this.get('value'), false, 'panning left should disable');
+  });
+
+  test('swipe gesture while disabled', function(assert) {
+    this.set('value', false);
+
+    this.render(hbs`{{x-toggle
+      disabled=true
+      value=value
+      onToggle=(action (mut value))
+    }}`);
+
+    const $toggle = this.$('.x-toggle-container');
+
+    $toggle.trigger('panright');
+    assert.equal(this.get('value'), false, 'panning right should not enable');
   });
 }

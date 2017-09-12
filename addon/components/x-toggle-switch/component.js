@@ -22,11 +22,19 @@ export default Component.extend(RecognizerMixin, {
   }),
 
   panRight() {
+    if (this.get('disabled')) {
+      return;
+    }
+
     this.get('sendToggle')(true);
     this._disableLabelUntilMouseUp()
   },
 
   panLeft() {
+    if (this.get('disabled')) {
+      return;
+    }
+
     this.get('sendToggle')(false);
     this._disableLabelUntilMouseUp();
   },
