@@ -25,6 +25,11 @@ export default Component.extend({
 
       if (value !== this.get('value') && typeof onToggle === 'function') {
         onToggle(value);
+
+        // The click on input/label will toggle the input unconditionally.
+        // Input state has to be updated manually to prevent it going out of
+        // sync in case the action didn't update value.
+        this.element.querySelector('.x-toggle').checked = this.get('value');
       }
     }
   }
