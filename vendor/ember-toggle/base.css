@@ -92,18 +92,15 @@ label > .x-toggle-btn:before {
 }
 
 .x-toggle-container.small {
-  width: 2.75rem;
 	font-size: 1.0rem;
   padding: 0 0.25rem;
 }
 
 .x-toggle-container.medium {
-  width: 3.75rem;
 	font-size: 1.0rem;
 }
 
 .x-toggle-container.large {
-  width: 5.7rem;
 	font-size: 1.2rem;
   padding: 0 0.5rem;
 }
