@@ -211,4 +211,20 @@ if (emberVersionGTE(2, 0)) {
     $toggle.trigger('panright');
     assert.equal(this.get('value'), false, 'panning right should not enable');
   });
+
+  test('input.checked property does not change when action does not update value', function(assert) {
+    this.set('value', false);
+    this.on('doNothing', () => {});
+
+    this.render(hbs`
+      {{x-toggle value=value onToggle=(action 'doNothing')}}
+    `);
+
+    assert.equal(this.$('input').prop('checked'), false, 'input.checked matches initial value');
+
+    this.$('div.x-toggle-btn').click();
+
+    assert.equal(this.get('value'), false, 'value hasnt changed because the action didnt change it');
+    assert.equal(this.$('input').prop('checked'), false, 'input.checked should stay false');
+  });
 }
