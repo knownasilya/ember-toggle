@@ -210,4 +210,18 @@ if (emberVersionGTE(2, 0)) {
     assert.equal(this.get('value'), false);
     assert.notOk(this.$('.x-toggle').is(':checked'));
   });
+
+  test('panning should not enable when the action does not update the value', function(assert) {
+    this.set('value', false);
+    this.set('toggleAction', () => {})
+
+    this.render(hbs`{{x-toggle value=value onToggle=(action toggleAction)}}`);
+
+    const $toggle = this.$('.x-toggle-container');
+
+    $toggle.trigger('panright');
+
+    assert.equal(this.get('value'), false);
+    assert.notOk(this.$('.x-toggle').is(':checked'));
+  });
 }
