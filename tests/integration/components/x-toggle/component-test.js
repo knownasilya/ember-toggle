@@ -28,26 +28,14 @@ test('changing disabled property disables component', function(assert) {
 });
 
 test('clicking component triggers onToggle action', function(assert) {
-  const done = assert.async();
   this.set('myValue', false);
-  this.on('onToggle', val => {
-    assert.equal(val, true, 'new value set');
-
-    this.set('completed', true);
-    done();
-  });
+  this.set('onToggle', val => this.set('myValue', val));
   this.render(hbs`{{x-toggle
     value=myValue
-    onToggle=(action 'onToggle')
+    onToggle=(action onToggle)
   }}`);
   this.$('div.x-toggle-btn').click();
-
-  setTimeout(() => {
-    if (!this.get('completed')) {
-      assert.equal(true, false, 'timed out waiting for toggle event');
-      done();
-    }
-  }, 1000);
+  assert.equal(this.get('myValue'), true, 'new value set');
 });
 
 test('clicking component labels triggers onToggle action', function(assert) {
@@ -210,5 +198,30 @@ if (emberVersionGTE(2, 0)) {
 
     $toggle.trigger('panright');
     assert.equal(this.get('value'), false, 'panning right should not enable');
+  });
+
+  test('clicking should not enable when the action does not update the value', function(assert) {
+    this.set('value', false);
+    this.set('toggleAction', () => {})
+
+    this.render(hbs`{{x-toggle value=value onToggle=(action toggleAction)}}`);
+    this.$('div.x-toggle-btn').click();
+
+    assert.equal(this.get('value'), false);
+    assert.notOk(this.$('.x-toggle').is(':checked'));
+  });
+
+  test('panning should not enable when the action does not update the value', function(assert) {
+    this.set('value', false);
+    this.set('toggleAction', () => {})
+
+    this.render(hbs`{{x-toggle value=value onToggle=(action toggleAction)}}`);
+
+    const $toggle = this.$('.x-toggle-container');
+
+    $toggle.trigger('panright');
+
+    assert.equal(this.get('value'), false);
+    assert.notOk(this.$('.x-toggle').is(':checked'));
   });
 }
