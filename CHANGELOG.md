@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.2"></a>
+## [5.1.2](https://github.com/knownasilya/ember-toggle/compare/v5.1.1...v5.1.2) (2017-09-19)
+
+
+### Bug Fixes
+
+* `x-toggle` toggles on click when the `onToggle` action does not update the value (#92) ([bb46c74](https://github.com/knownasilya/ember-toggle/commit/bb46c74)), closes [#91](https://github.com/knownasilya/ember-toggle/issues/91) [#91](https://github.com/knownasilya/ember-toggle/issues/91)
+
+
+
 <a name="5.1.1"></a>
 ## [5.1.1](https://github.com/knownasilya/ember-toggle/compare/v5.1.0...v5.1.1) (2017-09-12)
 
