@@ -33,6 +33,10 @@
     <td>{{x-toggle name=6 theme='skewed' value=v6 onToggle=(action (mut v6))}}</td>
     <td>skewed</td>
   </tr>
+  <tr>
+    <td>{{x-toggle name=7 theme='material'}}</td>
+    <td>material</td>
+  </tr>
 </table>
 
 <h2>Sizes</h2>
@@ -107,6 +111,17 @@
     </td>
     <td>
       {{x-toggle size='large' theme='skewed' value=v20 onToggle=(action (mut v20))}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {{x-toggle size='small' theme='material' value=v21 onToggle=(action (mut v21))}}
+    </td>
+    <td>
+      {{x-toggle size='medium' theme='material' value=v21 onToggle=(action (mut v21))}}
+    </td>
+    <td>
+      {{x-toggle size='large' theme='material' value=v21 onToggle=(action (mut v21))}}
     </td>
   </tr>
 </table>

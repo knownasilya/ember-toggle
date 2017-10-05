@@ -28,7 +28,7 @@ module.exports = {
     var excludeBaseStyles = false;
 
     if (config) {
-      var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip'];
+      var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip', 'material'];
       var included = config.includedThemes;
       var excluded = config.excludedThemes;
 
