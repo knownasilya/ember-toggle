@@ -5,14 +5,14 @@
 /* Handle */
 .x-toggle-material.x-toggle-btn:after {
   border-radius: 2em;
-  background-color: #F9F9F9;
+  background-color: #FAFAFA;
   box-shadow: 0 3px 2px rgba(0, 0, 0, .1);
   -webkit-transition: all .4s ease;
           transition: all .4s ease;
 }
 
 .x-toggle:checked + label > .x-toggle-material.x-toggle-btn:after {
-  background-color: #E91457;
+  background-color: #7FC6A6;
 }
 
 /* Background */
@@ -23,25 +23,28 @@
   width: 70%;
   left: 15%;
   content: '';
-  background-color: #949494;
+  background-color: #000000;
+  opacity: .38;
   border-radius: 2em;
   -webkit-transition: all .4s ease;
           transition: all .4s ease;
 }
 
 .x-toggle:checked + label > .x-toggle-material.x-toggle-btn:before {
-  background-color: #F581A8;
+  background-color: #7FC6A6;
+  opacity: .5;
 }
 
 /* Disabled */
-.x-toggle-material.x-toggle-btn.x-toggle-disabled,
-.x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled {
-  background-color: #DCDCDC;
+.x-toggle-material.x-toggle-btn.x-toggle-disabled:before,
+.x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled:before {
+  background-color: #000000;
+  opacity: .12;
 }
 
 .x-toggle-material.x-toggle-btn.x-toggle-disabled:after,
 .x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled:after {
-  background-color: #B5B5B5;
+  background-color: #BDBDBD;
 }
 
 /* Sizes */
