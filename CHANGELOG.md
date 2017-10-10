@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/knownasilya/ember-toggle/compare/v5.1.1...v5.2.0) (2017-10-10)
+
+
+### Bug Fixes
+
+* `x-toggle` toggles on click when the `onToggle` action does not update the value (#92) ([bb46c74](https://github.com/knownasilya/ember-toggle/commit/bb46c74)), closes [#91](https://github.com/knownasilya/ember-toggle/issues/91) [#91](https://github.com/knownasilya/ember-toggle/issues/91)
+* **deprecation:** Fixed `canDispatchToEventManager` deprecation ([5954b1c](https://github.com/knownasilya/ember-toggle/commit/5954b1c))
+
+
+### Features
+
+* **theme:** Add material design toggle theme #90 (#97) ([90818f1](https://github.com/knownasilya/ember-toggle/commit/90818f1))
+
+
+
 <a name="5.1.2"></a>
 ## [5.1.2](https://github.com/knownasilya/ember-toggle/compare/v5.1.1...v5.1.2) (2017-09-19)
 
