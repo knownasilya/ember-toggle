@@ -2566,9 +2566,9 @@ ember-factory-for-polyfill@^1.1.0:
   dependencies:
     ember-cli-version-checker "^1.2.0"
 
-ember-gestures@^0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/ember-gestures/-/ember-gestures-0.4.7.tgz#c17559622377515ec996fd4c17abce51e026f106"
+ember-gestures@^0.4.8:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/ember-gestures/-/ember-gestures-0.4.8.tgz#b149e63dfbef21145adc856cd459460aad30dc37"
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
