@@ -3,32 +3,32 @@
 }
 
 .x-toggle,
-.x-toggle:after,
-.x-toggle:before,
+.x-toggle::after,
+.x-toggle::before,
 .x-toggle *,
-.x-toggle *:after,
-.x-toggle *:before,
+.x-toggle *::after,
+.x-toggle *::before,
 .x-toggle + label > .x-toggle-btn {
   -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .x-toggle::-moz-selection,
-.x-toggle:after::-moz-selection,
-.x-toggle:before::-moz-selection,
+.x-toggle::after::-moz-selection,
+.x-toggle::before::-moz-selection,
 .x-toggle *::-moz-selection,
-.x-toggle *:after::-moz-selection,
-.x-toggle *:before::-moz-selection,
+.x-toggle *::after::-moz-selection,
+.x-toggle *::before::-moz-selection,
 .x-toggle + label > .x-toggle-btn::-moz-selection {
   background: none;
 }
 
 .x-toggle::selection,
-.x-toggle:after::selection,
-.x-toggle:before::selection,
+.x-toggle::after::selection,
+.x-toggle::before::selection,
 .x-toggle *::selection,
-.x-toggle *:after::selection,
-.x-toggle *:before::selection,
+.x-toggle *::after::selection,
+.x-toggle *::before::selection,
 .x-toggle + label > .x-toggle-btn::selection {
   background: none;
 }
@@ -39,9 +39,9 @@ label > .x-toggle-btn.x-toggle-disabled {
 
 label > .x-toggle-btn {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   outline: 0;
   display: flex;
   flex-basis: 4em;
@@ -50,8 +50,8 @@ label > .x-toggle-btn {
   cursor: pointer;
 }
 
-label > .x-toggle-btn:after,
-label > .x-toggle-btn:before {
+label > .x-toggle-btn::after,
+label > .x-toggle-btn::before {
   position: relative;
   display: block;
   content: "";
@@ -59,15 +59,15 @@ label > .x-toggle-btn:before {
   height: 100%;
 }
 
-label > .x-toggle-btn:after {
+label > .x-toggle-btn::after {
   left: 0;
 }
 
-label > .x-toggle-btn:before {
+label > .x-toggle-btn::before {
   display: none;
 }
 
-.x-toggle:checked + label > .x-toggle-btn:after {
+.x-toggle:checked + label > .x-toggle-btn::after {
   left: 50%;
 }
 
@@ -85,26 +85,25 @@ label > .x-toggle-btn:before {
   padding: 0 0.35rem;
 }
 
-
 .x-toggle-component .toggle-text {
-	display: flex;
+  display: flex;
   cursor: pointer;
 }
 
 .x-toggle-container.small {
   width: 2.75rem;
-	font-size: 1.0rem;
+  font-size: 1rem;
   padding: 0 0.25rem;
 }
 
 .x-toggle-container.medium {
   width: 3.75rem;
-	font-size: 1.0rem;
+  font-size: 1rem;
 }
 
 .x-toggle-container.large {
   width: 5.7rem;
-	font-size: 1.2rem;
+  font-size: 1.2rem;
   padding: 0 0.5rem;
 }
 
@@ -114,16 +113,17 @@ label > .x-toggle-btn:before {
 }
 
 .x-toggle-container .toggle-text.toggle-prefix {
-	padding-right: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .x-toggle-container .toggle-text.toggle-postfix {
-	padding-left: 0.25rem;
+  padding-left: 0.25rem;
 }
 
 .x-toggle-component label.off-label {
   padding-right: 0.5rem;
 }
+
 .x-toggle-component label.on-label {
   padding-left: 0.5rem;
 }
