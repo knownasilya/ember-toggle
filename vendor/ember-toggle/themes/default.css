@@ -1,6 +1,6 @@
 label > .x-toggle-default.x-toggle-btn {
   padding: 0.16em 0.1em;
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
   border-radius: 0.2em;
   transition: background-color 0.2s;
 }
@@ -9,8 +9,8 @@ label > .x-toggle-default.x-toggle-btn {
   background-color: #797979;
 }
 
-label > .x-toggle-default.x-toggle-btn:after {
-  background-color: #FFFFFF;
+label > .x-toggle-default.x-toggle-btn::after {
+  background-color: #fff;
   transition: left 0.2s;
   border-radius: 0.2em;
 }

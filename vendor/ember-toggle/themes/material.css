@@ -3,48 +3,48 @@
 }
 
 /* Handle */
-.x-toggle-material.x-toggle-btn:after {
+.x-toggle-material.x-toggle-btn::after {
   border-radius: 2em;
-  background-color: #FAFAFA;
-  box-shadow: 0 3px 2px rgba(0, 0, 0, .1);
-  -webkit-transition: all .4s ease;
-          transition: all .4s ease;
+  background-color: #fafafa;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.x-toggle:checked + label > .x-toggle-material.x-toggle-btn:after {
-  background-color: #7FC6A6;
+.x-toggle:checked + label > .x-toggle-material.x-toggle-btn::after {
+  background-color: #7fc6a6;
 }
 
 /* Background */
-.x-toggle-material.x-toggle-btn:before {
+.x-toggle-material.x-toggle-btn::before {
   position: absolute;
   display: block;
   height: 50%;
   width: 70%;
   left: 15%;
   content: '';
-  background-color: #000000;
-  opacity: .38;
+  background-color: #000;
+  opacity: 0.38;
   border-radius: 2em;
-  -webkit-transition: all .4s ease;
-          transition: all .4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.x-toggle:checked + label > .x-toggle-material.x-toggle-btn:before {
-  background-color: #7FC6A6;
-  opacity: .5;
+.x-toggle:checked + label > .x-toggle-material.x-toggle-btn::before {
+  background-color: #7fc6a6;
+  opacity: 0.5;
 }
 
 /* Disabled */
-.x-toggle-material.x-toggle-btn.x-toggle-disabled:before,
-.x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled:before {
-  background-color: #000000;
-  opacity: .12;
+.x-toggle-material.x-toggle-btn.x-toggle-disabled::before,
+.x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled::before {
+  background-color: #000;
+  opacity: 0.12;
 }
 
-.x-toggle-material.x-toggle-btn.x-toggle-disabled:after,
-.x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled:after {
-  background-color: #BDBDBD;
+.x-toggle-material.x-toggle-btn.x-toggle-disabled::after,
+.x-toggle:checked + label > .x-toggle-material.x-toggle-btn.x-toggle-disabled::after {
+  background-color: #bdbdbd;
 }
 
 /* Sizes */
@@ -54,8 +54,8 @@
   padding: 2px;
 }
 
-.x-toggle-material.small:before {
-  margin: .3em 0;
+.x-toggle-material.small::before {
+  margin: 0.3em 0;
 }
 
 .x-toggle-material.medium {
@@ -64,8 +64,8 @@
   padding: 3px;
 }
 
-.x-toggle-material.medium:before {
-  margin: .35em 0;
+.x-toggle-material.medium::before {
+  margin: 0.35em 0;
 }
 
 .x-toggle-material.large {
@@ -74,6 +74,6 @@
   padding: 4px;
 }
 
-.x-toggle-material.large:before {
-  margin: .4em 0;
+.x-toggle-material.large::before {
+  margin: 0.4em 0;
 }
