@@ -39,7 +39,7 @@ Check the [demo] for interactive examples.
 {{x-toggle value=toggled theme='ios' onToggle=(action (mut toggled))}}
 ```
 
-_Note: By default only the `default` theme is included, see the Configuration section to import other themes._
+_Note: By default all themes are included, see the Configuration section to change which themes are included/excluded._
 
 
 ### Size
