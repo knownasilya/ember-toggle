@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from "@ember/object"
+import { computed } from '@ember/object';
 import layout from './template';
 
 export default Component.extend({
@@ -10,14 +10,19 @@ export default Component.extend({
   classNameBindings: ['labelType'],
   for: computed.readOnly('switchId'),
   isVisible: computed.readOnly('show'),
+  
   labelType: computed('type', function() {
-    return `${this.get('type')}-label`;
+    let type = this.get('type');
+    
+    return `${type}-label`;
   }),
+  
   type: computed('value', {
     get() {
       return this.get('value') ? 'on' : 'off';
     }
   }),
+  
   click(e) {
     e.stopPropagation();
     e.preventDefault();
