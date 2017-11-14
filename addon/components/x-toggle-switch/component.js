@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from "@ember/object"
+import { computed } from '@ember/object';
 import { next } from '@ember/runloop';
 import layout from './template';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
@@ -18,7 +18,9 @@ export default Component.extend(RecognizerMixin, {
   }),
 
   themeClass: computed('theme', function() {
-    return `x-toggle-${this.get('theme') || 'default'}`;
+    let theme = this.get('theme') || 'default';
+    
+    return `x-toggle-${theme}`;
   }),
 
   panRight() {
@@ -27,7 +29,7 @@ export default Component.extend(RecognizerMixin, {
     }
 
     this.get('sendToggle')(true);
-    this._disableLabelUntilMouseUp()
+    this._disableLabelUntilMouseUp();
   },
 
   panLeft() {
@@ -40,7 +42,8 @@ export default Component.extend(RecognizerMixin, {
   },
 
   willDestroyElement() {
-    this._removeListener()
+    this._super(...arguments);
+    this._removeListener();
   },
 
   /*
@@ -51,7 +54,7 @@ export default Component.extend(RecognizerMixin, {
     To prevent this, we need to make the label non-functional until after the
     mouse button is released.
    */
-  _disableLabelUntilMouseUp () {
+  _disableLabelUntilMouseUp() {
     if (this.get('labelDisabled')) {
       return;
     }
@@ -76,11 +79,11 @@ export default Component.extend(RecognizerMixin, {
   },
 
   _removeListener() {
-      const _listener = this.get('_listener')
+    const _listener = this.get('_listener');
 
-      if (_listener) {
-        document.removeEventListener('mouseup', _listener)
-        this.set('_listener', null)
-      }
+    if (_listener) {
+      document.removeEventListener('mouseup', _listener);
+      this.set('_listener', null);
+    }
   }
 });
