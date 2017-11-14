@@ -24,39 +24,34 @@ module.exports = {
   importThemes: function(app) {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-toggle'] || {};
+    var excludeBaseStyles = config.excludeBaseStyles || false;
+    var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip', 'material'];
+    var included = config.includedThemes;
+    var excluded = config.excludedThemes;
     var themes = [];
-    var excludeBaseStyles = false;
 
-    if (config) {
-      var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip', 'material'];
-      var included = config.includedThemes;
-      var excluded = config.excludedThemes;
+    if (included && Array.isArray(included)) {
+      themes = themes.concat(included);
+    } else {
+      themes = allThemes;
+    }
 
-      excludeBaseStyles = config.excludeBaseStyles || false;
-
-      if (included && Array.isArray(included)) {
-        themes = themes.concat(included);
-      }
-      else {
-        themes = allThemes;
-      }
-
-      if (excluded && Array.isArray(excluded)) {
-        themes = themes.filter(function (theme) {
-          return excluded.indexOf(theme) === -1;
-        });
-      }
-
+    if (excluded && Array.isArray(excluded)) {
       themes = themes.filter(function (theme) {
-        return theme && allThemes.indexOf(theme) !== -1;
+        return excluded.indexOf(theme) === -1;
       });
     }
+
+    themes = themes.filter(function (theme) {
+      return theme && allThemes.indexOf(theme) !== -1;
+    });
 
     if (!excludeBaseStyles) {
       app.import('vendor/ember-toggle/base.css');
     }
 
-    themes = themes.length ? themes : ['default'];
+    // Include all themes if user incorrectly specified themes in the config
+    themes = themes.length ? themes : allThemes;
 
     themes.forEach(function (theme) {
       app.import('vendor/ember-toggle/themes/' + theme + '.css');
