@@ -22,8 +22,9 @@ export default Component.extend({
   actions: {
     sendToggle(value) {
       let onToggle = this.get('onToggle');
-
-      if (value !== this.get('value') && typeof onToggle === 'function') {
+      let disabled = this.get('disabled');
+      
+      if (!disabled && (value !== this.get('value')) && (typeof onToggle === 'function')) {
         onToggle(value);
 
         // The click on input/label will toggle the input unconditionally.
