@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.2"></a>
+## [5.2.2](https://github.com/knownasilya/ember-toggle/compare/v5.2.1...v5.2.2) (2018-04-02)
+
+
+### Bug Fixes
+
+* Bump ember-hammertime ([#109](https://github.com/knownasilya/ember-toggle/issues/109)) ([d2b3ad1](https://github.com/knownasilya/ember-toggle/commit/d2b3ad1))
+* disables label action on disabled component ([#111](https://github.com/knownasilya/ember-toggle/issues/111)) ([471575a](https://github.com/knownasilya/ember-toggle/commit/471575a))
+* update ember-hammertime ([#108](https://github.com/knownasilya/ember-toggle/issues/108)) ([7fa9ca3](https://github.com/knownasilya/ember-toggle/commit/7fa9ca3))
+
+
+
 <a name="5.2.1"></a>
 ## [5.2.1](https://github.com/knownasilya/ember-toggle/compare/v5.2.0...v5.2.1) (2017-11-14)
 
