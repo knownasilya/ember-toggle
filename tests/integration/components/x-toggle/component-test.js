@@ -64,6 +64,27 @@ test('clicking component labels triggers onToggle action', function(assert) {
   assert.equal(this.get('value'), false, 'clicking off label again, value stays false');
 });
 
+test('clicking disabled component labels does not trigger onToggle action', function(assert) {
+  this.set('value', false);
+  this.set('disabled', true);
+  this.set('onToggle', val => {
+    this.set('value', val);
+  });
+
+  this.render(hbs`{{x-toggle
+    value=value
+    showLabels=true
+    onToggle=(action onToggle)
+    disabled=disabled
+  }}`);
+
+  this.$('.on-label').click();
+  assert.equal(this.get('value'), false, 'clicking on label does not change the value');
+
+  this.$('.off-label').click();
+  assert.equal(this.get('value'), false, 'clicking off label does not change the value');
+});
+
 if (emberVersionGTE(2, 0)) {
   test('clicking component works with bespoke values and mut helper', function(assert) {
     this.set('value', false);
