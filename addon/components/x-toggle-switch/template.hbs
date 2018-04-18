@@ -10,7 +10,8 @@
 <label for="{{effectiveForId}}">
   <div
     aria-owns="{{forId}}"
-    aria-role="checkbox"
+    role="checkbox"
+    aria-checked="{{toggled}}"
     class="x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}"
     data-tg-on="{{onLabel}}"
     data-tg-off="{{offLabel}}"
