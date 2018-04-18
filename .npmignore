@@ -17,3 +17,4 @@ ember-cli-build.js
 testem.js
 jsconfig.json
 CHANGELOG.md
+/config/addon-docs.js
