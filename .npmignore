@@ -7,8 +7,8 @@
 .bowerrc
 .editorconfig
 .ember-cli
-.gitignore
 .eslintrc.js
+.gitignore
 .watchmanconfig
 .travis.yml
 .tm_properties
@@ -17,3 +17,8 @@ ember-cli-build.js
 testem.js
 jsconfig.json
 CHANGELOG.md
+
+# ember-try
+.node_modules.ember-try/
+bower.json.ember-try
+package.json.ember-try

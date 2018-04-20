@@ -1,11 +1,11 @@
+import { not } from '@ember/object/computed';
 import Controller from "@ember/controller"
-import { computed } from "@ember/object"
 import { debug } from "@ember/debug"
 
 export default Controller.extend({
   boundToggle: false,
   bV2: 'ho',
-  notToggleLabelValue: computed.not('toggleLabelValue'),
+  notToggleLabelValue: not('toggleLabelValue'),
   toggleLabelValue: false,
 
   actions: {

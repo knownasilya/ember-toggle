@@ -1,3 +1,4 @@
+import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import layout from './template';
@@ -13,7 +14,7 @@ export default Component.extend({
   value: false,
 
   // private
-  toggled: computed.readOnly('value'),
+  toggled: readOnly('value'),
 
   forId: computed(function() {
     return this.get('elementId') + '-x-toggle';

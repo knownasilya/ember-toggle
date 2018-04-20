@@ -1,3 +1,4 @@
+import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import layout from './template';
@@ -8,8 +9,8 @@ export default Component.extend({
   attributeBindings: ['for'],
   classNames: ['toggle-text', 'toggle-prefix'],
   classNameBindings: ['labelType'],
-  for: computed.readOnly('switchId'),
-  isVisible: computed.readOnly('show'),
+  for: readOnly('switchId'),
+  isVisible: readOnly('show'),
   
   labelType: computed('type', function() {
     let type = this.get('type');
