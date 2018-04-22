@@ -32,6 +32,7 @@ Check the [demo] for interactive examples.
   - `'flat'`
   - `'flip'`
   - `'skewed'`
+  - `'material'`
 
 > Example of changing the theme
 
