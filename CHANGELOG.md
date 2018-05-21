@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.3"></a>
+## [5.2.3](https://github.com/knownasilya/ember-toggle/compare/v5.2.2...v5.2.3) (2018-05-21)
+
+
+### Bug Fixes
+
+* Update ember-gestures version to 1.1.0. (#116) ([01e5914](https://github.com/knownasilya/ember-toggle/commit/01e5914))
+* Updates Ember to 3.1.2 (#113) ([71578c8](https://github.com/knownasilya/ember-toggle/commit/71578c8))
+* Use proper role, remove invalid aria-role ([4270acf](https://github.com/knownasilya/ember-toggle/commit/4270acf)), closes [#106](https://github.com/knownasilya/ember-toggle/issues/106)
+
+
+
 <a name="5.2.2"></a>
 ## [5.2.2](https://github.com/knownasilya/ember-toggle/compare/v5.2.1...v5.2.2) (2018-04-02)
 
