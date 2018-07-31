@@ -75,6 +75,14 @@ label > .x-toggle-btn::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: none;
+}
+
+.x-toggle-component.x-toggle-focused .x-toggle-btn:not(.x-toggle-disabled)::after,
+.x-toggle-component.x-toggle-focused .x-toggle-btn:not(.x-toggle-disabled)::before {
+  -webkit-box-shadow: 0 0 3px 2px #0099e0;
+  -moz-box-shadow: 0 0 3px 2px #0099e0;
+  box-shadow: 0 0 2px 3px #0099e0;
 }
 
 .x-toggle-container {

@@ -8,7 +8,11 @@ export default Component.extend(RecognizerMixin, {
   layout,
   tagName: 'span',
   classNames: ['x-toggle-container'],
-  classNameBindings: ['size', 'disabled:x-toggle-container-disabled', 'value:x-toggle-container-checked'],
+  classNameBindings: [
+    'size', 
+    'disabled:x-toggle-container-disabled',
+    'value:x-toggle-container-checked'
+  ],
 
   labelDisabled: false,
   recognizers: 'pan',
@@ -22,6 +26,16 @@ export default Component.extend(RecognizerMixin, {
     
     return `x-toggle-${theme}`;
   }),
+
+  keyPress(event) {
+    // spacebar: 32
+    if (event.which === 32) {
+      let value = this.get('value');
+
+      this.sendToggle(!value);
+      event.preventDefault();
+    }
+  },
 
   panRight() {
     if (this.get('disabled')) {
