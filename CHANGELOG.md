@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.0"></a>
+# [5.3.0](https://github.com/knownasilya/ember-toggle/compare/v5.2.4...v5.3.0) (2018-07-31)
+
+
+### Features
+
+* make the toggle more accessible ([e0beb9b](https://github.com/knownasilya/ember-toggle/commit/e0beb9b))
+
+
+
 <a name="5.2.4"></a>
 ## [5.2.4](https://github.com/knownasilya/ember-toggle/compare/v5.2.3...v5.2.4) (2018-05-21)
 
