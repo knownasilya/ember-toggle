@@ -9,7 +9,7 @@ export default Component.extend({
   classNameBindings: ['focused:x-toggle-focused'],
   attributeBindings: ['tabindex'],
 
-  tabindex: '1',
+  tabindex: '0',
   focused: false,
   disabled: false,
   name: 'default',
