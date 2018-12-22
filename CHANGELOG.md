@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.2"></a>
+## [5.3.2](https://github.com/knownasilya/ember-toggle/compare/v5.3.1...v5.3.2) (2018-12-22)
+
+
+### Bug Fixes
+
+* remove hammertime ([5941a77](https://github.com/knownasilya/ember-toggle/commit/5941a77))
+* run audit fix ([080062c](https://github.com/knownasilya/ember-toggle/commit/080062c))
+* run codemods ([feed19e](https://github.com/knownasilya/ember-toggle/commit/feed19e))
+* update all the things ([2355b6b](https://github.com/knownasilya/ember-toggle/commit/2355b6b))
+* update deprecated live reload dep ([f7f0d8b](https://github.com/knownasilya/ember-toggle/commit/f7f0d8b))
+* update outdated deps ([d61ad26](https://github.com/knownasilya/ember-toggle/commit/d61ad26))
+
+
+
 <a name="5.3.1"></a>
 ## [5.3.1](https://github.com/knownasilya/ember-toggle/compare/v5.3.0...v5.3.1) (2018-10-11)
 
