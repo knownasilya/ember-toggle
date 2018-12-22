@@ -11,7 +11,7 @@ module('Integration | Component | x toggle', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`{{x-toggle}}`);
 
-    assert.ok(find('div.x-toggle-btn'), 'element exists');
+    assert.dom('div.x-toggle-btn').exists();
   });
 
   test('changing disabled property disables component', async function(assert) {
@@ -25,11 +25,11 @@ module('Integration | Component | x toggle', function(hooks) {
       disabled=this.disabled
     }}`);
 
-    assert.equal($('input.x-toggle').prop('disabled'), true);
+    assert.dom('input.x-toggle').isDisabled();
     assert.equal(this.value, false);
 
     await click('div.x-toggle-btn');
-    assert.equal($('input.x-toggle').prop('disabled'), true);
+    assert.dom('input.x-toggle').isDisabled();
     assert.equal(this.value, false);
   });
 
@@ -167,10 +167,10 @@ module('Integration | Component | x toggle', function(hooks) {
       `);
 
       this.set('value', true);
-      assert.equal(find('.x-toggle-container').classList.contains('x-toggle-container-checked'), true);
+      assert.dom('.x-toggle-container').hasClass('x-toggle-container-checked');
 
       this.set('value', false);
-      assert.equal(find('.x-toggle-container').classList.contains('x-toggle-container-checked'), false);
+      assert.dom('.x-toggle-container').doesNotHaveClass('x-toggle-container-checked');
     });
 
     test('can render in block form', async function(assert) {
@@ -192,10 +192,10 @@ module('Integration | Component | x toggle', function(hooks) {
       `);
 
       this.set('value', true);
-      assert.equal(find('.x-toggle-container').classList.contains('x-toggle-container-checked'), true);
+      assert.dom('.x-toggle-container').hasClass('x-toggle-container-checked');
 
       this.set('value', false);
-      assert.equal(find('.x-toggle-container').classList.contains('x-toggle-container-checked'), false);
+      assert.dom('.x-toggle-container').doesNotHaveClass('x-toggle-container-checked');
     });
 
     test('onToggle not called unless value changes', async function(assert) {
@@ -239,7 +239,7 @@ module('Integration | Component | x toggle', function(hooks) {
         onToggle=(action (mut this.value))
       }}`);
 
-      const $toggle = this.$('.x-toggle-container');
+      const $toggle = $('.x-toggle-container');
 
       $toggle.trigger('panright');
       assert.equal(this.value, true, 'panning right should enable');
@@ -257,7 +257,7 @@ module('Integration | Component | x toggle', function(hooks) {
         onToggle=(action (mut this.value))
       }}`);
 
-      const $toggle = this.$('.x-toggle-container');
+      const $toggle = $('.x-toggle-container');
 
       $toggle.trigger('panright');
       assert.equal(this.value, false, 'panning right should not enable');
@@ -278,7 +278,7 @@ module('Integration | Component | x toggle', function(hooks) {
       await click('div.x-toggle-btn');
 
       assert.equal(this.value, false);
-      assert.notOk(this.$('.x-toggle').is(':checked'));
+      assert.dom('.x-toggle').isNotChecked();
     });
 
     test('panning should not enable when the action does not update the value', async function(assert) {
@@ -294,12 +294,12 @@ module('Integration | Component | x toggle', function(hooks) {
         }}
       `);
 
-      const $toggle = this.$('.x-toggle-container');
+      const $toggle = $('.x-toggle-container');
 
       $toggle.trigger('panright');
 
       assert.equal(this.value, false);
-      assert.notOk(this.$('.x-toggle').is(':checked'));
+      assert.dom('.x-toggle').isNotChecked();
     });
   }
 });
