@@ -1,40 +1,43 @@
 {{#if hasBlock}}
-  {{yield (hash
-    switch=(component 'x-toggle-switch'
-      disabled=disabled
-      forId=forId
-      name=name
-      offLabel=offLabel
-      onLabel=onLabel
-      size=size
-      sendToggle=(action 'sendToggle')
-      theme=theme
-      toggled=toggled
-      value=value)
-    offLabel=(component 'x-toggle-label'
-      label=offLabel
-      sendToggle=(action 'sendToggle')
-      show=showLabels
-      switchId=forId
-      value=false)
-    onLabel=(component 'x-toggle-label'
-      label=onLabel
-      sendToggle=(action 'sendToggle')
-      show=showLabels
-      switchId=forId
-      value=true)
-    label=(component 'x-toggle-label'
-      sendToggle=(action 'sendToggle')
-      show=showLabels
-      switchId=forId)
-  )}}
+  {{yield
+    (hash
+      switch=(component 'x-toggle-switch'
+        disabled=disabled
+        forId=forId
+        name=name
+        offLabel=offLabel
+        onLabel=onLabel
+        size=size
+        sendToggle=(action 'sendToggle')
+        theme=theme
+        toggled=toggled
+        value=value)
+      offLabel=(component 'x-toggle-label'
+        label=offLabel
+        sendToggle=(action 'sendToggle')
+        show=showLabels
+        switchId=forId
+        value=false)
+      onLabel=(component 'x-toggle-label'
+        label=onLabel
+        sendToggle=(action 'sendToggle')
+        show=showLabels
+        switchId=forId
+        value=true)
+      label=(component 'x-toggle-label'
+        sendToggle=(action 'sendToggle')
+        show=showLabels
+        switchId=forId)
+    )
+  }}
 {{else}}
   {{x-toggle-label
     label=offLabel
-    sendToggle=(action 'sendToggle')
     show=showLabels
     switchId=forId
-    value=false}}
+    value=false
+    sendToggle=(action 'sendToggle')
+  }}
 
   {{x-toggle-switch
     disabled=disabled
@@ -42,16 +45,18 @@
     name=name
     offLabel=offLabel
     onLabel=onLabel
-    sendToggle=(action 'sendToggle')
     size=size
     theme=theme
     toggled=toggled
-    value=value}}
+    value=value
+    sendToggle=(action 'sendToggle')
+  }}
 
   {{x-toggle-label
     label=onLabel
-    sendToggle=(action 'sendToggle')
     show=showLabels
     switchId=forId
-    value=true}}
+    value=true
+    sendToggle=(action 'sendToggle')
+  }}
 {{/if}}
