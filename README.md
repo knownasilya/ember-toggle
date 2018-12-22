@@ -26,13 +26,13 @@ Here's the official [demo] using this component.
 There are many `themes` which change the visual appearance of the toggle.
 Check the [demo] for interactive examples.
 
-  - `'default'`
-  - `'ios'`
-  - `'light'`
-  - `'flat'`
-  - `'flip'`
-  - `'skewed'`
-  - `'material'`
+- `'default'`
+- `'ios'`
+- `'light'`
+- `'flat'`
+- `'flip'`
+- `'skewed'`
+- `'material'`
 
 > Example of changing the theme
 
@@ -42,15 +42,13 @@ Check the [demo] for interactive examples.
 
 _Note: By default all themes are included, see the Configuration section to change which themes are included/excluded._
 
-
 ### Size
 
 You can also adjust the size of the widget by use of the `size` property. Valid sizes are:
 
-  - `'small'`
-  - `'medium'`
-  - `'large'`
-
+- `'small'`
+- `'medium'`
+- `'large'`
 
 This option is available on all themes but is a less sensible choice for those themes which actually
 include the label within the control (e.g., `skew` and `flip`).
@@ -74,16 +72,16 @@ If you want your labels to be display, then you must set `showLabels` to `true`.
 
 ### Available Options
 
-* `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
+- `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
             Defaults to 'default' if not specified.
-* `size` -  One of 'small', 'medium', 'large'.
+- `size` -  One of 'small', 'medium', 'large'.
             Defaults to 'medium' if not specified.
-* `onLabel` - The label for the *on* state. Defaults to 'On'.
-* `offLabel` - The label for the *off* state. Defaults to 'Off'.
-* `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
-* `disabled` - Defaults to `false`, which means you can click the toggle.
+- `onLabel` - The label for the *on* state. Defaults to 'On'.
+- `offLabel` - The label for the *off* state. Defaults to 'Off'.
+- `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
+- `disabled` - Defaults to `false`, which means you can click the toggle.
   When `true`, an `.x-toggle-disabled` class is set on the toggle and an `.x-toggle-container-disabled` class is set on the component.
-* `name` - A name to differentiate multiple toggles, gets passed to the `toggle` action. Defaults to 'default'.
+- `name` - A name to differentiate multiple toggles, gets passed to the `toggle` action. Defaults to 'default'.
 
 ### Configuring
 
@@ -102,6 +100,7 @@ ENV['ember-toggle'] = {
   defaultOnLabel: 'True'    // defaults to 'On'
 };
 ```
+
 > note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
 
 To exclude or not include a theme, means that it's css styles will not be bundled with
@@ -150,8 +149,7 @@ This format allows greater flexibility with labels, like the single label use-ca
 
 See [CONTRIBUTING.md] for details.
 
-License
--------
+## License
 
 MIT
 
