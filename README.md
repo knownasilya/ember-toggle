@@ -16,7 +16,10 @@ Here's the official [demo] using this component.
 ## Basic Usage
 
 ```hbs
-{{x-toggle value=myValue onToggle=(action (mut myValue))}}
+{{x-toggle
+  value=this.myValue
+  onToggle=(action (mut this.myValue))
+}}
 ```
 
 ### Themes
@@ -37,7 +40,11 @@ Check the [demo] for interactive examples.
 > Example of changing the theme
 
 ```hbs
-{{x-toggle value=toggled theme='ios' onToggle=(action (mut toggled))}}
+{{x-toggle
+  theme='ios'
+  value=this.toggled
+  onToggle=(action (mut this.toggled))
+}}
 ```
 
 _Note: By default all themes are included, see the Configuration section to change which themes are included/excluded._
@@ -59,11 +66,11 @@ You can set both labels (what is displayed to the user) and the values associate
 
 ```hbs
 {{x-toggle
-  value=myValue
   showLabels=true
   onLabel='Enabled'
   offLabel='Disabled'
-  onToggle=(action (mut myValue))
+  value=this.myValue
+  onToggle=(action (mut this.myValue))
 }}
 ```
 
@@ -119,7 +126,11 @@ If you need custom labels, or additional markup, or non-standard behavior, you a
 The `x-toggle` component also provides a composable component API.
 
 ```hbs
-{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+{{#x-toggle
+  showLabels=true
+  value=this.value
+  onToggle=(action (mut this.value))
+as |toggle|}}
   {{toggle.offLabel}}
   {{toggle.switch}}
   {{toggle.onLabel}}
@@ -134,12 +145,20 @@ this could be used to wrap the switch or the labels in custom markup or logic.
 This format allows greater flexibility with labels, like the single label use-case.
 
 ```hbs
-{{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
-  {{#toggle.label value=(not value)}}
-    <b>turn {{if value 'off' 'on'}}</b>
+{{#x-toggle
+  showLabels=true
+  value=this.value
+  onToggle=(action (mut this.value))
+as |toggle|}}
+  {{#toggle.label value=(not this.value)}}
+    <b>turn {{if this.value 'off' 'on'}}</b>
   {{/toggle.label}}
 
-  {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+  {{toggle.switch
+    theme='flip'
+    onLabel='diff on'
+    offLabel='diff off'
+  }}
 {{/x-toggle}}
 ```
 
