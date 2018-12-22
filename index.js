@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-toggle',
+  name: require('./package').name,
 
   included: function(app, parentAddon) {
     var target = (parentAddon || app);

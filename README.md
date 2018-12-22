@@ -150,6 +150,11 @@ This format allows greater flexibility with labels, like the single label use-ca
 
 See [CONTRIBUTING.md] for details.
 
+License
+-------
+
+MIT
+
 [npm-badge]: https://img.shields.io/npm/v/ember-toggle.svg
 [npm-badge-url]: https://www.npmjs.com/package/ember-toggle
 [travis-badge]: https://img.shields.io/travis/knownasilya/ember-toggle.svg
