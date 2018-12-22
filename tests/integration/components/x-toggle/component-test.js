@@ -21,8 +21,8 @@ module('Integration | Component | x toggle', function(hooks) {
     });
 
     await render(hbs`{{x-toggle
-      value=value
-      disabled=disabled
+      value=this.value
+      disabled=this.disabled
     }}`);
 
     assert.equal($('input.x-toggle').prop('disabled'), true);
@@ -42,8 +42,8 @@ module('Integration | Component | x toggle', function(hooks) {
     })
 
     await render(hbs`{{x-toggle
-      value=myValue
-      onToggle=(action onToggle)
+      value=this.myValue
+      onToggle=(action this.onToggle)
     }}`);
 
     await click('div.x-toggle-btn');
@@ -63,9 +63,9 @@ module('Integration | Component | x toggle', function(hooks) {
     });
 
     await render(hbs`{{x-toggle
-      value=value
+      value=this.value
       showLabels=true
-      onToggle=(action onToggle)
+      onToggle=(action this.onToggle)
     }}`);
 
     await click('.on-label');
@@ -88,10 +88,10 @@ module('Integration | Component | x toggle', function(hooks) {
     });
 
     await render(hbs`{{x-toggle
-      value=value
+      value=this.value
       showLabels=true
-      onToggle=(action onToggle)
       disabled=disabled
+      onToggle=(action this.onToggle)
     }}`);
 
     await click('.on-label');
@@ -106,11 +106,11 @@ module('Integration | Component | x toggle', function(hooks) {
       this.set('value', false);
 
       await render(hbs`{{x-toggle
-        value=value
         offLabel='Foo'
         onLabel='Bar'
         showLabels=true
-        onToggle=(action (mut value))
+        value=this.value
+        onToggle=(action (mut this.value))
       }}`);
   
       assert.equal(this.value, false);
@@ -125,10 +125,10 @@ module('Integration | Component | x toggle', function(hooks) {
       this.set('value', false);
 
       await render(hbs`{{x-toggle
-        value=value
-        onToggle=(action (mut value))
         onLabel=true
         offLabel=false
+        value=this.value
+        onToggle=(action (mut this.value))
       }}`);
 
       assert.equal(this.value, false);
@@ -141,10 +141,10 @@ module('Integration | Component | x toggle', function(hooks) {
       this.set('value', false);
 
       await render(hbs`{{x-toggle
-        value=value
-        onToggle=(action (mut value))
         onLabel='Yes'
         offLabel='No'
+        value=this.value
+        onToggle=(action (mut this.value))
       }}`);
 
       assert.equal(this.value, false);
@@ -160,7 +160,10 @@ module('Integration | Component | x toggle', function(hooks) {
       });
 
       await render(hbs`
-        {{x-toggle value=value onToggle=(action (mut value))}}
+        {{x-toggle
+          value=this.value
+          onToggle=(action (mut this.value))
+        }}
       `);
 
       this.set('value', true);
@@ -177,7 +180,11 @@ module('Integration | Component | x toggle', function(hooks) {
       });
 
       await render(hbs`
-        {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
+        {{#x-toggle
+          showLabels=true
+          value=this.value
+          onToggle=(action (mut this.value))
+        as |toggle|}}
           {{toggle.offLabel}}
           {{toggle.onLabel}}
           {{toggle.switch}}
@@ -204,7 +211,11 @@ module('Integration | Component | x toggle', function(hooks) {
       });
 
       await render(hbs`
-        {{#x-toggle value=value showLabels=true onToggle=(action onToggle) as |toggle|}}
+        {{#x-toggle
+          showLabels=true
+          value=this.value
+          onToggle=(action this.onToggle)
+        as |toggle|}}
           {{toggle.offLabel}}
           {{toggle.onLabel}}
           {{toggle.switch}}
@@ -224,8 +235,8 @@ module('Integration | Component | x toggle', function(hooks) {
       this.set('value', false);
 
       await render(hbs`{{x-toggle
-        value=value
-        onToggle=(action (mut value))
+        value=this.value
+        onToggle=(action (mut this.value))
       }}`);
 
       const $toggle = this.$('.x-toggle-container');
@@ -242,8 +253,8 @@ module('Integration | Component | x toggle', function(hooks) {
 
       await render(hbs`{{x-toggle
         disabled=true
-        value=value
-        onToggle=(action (mut value))
+        value=this.value
+        onToggle=(action (mut this.value))
       }}`);
 
       const $toggle = this.$('.x-toggle-container');
@@ -258,7 +269,12 @@ module('Integration | Component | x toggle', function(hooks) {
         toggleAction() {}
       });
 
-      await render(hbs`{{x-toggle value=value onToggle=(action toggleAction)}}`);
+      await render(hbs`
+        {{x-toggle
+          value=this.value
+          onToggle=(action this.toggleAction)
+        }}
+      `);
       await click('div.x-toggle-btn');
 
       assert.equal(this.value, false);
@@ -271,7 +287,12 @@ module('Integration | Component | x toggle', function(hooks) {
         toggleAction() {}
       });
 
-      await render(hbs`{{x-toggle value=value onToggle=(action toggleAction)}}`);
+      await render(hbs`
+        {{x-toggle
+          value=this.value
+          onToggle=(action this.toggleAction)
+        }}
+      `);
 
       const $toggle = this.$('.x-toggle-container');
 
