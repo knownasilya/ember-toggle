@@ -1,22 +1,24 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('x-toggle-label', 'Integration | Component | x toggle label', {
-  integration: true
-});
+module('Integration | Component | x toggle label', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  this.render(hbs`{{x-toggle-label label='test' value=true switchId='test' show=true}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`{{x-toggle-label label='test' value=true switchId='test' show=true}}`);
 
-  assert.equal(this.$().text().trim(), 'test');
-});
+    assert.equal(find('*').textContent.trim(), 'test');
+  });
 
-test('it renders in block form', function(assert) {
-  this.render(hbs`
-    {{#x-toggle-label label='test' value=true switchId='test' show=true as |value|}}
-      hi {{value}}
-    {{/x-toggle-label}}
-  `);
+  test('it renders in block form', async function(assert) {
+    await render(hbs`
+      {{#x-toggle-label label='test' value=true switchId='test' show=true as |value|}}
+        hi {{value}}
+      {{/x-toggle-label}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'hi test');
+    assert.equal(find('*').textContent.trim(), 'hi test');
+  });
 });
