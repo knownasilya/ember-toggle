@@ -24,7 +24,7 @@ Here's the official [demo] using this component.
 
 ### Themes
 
-![ ](vendor/ember-toggle/example-images/themes.png)
+![Examples Of Available Themes](vendor/ember-toggle/example-images/themes.png)
 
 There are many `themes` which change the visual appearance of the toggle.
 Check the [demo] for interactive examples.
