@@ -62,7 +62,7 @@ include the label within the control (e.g., `skew` and `flip`).
 
 ### Labels
 
-You can set both labels (what is displayed to the user) and the values associated with this label:
+You can customize labels (The text the user sees for the two states) and their associated values:
 
 ```hbs
 {{x-toggle
@@ -74,7 +74,7 @@ You can set both labels (what is displayed to the user) and the values associate
 }}
 ```
 
-If you want your labels to be display, then you must set `showLabels` to `true`.
+If you want your labels to be displayed, then you must set `showLabels` to `true`.
 
 
 ### Available Options
@@ -93,7 +93,12 @@ If you want your labels to be display, then you must set `showLabels` to `true`.
 ### Configuring
 
 Add a configuration for `ember-toggle` to include only the themes that
-you will use.
+you will use, as well as any other default settings that apply to all toggles
+in your app. These defaults can be overriden on a per toggle basis
+(except the options regarding themes being added to your app's build step).
+
+This configuration is located in `config/environment.js`.  
+The following is an example of how you can configure this addon:
 
 ```js
 ENV['ember-toggle'] = {
@@ -110,8 +115,8 @@ ENV['ember-toggle'] = {
 
 > note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
 
-To exclude or not include a theme, means that it's css styles will not be bundled with
-your application, thus not polluting your app.
+To exclude (not include) a theme, means that it's css styles will not be bundled with
+your application, keeping your app's css bundle size smaller.
 
 > **Note:** including a blank array e.g. `includeThemes: []` will not include any themes, leaving
 you to define your own theme styles. See the `vendor/ember-toggle/themes` directory
@@ -121,7 +126,7 @@ used by all the themes.
 
 ## Advanced Usage
 
-If you need custom labels, or additional markup, or non-standard behavior, you are in the right section.
+If you need custom labels, additional markup, or non-standard behavior, you are in the right section.
 
 The `x-toggle` component also provides a composable component API.
 
@@ -166,7 +171,7 @@ as |toggle|}}
 
 ## Contributing
 
-See [CONTRIBUTING.md] for details.
+See the [Contributing] guide for details.
 
 ## License
 
@@ -179,5 +184,5 @@ MIT
 [ember-observer-badge]: http://emberobserver.com/badges/ember-toggle.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-toggle
 [demo]: http://knownasilya.github.io/ember-toggle/
-[CONTRIBUTING.md]: CONTRIBUTING.md
+[Contributing]: CONTRIBUTING.md
 [simplify]: https://github.com/knownasilya/ember-toggle/tree/simplify
