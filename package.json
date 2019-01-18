@@ -32,6 +32,7 @@
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0"
   },
   "devDependencies": {
+    "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~3.6.0",
