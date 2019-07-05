@@ -9,7 +9,9 @@
 /node_modules/
 
 # misc
-/.sass-cache/
+/.env*
+/.pnp*
+/.sass-cache
 /connect.lock
 /coverage/
 /libpeerconnection.log
