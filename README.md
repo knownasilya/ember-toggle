@@ -2,12 +2,20 @@
 
 Checkbox based Toggle Switch component with swipe/drag support for Ember.
 
-Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
-Here's the official [demo] using this component.
-
 [![NPM][npm-badge]][npm-badge-url]
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
+
+Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
+Here's the official [demo] using this component.
+
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
+
 
 ## Install
 

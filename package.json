@@ -26,8 +26,8 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.1.2",
-    "ember-cli-htmlbars": "^3.0.0",
+    "ember-cli-babel": "^7.7.3",
+    "ember-cli-htmlbars": "^3.0.1",
     "ember-gestures": "^1.1.1",
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0"
   },
@@ -35,9 +35,9 @@
     "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-cli": "~3.6.0",
-    "ember-cli-dependency-checker": "^3.0.0",
-    "ember-cli-eslint": "^5.0.0",
+    "ember-cli": "~3.10.1",
+    "ember-cli-dependency-checker": "^3.1.0",
+    "ember-cli-eslint": "^5.1.0",
     "ember-cli-github-pages": "^0.2.0",
     "ember-cli-htmlbars-inline-precompile": "^2.1.0",
     "ember-cli-inject-live-reload": "^2.0.1",
@@ -49,20 +49,20 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-qunit": "^4.2.0",
+    "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
-    "ember-source": "~3.6.0",
+    "ember-source": "~3.10.0",
     "ember-source-channel-url": "^1.1.0",
     "ember-try": "^1.1.0",
-    "eslint-plugin-ember": "^6.1.0",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-ember": "^6.2.0",
+    "eslint-plugin-node": "^9.0.1",
     "loader.js": "^4.7.0",
-    "qunit-dom": "^0.8.0",
+    "qunit-dom": "^0.8.4",
     "standard-version": "^4.0.0",
     "stylelint-config-standard": "^18.2.0"
   },
   "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "node": "8.* || >= 10.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
