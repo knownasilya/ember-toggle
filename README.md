@@ -24,10 +24,10 @@ Compatibility
 ## Basic Usage
 
 ```hbs
-{{x-toggle
-  value=this.myValue
-  onToggle=(action (mut this.myValue))
-}}
+<XToggle
+  @value={{this.myValue}}
+  @onToggle={{action (mut this.myValue)}}
+/>
 ```
 
 ### Themes
@@ -48,11 +48,11 @@ Check the [demo] for interactive examples.
 > Example of changing the theme
 
 ```hbs
-{{x-toggle
-  theme='ios'
-  value=this.toggled
-  onToggle=(action (mut this.toggled))
-}}
+<XToggle
+  @theme='ios'
+  @value={{this.toggled}}
+  @onToggle={{action (mut this.toggled)}}
+/>
 ```
 
 _Note: By default all themes are included, see the Configuration section to change which themes are included/excluded._
@@ -73,13 +73,13 @@ include the label within the control (e.g., `skew` and `flip`).
 You can customize labels (The text the user sees for the two states) and their associated values:
 
 ```hbs
-{{x-toggle
-  showLabels=true
-  onLabel='Enabled'
-  offLabel='Disabled'
-  value=this.myValue
-  onToggle=(action (mut this.myValue))
-}}
+<XToggle
+  @onLabel='Enabled'
+  @offLabel='Disabled'
+  @showLabels={{true}}
+  @value={{this.myValue}}
+  @onToggle={{action (mut this.myValue)}}
+/>
 ```
 
 If you want your labels to be displayed, then you must set `showLabels` to `true`.
@@ -139,15 +139,15 @@ If you need custom labels, additional markup, or non-standard behavior, you are 
 The `x-toggle` component also provides a composable component API.
 
 ```hbs
-{{#x-toggle
-  showLabels=true
-  value=this.value
-  onToggle=(action (mut this.value))
-as |toggle|}}
-  {{toggle.offLabel}}
-  {{toggle.switch}}
-  {{toggle.onLabel}}
-{{/x-toggle}}
+<XToggle
+  @showLabels={{true}}
+  @value={{this.value}}
+  @onToggle={{action (mut this.value)}}
+as |toggle|>
+  <toggle.offLabel/>
+  <toggle.switch/>
+  <toggle.onLabel/>
+</XToggle>
 ```
 
 The above is a simple example that returns a basic toggle, but you can see how
@@ -158,21 +158,22 @@ this could be used to wrap the switch or the labels in custom markup or logic.
 This format allows greater flexibility with labels, like the single label use-case.
 
 ```hbs
-{{#x-toggle
-  showLabels=true
-  value=this.value
-  onToggle=(action (mut this.value))
-as |toggle|}}
-  {{#toggle.label value=(not this.value)}}
+<XToggle
+  @showLabels={{true}}
+  @value={{this.value}}
+  @onToggle={{action (mut this.value)}}
+  as |toggle|
+>
+  <toggle.label @value={{not this.value}}>
     <b>turn {{if this.value 'off' 'on'}}</b>
-  {{/toggle.label}}
+  </toggle.label>
 
-  {{toggle.switch
-    theme='flip'
-    onLabel='diff on'
-    offLabel='diff off'
-  }}
-{{/x-toggle}}
+  <toggle.switch
+    @theme='flip'
+    @onLabel='diff on'
+    @offLabel='diff off'
+  />
+</XToggle>
 ```
 
 > Note: The `not` helper is a custom Ember helper in the above example.
