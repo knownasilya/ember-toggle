@@ -126,8 +126,8 @@ module('Integration | Component | x toggle', function(hooks) {
       `);
   
       assert.equal(this.value, false);
-      assert.equal(find('.off-label').textContent.trim(), 'Foo', '"off" property set on toggle');
-      assert.equal(find('.on-label').textContent.trim(), 'Bar', '"on" property set on toggle');
+      assert.dom('.off-label').hasText('Foo', '"off" property set on toggle');
+      assert.dom('.on-label').hasText('Bar', '"on" property set on toggle');
 
       await click('div.x-toggle-btn');
       assert.equal(this.value, true, 'click toggles value');

@@ -9,7 +9,7 @@ module('Integration | Component | x toggle label', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`{{x-toggle-label label='test' value=true switchId='test' show=true}}`);
 
-    assert.equal(find('*').textContent.trim(), 'test');
+    assert.dom('*').hasText('test');
   });
 
   test('it renders in block form', async function(assert) {
@@ -19,6 +19,6 @@ module('Integration | Component | x toggle label', function(hooks) {
       {{/x-toggle-label}}
     `);
 
-    assert.equal(find('*').textContent.trim(), 'hi test');
+    assert.dom('*').hasText('hi test');
   });
 });
