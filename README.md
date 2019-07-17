@@ -87,6 +87,8 @@ If you want your labels to be displayed, then you must set `showLabels` to `true
 
 ### Available Options
 
+- `value` - The state of the switch, can be `true` or `false`. Defaults to `false`.
+- `onToggle` - The action that should change the state of `value`.
 - `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
             Defaults to 'default' if not specified.
 - `size` -  One of 'small', 'medium', 'large'.
