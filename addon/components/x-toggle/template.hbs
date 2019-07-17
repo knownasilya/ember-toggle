@@ -2,64 +2,64 @@
   {{yield
     (hash
       switch=(component 'x-toggle-switch'
-        disabled=disabled
-        forId=forId
-        name=name
-        offLabel=offLabel
-        onLabel=onLabel
-        size=size
+        disabled=this.disabled
+        forId=this.forId
+        name=this.name
+        offLabel=this.offLabel
+        onLabel=this.onLabel
+        size=this.size
+        theme=this.theme
+        toggled=this.toggled
+        value=this.value
         sendToggle=(action 'sendToggle')
-        theme=theme
-        toggled=toggled
-        value=value
       )
       offLabel=(component 'x-toggle-label'
-        label=offLabel
-        sendToggle=(action 'sendToggle')
-        show=showLabels
-        switchId=forId
+        label=this.offLabel
+        show=this.showLabels
+        switchId=this.forId
         value=false
+        sendToggle=(action 'sendToggle')
       )
       onLabel=(component 'x-toggle-label'
-        label=onLabel
-        sendToggle=(action 'sendToggle')
-        show=showLabels
-        switchId=forId
+        label=this.onLabel
+        show=this.showLabels
+        switchId=this.forId
         value=true
+        sendToggle=(action 'sendToggle')
       )
       label=(component 'x-toggle-label'
+        show=this.showLabels
+        switchId=this.forId
         sendToggle=(action 'sendToggle')
-        show=showLabels
-        switchId=forId
       )
     )
   }}
 {{else}}
   {{x-toggle-label
-    label=offLabel
-    show=showLabels
-    switchId=forId
+    label=this.offLabel
+    show=this.showLabels
+    switchId=this.forId
     value=false
     sendToggle=(action 'sendToggle')
   }}
 
   {{x-toggle-switch
-    disabled=disabled
-    forId=forId
-    name=name
-    offLabel=offLabel
-    onLabel=onLabel
-    size=size
-    theme=theme
-    toggled=toggled
-    value=value
+    disabled=this.disabled
+    forId=this.forId
+    name=this.name
+    offLabel=this.offLabel
+    onLabel=this.onLabel
+    size=this.size
+    theme=this.theme
+    toggled=this.toggled
+    value=this.value
     sendToggle=(action 'sendToggle')
   }}
 
   {{x-toggle-label
-    label=onLabel
-    show=showLabels
-    switchId=forId
+    label=this.onLabel
+    show=this.showLabels
+    switchId=this.forId
     value=true
     sendToggle=(action 'sendToggle')
   }}
