@@ -1,22 +1,22 @@
 <input
   class='x-toggle'
   type='checkbox'
-  checked={{toggled}}
-  disabled={{disabled}}
-  id={{forId}}
-  name={{name}}
-  onchange={{action sendToggle value='target.checked'}}
+  checked={{this.toggled}}
+  disabled={{this.disabled}}
+  id={{this.forId}}
+  name={{this.name}}
+  onchange={{action this.sendToggle value='target.checked'}}
 >
 
-<label for={{effectiveForId}}>
+<label for={{this.effectiveForId}}>
   <div
-    id='x-toggle-visual-{{forId}}'
+    id='x-toggle-visual-{{this.forId}}'
     role='checkbox'
-    class='x-toggle-btn {{themeClass}} {{size}}{{if disabled ' x-toggle-disabled'}}'
-    aria-owns={{forId}}
-    aria-checked={{toggled}}
-    data-tg-on={{onLabel}}
-    data-tg-off={{offLabel}}
+    class='x-toggle-btn {{this.themeClass}} {{this.size}}{{if this.disabled ' x-toggle-disabled'}}'
+    aria-owns={{this.forId}}
+    aria-checked={{this.toggled}}
+    data-tg-on={{this.onLabel}}
+    data-tg-off={{this.offLabel}}
   >
   </div>
 </label>
