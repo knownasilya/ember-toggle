@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/knownasilya/ember-toggle/compare/v5.3.3...v6.0.0) (2019-07-17)
+
+
+### Bug Fixes
+
+* audit ([ad606dd](https://github.com/knownasilya/ember-toggle/commit/ad606dd))
+* more this in templates ([457b812](https://github.com/knownasilya/ember-toggle/commit/457b812))
+* update to latest ember version via ember-cli-update ([82d2cdf](https://github.com/knownasilya/ember-toggle/commit/82d2cdf))
+* use this in x-toggle template ([1298ddd](https://github.com/knownasilya/ember-toggle/commit/1298ddd))
+
+
+### BREAKING CHANGES
+
+* no longer include 2.18 in build matrix, although it might still work.
+
+
+
 <a name="5.3.3"></a>
 ## [5.3.3](https://github.com/knownasilya/ember-toggle/compare/v5.3.2...v5.3.3) (2019-07-05)
 
