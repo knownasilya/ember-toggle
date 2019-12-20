@@ -1,5 +1,7 @@
-{{#if hasBlock}}
-  {{yield this.label}}
-{{else}}
-  {{this.label}}
+{{#if this.show}}
+  {{#if hasBlock}}
+    {{yield this.label}}
+  {{else}}
+    {{this.label}}
+  {{/if}}
 {{/if}}
