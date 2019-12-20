@@ -10,8 +10,7 @@ export default Component.extend({
   classNames: ['toggle-text', 'toggle-prefix'],
   classNameBindings: ['labelType'],
   for: readOnly('switchId'),
-  isVisible: readOnly('show'),
-  
+
   labelType: computed('type', function() {
     let type = this.get('type');
     
