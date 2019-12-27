@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.1"></a>
+## [6.0.1](https://github.com/knownasilya/ember-toggle/compare/v6.0.0...v6.0.1) (2019-12-27)
+
+
+### Bug Fixes
+
+* make label tagless to preserve visibility feature ([0b9e39e](https://github.com/knownasilya/ember-toggle/commit/0b9e39e))
+* **deps:** security audit ([ae4d3c8](https://github.com/knownasilya/ember-toggle/commit/ae4d3c8))
+* address the `ember-component-is-visible` deperecation (3.15) ([#128](https://github.com/knownasilya/ember-toggle/issues/128)) ([c1ad3ba](https://github.com/knownasilya/ember-toggle/commit/c1ad3ba))
+
+
+
 <a name="6.0.0"></a>
 # [6.0.0](https://github.com/knownasilya/ember-toggle/compare/v5.3.3...v6.0.0) (2019-07-17)
 
