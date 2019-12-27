@@ -5,10 +5,7 @@ import layout from './template';
 
 export default Component.extend({
   layout,
-  tagName: 'label',
-  attributeBindings: ['for'],
-  classNames: ['toggle-text', 'toggle-prefix'],
-  classNameBindings: ['labelType'],
+  tagName: '',
   for: readOnly('switchId'),
 
   labelType: computed('type', function() {
@@ -23,9 +20,11 @@ export default Component.extend({
     }
   }),
   
-  click(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    this.sendToggle(this.get('value'));
+  actions: {
+    clickLabel(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      this.sendToggle(this.get('value'));
+    }
   }
 });

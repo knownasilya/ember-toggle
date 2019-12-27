@@ -1,7 +1,13 @@
 {{#if this.show}}
-  {{#if hasBlock}}
-    {{yield this.label}}
-  {{else}}
-    {{this.label}}
-  {{/if}}
+  <label
+    for={{this.for}}
+    class='toggle-text toggle-prefix {{this.labelType}}'
+    onclick={{action 'clickLabel'}}
+  > 
+    {{#if hasBlock}}
+      {{yield this.label}}
+    {{else}}
+      {{this.label}}
+    {{/if}}
+  </label>
 {{/if}}
