@@ -3,6 +3,7 @@
     for={{this.for}}
     class='toggle-text toggle-prefix {{this.labelType}}'
     onclick={{action 'clickLabel'}}
+    ...attributes
   > 
     {{#if hasBlock}}
       {{yield this.label}}
