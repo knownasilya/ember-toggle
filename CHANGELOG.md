@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.2"></a>
+## [6.0.2](https://github.com/knownasilya/ember-toggle/compare/v6.0.1...v6.0.2) (2020-01-17)
+
+
+### Bug Fixes
+
+* add ...attributes to label ([9fd9024](https://github.com/knownasilya/ember-toggle/commit/9fd9024)), closes [#129](https://github.com/knownasilya/ember-toggle/issues/129)
+
+
+
 <a name="6.0.1"></a>
 ## [6.0.1](https://github.com/knownasilya/ember-toggle/compare/v6.0.0...v6.0.1) (2019-12-27)
 
