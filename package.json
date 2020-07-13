@@ -58,7 +58,7 @@
     "eslint-plugin-node": "^9.0.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.4",
-    "standard-version": "^4.0.0",
+    "standard-version": "^8.0.1",
     "stylelint-config-standard": "^18.2.0"
   },
   "engines": {
