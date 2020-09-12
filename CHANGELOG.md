@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/knownasilya/ember-toggle/compare/v6.0.3...v7.0.0) (2020-09-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop Node < 10
+* Drop Ember < 3.12 LTS (still might work, but no longer tested)
+
+### Bug Fixes
+
+* lint and missing cp key ([caf2b0b](https://github.com/knownasilya/ember-toggle/commit/caf2b0bd5543f8510fa655e100ac0b53b0fa34cc))
+* remove usage of action helper in most places ([2d8cefb](https://github.com/knownasilya/ember-toggle/commit/2d8cefbff226e6c8f44ee139abf71e07aaf8a17a))
+* Upgrade Ember v3.11.0...v3.21.2 ([7dc1ee8](https://github.com/knownasilya/ember-toggle/commit/7dc1ee8ff8710d24e3b95f7cb68d3d4415fba9c9))
+
 ### [6.0.3](https://github.com/knownasilya/ember-toggle/compare/v6.0.2...v6.0.3) (2020-09-12)
 
 
