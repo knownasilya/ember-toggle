@@ -6,18 +6,26 @@ module.exports = async function () {
   return {
     scenarios: [
       {
-        name: 'ember-lts-3.4',
+        name: 'ember-lts-3.12',
         npm: {
           devDependencies: {
-            'ember-source': '~3.4.0',
+            'ember-source': '~3.12.0',
           },
         },
       },
       {
-        name: 'ember-lts-3.8',
+        name: 'ember-lts-3.16',
         npm: {
           devDependencies: {
-            'ember-source': '~3.8.0',
+            'ember-source': '~3.16.0',
+          },
+        },
+      },
+      {
+        name: 'ember-lts-3.20',
+        npm: {
+          devDependencies: {
+            'ember-source': '~3.20.5',
           },
         },
       },
@@ -45,16 +53,6 @@ module.exports = async function () {
           },
         },
       },
-      // The default `.travis.yml` runs this scenario via `npm test`,
-      // not via `ember try`. It's still included here so that running
-      // `ember try:each` manually or from a customized CI config will run it
-      // along with all the other scenarios.
-      {
-        name: 'ember-default',
-        npm: {
-          devDependencies: {},
-        },
-      },
       {
         name: 'ember-default-with-jquery',
         env: {
@@ -64,7 +62,23 @@ module.exports = async function () {
         },
         npm: {
           devDependencies: {
-            '@ember/jquery': '^0.5.1',
+            '@ember/jquery': '^1.1.0',
+          },
+        },
+      },
+      {
+        name: 'ember-classic',
+        env: {
+          EMBER_OPTIONAL_FEATURES: JSON.stringify({
+            'jquery-integration': true,
+            'application-template-wrapper': true,
+            'default-async-observers': false,
+            'template-only-glimmer-components': false,
+          }),
+        },
+        npm: {
+          ember: {
+            edition: 'classic',
           },
         },
       },
