@@ -9,14 +9,14 @@ export default Component.extend({
   for: readOnly('switchId'),
 
   labelType: computed('type', function () {
-    let type = this.get('type');
+    let type = this.type;
 
     return `${type}-label`;
   }),
 
   type: computed('value', {
     get() {
-      return this.get('value') ? 'on' : 'off';
+      return this.value ? 'on' : 'off';
     },
   }),
 
@@ -24,7 +24,7 @@ export default Component.extend({
     clickLabel(e) {
       e.stopPropagation();
       e.preventDefault();
-      this.sendToggle(this.get('value'));
+      this.sendToggle(this.value);
     },
   },
 });

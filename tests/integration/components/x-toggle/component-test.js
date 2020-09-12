@@ -240,7 +240,7 @@ module('Integration | Component | x toggle', function (hooks) {
         value: false,
         show: false,
         onToggle(value) {
-          const timesCalled = this.get('timesCalled') + 1;
+          const timesCalled = this.timesCalled + 1;
           this.set('timesCalled', timesCalled);
           this.set('value', value);
         },

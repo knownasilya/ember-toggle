@@ -21,13 +21,13 @@ export default Component.extend({
   toggled: readOnly('value'),
 
   forId: computed(function () {
-    return this.get('elementId') + '-x-toggle';
+    return this.elementId + '-x-toggle';
   }),
 
   keyPress(event) {
     // spacebar: 32
     if (event.which === 32) {
-      let value = this.get('value');
+      let value = this.value;
 
       this.toggleSwitch(!value);
       event.preventDefault();
@@ -43,15 +43,15 @@ export default Component.extend({
   },
 
   toggleSwitch(value) {
-    let onToggle = this.get('onToggle');
-    let disabled = this.get('disabled');
+    let onToggle = this.onToggle;
+    let disabled = this.disabled;
 
     if (
       !disabled &&
-      value !== this.get('value') &&
+      value !== this.value &&
       typeof onToggle === 'function'
     ) {
-      let name = this.get('name');
+      let name = this.name;
 
       onToggle(value, name);
 
@@ -59,7 +59,7 @@ export default Component.extend({
       // Input state has to be updated manually to prevent it going out of
       // sync in case the action didn't update value.
       const checkbox = this.element.querySelector('.x-toggle');
-      const newValue = this.get('value');
+      const newValue = this.value;
 
       if (checkbox.checked !== newValue) {
         checkbox.checked = newValue;

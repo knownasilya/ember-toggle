@@ -6,37 +6,27 @@
   <tbody>
 
     <tr>
-      <td>{{x-toggle
-        name=1
-        theme='default'
-        value=v1
-        onToggle=(action (mut v1))
-      }}</td>
+      <td><XToggle @name={{1}} @theme="default" @value={{v1}} @onToggle={{action (mut v1)}} /></td>
       <td>default</td>
-      <td>{{x-toggle name=2 theme='light' value=v2 onToggle=(action (mut v2))}}</td>
+      <td><XToggle @name={{2}} @theme="light" @value={{v2}} @onToggle={{action (mut v2)}} /></td>
       <td>light</td>
     </tr>
     <tr>
       <td>
-        {{x-toggle
-          name=3
-          theme='ios'
-          value=v3
-          onToggle=(action (mut v3))
-        }}
+        <XToggle @name={{3}} @theme="ios" @value={{v3}} @onToggle={{action (mut v3)}} />
       </td>
       <td>ios</td>
-      <td>{{x-toggle name=4 theme='flat' value=v4 onToggle=(action (mut v4))}}</td>
+      <td><XToggle @name={{4}} @theme="flat" @value={{v4}} @onToggle={{action (mut v4)}} /></td>
       <td>flat</td>
     </tr>
     <tr>
-      <td>{{x-toggle name=5 theme='flip' offLabel='Nope' onLabel='Yep' value=v5 onToggle=(action (mut v5))}}</td>
+      <td><XToggle @name={{5}} @theme="flip" @offLabel="Nope" @onLabel="Yep" @value={{v5}} @onToggle={{action (mut v5)}} /></td>
       <td>flip</td>
-      <td>{{x-toggle name=6 theme='skewed' value=v6 onToggle=(action (mut v6))}}</td>
+      <td><XToggle @name={{6}} @theme="skewed" @value={{v6}} @onToggle={{action (mut v6)}} /></td>
       <td>skewed</td>
     </tr>
     <tr>
-      <td>{{x-toggle name=7 theme='material' value=v8 onToggle=(action (mut v8))}}</td>
+      <td><XToggle @name={{7}} @theme="material" @value={{v8}} @onToggle={{action (mut v8)}} /></td>
       <td>material</td>
     </tr>
   </tbody>
@@ -57,79 +47,79 @@
 
     <tr>
       <td>
-        {{x-toggle size='small' value=v7 onToggle=(action (mut v7))}}
+        <XToggle @size="small" @value={{v7}} @onToggle={{action (mut v7)}} />
       </td>
       <td>
-        {{x-toggle size='medium' value=v7 onToggle=(action (mut v7))}}
+        <XToggle @size="medium" @value={{v7}} @onToggle={{action (mut v7)}} />
       </td>
       <td>
-        {{x-toggle size='large' value=v7 onToggle=(action (mut v7))}}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        {{x-toggle size='small' theme='light' value=v10 onToggle=(action (mut v10))}}
-      </td>
-      <td>
-        {{x-toggle size='medium' theme='light' value=v10 onToggle=(action (mut v10))}}
-      </td>
-      <td>
-        {{x-toggle size='large' theme='light' value=v10 onToggle=(action (mut v10))}}
+        <XToggle @size="large" @value={{v7}} @onToggle={{action (mut v7)}} />
       </td>
     </tr>
     <tr>
       <td>
-        {{x-toggle size='small' theme='ios' value=v13 onToggle=(action (mut v13))}}
+        <XToggle @size="small" @theme="light" @value={{v10}} @onToggle={{action (mut v10)}} />
       </td>
       <td>
-        {{x-toggle size='medium' theme='ios' value=v13 onToggle=(action (mut v13))}}
+        <XToggle @size="medium" @theme="light" @value={{v10}} @onToggle={{action (mut v10)}} />
       </td>
       <td>
-        {{x-toggle size='large' theme='ios' value=v13 onToggle=(action (mut v13))}}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        {{x-toggle size='small' theme='flat' value=v16 onToggle=(action (mut v16))}}
-      </td>
-      <td>
-        {{x-toggle size='medium' theme='flat' value=v16 onToggle=(action (mut v16))}}
-      </td>
-      <td>
-        {{x-toggle size='large' theme='flat' value=v16 onToggle=(action (mut v16))}}
+        <XToggle @size="large" @theme="light" @value={{v10}} @onToggle={{action (mut v10)}} />
       </td>
     </tr>
     <tr>
       <td>
-        {{x-toggle size='small' theme='flip' value=v19 onToggle=(action (mut v19))}}
+        <XToggle @size="small" @theme="ios" @value={{v13}} @onToggle={{action (mut v13)}} />
       </td>
       <td>
-        {{x-toggle size='medium' theme='flip' value=v19 onToggle=(action (mut v19))}}
+        <XToggle @size="medium" @theme="ios" @value={{v13}} @onToggle={{action (mut v13)}} />
       </td>
       <td>
-        {{x-toggle size='large' theme='flip' value=v19 onToggle=(action (mut v19))}}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        {{x-toggle size='small' theme='skewed' value=v20 onToggle=(action (mut v20))}}
-      </td>
-      <td>
-        {{x-toggle size='medium' theme='skewed' value=v20 onToggle=(action (mut v20))}}
-      </td>
-      <td>
-        {{x-toggle size='large' theme='skewed' value=v20 onToggle=(action (mut v20))}}
+        <XToggle @size="large" @theme="ios" @value={{v13}} @onToggle={{action (mut v13)}} />
       </td>
     </tr>
     <tr>
       <td>
-        {{x-toggle size='small' theme='material' value=v21 onToggle=(action (mut v21))}}
+        <XToggle @size="small" @theme="flat" @value={{v16}} @onToggle={{action (mut v16)}} />
       </td>
       <td>
-        {{x-toggle size='medium' theme='material' value=v21 onToggle=(action (mut v21))}}
+        <XToggle @size="medium" @theme="flat" @value={{v16}} @onToggle={{action (mut v16)}} />
       </td>
       <td>
-        {{x-toggle size='large' theme='material' value=v21 onToggle=(action (mut v21))}}
+        <XToggle @size="large" @theme="flat" @value={{v16}} @onToggle={{action (mut v16)}} />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <XToggle @size="small" @theme="flip" @value={{v19}} @onToggle={{action (mut v19)}} />
+      </td>
+      <td>
+        <XToggle @size="medium" @theme="flip" @value={{v19}} @onToggle={{action (mut v19)}} />
+      </td>
+      <td>
+        <XToggle @size="large" @theme="flip" @value={{v19}} @onToggle={{action (mut v19)}} />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <XToggle @size="small" @theme="skewed" @value={{v20}} @onToggle={{action (mut v20)}} />
+      </td>
+      <td>
+        <XToggle @size="medium" @theme="skewed" @value={{v20}} @onToggle={{action (mut v20)}} />
+      </td>
+      <td>
+        <XToggle @size="large" @theme="skewed" @value={{v20}} @onToggle={{action (mut v20)}} />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <XToggle @size="small" @theme="material" @value={{v21}} @onToggle={{action (mut v21)}} />
+      </td>
+      <td>
+        <XToggle @size="medium" @theme="material" @value={{v21}} @onToggle={{action (mut v21)}} />
+      </td>
+      <td>
+        <XToggle @size="large" @theme="material" @value={{v21}} @onToggle={{action (mut v21)}} />
       </td>
     </tr>
   </tbody>
@@ -142,12 +132,7 @@
   <tbody>
     <tr>
       <td>
-        {{x-toggle
-          showLabels=true
-          offLabel='hey'
-          onLabel='ho'
-          value=lv1 onToggle=(action (mut lv1))
-        }}
+        <XToggle @showLabels={{true}} @offLabel="hey" @onLabel="ho" @value={{lv1}} @onToggle={{action (mut lv1)}} />
       </td>
       <td><pre><code>\{{x-toggle
     showLabels=true
@@ -168,18 +153,12 @@
       <tr>
         <td>
           <div class='default-theme'>
-            {{x-toggle
-              offLabel='Hey'
-              onLabel='Ho'
-              showLabels=true
-              value=actionBound
-              onToggle=(action (mut actionBound))
-            }}
+            <XToggle @offLabel="Hey" @onLabel="Ho" @showLabels={{true}} @value={{actionBound}} @onToggle={{action (mut actionBound)}} />
           </div>
         </td>
 
         <td>
-          value: {{input value=actionBound}}
+          value: <Input @value={{actionBound}} />
         </td>
       </tr>
     </tbody>
@@ -191,7 +170,7 @@
 \{{x-toggle value=disabledTest disabled=true showLabels=true}}
 </pre>
 <span class='flexy'>
-  {{x-toggle value=disabledTest disabled=true showLabels=true}}<br><br><br>
+  <XToggle @value={{disabledTest}} @disabled={{true}} @showLabels={{true}} /><br><br><br>
   value here: {{disabledTest}} &lt;== Won&#39;t change
 </span>
 
@@ -210,17 +189,17 @@
 \{{/x-toggle}}
 </pre>
 <span class='flexy'>
-  {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
-    {{#toggle.offLabel as |label|}}
+  <XToggle @value={{value}} @showLabels={{true}} @onToggle={{action (mut value)}} as |toggle|>
+    <toggle.offLabel as |label|>
       <b>{{label}}</b>
-    {{/toggle.offLabel}}
+    </toggle.offLabel>
 
-    {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
+    <toggle.switch @theme="flip" @onLabel="diff on" @offLabel="diff off" />
 
-    {{#toggle.onLabel as |label|}}
+    <toggle.onLabel as |label|>
       <b>{{label}}</b>
-    {{/toggle.onLabel}}
-  {{/x-toggle}}
+    </toggle.onLabel>
+  </XToggle>
 </span>
 
 <h2>Block Form - Single Toggle Label</h2>
@@ -234,13 +213,13 @@
 \{{/x-toggle}}
 </pre>
 <span class='flexy'>
-  {{#x-toggle value=value showLabels=true onToggle=(action (mut value)) as |toggle|}}
-    {{#toggle.label value=(not value)}}
+  <XToggle @value={{value}} @showLabels={{true}} @onToggle={{action (mut value)}} as |toggle|>
+    <toggle.label @value={{not value}}>
       <b>turn {{if value 'off' 'on'}}</b>
-    {{/toggle.label}}
+    </toggle.label>
 
-    {{toggle.switch theme='flip' onLabel='diff on' offLabel='diff off'}}
-  {{/x-toggle}}
+    <toggle.switch @theme="flip" @onLabel="diff on" @offLabel="diff off" />
+  </XToggle>
 </span>
 
 <h2>Wrapped in a single label</h2>
@@ -254,9 +233,7 @@
 </pre>
 <span class='flexy'>
   <label>
-  {{x-toggle
-    onToggle=(action 'toggleLabelTest')
-    value=(readonly toggleLabelValue)}}
+  <XToggle @onToggle={{action "toggleLabelTest"}} @value={{readonly toggleLabelValue}} />
     Wrapped in Label Test
   </label>
 </span>
@@ -271,9 +248,7 @@
 </pre>
 <span class='flexy'>
   <label>
-  {{x-toggle
-    onToggle=(action 'notToggleLabelTest')
-    value=(readonly notToggleLabelValue)}}
+  <XToggle @onToggle={{action "notToggleLabelTest"}} @value={{readonly notToggleLabelValue}} />
     Negated test
   </label>
 </span>

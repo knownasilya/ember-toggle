@@ -18,11 +18,11 @@ export default Component.extend(RecognizerMixin, {
   recognizers: 'pan',
 
   effectiveForId: computed('forId', 'labelDisabled', function () {
-    return this.get('labelDisabled') ? null : this.get('forId');
+    return this.labelDisabled ? null : this.forId;
   }),
 
   themeClass: computed('theme', function () {
-    let theme = this.get('theme') || 'default';
+    let theme = this.theme || 'default';
 
     return `x-toggle-${theme}`;
   }),
@@ -30,7 +30,7 @@ export default Component.extend(RecognizerMixin, {
   keyPress(event) {
     // spacebar: 32
     if (event.which === 32) {
-      let value = this.get('value');
+      let value = this.value;
 
       this.sendToggle(!value);
       event.preventDefault();
@@ -38,20 +38,20 @@ export default Component.extend(RecognizerMixin, {
   },
 
   panRight() {
-    if (this.get('disabled')) {
+    if (this.disabled) {
       return;
     }
 
-    this.get('sendToggle')(true);
+    this.sendToggle(true);
     this._disableLabelUntilMouseUp();
   },
 
   panLeft() {
-    if (this.get('disabled')) {
+    if (this.disabled) {
       return;
     }
 
-    this.get('sendToggle')(false);
+    this.sendToggle(false);
     this._disableLabelUntilMouseUp();
   },
 
@@ -69,13 +69,13 @@ export default Component.extend(RecognizerMixin, {
     mouse button is released.
    */
   _disableLabelUntilMouseUp() {
-    if (this.get('labelDisabled')) {
+    if (this.labelDisabled) {
       return;
     }
 
     const _listener = () => {
       next(() => {
-        if (this.get('isDestroying') || this.get('isDestroyed')) {
+        if (this.isDestroying || this.isDestroyed) {
           return;
         }
 
@@ -93,7 +93,7 @@ export default Component.extend(RecognizerMixin, {
   },
 
   _removeListener() {
-    const _listener = this.get('_listener');
+    const _listener = this._listener;
 
     if (_listener) {
       document.removeEventListener('mouseup', _listener);

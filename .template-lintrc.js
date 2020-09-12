@@ -3,7 +3,7 @@
 module.exports = {
   extends: 'recommended',
   rules: {
-    quotes: 'single',
+    quotes: false,
   },
   // extends: 'octane'
 };
