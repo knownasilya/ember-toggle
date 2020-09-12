@@ -5,6 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 import emberVersionGTE from 'ember-test-helpers/has-ember-version';
 import $ from 'jquery';
 
+/* eslint ember/no-jquery: 0 */
 module('Integration | Component | x toggle', function (hooks) {
   setupRenderingTest(hooks);
 

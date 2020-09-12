@@ -4,6 +4,7 @@ import { next } from '@ember/runloop';
 import layout from './template';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 
+/* eslint ember/no-mixins: 0 */
 export default Component.extend(RecognizerMixin, {
   layout,
   tagName: 'span',

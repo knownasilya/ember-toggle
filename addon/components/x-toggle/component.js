@@ -20,7 +20,7 @@ export default Component.extend({
   // private
   toggled: readOnly('value'),
 
-  forId: computed(function () {
+  forId: computed('elementId', function () {
     return this.elementId + '-x-toggle';
   }),
 
@@ -46,11 +46,7 @@ export default Component.extend({
     let onToggle = this.onToggle;
     let disabled = this.disabled;
 
-    if (
-      !disabled &&
-      value !== this.value &&
-      typeof onToggle === 'function'
-    ) {
+    if (!disabled && value !== this.value && typeof onToggle === 'function') {
       let name = this.name;
 
       onToggle(value, name);
