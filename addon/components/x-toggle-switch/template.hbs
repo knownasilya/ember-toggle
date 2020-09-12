@@ -5,7 +5,7 @@
   disabled={{this.disabled}}
   id={{this.forId}}
   name={{this.name}}
-  onchange={{action this.sendToggle value='target.checked'}}
+  {{on 'change' (action this.sendToggle value='target.checked')}}
 >
 
 <label for={{this.effectiveForId}}>

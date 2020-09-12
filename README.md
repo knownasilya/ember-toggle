@@ -24,7 +24,7 @@ Here's the official [demo] using this component.
 ```hbs
 <XToggle
   @value={{this.myValue}}
-  @onToggle={{action (mut this.myValue)}}
+  @onToggle={{fn (mut this.myValue)}}
 />
 ```
 
@@ -49,7 +49,7 @@ Check the [demo] for interactive examples.
 <XToggle
   @theme='ios'
   @value={{this.toggled}}
-  @onToggle={{action (mut this.toggled)}}
+  @onToggle={{fn (mut this.toggled)}}
 />
 ```
 
@@ -76,7 +76,7 @@ You can customize labels (The text the user sees for the two states) and their a
   @offLabel='Disabled'
   @showLabels={{true}}
   @value={{this.myValue}}
-  @onToggle={{action (mut this.myValue)}}
+  @onToggle={{fn (mut this.myValue)}}
 />
 ```
 
@@ -141,7 +141,7 @@ The `x-toggle` component also provides a composable component API.
 <XToggle
   @showLabels={{true}}
   @value={{this.value}}
-  @onToggle={{action (mut this.value)}}
+  @onToggle={{fn (mut this.value)}}
 as |toggle|>
   <toggle.offLabel/>
   <toggle.switch/>
@@ -160,7 +160,7 @@ This format allows greater flexibility with labels, like the single label use-ca
 <XToggle
   @showLabels={{true}}
   @value={{this.value}}
-  @onToggle={{action (mut this.value)}}
+  @onToggle={{fn (mut this.value)}}
   as |toggle|
 >
   <toggle.label @value={{not this.value}}>

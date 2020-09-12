@@ -41,7 +41,7 @@ module('Integration | Component | x toggle', function (hooks) {
   test('clicking component triggers onToggle action', async function (assert) {
     this.setProperties({
       myValue: false,
-      onToggle(val) {
+      onToggle: (val) => {
         this.set('myValue', val);
       },
     });
@@ -49,7 +49,7 @@ module('Integration | Component | x toggle', function (hooks) {
     await render(hbs`
       <XToggle
         @value={{this.myValue}}
-        @onToggle={{action this.onToggle}}
+        @onToggle={{this.onToggle}}
       />
     `);
 
@@ -62,7 +62,7 @@ module('Integration | Component | x toggle', function (hooks) {
 
     this.setProperties({
       value: false,
-      onToggle(val) {
+      onToggle: (val) => {
         assert.equal(val, onTrue, 'new value set');
         onTrue = false;
         this.set('value', val);
@@ -73,7 +73,7 @@ module('Integration | Component | x toggle', function (hooks) {
       <XToggle
         @value={{this.value}}
         @showLabels={{true}}
-        @onToggle={{action this.onToggle}}
+        @onToggle={{this.onToggle}}
       />
     `);
 
@@ -99,7 +99,7 @@ module('Integration | Component | x toggle', function (hooks) {
     this.setProperties({
       value: false,
       disabled: true,
-      onToggle(val) {
+      onToggle: (val) => {
         this.set('value', val);
       },
     });
@@ -109,7 +109,7 @@ module('Integration | Component | x toggle', function (hooks) {
         @showLabels={{true}}
         @disabled={{this.disabled}}
         @value={{this.value}}
-        @onToggle={{action this.onToggle}}
+        @onToggle={{this.onToggle}}
       />
     `);
 
@@ -138,7 +138,7 @@ module('Integration | Component | x toggle', function (hooks) {
           @onLabel='Bar'
           @showLabels={{true}}
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         />
       `);
 
@@ -158,7 +158,7 @@ module('Integration | Component | x toggle', function (hooks) {
           @onLabel={{true}}
           @offLabel={{false}}
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         />
       `);
 
@@ -176,7 +176,7 @@ module('Integration | Component | x toggle', function (hooks) {
           @onLabel='Yes'
           @offLabel='No'
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         />
       `);
 
@@ -195,7 +195,7 @@ module('Integration | Component | x toggle', function (hooks) {
       await render(hbs`
         <XToggle
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         />
       `);
 
@@ -218,7 +218,7 @@ module('Integration | Component | x toggle', function (hooks) {
         <XToggle
           @showLabels={{true}}
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         as |toggle|>
           <toggle.offLabel/>
           <toggle.onLabel/>
@@ -240,7 +240,7 @@ module('Integration | Component | x toggle', function (hooks) {
         timesCalled: 0,
         value: false,
         show: false,
-        onToggle(value) {
+        onToggle: (value) => {
           const timesCalled = this.timesCalled + 1;
           this.set('timesCalled', timesCalled);
           this.set('value', value);
@@ -251,7 +251,7 @@ module('Integration | Component | x toggle', function (hooks) {
         <XToggle
           @showLabels={{true}}
           @value={{this.value}}
-          @onToggle={{action this.onToggle}}
+          @onToggle={{this.onToggle}}
         as |toggle|>
           <toggle.offLabel/>
           <toggle.onLabel/>
@@ -278,7 +278,7 @@ module('Integration | Component | x toggle', function (hooks) {
       await render(hbs`
         <XToggle
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         />
       `);
 
@@ -298,7 +298,7 @@ module('Integration | Component | x toggle', function (hooks) {
         <XToggle
           @disabled={{true}}
           @value={{this.value}}
-          @onToggle={{action (mut this.value)}}
+          @onToggle={{fn (mut this.value)}}
         />
       `);
 
@@ -317,7 +317,7 @@ module('Integration | Component | x toggle', function (hooks) {
       await render(hbs`
         <XToggle
           @value={{this.value}}
-          @onToggle={{action this.toggleAction}}
+          @onToggle={{this.toggleAction}}
         />
       `);
       await click('div.x-toggle-btn');
@@ -335,7 +335,7 @@ module('Integration | Component | x toggle', function (hooks) {
       await render(hbs`
         <XToggle
           @value={{this.value}}
-          @onToggle={{action this.toggleAction}}
+          @onToggle={{this.toggleAction}}
         />
       `);
 

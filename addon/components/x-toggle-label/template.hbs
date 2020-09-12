@@ -2,7 +2,7 @@
   <label
     for={{this.for}}
     class='toggle-text toggle-prefix {{this.labelType}}'
-    onclick={{action 'clickLabel'}}
+    {{on 'click' (action 'clickLabel')}}
     ...attributes
   > 
     {{#if hasBlock}}
