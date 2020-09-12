@@ -9,13 +9,11 @@ Checkbox based Toggle Switch component with swipe/drag support for Ember.
 Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
 Here's the official [demo] using this component.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
-
+- Ember.js v3.12 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
 ## Install
 
@@ -84,17 +82,16 @@ You can customize labels (The text the user sees for the two states) and their a
 
 If you want your labels to be displayed, then you must set `showLabels` to `true`.
 
-
 ### Available Options
 
 - `value` - The state of the switch, can be `true` or `false`. Defaults to `false`.
 - `onToggle` - The action that should change the state of `value`.
 - `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
-            Defaults to 'default' if not specified.
-- `size` -  One of 'small', 'medium', 'large'.
-            Defaults to 'medium' if not specified.
-- `onLabel` - The label for the *on* state. Defaults to 'On'.
-- `offLabel` - The label for the *off* state. Defaults to 'Off'.
+  Defaults to 'default' if not specified.
+- `size` - One of 'small', 'medium', 'large'.
+  Defaults to 'medium' if not specified.
+- `onLabel` - The label for the _on_ state. Defaults to 'On'.
+- `offLabel` - The label for the _off_ state. Defaults to 'Off'.
 - `showLabels` - Defaults to 'false', if 'true' will display labels on left and ride side of toggle switch
 - `disabled` - Defaults to `false`, which means you can click the toggle.
   When `true`, an `.x-toggle-disabled` class is set on the toggle and an `.x-toggle-container-disabled` class is set on the component.
@@ -115,11 +112,11 @@ ENV['ember-toggle'] = {
   includedThemes: ['light', 'default', 'flip'],
   excludedThemes: ['flip'],
   excludeBaseStyles: false, // defaults to false
-  defaultShowLabels: true,  // defaults to false
-  defaultTheme: 'light',    // defaults to 'default'
-  defaultSize: 'small',     // defaults to 'medium'
+  defaultShowLabels: true, // defaults to false
+  defaultTheme: 'light', // defaults to 'default'
+  defaultSize: 'small', // defaults to 'medium'
   defaultOffLabel: 'False', // defaults to 'Off'
-  defaultOnLabel: 'True'    // defaults to 'On'
+  defaultOnLabel: 'True', // defaults to 'On'
 };
 ```
 
@@ -129,10 +126,10 @@ To exclude (not include) a theme, means that it's css styles will not be bundled
 your application, keeping your app's css bundle size smaller.
 
 > **Note:** including a blank array e.g. `includeThemes: []` will not include any themes, leaving
-you to define your own theme styles. See the `vendor/ember-toggle/themes` directory
-for reference.
+> you to define your own theme styles. See the `vendor/ember-toggle/themes` directory
+> for reference.
 > **Note:** you may also want to set `excludeBaseStyles: true` so that this addon doesn't include the styles
-used by all the themes.
+> used by all the themes.
 
 ## Advanced Usage
 
@@ -195,5 +192,5 @@ MIT
 [ember-observer-badge]: http://emberobserver.com/badges/ember-toggle.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-toggle
 [demo]: http://knownasilya.github.io/ember-toggle/
-[Contributing]: CONTRIBUTING.md
+[contributing]: CONTRIBUTING.md
 [simplify]: https://github.com/knownasilya/ember-toggle/tree/simplify
