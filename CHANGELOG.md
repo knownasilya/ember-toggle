@@ -1,6 +1,13 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [6.0.3](https://github.com/knownasilya/ember-toggle/compare/v6.0.2...v6.0.3) (2020-09-12)
+
+
+### Bug Fixes
+
+* audit fix dependencies ([63250c4](https://github.com/knownasilya/ember-toggle/commit/63250c4b97ca9a80c541a911b8e7971b937fcb84))
 
 <a name="6.0.2"></a>
 ## [6.0.2](https://github.com/knownasilya/ember-toggle/compare/v6.0.1...v6.0.2) (2020-01-17)
