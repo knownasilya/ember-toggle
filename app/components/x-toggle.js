@@ -1,4 +1,3 @@
-
 import XToggle from 'ember-toggle/components/x-toggle/component';
 import ENV from '../config/environment';
 
@@ -10,5 +9,5 @@ export default XToggle.extend({
   defaultOffLabel: config.defaultOffLabel || 'Off::off',
   defaultOnLabel: config.defaultOnLabel || 'On::on',
   showLabels: config.defaultShowLabels || false,
-  size: config.defaultSize || 'medium'
+  size: config.defaultSize || 'medium',
 });

@@ -9,21 +9,21 @@ export default Component.extend(RecognizerMixin, {
   tagName: 'span',
   classNames: ['x-toggle-container'],
   classNameBindings: [
-    'size', 
+    'size',
     'disabled:x-toggle-container-disabled',
-    'value:x-toggle-container-checked'
+    'value:x-toggle-container-checked',
   ],
 
   labelDisabled: false,
   recognizers: 'pan',
 
-  effectiveForId: computed('forId', 'labelDisabled', function() {
+  effectiveForId: computed('forId', 'labelDisabled', function () {
     return this.get('labelDisabled') ? null : this.get('forId');
   }),
 
-  themeClass: computed('theme', function() {
+  themeClass: computed('theme', function () {
     let theme = this.get('theme') || 'default';
-    
+
     return `x-toggle-${theme}`;
   }),
 
@@ -79,14 +79,14 @@ export default Component.extend(RecognizerMixin, {
           return;
         }
 
-        this._removeListener()
+        this._removeListener();
         this.set('labelDisabled', false);
       });
     };
 
     this.setProperties({
       labelDisabled: true,
-      _listener
+      _listener,
     });
 
     document.addEventListener('mouseup', _listener);
@@ -99,5 +99,5 @@ export default Component.extend(RecognizerMixin, {
       document.removeEventListener('mouseup', _listener);
       this.set('_listener', null);
     }
-  }
+  },
 });

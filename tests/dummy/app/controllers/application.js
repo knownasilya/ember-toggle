@@ -1,6 +1,6 @@
 import { not } from '@ember/object/computed';
-import Controller from "@ember/controller"
-import { debug } from "@ember/debug"
+import Controller from '@ember/controller';
+import { debug } from '@ember/debug';
 
 export default Controller.extend({
   boundToggle: false,
@@ -12,7 +12,7 @@ export default Controller.extend({
     checkboxToggled(toggled, toggledBy) {
       this.setProperties({
         toggled,
-        toggledBy
+        toggledBy,
       });
     },
 
@@ -33,6 +33,6 @@ export default Controller.extend({
     },
     toggleLabelTest(value) {
       this.set('toggleLabelValue', value);
-    }
-  }
+    },
+  },
 });

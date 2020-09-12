@@ -3,8 +3,8 @@
 module.exports = {
   name: require('./package').name,
 
-  included: function(app, parentAddon) {
-    var target = (parentAddon || app);
+  included: function (app, parentAddon) {
+    var target = parentAddon || app;
 
     // necessary for nested usage
     // parent addon should call `this._super.included.apply(this, arguments);`
@@ -20,11 +20,19 @@ module.exports = {
     this._super.included.apply(this, arguments);
   },
 
-  importThemes: function(app) {
+  importThemes: function (app) {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-toggle'] || {};
     var excludeBaseStyles = config.excludeBaseStyles || false;
-    var allThemes = ['light', 'ios', 'default', 'flat', 'skewed', 'flip', 'material'];
+    var allThemes = [
+      'light',
+      'ios',
+      'default',
+      'flat',
+      'skewed',
+      'flip',
+      'material',
+    ];
     var included = config.includedThemes;
     var excluded = config.excludedThemes;
     var themes = [];
@@ -55,6 +63,5 @@ module.exports = {
     themes.forEach(function (theme) {
       app.import('vendor/ember-toggle/themes/' + theme + '.css');
     });
-  }
+  },
 };
-

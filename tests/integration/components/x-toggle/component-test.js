@@ -5,10 +5,10 @@ import hbs from 'htmlbars-inline-precompile';
 import emberVersionGTE from 'ember-test-helpers/has-ember-version';
 import $ from 'jquery';
 
-module('Integration | Component | x toggle', function(hooks) {
+module('Integration | Component | x toggle', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     await render(hbs`
       <XToggle/>
     `);
@@ -16,10 +16,10 @@ module('Integration | Component | x toggle', function(hooks) {
     assert.dom('div.x-toggle-btn').exists();
   });
 
-  test('changing disabled property disables component', async function(assert) {
+  test('changing disabled property disables component', async function (assert) {
     this.setProperties({
       value: false,
-      disabled: true
+      disabled: true,
     });
 
     await render(hbs`
@@ -37,13 +37,13 @@ module('Integration | Component | x toggle', function(hooks) {
     assert.equal(this.value, false);
   });
 
-  test('clicking component triggers onToggle action', async function(assert) {
+  test('clicking component triggers onToggle action', async function (assert) {
     this.setProperties({
       myValue: false,
       onToggle(val) {
-        this.set('myValue', val)
-      }
-    })
+        this.set('myValue', val);
+      },
+    });
 
     await render(hbs`
       <XToggle
@@ -56,7 +56,7 @@ module('Integration | Component | x toggle', function(hooks) {
     assert.equal(this.myValue, true, 'new value set');
   });
 
-  test('clicking component labels triggers onToggle action', async function(assert) {
+  test('clicking component labels triggers onToggle action', async function (assert) {
     let onTrue = true;
 
     this.setProperties({
@@ -65,7 +65,7 @@ module('Integration | Component | x toggle', function(hooks) {
         assert.equal(val, onTrue, 'new value set');
         onTrue = false;
         this.set('value', val);
-      }
+      },
     });
 
     await render(hbs`
@@ -80,19 +80,27 @@ module('Integration | Component | x toggle', function(hooks) {
     assert.equal(this.value, true, 'clicking on label toggles value true');
 
     await click('.off-label');
-    assert.equal(this.value, false, 'clicking off label toggles value to false');
+    assert.equal(
+      this.value,
+      false,
+      'clicking off label toggles value to false'
+    );
 
     await click('.off-label');
-    assert.equal(this.value, false, 'clicking off label again, value stays false');
+    assert.equal(
+      this.value,
+      false,
+      'clicking off label again, value stays false'
+    );
   });
 
-  test('clicking disabled component labels does not trigger onToggle action', async function(assert) {
+  test('clicking disabled component labels does not trigger onToggle action', async function (assert) {
     this.setProperties({
       value: false,
       disabled: true,
       onToggle(val) {
         this.set('value', val);
-      }
+      },
     });
 
     await render(hbs`
@@ -105,14 +113,22 @@ module('Integration | Component | x toggle', function(hooks) {
     `);
 
     await click('.on-label');
-    assert.equal(this.value, false, 'clicking on label does not change the value');
+    assert.equal(
+      this.value,
+      false,
+      'clicking on label does not change the value'
+    );
 
     await click('.off-label');
-    assert.equal(this.value, false, 'clicking off label does not change the value');
+    assert.equal(
+      this.value,
+      false,
+      'clicking off label does not change the value'
+    );
   });
 
   if (emberVersionGTE(2, 0)) {
-    test('clicking component works with bespoke values and mut helper', async function(assert) {
+    test('clicking component works with bespoke values and mut helper', async function (assert) {
       this.set('value', false);
 
       await render(hbs`
@@ -124,7 +140,7 @@ module('Integration | Component | x toggle', function(hooks) {
           @onToggle={{action (mut this.value)}}
         />
       `);
-  
+
       assert.equal(this.value, false);
       assert.dom('.off-label').hasText('Foo', '"off" property set on toggle');
       assert.dom('.on-label').hasText('Bar', '"on" property set on toggle');
@@ -133,7 +149,7 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.equal(this.value, true, 'click toggles value');
     });
 
-    test('clicking component works with boolean true/false', async function(assert) {
+    test('clicking component works with boolean true/false', async function (assert) {
       this.set('value', false);
 
       await render(hbs`
@@ -151,7 +167,7 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.equal(this.value, true);
     });
 
-    test('clicking component works with boolean true/false and discrete labels', async function(assert) {
+    test('clicking component works with boolean true/false and discrete labels', async function (assert) {
       this.set('value', false);
 
       await render(hbs`
@@ -169,10 +185,10 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.equal(this.value, true);
     });
 
-    test('value can be set by changing the value property', async function(assert) {
+    test('value can be set by changing the value property', async function (assert) {
       this.setProperties({
         value: false,
-        show: false
+        show: false,
       });
 
       await render(hbs`
@@ -186,13 +202,15 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.dom('.x-toggle-container').hasClass('x-toggle-container-checked');
 
       this.set('value', false);
-      assert.dom('.x-toggle-container').doesNotHaveClass('x-toggle-container-checked');
+      assert
+        .dom('.x-toggle-container')
+        .doesNotHaveClass('x-toggle-container-checked');
     });
 
-    test('can render in block form', async function(assert) {
+    test('can render in block form', async function (assert) {
       this.setProperties({
         value: false,
-        show: false
+        show: false,
       });
 
       await render(hbs`
@@ -211,10 +229,12 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.dom('.x-toggle-container').hasClass('x-toggle-container-checked');
 
       this.set('value', false);
-      assert.dom('.x-toggle-container').doesNotHaveClass('x-toggle-container-checked');
+      assert
+        .dom('.x-toggle-container')
+        .doesNotHaveClass('x-toggle-container-checked');
     });
 
-    test('onToggle not called unless value changes', async function(assert) {
+    test('onToggle not called unless value changes', async function (assert) {
       this.setProperties({
         timesCalled: 0,
         value: false,
@@ -223,7 +243,7 @@ module('Integration | Component | x toggle', function(hooks) {
           const timesCalled = this.get('timesCalled') + 1;
           this.set('timesCalled', timesCalled);
           this.set('value', value);
-        }
+        },
       });
 
       await render(hbs`
@@ -244,10 +264,14 @@ module('Integration | Component | x toggle', function(hooks) {
 
       await click('.on-label');
       assert.equal(this.value, true, 'clicking on label again stays true');
-      assert.equal(this.timesCalled, 1, 'should not call onToggle again if value does not change');
+      assert.equal(
+        this.timesCalled,
+        1,
+        'should not call onToggle again if value does not change'
+      );
     });
 
-    test('swipe gestures', async function(assert) {
+    test('swipe gestures', async function (assert) {
       this.set('value', false);
 
       await render(hbs`
@@ -266,7 +290,7 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.equal(this.value, false, 'panning left should disable');
     });
 
-    test('swipe gesture while disabled', async function(assert) {
+    test('swipe gesture while disabled', async function (assert) {
       this.set('value', false);
 
       await render(hbs`
@@ -283,10 +307,10 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.equal(this.value, false, 'panning right should not enable');
     });
 
-    test('clicking should not enable when the action does not update the value', async function(assert) {
+    test('clicking should not enable when the action does not update the value', async function (assert) {
       this.setProperties({
         value: false,
-        toggleAction() {}
+        toggleAction() {},
       });
 
       await render(hbs`
@@ -301,10 +325,10 @@ module('Integration | Component | x toggle', function(hooks) {
       assert.dom('.x-toggle').isNotChecked();
     });
 
-    test('panning should not enable when the action does not update the value', async function(assert) {
+    test('panning should not enable when the action does not update the value', async function (assert) {
       this.setProperties({
         value: false,
-        toggleAction() {}
+        toggleAction() {},
       });
 
       await render(hbs`

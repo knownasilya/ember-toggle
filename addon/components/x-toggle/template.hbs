@@ -1,7 +1,8 @@
 {{#if hasBlock}}
   {{yield
     (hash
-      switch=(component 'x-toggle-switch'
+      switch=(component
+        'x-toggle-switch'
         disabled=this.disabled
         forId=this.forId
         name=this.name
@@ -13,21 +14,24 @@
         value=this.value
         sendToggle=(action 'sendToggle')
       )
-      offLabel=(component 'x-toggle-label'
+      offLabel=(component
+        'x-toggle-label'
         label=this.offLabel
         show=this.showLabels
         switchId=this.forId
         value=false
         sendToggle=(action 'sendToggle')
       )
-      onLabel=(component 'x-toggle-label'
+      onLabel=(component
+        'x-toggle-label'
         label=this.onLabel
         show=this.showLabels
         switchId=this.forId
         value=true
         sendToggle=(action 'sendToggle')
       )
-      label=(component 'x-toggle-label'
+      label=(component
+        'x-toggle-label'
         show=this.showLabels
         switchId=this.forId
         sendToggle=(action 'sendToggle')

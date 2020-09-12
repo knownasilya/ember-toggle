@@ -20,7 +20,7 @@ export default Component.extend({
   // private
   toggled: readOnly('value'),
 
-  forId: computed(function() {
+  forId: computed(function () {
     return this.get('elementId') + '-x-toggle';
   }),
 
@@ -32,7 +32,7 @@ export default Component.extend({
       this.toggleSwitch(!value);
       event.preventDefault();
     }
-  },  
+  },
 
   focusIn() {
     this.set('focused', true);
@@ -45,8 +45,12 @@ export default Component.extend({
   toggleSwitch(value) {
     let onToggle = this.get('onToggle');
     let disabled = this.get('disabled');
-    
-    if (!disabled && (value !== this.get('value')) && (typeof onToggle === 'function')) {
+
+    if (
+      !disabled &&
+      value !== this.get('value') &&
+      typeof onToggle === 'function'
+    ) {
       let name = this.get('name');
 
       onToggle(value, name);
@@ -66,6 +70,6 @@ export default Component.extend({
   actions: {
     sendToggle(value) {
       this.toggleSwitch(value);
-    }
-  }
+    },
+  },
 });

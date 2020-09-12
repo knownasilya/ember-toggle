@@ -8,23 +8,23 @@ export default Component.extend({
   tagName: '',
   for: readOnly('switchId'),
 
-  labelType: computed('type', function() {
+  labelType: computed('type', function () {
     let type = this.get('type');
-    
+
     return `${type}-label`;
   }),
-  
+
   type: computed('value', {
     get() {
       return this.get('value') ? 'on' : 'off';
-    }
+    },
   }),
-  
+
   actions: {
     clickLabel(e) {
       e.stopPropagation();
       e.preventDefault();
       this.sendToggle(this.get('value'));
-    }
-  }
+    },
+  },
 });
