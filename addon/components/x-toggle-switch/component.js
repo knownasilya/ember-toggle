@@ -2,21 +2,12 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { next } from '@ember/runloop';
 import layout from './template';
-import RecognizerMixin from 'ember-gestures/mixins/recognizers';
 
-/* eslint ember/no-mixins: 0 */
-export default Component.extend(RecognizerMixin, {
+export default Component.extend({
   layout,
-  tagName: 'span',
-  classNames: ['x-toggle-container'],
-  classNameBindings: [
-    'size',
-    'disabled:x-toggle-container-disabled',
-    'value:x-toggle-container-checked',
-  ],
+  tagName: '',
 
   labelDisabled: false,
-  recognizers: 'pan',
 
   effectiveForId: computed('forId', 'labelDisabled', function () {
     return this.labelDisabled ? null : this.forId;
@@ -28,32 +19,34 @@ export default Component.extend(RecognizerMixin, {
     return `x-toggle-${theme}`;
   }),
 
-  keyPress(event) {
-    // spacebar: 32
-    if (event.which === 32) {
-      let value = this.value;
+  actions: {
+    keyPress(event) {
+      // spacebar: 32
+      if (event.which === 32) {
+        let value = this.value;
 
-      this.sendToggle(!value);
-      event.preventDefault();
-    }
-  },
+        this.sendToggle(!value);
+        event.preventDefault();
+      }
+    },
 
-  panRight() {
-    if (this.disabled) {
-      return;
-    }
+    panRight() {
+      if (this.disabled) {
+        return;
+      }
 
-    this.sendToggle(true);
-    this._disableLabelUntilMouseUp();
-  },
+      this.sendToggle(true);
+      this._disableLabelUntilMouseUp();
+    },
 
-  panLeft() {
-    if (this.disabled) {
-      return;
-    }
+    panLeft() {
+      if (this.disabled) {
+        return;
+      }
 
-    this.sendToggle(false);
-    this._disableLabelUntilMouseUp();
+      this.sendToggle(false);
+      this._disableLabelUntilMouseUp();
+    },
   },
 
   willDestroyElement() {
