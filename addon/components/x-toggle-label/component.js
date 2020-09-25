@@ -1,30 +1,33 @@
+import classic from 'ember-classic-decorator';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
+import { action, computed } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import layout from './template';
 
-export default Component.extend({
-  layout,
-  tagName: '',
-  for: readOnly('switchId'),
+@classic
+@templateLayout(layout)
+@tagName('')
+export default class XToggleLabel extends Component {
+  @readOnly('switchId')
+  for;
 
-  labelType: computed('type', function () {
+  @computed('type')
+  get labelType() {
     let type = this.type;
 
     return `${type}-label`;
-  }),
+  }
 
-  type: computed('value', {
-    get() {
-      return this.value ? 'on' : 'off';
-    },
-  }),
+  @computed('value')
+  get type() {
+    return this.value ? 'on' : 'off';
+  }
 
-  actions: {
-    clickLabel(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      this.sendToggle(this.value);
-    },
-  },
-});
+  @action
+  clickLabel(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.sendToggle(this.value);
+  }
+}

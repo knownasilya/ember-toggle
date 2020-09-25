@@ -1,58 +1,63 @@
+import classic from 'ember-classic-decorator';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
+import { action, computed } from '@ember/object';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { next } from '@ember/runloop';
 import layout from './template';
 
-export default Component.extend({
-  layout,
-  tagName: '',
+@classic
+@templateLayout(layout)
+@tagName('')
+export default class XToggleSwitch extends Component {
+  labelDisabled = false;
 
-  labelDisabled: false,
-
-  effectiveForId: computed('forId', 'labelDisabled', function () {
+  @computed('forId', 'labelDisabled')
+  get effectiveForId() {
     return this.labelDisabled ? null : this.forId;
-  }),
+  }
 
-  themeClass: computed('theme', function () {
+  @computed('theme')
+  get themeClass() {
     let theme = this.theme || 'default';
 
     return `x-toggle-${theme}`;
-  }),
+  }
 
-  actions: {
-    keyPress(event) {
-      // spacebar: 32
-      if (event.which === 32) {
-        let value = this.value;
+  @action
+  spacebarToggle(event) {
+    // spacebar: 32
+    if (event.which === 32) {
+      let value = this.value;
 
-        this.sendToggle(!value);
-        event.preventDefault();
-      }
-    },
+      this.sendToggle(!value);
+      event.preventDefault();
+    }
+  }
 
-    panRight() {
-      if (this.disabled) {
-        return;
-      }
+  @action
+  handlePanRight() {
+    if (this.disabled) {
+      return;
+    }
 
-      this.sendToggle(true);
-      this._disableLabelUntilMouseUp();
-    },
+    this.sendToggle(true);
+    this._disableLabelUntilMouseUp();
+  }
 
-    panLeft() {
-      if (this.disabled) {
-        return;
-      }
+  @action
+  handlePanLeft() {
+    if (this.disabled) {
+      return;
+    }
 
-      this.sendToggle(false);
-      this._disableLabelUntilMouseUp();
-    },
-  },
+    this.sendToggle(false);
+    this._disableLabelUntilMouseUp();
+  }
 
   willDestroyElement() {
-    this._super(...arguments);
+    super.willDestroyElement(...arguments);
     this._removeListener();
-  },
+  }
 
   /*
     When you pan with a mouse and release the mouse button over the <label>
@@ -84,7 +89,7 @@ export default Component.extend({
     });
 
     document.addEventListener('mouseup', _listener);
-  },
+  }
 
   _removeListener() {
     const _listener = this._listener;
@@ -93,5 +98,5 @@ export default Component.extend({
       document.removeEventListener('mouseup', _listener);
       this.set('_listener', null);
     }
-  },
-});
+  }
+}

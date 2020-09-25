@@ -1,70 +1,79 @@
-{{#if hasBlock}}
-  {{yield
-    (hash
-      switch=(component
-        'x-toggle-switch'
-        disabled=this.disabled
-        forId=this.forId
-        name=this.name
-        offLabel=this.offLabel
-        onLabel=this.onLabel
-        size=this.size
-        theme=this.theme
-        toggled=this.toggled
-        value=this.value
-        sendToggle=(action 'sendToggle')
+{{! template-lint-disable no-positive-tabindex}}
+<div
+  class="x-toggle-component {{if this.focused 'x-toggle-focused'}}"
+  tabindex={{this.tabindex}}
+  ...attributes
+  {{on 'focusin' this.handleFocusIn}}
+  {{on 'focusout' this.handleFocusOut}}
+>
+  {{#if hasBlock}}
+    {{yield
+      (hash
+        switch=(component
+          'x-toggle-switch'
+          disabled=this.disabled
+          forId=this.forId
+          name=this.name
+          offLabel=this.offLabel
+          onLabel=this.onLabel
+          size=this.size
+          theme=this.theme
+          toggled=this.toggled
+          value=this.value
+          sendToggle=this.sendToggle
+        )
+        offLabel=(component
+          'x-toggle-label'
+          label=this.offLabel
+          show=this.showLabels
+          switchId=this.forId
+          value=false
+          sendToggle=this.sendToggle
+        )
+        onLabel=(component
+          'x-toggle-label'
+          label=this.onLabel
+          show=this.showLabels
+          switchId=this.forId
+          value=true
+          sendToggle=this.sendToggle
+        )
+        label=(component
+          'x-toggle-label'
+          show=this.showLabels
+          switchId=this.forId
+          sendToggle=this.sendToggle
+        )
       )
-      offLabel=(component
-        'x-toggle-label'
-        label=this.offLabel
-        show=this.showLabels
-        switchId=this.forId
-        value=false
-        sendToggle=(action 'sendToggle')
-      )
-      onLabel=(component
-        'x-toggle-label'
-        label=this.onLabel
-        show=this.showLabels
-        switchId=this.forId
-        value=true
-        sendToggle=(action 'sendToggle')
-      )
-      label=(component
-        'x-toggle-label'
-        show=this.showLabels
-        switchId=this.forId
-        sendToggle=(action 'sendToggle')
-      )
-    )
-  }}
-{{else}}
-  {{x-toggle-label
-    label=this.offLabel
-    show=this.showLabels
-    switchId=this.forId
-    value=false
-    sendToggle=(action 'sendToggle')
-  }}
+    }}
+  {{else}}
+    {{x-toggle-label
+      label=this.offLabel
+      show=this.showLabels
+      switchId=this.forId
+      value=false
+      sendToggle=this.sendToggle
+    }}
 
-  {{x-toggle-switch
-    disabled=this.disabled
-    forId=this.forId
-    name=this.name
-    offLabel=this.offLabel
-    onLabel=this.onLabel
-    size=this.size
-    theme=this.theme
-    toggled=this.toggled
-    value=this.value
-    sendToggle=(action 'sendToggle')
-  }}
+    {{x-toggle-switch
+      disabled=this.disabled
+      forId=this.forId
+      name=this.name
+      offLabel=this.offLabel
+      onLabel=this.onLabel
+      size=this.size
+      theme=this.theme
+      toggled=this.toggled
+      value=this.value
+      sendToggle=this.sendToggle
+    }}
 
-  {{x-toggle-label
-    label=this.onLabel
-    show=this.showLabels
-    switchId=this.forId
-    value=true
-    sendToggle=(action 'sendToggle')
-  }}
-{{/if}}
+    {{x-toggle-label
+      label=this.onLabel
+      show=this.showLabels
+      switchId=this.forId
+      value=true
+      sendToggle=this.sendToggle
+    }}
+  {{/if}}
+</div>

@@ -1,38 +1,38 @@
 <span
   class="x-toggle-container
-    {{this.size}}
-    {{if this.disabled 'x-toggle-container-disabled'}}
-    {{if this.value 'x-toggle-container-checked'}}
+    {{@size}}
+    {{if @disabled 'x-toggle-container-disabled'}}
+    {{if @value 'x-toggle-container-checked'}}
   "
-  {{recognize-gesture 'pan'}}
-  {{on 'panleft' (action 'panLeft')}}
-  {{on 'panright' (action 'panRight')}}
   ...attributes
+  {{recognize-gesture 'pan'}}
+  {{on 'panleft' this.handlePanLeft}}
+  {{on 'panright' this.handlePanRight}}
 >
   <input
     class='x-toggle'
     type='checkbox'
-    checked={{this.toggled}}
-    disabled={{this.disabled}}
-    id={{this.forId}}
-    name={{this.name}}
-    {{on 'keypress' (action 'keyPress')}} 
-    {{on 'change' (action this.sendToggle value='target.checked')}}
+    checked={{@toggled}}
+    disabled={{@disabled}}
+    id={{@forId}}
+    name={{@name}}
+    {{on 'keypress' this.spacebarToggle}} 
+    {{on 'change' (action @sendToggle value='target.checked')}}
   />
 
   <label for={{this.effectiveForId}}>
     <div
-      id="x-toggle-visual-{{this.forId}}"
+      id="x-toggle-visual-{{@forId}}"
       role='checkbox'
       class="x-toggle-btn
         {{this.themeClass}}
-        {{this.size}}
-        {{if this.disabled ' x-toggle-disabled'}}
+        {{@size}}
+        {{if @disabled ' x-toggle-disabled'}}
       "
-      aria-owns={{this.forId}}
-      aria-checked={{this.toggled}}
-      data-tg-on={{this.onLabel}}
-      data-tg-off={{this.offLabel}}
+      aria-owns={{@forId}}
+      aria-checked={{@toggled}}
+      data-tg-on={{@onLabel}}
+      data-tg-off={{@offLabel}}
     >
     </div>
   </label>
