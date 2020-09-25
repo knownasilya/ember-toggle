@@ -52,6 +52,17 @@ export default class XToggle extends Component {
   }
 
   @action
+  spacebarToggle(event) {
+    // spacebar: 32
+    if (event.which === 32) {
+      let value = this.value;
+
+      this.sendToggle(!value);
+      event.preventDefault();
+    }
+  }
+
+  @action
   handleFocusIn() {
     this.set('focused', true);
   }

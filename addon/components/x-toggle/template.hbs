@@ -5,6 +5,7 @@
   ...attributes
   {{on 'focusin' this.handleFocusIn}}
   {{on 'focusout' this.handleFocusOut}}
+  {{on 'keypress' this.spacebarToggle}}
 >
   {{#if hasBlock}}
     {{yield

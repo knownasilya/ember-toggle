@@ -24,17 +24,6 @@ export default class XToggleSwitch extends Component {
   }
 
   @action
-  spacebarToggle(event) {
-    // spacebar: 32
-    if (event.which === 32) {
-      let value = this.value;
-
-      this.sendToggle(!value);
-      event.preventDefault();
-    }
-  }
-
-  @action
   handlePanRight() {
     if (this.disabled) {
       return;
