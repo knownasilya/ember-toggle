@@ -27,3 +27,5 @@
 # IDE project files
 /.idea/
 /*.iml
+/.vscode/
+/.history/

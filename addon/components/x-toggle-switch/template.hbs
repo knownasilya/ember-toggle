@@ -5,9 +5,10 @@
     {{if @value 'x-toggle-container-checked'}}
   "
   ...attributes
-  {{recognize-gesture 'pan'}}
-  {{on 'panleft' this.handlePanLeft}}
-  {{on 'panright' this.handlePanRight}}
+  {{did-pan
+    onPanStart=this.handlePan
+    onPan=this.handlePan
+  }}
 >
   <input
     class='x-toggle'
