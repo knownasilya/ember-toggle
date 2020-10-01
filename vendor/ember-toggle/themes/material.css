@@ -83,3 +83,19 @@
 .x-toggle-material.large::before {
   margin: 0.4em 0;
 }
+
+/* Dark mode styling */
+
+/* Background */
+.x-toggle-material.dark.x-toggle-btn::before {
+  background-color: #727272;
+}
+
+/* Disabled */
+.x-toggle-material.dark.x-toggle-btn.x-toggle-disabled::before,
+.x-toggle:checked
+  + label
+  > .x-toggle-material.dark.x-toggle-btn.x-toggle-disabled::before {
+  background-color: #727272;
+  opacity: 0.12;
+}

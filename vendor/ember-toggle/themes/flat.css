@@ -15,7 +15,7 @@
   border-radius: 1em;
 }
 
-.x-toggle:checked + .label .x-toggle-flat.x-toggle-btn {
+.x-toggle:checked + label .x-toggle-flat.x-toggle-btn {
   border: 4px solid #7fc6a6;
 }
 
@@ -39,4 +39,19 @@
   width: 4.7em;
   height: 2.1em;
   padding: 4px;
+}
+
+/* Dark mode styling */
+
+.x-toggle-flat.dark.x-toggle-btn {
+  background: #2121218f;
+  border: 3px solid #a3a3a3;
+}
+
+.x-toggle-flat.dark.x-toggle-btn::after {
+  background: #e2e2e2;
+}
+
+.x-toggle:checked + label .x-toggle-flat.dark.x-toggle-btn {
+  border: 3px solid #7fc6a6;
 }

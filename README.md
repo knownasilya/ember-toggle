@@ -32,15 +32,20 @@ Here's the official [demo] using this component.
 
 ![Examples Of Available Themes](vendor/ember-toggle/example-images/themes.png)
 
+![Dark Themes](vendor/ember-toggle/example-images/themes-dark.png)
+
 There are many `themes` which change the visual appearance of the toggle.
 Check the [demo] for interactive examples.
 
 - `'default'`
 - `'ios'`
+- `'ios dark'`
 - `'light'`
 - `'flat'`
+- `'flat dark'`
 - `'flip'`
 - `'skewed'`
+- `'material dark'`
 - `'material'`
 
 > Example of changing the theme
@@ -86,7 +91,7 @@ If you want your labels to be displayed, then you must set `showLabels` to `true
 
 - `value` - The state of the switch, can be `true` or `false`. Defaults to `false`.
 - `onToggle` - The action that should change the state of `value`.
-- `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
+- `theme` - One of 'light', 'ios', 'flat', 'material', 'ios dark', 'flat dark', 'material dark', 'flip', 'skewed', 'default'.
   Defaults to 'default' if not specified.
 - `size` - One of 'small', 'medium', 'large'.
   Defaults to 'medium' if not specified.
