@@ -48,3 +48,8 @@ table.condensed td {
   margin: 0;
   padding: 0;
 }
+
+table.dark {
+  background-color: #212121;
+  color: #eee;
+}

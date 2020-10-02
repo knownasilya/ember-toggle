@@ -43,11 +43,17 @@ Check the [demo] for interactive examples.
 - `'skewed'`
 - `'material'`
 
+
+![Dark Themes](vendor/ember-toggle/example-images/themes-dark.png)
+
+Use it along with the `@variant='dark'` option to get a dark themed version, works only with 'ios', 'flat' and 'material' theme.
+
 > Example of changing the theme
 
 ```hbs
 <XToggle
   @theme='ios'
+  @variant='dark'
   @value={{this.toggled}}
   @onToggle={{fn (mut this.toggled)}}
 />
@@ -86,7 +92,8 @@ If you want your labels to be displayed, then you must set `showLabels` to `true
 
 - `value` - The state of the switch, can be `true` or `false`. Defaults to `false`.
 - `onToggle` - The action that should change the state of `value`.
-- `theme` - One of 'light', 'ios', 'flat', 'flip', 'skewed', 'default'.
+- `theme` - One of 'light', 'ios', 'flat', 'material', 'flip', 'skewed', 'default'.
+- `variant` - Use `dark` for dark themed variants. Works only with 'ios', 'flat' and 'material' theme.
   Defaults to 'default' if not specified.
 - `size` - One of 'small', 'medium', 'large'.
   Defaults to 'medium' if not specified.

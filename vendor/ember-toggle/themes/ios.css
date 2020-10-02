@@ -24,7 +24,7 @@
 }
 
 .x-toggle:checked + label > .x-toggle-ios.x-toggle-btn {
-  background: #86d993;
+  background: #54d159;
 }
 
 .x-toggle:checked + label > .x-toggle-ios.x-toggle-btn:active {
@@ -50,4 +50,14 @@
   width: 4.7em;
   height: 2.1em;
   padding: 4px;
+}
+
+/* Dark mode styling */
+.x-toggle-ios.dark.x-toggle-btn {
+  background: #2121218f;
+  border: 1px solid #646464;
+}
+
+.x-toggle:checked + label > .x-toggle-ios.dark.x-toggle-btn {
+  background: #86d993;
 }

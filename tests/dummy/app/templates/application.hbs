@@ -4,7 +4,6 @@
 {{! template-lint-disable block-indentation attribute-indentation}}
 <table>
   <tbody>
-
     <tr>
       <td><XToggle @name={{1}} @theme="default" @value={{v1}} @onToggle={{fn (mut v1)}} /></td>
       <td>default</td>
@@ -12,9 +11,7 @@
       <td>light</td>
     </tr>
     <tr>
-      <td>
-        <XToggle @name={{3}} @theme="ios" @value={{v3}} @onToggle={{fn (mut v3)}} />
-      </td>
+      <td><XToggle @name={{3}} @theme="ios" @value={{v3}} @onToggle={{fn (mut v3)}} /></td>
       <td>ios</td>
       <td><XToggle @name={{4}} @theme="flat" @value={{v4}} @onToggle={{fn (mut v4)}} /></td>
       <td>flat</td>
@@ -28,6 +25,21 @@
     <tr>
       <td><XToggle @name={{7}} @theme="material" @value={{v8}} @onToggle={{fn (mut v8)}} /></td>
       <td>material</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="dark">
+  <tbody>
+    <tr>
+      <td><XToggle @name={{3}} @theme="ios" @variant="dark" @value={{v3}} @onToggle={{fn (mut v3)}} /></td>
+      <td>ios dark</td>
+      <td><XToggle @name={{4}} @theme="flat" @variant="dark" @value={{v4}} @onToggle={{fn (mut v4)}} /></td>
+      <td>flat dark</td>
+    </tr>
+    <tr>
+      <td><XToggle @name={{7}} @theme="material" @variant="dark" @value={{v8}} @onToggle={{fn (mut v8)}} /></td>
+      <td>material dark</td>
     </tr>
   </tbody>
 </table>
