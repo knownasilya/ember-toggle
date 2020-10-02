@@ -31,9 +31,9 @@ export default class XToggleSwitch extends Component {
       return;
     }
 
-    const isDisabling = touchData.current.distanceX < 0;
+    const isToggled = touchData.current.distanceX > 0;
 
-    this.sendToggle(isDisabling);
+    this.sendToggle(isToggled);
     this._disableLabelUntilMouseUp();
   }
 
