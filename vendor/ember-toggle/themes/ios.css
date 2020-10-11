@@ -1,3 +1,11 @@
+/* Dark theme variables */
+:root{
+  --ios-track-dark: #2121218f;
+  --ios-border-dark: 1px solid #646464;
+  --ios-thumb-checked-dark: #86d993;
+}
+
+/* Default theme */
 .x-toggle-ios.x-toggle-btn {
   background: #fbfbfb;
   border-radius: 2em;
@@ -54,10 +62,22 @@
 
 /* Dark mode styling */
 .x-toggle-ios.dark.x-toggle-btn {
-  background: #2121218f;
-  border: 1px solid #646464;
+  background: var(--ios-track-dark);
+  border: var( --ios-border-dark);
 }
 
 .x-toggle:checked + label > .x-toggle-ios.dark.x-toggle-btn {
-  background: #86d993;
+  background: var(--ios-thumb-checked-dark);
+}
+
+/* Auto mode styling */
+@media (prefers-color-scheme: dark) {
+  .x-toggle-ios.auto.x-toggle-btn {
+    background: var(--ios-track-dark);
+    border: var( --ios-border-dark);
+  }
+  
+  .x-toggle:checked + label > .x-toggle-ios.auto.x-toggle-btn {
+    background: var(--ios-thumb-checked-dark);
+  }
 }

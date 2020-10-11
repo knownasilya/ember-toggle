@@ -1,3 +1,12 @@
+/* Dark theme variables */
+:root{
+  --flat-track-dark: #2121218f;
+  --flat-thumb-dark: #e2e2e2;
+  --flat-border-dark: 3px solid #a3a3a3;
+  --flat-border-checked-dark: 3px solid #7fc6a6;
+}
+
+/* Default theme */
 .x-toggle-flat.x-toggle-btn {
   padding: 2px;
   -webkit-transition: all 0.2s ease;
@@ -44,14 +53,30 @@
 /* Dark mode styling */
 
 .x-toggle-flat.dark.x-toggle-btn {
-  background: #2121218f;
-  border: 3px solid #a3a3a3;
+  background: var(--flat-track-dark);
+  border: var(--flat-border-dark);
 }
 
 .x-toggle-flat.dark.x-toggle-btn::after {
-  background: #e2e2e2;
+  background: var(--flat-thumb-dark);
 }
 
 .x-toggle:checked + label .x-toggle-flat.dark.x-toggle-btn {
-  border: 3px solid #7fc6a6;
+  border: var(--flat-border-checked-dark);
+}
+
+/* Auto mode styling */
+@media (prefers-color-scheme: dark) {
+  .x-toggle-flat.auto.x-toggle-btn {
+    background: var(--flat-track-dark);
+    border: var(--flat-border-dark);
+  }
+  
+  .x-toggle-flat.auto.x-toggle-btn::after {
+    background: var(--flat-thumb-dark);
+  }
+  
+  .x-toggle:checked + label .x-toggle-flat.auto.x-toggle-btn {
+    border: var(--flat-border-checked-dark);
+  }
 }

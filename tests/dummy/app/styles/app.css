@@ -53,3 +53,10 @@ table.dark {
   background-color: #212121;
   color: #eee;
 }
+
+@media (prefers-color-scheme: dark) {
+  table.auto {
+    background-color: #212121;
+    color: #eee;
+  }
+}

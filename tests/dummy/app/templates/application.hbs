@@ -29,6 +29,7 @@
   </tbody>
 </table>
 
+<h3>Dark</h3>
 <table class="dark">
   <tbody>
     <tr>
@@ -40,6 +41,22 @@
     <tr>
       <td><XToggle @name={{7}} @theme="material" @variant="dark" @value={{v8}} @onToggle={{fn (mut v8)}} /></td>
       <td>material dark</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Auto</h3>
+<table class="auto">
+  <tbody>
+    <tr>
+      <td><XToggle @name={{3}} @theme="ios" @variant="auto" @value={{v3}} @onToggle={{fn (mut v3)}} /></td>
+      <td>ios auto</td>
+      <td><XToggle @name={{4}} @theme="flat" @variant="auto" @value={{v4}} @onToggle={{fn (mut v4)}} /></td>
+      <td>flat auto</td>
+    </tr>
+    <tr>
+      <td><XToggle @name={{7}} @theme="material" @variant="auto" @value={{v8}} @onToggle={{fn (mut v8)}} /></td>
+      <td>material auto</td>
     </tr>
   </tbody>
 </table>
