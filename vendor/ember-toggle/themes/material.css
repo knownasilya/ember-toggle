@@ -1,3 +1,8 @@
+/* Dark theme variables */
+:root{
+  --material-track-dark: #727272;
+}
+
 .x-toggle-material.x-toggle-btn {
   position: relative;
   -webkit-transition: all 0.4s ease;
@@ -88,7 +93,7 @@
 
 /* Background */
 .x-toggle-material.dark.x-toggle-btn::before {
-  background-color: #727272;
+  background-color: var(--material-track-dark);
 }
 
 /* Disabled */
@@ -96,6 +101,20 @@
 .x-toggle:checked
   + label
   > .x-toggle-material.dark.x-toggle-btn.x-toggle-disabled::before {
-  background-color: #727272;
-  opacity: 0.12;
+  background-color: var(--material-track-dark);
+}
+
+/* Auto mode styling */
+@media (prefers-color-scheme: dark) {
+  .x-toggle-material.auto.x-toggle-btn::before {
+    background-color: var(--material-track-dark);
+  }
+  
+  /* Disabled */
+  .x-toggle-material.auto.x-toggle-btn.x-toggle-disabled::before,
+  .x-toggle:checked
+    + label
+    > .x-toggle-material.auto.x-toggle-btn.x-toggle-disabled::before {
+    background-color: var(--material-track-dark);
+  } 
 }
