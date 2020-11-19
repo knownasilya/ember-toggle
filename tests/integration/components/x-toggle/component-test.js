@@ -3,9 +3,8 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import emberVersionGTE from 'ember-test-helpers/has-ember-version';
-import $ from 'jquery';
+import { pan } from 'ember-gesture-modifiers/test-support';
 
-/* eslint ember/no-jquery: 0 */
 module('Integration | Component | x toggle', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -282,12 +281,10 @@ module('Integration | Component | x toggle', function (hooks) {
         />
       `);
 
-      const $toggle = $('.x-toggle-container');
-
-      $toggle.trigger('panright');
+      await pan('.x-toggle-container', 'right');
       assert.equal(this.value, true, 'panning right should enable');
 
-      $toggle.trigger('panleft');
+      await pan('.x-toggle-container', 'left');
       assert.equal(this.value, false, 'panning left should disable');
     });
 
@@ -302,9 +299,7 @@ module('Integration | Component | x toggle', function (hooks) {
         />
       `);
 
-      const $toggle = $('.x-toggle-container');
-
-      $toggle.trigger('panright');
+      await pan('.x-toggle-container', 'right');
       assert.equal(this.value, false, 'panning right should not enable');
     });
 
@@ -339,9 +334,7 @@ module('Integration | Component | x toggle', function (hooks) {
         />
       `);
 
-      const $toggle = $('.x-toggle-container');
-
-      $toggle.trigger('panright');
+      await pan('.x-toggle-container', 'right');
 
       assert.equal(this.value, false);
       assert.dom('.x-toggle').isNotChecked();

@@ -35,7 +35,6 @@
     "ember-gesture-modifiers": "nickschot/ember-gesture-modifiers#pointer-events"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^2.0.0",
     "@glimmer/component": "^1.0.1",
     "@glimmer/tracking": "^1.0.1",
