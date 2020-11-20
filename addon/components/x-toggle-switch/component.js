@@ -24,22 +24,14 @@ export default class XToggleSwitch extends Component {
   }
 
   @action
-  handlePanRight() {
+  handlePan(touchData) {
     if (this.disabled) {
       return;
     }
 
-    this.sendToggle(true);
-    this._disableLabelUntilMouseUp();
-  }
+    const isToggled = touchData.current.distanceX > 0;
 
-  @action
-  handlePanLeft() {
-    if (this.disabled) {
-      return;
-    }
-
-    this.sendToggle(false);
+    this.sendToggle(isToggled);
     this._disableLabelUntilMouseUp();
   }
 
