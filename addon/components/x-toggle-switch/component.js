@@ -25,8 +25,6 @@ export default class XToggleSwitch extends Component {
 
   @action
   handlePan(touchData) {
-    console.log('touchData', touchData);
-
     if (this.disabled) {
       return;
     }
