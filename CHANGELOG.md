@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/knownasilya/ember-toggle/compare/v7.0.0...v7.1.0) (2020-11-20)
+
+
+### Features
+
+* Add dark variant for ios, flat and material themes. ([#144](https://github.com/knownasilya/ember-toggle/issues/144)) ([70e49f4](https://github.com/knownasilya/ember-toggle/commit/70e49f4066c37f7c92bd1a8b4cf9ac299a2dce87))
+* Added auto variant ([#145](https://github.com/knownasilya/ember-toggle/issues/145)) ([ac8ad6a](https://github.com/knownasilya/ember-toggle/commit/ac8ad6a86f11d584a46deba37e2022dae1aea3ce))
+
+
+### Bug Fixes
+
+* class syntax and tagless all the way ([f893b07](https://github.com/knownasilya/ember-toggle/commit/f893b0726ce6febc16ee478fa85a8e61f2e7fc70))
+* keypress is deprecated ([ff3b2f7](https://github.com/knownasilya/ember-toggle/commit/ff3b2f7fc8f57d77134ab624a756e54bb93ad77b))
+* material theme transition speed ([#142](https://github.com/knownasilya/ember-toggle/issues/142)) ([09c2c00](https://github.com/knownasilya/ember-toggle/commit/09c2c00268d34a2c0139c59dfed262485683d062))
+* Replace hammerjs with ember-gesture-modifiers, fixes [#138](https://github.com/knownasilya/ember-toggle/issues/138) ([#139](https://github.com/knownasilya/ember-toggle/issues/139)) ([884c715](https://github.com/knownasilya/ember-toggle/commit/884c7156790f82ac3e58c93770d15530fe3cf009))
+* spacebar toggle ([cecbdb9](https://github.com/knownasilya/ember-toggle/commit/cecbdb9c804a9e65a1c41e0933542f456c01fdbe))
+* update deps and remove mixin, convert to tagless ([609a0e1](https://github.com/knownasilya/ember-toggle/commit/609a0e152ded32460eb3a207cabe51e2f0864407))
+
 ## [7.0.0](https://github.com/knownasilya/ember-toggle/compare/v6.0.3...v7.0.0) (2020-09-12)
 
 
