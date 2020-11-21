@@ -3,7 +3,7 @@
 Checkbox based Toggle Switch component with swipe/drag support for Ember.
 
 [![NPM][npm-badge]][npm-badge-url]
-[![Build Status][travis-badge]][travis-badge-url]
+![CI](https://github.com/knownasilya/ember-toggle/workflows/CI/badge.svg)
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
 Based on [this](http://codepen.io/mallendeo/pen/eLIiG/) codepen.
@@ -42,7 +42,6 @@ Check the [demo] for interactive examples.
 - `'flip'`
 - `'skewed'`
 - `'material'`
-
 
 ![Dark Themes](vendor/ember-toggle/example-images/themes-dark.png)
 
@@ -194,8 +193,6 @@ MIT
 
 [npm-badge]: https://img.shields.io/npm/v/ember-toggle.svg
 [npm-badge-url]: https://www.npmjs.com/package/ember-toggle
-[travis-badge]: https://img.shields.io/travis/knownasilya/ember-toggle.svg
-[travis-badge-url]: https://travis-ci.org/knownasilya/ember-toggle
 [ember-observer-badge]: http://emberobserver.com/badges/ember-toggle.svg
 [ember-observer-url]: http://emberobserver.com/addons/ember-toggle
 [demo]: http://knownasilya.github.io/ember-toggle/
