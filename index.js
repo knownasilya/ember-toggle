@@ -27,14 +27,11 @@ module.exports = {
     var allThemes = [
       'light',
       'ios',
-      'ios dark',
       'default',
       'flat',
-      'flat dark',
       'skewed',
       'flip',
       'material',
-      'material dark',
     ];
     var included = config.includedThemes;
     var excluded = config.excludedThemes;
