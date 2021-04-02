@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/knownasilya/ember-toggle/compare/v7.1.0...v7.1.1) (2021-04-02)
+
+
+### Bug Fixes
+
+* convert deprecated hasBlock to helper syntax ([0353829](https://github.com/knownasilya/ember-toggle/commit/0353829e720c896e7804d1b5467d413c8991ff42))
+* remove dark theme alternatives from themes list ([6841bb6](https://github.com/knownasilya/ember-toggle/commit/6841bb6798ce732b6b6c13ef58da46778c86f3f9))
+
 ## [7.1.0](https://github.com/knownasilya/ember-toggle/compare/v7.0.0...v7.1.0) (2020-11-20)
 
 
