@@ -7,7 +7,7 @@
   {{on 'focusout' this.handleFocusOut}}
   {{on 'keydown' this.spacebarToggle}}
 >
-  {{#if hasBlock}}
+  {{#if (has-block)}}
     {{yield
       (hash
         switch=(component

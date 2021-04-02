@@ -1,11 +1,11 @@
 {{#if this.show}}
   <label
     for={{this.for}}
-    class='toggle-text toggle-prefix {{this.labelType}}'
-    {{on 'click' (action 'clickLabel')}}
+    class="toggle-text toggle-prefix {{this.labelType}}"
     ...attributes
-  > 
-    {{#if hasBlock}}
+    {{on 'click' (action 'clickLabel')}}
+  >
+    {{#if (has-block)}}
       {{yield this.label}}
     {{else}}
       {{this.label}}
