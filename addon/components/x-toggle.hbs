@@ -3,9 +3,10 @@
   class="x-toggle-component {{if this.focused 'x-toggle-focused'}}"
   tabindex={{this.tabindex}}
   ...attributes
+  {{did-insert this.setContainer}}
   {{on 'focusin' this.handleFocusIn}}
   {{on 'focusout' this.handleFocusOut}}
-  {{on 'keydown' this.spacebarToggle}}
+  {{on 'keypress' this.spacebarToggle}}
 >
   {{#if (has-block)}}
     {{yield
@@ -49,34 +50,34 @@
       )
     }}
   {{else}}
-    {{x-toggle-label
-      label=this.offLabel
-      show=this.showLabels
-      switchId=this.forId
-      value=false
-      sendToggle=this.sendToggle
-    }}
+    <XToggleLabel
+      @label={{this.offLabel}}
+      @show={{this.showLabels}}
+      @switchId={{this.forId}}
+      @value={{false}}
+      @sendToggle={{this.sendToggle}}
+    />
 
-    {{x-toggle-switch
-      disabled=this.disabled
-      forId=this.forId
-      name=this.name
-      offLabel=this.offLabel
-      onLabel=this.onLabel
-      size=this.size
-      theme=this.theme
-      variant=this.variant
-      toggled=this.toggled
-      value=this.value
-      sendToggle=this.sendToggle
-    }}
+    <XToggleSwitch
+      @disabled={{this.disabled}}
+      @forId={{this.forId}}
+      @name={{this.name}}
+      @offLabel={{this.offLabel}}
+      @onLabel={{this.onLabel}}
+      @size={{this.size}}
+      @theme={{this.theme}}
+      @variant={{this.variant}}
+      @toggled={{this.toggled}}
+      @value={{this.value}}
+      @sendToggle={{this.sendToggle}}
+    />
 
-    {{x-toggle-label
-      label=this.onLabel
-      show=this.showLabels
-      switchId=this.forId
-      value=true
-      sendToggle=this.sendToggle
-    }}
+    <XToggleLabel
+      @label={{this.onLabel}}
+      @show={{this.showLabels}}
+      @switchId={{this.forId}}
+      @value={{true}}
+      @sendToggle={{this.sendToggle}}
+    />
   {{/if}}
 </div>

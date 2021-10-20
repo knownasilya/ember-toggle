@@ -57,14 +57,14 @@ module('Integration | Component | x toggle', function (hooks) {
   });
 
   test('clicking component labels triggers onToggle action', async function (assert) {
-    assert.expect(6);
+    assert.expect(5);
 
     let onTrue = true;
 
     this.setProperties({
       value: false,
       onToggle: (val) => {
-        assert.equal(val, onTrue, 'new value set');
+        assert.strictEqual(val, onTrue, 'new value set');
         onTrue = false;
         this.set('value', val);
       },
@@ -246,11 +246,11 @@ module('Integration | Component | x toggle', function (hooks) {
 
       await click('.on-label');
       assert.true(this.value, 'clicking on label toggles value true');
-      assert.equal(this.timesCalled, 1, 'should call onToggle once');
+      assert.strictEqual(this.timesCalled, 1, 'should call onToggle once');
 
       await click('.on-label');
       assert.true(this.value, 'clicking on label again stays true');
-      assert.equal(
+      assert.strictEqual(
         this.timesCalled,
         1,
         'should not call onToggle again if value does not change'
