@@ -5,5 +5,4 @@ module.exports = {
   rules: {
     quotes: false,
   },
-  // extends: 'octane'
 };
