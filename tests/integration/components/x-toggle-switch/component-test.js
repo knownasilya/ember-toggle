@@ -7,8 +7,12 @@ module('Integration | Component | x toggle switch', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    this.set('sendToggle', () => {});
-    await render(hbs`{{x-toggle-switch sendToggle=(action sendToggle)}}`);
+    this.sendToggle = () => {};
+    await render(hbs`
+      <XToggleSwitch
+        @sendToggle={{this.sendToggle}}
+      />
+    `);
 
     assert.dom('*').hasText('');
   });
