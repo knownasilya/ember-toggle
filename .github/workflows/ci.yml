@@ -76,7 +76,9 @@ jobs:
         include:
           - ember-try-scenario: ember-canary
             allow-failure: true
-          - ember-try-scenario: embroider-tests
+          - ember-try-scenario: embroider-safe
+            allow-failure: true
+          - ember-try-scenario: embroider-optimized
             allow-failure: true
 
     steps:
