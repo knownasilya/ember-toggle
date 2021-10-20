@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/knownasilya/ember-toggle/compare/v7.1.1...v8.0.0) (2021-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** Drop support for node 10 and ember 3.16
+
+### Features
+
+* **deps:** update ember to 3.28 ([0511cb5](https://github.com/knownasilya/ember-toggle/commit/0511cb5ba0a9492d1e4bf6fd91fe2fe701a7938e))
+* refactor all components and controllers to glimmer and octane ([1dd0739](https://github.com/knownasilya/ember-toggle/commit/1dd0739dc2024a6a44b4da72155c3091e1305965))
+
 ### [7.1.1](https://github.com/knownasilya/ember-toggle/compare/v7.1.0...v7.1.1) (2021-04-02)
 
 
