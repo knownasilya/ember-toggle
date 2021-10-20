@@ -1,38 +1,47 @@
-import { not } from '@ember/object/computed';
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { debug } from '@ember/debug';
 
-export default Controller.extend({
-  boundToggle: false,
-  bV2: 'ho',
-  notToggleLabelValue: not('toggleLabelValue'),
-  toggleLabelValue: false,
+export default class ApplicationController extends Controller {
+  bV2 = 'ho';
 
-  actions: {
-    checkboxToggled(toggled, toggledBy) {
-      this.setProperties({
-        toggled,
-        toggledBy,
-      });
-    },
+  @tracked boundToggle = false;
+  @tracked disabledTest = false;
+  @tracked toggleLabelValue = false;
 
-    clicked(target, hash) {
-      if (hash.code === 'toggled') {
-        debug('toggled: ', hash);
-      } else {
-        debug('suggestion: ', hash);
-      }
-      this.set(target, hash.newValue);
-    },
+  get notToggleLabelValue() {
+    return !this.toggleLabelValue;
+  }
 
-    rejected() {
-      return false;
-    },
-    notToggleLabelTest(value) {
-      this.set('toggleLabelValue', !value);
-    },
-    toggleLabelTest(value) {
-      this.set('toggleLabelValue', value);
-    },
-  },
-});
+  @action
+  checkboxToggled(toggled, toggledBy) {
+    this.toggled = toggled;
+    this.toggledBy = toggledBy;
+  }
+
+  @action
+  clicked(target, hash) {
+    if (hash.code === 'toggled') {
+      debug('toggled: ', hash);
+    } else {
+      debug('suggestion: ', hash);
+    }
+    this[target] = hash.newValue;
+  }
+
+  @action
+  rejected() {
+    return false;
+  }
+
+  @action
+  notToggleLabelTest(value) {
+    this.toggleLabelValue = !value;
+  }
+
+  @action
+  toggleLabelTest(value) {
+    this.toggleLabelValue = value;
+  }
+}

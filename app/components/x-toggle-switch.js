@@ -1,1 +1,1 @@
-export { default } from 'ember-toggle/components/x-toggle-switch/component';
+export { default } from 'ember-toggle/components/x-toggle-switch';

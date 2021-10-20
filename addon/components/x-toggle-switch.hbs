@@ -10,6 +10,7 @@
     onPan=this.handlePan
     pointerTypes=(array 'touch' 'mouse')
   }}
+  {{will-destroy this.removeListener}}
 >
   <input
     class='x-toggle'
@@ -18,7 +19,7 @@
     disabled={{@disabled}}
     id={{@forId}}
     name={{@name}}
-    {{on 'change' (action @sendToggle value='target.checked')}}
+    {{on 'change' this.onChange}}
   />
 
   <label for={{this.effectiveForId}}>
@@ -27,7 +28,7 @@
       role='checkbox'
       class="x-toggle-btn
         {{this.themeClass}}
-        {{this.variant}}
+        {{@variant}}
         {{@size}}
         {{if @disabled ' x-toggle-disabled'}}
       "

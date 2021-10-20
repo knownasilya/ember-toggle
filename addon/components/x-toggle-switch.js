@@ -1,42 +1,44 @@
-import classic from 'ember-classic-decorator';
-import { tagName, layout as templateLayout } from '@ember-decorators/component';
-import { action, computed } from '@ember/object';
-import Component from '@ember/component';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 import { next } from '@ember/runloop';
-import layout from './template';
+import { tracked } from '@glimmer/tracking';
 
-@classic
-@templateLayout(layout)
-@tagName('')
 export default class XToggleSwitch extends Component {
-  labelDisabled = false;
+  @tracked labelDisabled = false;
 
-  @computed('forId', 'labelDisabled')
   get effectiveForId() {
-    return this.labelDisabled ? null : this.forId;
+    return this.labelDisabled ? null : this.args.forId;
   }
 
-  @computed('theme')
   get themeClass() {
-    let theme = this.theme || 'default';
+    let theme = this.args.theme || 'default';
 
     return `x-toggle-${theme}`;
   }
 
   @action
   handlePan(touchData) {
-    if (this.disabled) {
+    if (this.args.disabled) {
       return;
     }
 
     const isToggled = touchData.current.distanceX > 0;
 
-    this.sendToggle(isToggled);
+    this.args.sendToggle(isToggled);
     this._disableLabelUntilMouseUp();
   }
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
+  @action
+  onChange(e) {
+    if (this.args.disabled) {
+      return;
+    }
+
+    this.args.sendToggle(e.target.checked);
+  }
+
+  @action
+  removeListener() {
     this._removeListener();
   }
 
@@ -60,14 +62,12 @@ export default class XToggleSwitch extends Component {
         }
 
         this._removeListener();
-        this.set('labelDisabled', false);
+        this.labelDisabled = false;
       });
     };
 
-    this.setProperties({
-      labelDisabled: true,
-      _listener,
-    });
+    this.labelDisabled = true;
+    this._listener = _listener;
 
     document.addEventListener('mouseup', _listener);
   }
@@ -77,7 +77,7 @@ export default class XToggleSwitch extends Component {
 
     if (_listener) {
       document.removeEventListener('mouseup', _listener);
-      this.set('_listener', null);
+      this._listener = null;
     }
   }
 }
