@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { getOwner } from '@ember/application';
 import { guidFor } from '@ember/object/internals';
+import { cached } from '@glimmer/tracking';
 
 function configValue(configName, defaultValue) {
   return function (target, name) {
@@ -22,7 +23,6 @@ export default class XToggle extends Component {
   @tracked focused = false;
 
   container;
-  tabindex = '0';
 
   @configValue(null, false) disabled;
   @configValue(null, false) value;
@@ -34,6 +34,7 @@ export default class XToggle extends Component {
   @configValue('defaultShowLabels', false) showLabels;
   @configValue('defaultSize', 'medium') size;
 
+  @cached
   get config() {
     return (
       getOwner(this).resolveRegistration('config:environment')[
@@ -46,6 +47,7 @@ export default class XToggle extends Component {
     return this.value;
   }
 
+  @cached
   get forId() {
     return guidFor(this) + '-x-toggle';
   }

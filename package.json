@@ -34,6 +34,7 @@
     "@ember/render-modifiers": "^2.0.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
+    "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-gesture-modifiers": "^1.1.1"
   },
   "devDependencies": {
