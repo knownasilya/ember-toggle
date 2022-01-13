@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.1](https://github.com/knownasilya/ember-toggle/compare/v9.0.0...v9.0.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* add more npm ignores ([57aa240](https://github.com/knownasilya/ember-toggle/commit/57aa240d4d075aea5840dfc3696ec37be5600596))
+
 ## [9.0.0](https://github.com/knownasilya/ember-toggle/compare/v7.1.1...v9.0.0) (2022-01-13)
 
 
