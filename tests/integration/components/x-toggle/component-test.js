@@ -13,7 +13,7 @@ module('Integration | Component | x toggle', function (hooks) {
       <XToggle/>
     `);
 
-    assert.dom('div.x-toggle-btn').exists();
+    assert.dom(this.element).exists();
   });
 
   test('changing disabled property disables component', async function (assert) {
@@ -29,11 +29,11 @@ module('Integration | Component | x toggle', function (hooks) {
       />
     `);
 
-    assert.dom('input.x-toggle').isDisabled();
+    assert.dom('.x-toggle').isDisabled();
     assert.false(this.value);
 
-    await click('div.x-toggle-btn');
-    assert.dom('input.x-toggle').isDisabled();
+    await click('.x-toggle-btn');
+    assert.dom('.x-toggle').isDisabled();
     assert.false(this.value);
   });
 
@@ -52,7 +52,7 @@ module('Integration | Component | x toggle', function (hooks) {
       />
     `);
 
-    await click('div.x-toggle-btn');
+    await click('.x-toggle-btn');
     assert.true(this.myValue, 'new value set');
   });
 
@@ -131,7 +131,7 @@ module('Integration | Component | x toggle', function (hooks) {
       assert.dom('.off-label').hasText('Foo', '"off" property set on toggle');
       assert.dom('.on-label').hasText('Bar', '"on" property set on toggle');
 
-      await click('div.x-toggle-btn');
+      await click('.x-toggle-btn');
       assert.true(this.value, 'click toggles value');
     });
 
@@ -149,7 +149,7 @@ module('Integration | Component | x toggle', function (hooks) {
 
       assert.false(this.value);
 
-      await click('div.x-toggle-btn');
+      await click('.x-toggle-btn');
       assert.true(this.value);
     });
 
@@ -167,7 +167,7 @@ module('Integration | Component | x toggle', function (hooks) {
 
       assert.false(this.value);
 
-      await click('div.x-toggle-btn');
+      await click('.x-toggle-btn');
       assert.true(this.value);
     });
 
@@ -301,7 +301,7 @@ module('Integration | Component | x toggle', function (hooks) {
           @onToggle={{this.toggleAction}}
         />
       `);
-      await click('div.x-toggle-btn');
+      await click('.x-toggle-btn');
 
       assert.false(this.value);
       assert.dom('.x-toggle').isNotChecked();
