@@ -50,6 +50,7 @@ export default class XToggle extends Component {
     return guidFor(this) + '-x-toggle';
   }
 
+  @action
   toggleSwitch(value) {
     let onToggle = this.args.onToggle;
     let disabled = this.disabled;
@@ -77,18 +78,11 @@ export default class XToggle extends Component {
   }
 
   @action
-  sendToggle(value) {
-    this.toggleSwitch(value);
-  }
-
-  @action
   spacebarToggle(event) {
     // spacebar: 32
     if (event.which === 32) {
-      let value = this.value;
-
-      this.sendToggle(!value);
       event.preventDefault();
+      this.toggleSwitch(!this.value);
     }
   }
 
