@@ -11,8 +11,8 @@ Here's the official [demo] using this component.
 
 ## Compatibility
 
-- Ember.js v3.20 or above
-- Ember CLI v3.20 or above
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
 - Node.js v12 or above
 
 ## Install
@@ -22,10 +22,7 @@ Here's the official [demo] using this component.
 ## Basic Usage
 
 ```hbs
-<XToggle
-  @value={{this.myValue}}
-  @onToggle={{fn (mut this.myValue)}}
-/>
+<XToggle @value={{this.myValue}} @onToggle={{fn (mut this.myValue)}} />
 ```
 
 ### Themes
@@ -148,10 +145,11 @@ The `x-toggle` component also provides a composable component API.
   @showLabels={{true}}
   @value={{this.value}}
   @onToggle={{fn (mut this.value)}}
-as |toggle|>
-  <toggle.offLabel/>
-  <toggle.switch/>
-  <toggle.onLabel/>
+  as |toggle|
+>
+  <toggle.offLabel />
+  <toggle.switch />
+  <toggle.onLabel />
 </XToggle>
 ```
 
@@ -173,11 +171,7 @@ This format allows greater flexibility with labels, like the single label use-ca
     <b>turn {{if this.value 'off' 'on'}}</b>
   </toggle.label>
 
-  <toggle.switch
-    @theme='flip'
-    @onLabel='diff on'
-    @offLabel='diff off'
-  />
+  <toggle.switch @theme='flip' @onLabel='diff on' @offLabel='diff off' />
 </XToggle>
 ```
 
