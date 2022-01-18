@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.2](https://github.com/knownasilya/ember-toggle/compare/v9.0.1...v9.0.2) (2022-01-18)
+
+
+### Bug Fixes
+
+* jquery scenario ([0d40f54](https://github.com/knownasilya/ember-toggle/commit/0d40f54017d3d88e2a4dc2f179c0ef426ee73aea))
+* update ember-gesture-modifier to v2 ([08ae8b5](https://github.com/knownasilya/ember-toggle/commit/08ae8b566d8cd3c8a63c6fee2e7cf9450dd75184))
+* update gesture addon to fix Ember v4 support ([f59d178](https://github.com/knownasilya/ember-toggle/commit/f59d1785db216c10f3da8863634da9ad8541dac0))
+* update more deps ([f4dbd7e](https://github.com/knownasilya/ember-toggle/commit/f4dbd7e4cbd84c9dd8b86796bba2f5fa623f5357))
+
 ### [9.0.1](https://github.com/knownasilya/ember-toggle/compare/v9.0.0...v9.0.1) (2022-01-13)
 
 
