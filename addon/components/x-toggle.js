@@ -10,8 +10,8 @@ function configValue(configName, defaultValue) {
     return {
       get() {
         return (
-          this.args[name] ||
-          (configName && this.config?.[configName]) ||
+          this.args[name] ??
+          (configName && this.config?.[configName]) ??
           defaultValue
         );
       },
