@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.3](https://github.com/knownasilya/ember-toggle/compare/v9.0.2...v9.0.3) (2022-02-02)
+
+
+### Bug Fixes
+
+* only use default values if null or undefined is passed ([8a27c4a](https://github.com/knownasilya/ember-toggle/commit/8a27c4a434123e7091621653880223f1944459a3))
+
 ### [9.0.2](https://github.com/knownasilya/ember-toggle/compare/v9.0.1...v9.0.2) (2022-01-18)
 
 
