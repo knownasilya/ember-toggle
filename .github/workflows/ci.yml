@@ -27,7 +27,6 @@ jobs:
   test:
     name: Tests
     runs-on: ${{ matrix.os }}
-    working-directory: test-app
     needs: lint
 
     strategy:
@@ -43,6 +42,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
+        working-directory: test-app
         run: yarn test:ember --launch ${{ matrix.browser }}
 
   floating-dependencies:
