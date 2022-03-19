@@ -7,7 +7,9 @@
   "author": "Ilya Radchenko",
   "exports": {
     ".": "./dist/index.js",
-    "./*": "./dist/*"
+    "./*": "./dist/*",
+    "./test-support": "./dist/test-support/index.js",
+    "./addon-main.js": "./addon-main.js"
   },
   "files": [
     "dist",
@@ -62,6 +64,7 @@
     "@embroider/addon-dev": "^1.5.0",
     "@nullvoxpopuli/eslint-configs": "^2.2.5",
     "@rollup/plugin-babel": "^5.3.1",
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "prettier": "^2.6.0"
   }
 }

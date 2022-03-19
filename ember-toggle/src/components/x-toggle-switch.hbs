@@ -1,9 +1,9 @@
 <span
-  class="x-toggle-container
+  class='x-toggle-container
     {{@size}}
-    {{if @disabled 'x-toggle-container-disabled'}}
-    {{if @value 'x-toggle-container-checked'}}
-  "
+    {{if @disabled "x-toggle-container-disabled"}}
+    {{if @value "x-toggle-container-checked"}}
+    '
   ...attributes
   {{did-pan
     onPanStart=this.handlePan
@@ -24,14 +24,14 @@
 
   <label for={{this.effectiveForId}}>
     <div
-      id="x-toggle-visual-{{@forId}}"
+      id='x-toggle-visual-{{@forId}}'
       role='checkbox'
-      class="x-toggle-btn
+      class='x-toggle-btn
         {{this.themeClass}}
         {{@variant}}
         {{@size}}
-        {{if @disabled ' x-toggle-disabled'}}
-      "
+        {{if @disabled " x-toggle-disabled"}}
+        '
       aria-owns={{@forId}}
       aria-checked={{@toggled}}
       data-tg-on={{@onLabel}}
