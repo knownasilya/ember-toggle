@@ -60,6 +60,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.8",
     "@embroider/addon-dev": "^1.5.0",
+    "@nullvoxpopuli/eslint-configs": "^2.2.5",
     "@rollup/plugin-babel": "^5.3.1",
     "concurrently": "^7.0.0"
   }
