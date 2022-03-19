@@ -62,8 +62,18 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.8",
     "@embroider/addon-dev": "^1.5.0",
-    "@nullvoxpopuli/eslint-configs": "^2.2.5",
     "@rollup/plugin-babel": "^5.3.1",
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "babel-eslint": "^10.1.0",
+    "ember-template-lint": "^3.6.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-ember": "^10.5.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.67.0",
     "concurrently": "^7.0.0",
     "prettier": "^2.6.0"
   }
