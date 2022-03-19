@@ -35,27 +35,6 @@
     "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-gesture-modifiers": "^3.0.0"
   },
-  "devDependencies": {
-    "@babel/core": "7.17.8",
-    "@babel/plugin-proposal-class-properties": "7.16.7",
-    "@babel/plugin-syntax-decorators": "7.17.0",
-    "@babel/plugin-proposal-decorators": "7.17.8",
-    "@embroider/addon-dev": "1.5.0",
-    "@nullvoxpopuli/eslint-configs": "2.2.5",
-    "concurrently": "7.0.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-decorator-position": "4.0.1",
-    "eslint-plugin-ember": "10.5.9",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-json": "3.1.0",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-simple-import-sort": "7.0.0",
-    "rollup": "2.70.1",
-    "babel-eslint": "10.1.0",
-    "eslint": "^7.0.0",
-    "@rollup/plugin-babel": "5.3.1"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -66,7 +45,11 @@
     "version": 2,
     "type": "addon",
     "main": "./addon-main.cjs",
-    "app-js": {}
+    "app-js": {
+      "./components/x-toggle-label.js": "./dist/_app_/components/x-toggle-label.js",
+      "./components/x-toggle-switch.js": "./dist/_app_/components/x-toggle-switch.js",
+      "./components/x-toggle.js": "./dist/_app_/components/x-toggle.js"
+    }
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
