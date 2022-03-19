@@ -17,12 +17,12 @@ jobs:
           node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
-       - name: Lint Addon
-         run: yarn lint
-         working-directory: ember-toggle
-       - name: Lint Test App
-         run: yarn lint
-         working-directory: test-app
+      - name: Lint Addon
+        run: yarn lint
+        working-directory: ember-toggle
+      - name: Lint Test App
+        run: yarn lint
+        working-directory: test-app
 
   test:
     name: Tests

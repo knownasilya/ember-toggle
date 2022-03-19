@@ -30,8 +30,8 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@embroider/addon-shim": "1.5.0",
     "@ember/render-modifiers": "^2.0.3",
+    "@embroider/addon-shim": "1.5.0",
     "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-gesture-modifiers": "^3.0.0"
   },
@@ -56,5 +56,11 @@
   },
   "volta": {
     "extends": "../package.json"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.17.8",
+    "@embroider/addon-dev": "^1.5.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "concurrently": "^7.0.0"
   }
 }

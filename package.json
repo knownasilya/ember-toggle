@@ -8,7 +8,8 @@
   "license": "MIT",
   "author": "Ilya Radchenko",
   "scripts": {
-    "build": "yarn workspace ember-toggle build"
+    "build": "yarn workspace ember-toggle build",
+    "test": "yarn workspace test-app test:ember"
   },
   "volta": {
     "node": "16.14.2",
