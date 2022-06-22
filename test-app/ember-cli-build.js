@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unpublished-require */
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -25,6 +26,16 @@ module.exports = function (defaults) {
     skipBabel: [
       {
         package: 'qunit',
+      },
+    ],
+    packageRules: [
+      {
+        package: 'test-app',
+        components: {
+          '<XToggle/>': { safeToIgnore: true },
+          '<XToggleLabel/>': { safeToIgnore: true },
+          '<XToggleSwitch/>': { safeToIgnore: true },
+        },
       },
     ],
   });
