@@ -5,6 +5,7 @@
   "repository": "https://github.com/knownasilya/ember-toggle",
   "license": "MIT",
   "author": "Ilya Radchenko",
+  "keywords": ["ember-addon"],
   "exports": {
     ".": "./dist/index.js",
     "./*": "./dist/*",
