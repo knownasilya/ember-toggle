@@ -35,7 +35,7 @@ export default {
     // By default, this will load the actual babel config from the file
     // babel.config.json.
     babel({
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime', // we should consider "external",
     }),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from

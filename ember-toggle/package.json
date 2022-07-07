@@ -5,7 +5,9 @@
   "repository": "https://github.com/knownasilya/ember-toggle",
   "license": "MIT",
   "author": "Ilya Radchenko",
-  "keywords": ["ember-addon"],
+  "keywords": [
+    "ember-addon"
+  ],
   "exports": {
     ".": "./dist/index.js",
     "./*": "./dist/*",
@@ -33,8 +35,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
+    "@babel/runtime": "^7.18.6",
     "@ember/render-modifiers": "^2.0.4",
-    "@embroider/addon-shim": "1.8.0",
+    "@embroider/addon-shim": "^1.8.0",
     "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-gesture-modifiers": "^3.0.0"
   },
@@ -61,12 +64,14 @@
     "extends": "../package.json"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-decorators": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.6",
     "@embroider/addon-dev": "^1.8.0",
     "@rollup/plugin-babel": "^5.3.1",
-    "@babel/core": "^7.18.5",
-    "@babel/plugin-proposal-class-properties": "^7.17.12",
     "babel-eslint": "^10.1.0",
+    "concurrently": "^7.2.0",
     "ember-template-lint": "^4.10.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
@@ -74,8 +79,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.1",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.75.7",
-    "concurrently": "^7.2.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "rollup": "^2.75.7"
   }
 }
