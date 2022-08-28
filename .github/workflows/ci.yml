@@ -65,6 +65,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --no-lockfile --non-interactive
       - name: Test
+        working-directory: test-app
         run: yarn test:ember --launch ${{ matrix.browser }}
 
   try-scenarios:
