@@ -23,7 +23,7 @@
     "test:ember": "ember test"
   },
   "dependencies": {
-    "ember-gesture-modifiers": "^3.0.0",
+    "ember-gesture-modifiers": "^4.0.0",
     "ember-toggle": "*"
   },
   "devDependencies": {
