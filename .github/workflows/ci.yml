@@ -11,14 +11,18 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
-      - name: Lint
+      - name: Lint Addon
         run: yarn lint
+        working-directory: ember-toggle
+      - name: Lint Test App
+        run: yarn lint
+        working-directory: test-app
 
   test:
     name: Tests
@@ -31,13 +35,16 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
       - name: Test
+        working-directory: test-app
         run: yarn test:ember --launch ${{ matrix.browser }}
 
   floating-dependencies:
@@ -51,13 +58,16 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
       - name: Install Dependencies
         run: yarn install --no-lockfile --non-interactive
+      - name: Build
+        run: yarn build
       - name: Test
+        working-directory: test-app
         run: yarn test:ember --launch ${{ matrix.browser }}
 
   try-scenarios:
@@ -86,12 +96,14 @@ jobs:
             allow-failure: true
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
       - name: Test
         env:
           EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}

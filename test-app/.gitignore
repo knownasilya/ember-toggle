@@ -5,8 +5,8 @@
 /tmp/
 
 # dependencies
-node_modules/
-
+/bower_components/
+/node_modules/
 
 # misc
 /.env*
@@ -22,13 +22,8 @@ node_modules/
 
 # ember-try
 /.node_modules.ember-try/
+/bower.json.ember-try
 /npm-shrinkwrap.json.ember-try
 /package.json.ember-try
-
-# IDE project files
-/.idea/
-/*.iml
-/.vscode/
-/.history/
 /package-lock.json.ember-try
 /yarn.lock.ember-try
