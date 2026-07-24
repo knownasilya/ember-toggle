@@ -27,7 +27,7 @@ Here's the official [demo] using this component.
 
 ### Themes
 
-![Examples Of Available Themes](vendor/ember-toggle/example-images/themes.png)
+![Examples Of Available Themes](docs/images/themes.png)
 
 There are many `themes` which change the visual appearance of the toggle.
 Check the [demo] for interactive examples.
@@ -40,7 +40,7 @@ Check the [demo] for interactive examples.
 - `'skewed'`
 - `'material'`
 
-![Dark Themes](vendor/ember-toggle/example-images/themes-dark.png)
+![Dark Themes](docs/images/themes-dark.png)
 
 Use it along with the `@variant='auto'` or `@variant='dark'` option to get a dark themed version, works only with 'ios', 'flat' and 'material' theme.
 
@@ -55,7 +55,7 @@ Use it along with the `@variant='auto'` or `@variant='dark'` option to get a dar
 />
 ```
 
-_Note: By default all themes are included, see the Configuration section to change which themes are included/excluded._
+_Note: you choose which themes ship with your app by importing their CSS files, see the Styling section below._
 
 ### Size
 
@@ -100,21 +100,39 @@ If you want your labels to be displayed, then you must set `showLabels` to `true
   When `true`, an `.x-toggle-disabled` class is set on the toggle and an `.x-toggle-container-disabled` class is set on the component.
 - `name` - A name to differentiate multiple toggles, gets passed to the `toggle` action. Defaults to 'default'.
 
+### Styling
+
+Since `ember-toggle` is a v2 addon, it can no longer inject its CSS into your
+app's build automatically. Import the base styles plus whichever themes you
+use, e.g. in your app's `app.js`:
+
+```js
+import 'ember-toggle/styles/base.css';
+import 'ember-toggle/styles/themes/default.css';
+import 'ember-toggle/styles/themes/light.css';
+```
+
+Available theme files, under `ember-toggle/styles/themes/`:
+`default.css`, `light.css`, `ios.css`, `flat.css`, `skewed.css`, `flip.css`,
+`material.css`.
+
+> note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
+
+Only import the themes you actually use, to keep your app's CSS bundle small.
+If you want to write your own theme entirely, skip importing any theme file
+and use `ember-toggle/styles/themes/default.css` as a reference for the class
+names each component renders.
+
 ### Configuring
 
-Add a configuration for `ember-toggle` to include only the themes that
-you will use, as well as any other default settings that apply to all toggles
-in your app. These defaults can be overriden on a per toggle basis
-(except the options regarding themes being added to your app's build step).
+You can set app-wide defaults for non-theme options. These defaults can be
+overriden on a per toggle basis.
 
 This configuration is located in `config/environment.js`.  
 The following is an example of how you can configure this addon:
 
 ```js
 ENV['ember-toggle'] = {
-  includedThemes: ['light', 'default', 'flip'],
-  excludedThemes: ['flip'],
-  excludeBaseStyles: false, // defaults to false
   defaultShowLabels: true, // defaults to false
   defaultTheme: 'light', // defaults to 'default'
   defaultSize: 'small', // defaults to 'medium'
@@ -122,17 +140,6 @@ ENV['ember-toggle'] = {
   defaultOnLabel: 'True', // defaults to 'On'
 };
 ```
-
-> note: the IOS theme is referred to as just `ios` not `ios7` as was indicated in the originating CSS source
-
-To exclude (not include) a theme, means that it's css styles will not be bundled with
-your application, keeping your app's css bundle size smaller.
-
-> **Note:** including a blank array e.g. `includeThemes: []` will not include any themes, leaving
-> you to define your own theme styles. See the `vendor/ember-toggle/themes` directory
-> for reference.
-> **Note:** you may also want to set `excludeBaseStyles: true` so that this addon doesn't include the styles
-> used by all the themes.
 
 ## Advanced Usage
 
