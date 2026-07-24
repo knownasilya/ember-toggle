@@ -1,0 +1,137 @@
+.x-toggle {
+  display: none;
+}
+
+.x-toggle,
+.x-toggle::after,
+.x-toggle::before,
+.x-toggle *,
+.x-toggle *::after,
+.x-toggle *::before,
+.x-toggle + label > .x-toggle-btn {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.x-toggle::-moz-selection,
+.x-toggle::after::-moz-selection,
+.x-toggle::before::-moz-selection,
+.x-toggle *::-moz-selection,
+.x-toggle *::after::-moz-selection,
+.x-toggle *::before::-moz-selection,
+.x-toggle + label > .x-toggle-btn::-moz-selection {
+  background: none;
+}
+
+.x-toggle::selection,
+.x-toggle::after::selection,
+.x-toggle::before::selection,
+.x-toggle *::selection,
+.x-toggle *::after::selection,
+.x-toggle *::before::selection,
+.x-toggle + label > .x-toggle-btn::selection {
+  background: none;
+}
+
+label > .x-toggle-btn.x-toggle-disabled {
+  cursor: not-allowed;
+}
+
+label > .x-toggle-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: 0;
+  display: flex;
+  flex-basis: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+}
+
+label > .x-toggle-btn::after,
+label > .x-toggle-btn::before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+label > .x-toggle-btn::after {
+  left: 0;
+}
+
+label > .x-toggle-btn::before {
+  display: none;
+}
+
+.x-toggle:checked + label > .x-toggle-btn::after {
+  left: 50%;
+}
+
+.x-toggle-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
+
+.x-toggle-component.x-toggle-focused .x-toggle-btn:not(.x-toggle-disabled)::after,
+.x-toggle-component.x-toggle-focused .x-toggle-btn:not(.x-toggle-disabled)::before {
+  -webkit-box-shadow: 0 0 3px 2px #0099e0;
+  -moz-box-shadow: 0 0 3px 2px #0099e0;
+  box-shadow: 0 0 2px 3px #0099e0;
+}
+
+.x-toggle-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: auto;
+  padding: 0 0.35rem;
+}
+
+.x-toggle-component .toggle-text {
+  display: flex;
+  cursor: pointer;
+}
+
+.x-toggle-container.small {
+  width: 2.75rem;
+  font-size: 1rem;
+  padding: 0 0.25rem;
+}
+
+.x-toggle-container.medium {
+  width: 3.75rem;
+  font-size: 1rem;
+}
+
+.x-toggle-container.large {
+  width: 5.7rem;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+.x-toggle-container label {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.x-toggle-container .toggle-text.toggle-prefix {
+  padding-right: 0.25rem;
+}
+
+.x-toggle-container .toggle-text.toggle-postfix {
+  padding-left: 0.25rem;
+}
+
+.x-toggle-component label.off-label {
+  padding-right: 0.5rem;
+}
+
+.x-toggle-component label.on-label {
+  padding-left: 0.5rem;
+}
