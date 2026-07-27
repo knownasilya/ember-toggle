@@ -11,9 +11,13 @@ Here's the official [demo] using this component.
 
 ## Compatibility
 
-- Ember.js v3.24 or above
+- Ember.js current release, beta, or canary — actively tested in CI
 - Ember CLI v3.24 or above
-- Node.js v12 or above
+- Node.js v16 or above
+
+Older Ember versions are likely fine (nothing in this addon is version-gated),
+but are no longer verified in CI — Ember 3.x's toolchain has drifted too far
+from what today's Babel/npm ecosystem ships to test cheaply.
 
 ## Install
 
