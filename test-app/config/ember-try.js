@@ -6,7 +6,7 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 module.exports = async function () {
   return {
-    useYarn: true,
+    packageManager: 'yarn',
     scenarios: [
       {
         name: 'ember-lts-3.24',
