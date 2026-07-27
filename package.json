@@ -12,7 +12,7 @@
     "test": "yarn workspace test-app test:ember"
   },
   "volta": {
-    "node": "18.20.4",
+    "node": "24.18.0",
     "yarn": "1.22.17"
   },
   "engines": {
