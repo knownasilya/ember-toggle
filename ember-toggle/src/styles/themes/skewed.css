@@ -1,0 +1,89 @@
+.x-toggle-skewed.x-toggle-btn {
+  overflow: hidden;
+  -webkit-transform: skew(-10deg);
+  -ms-transform: skew(-10deg);
+  transform: skew(-10deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-family: sans-serif;
+  background: #888;
+}
+
+.x-toggle-skewed.x-toggle-btn::after,
+.x-toggle-skewed.x-toggle-btn::before {
+  -webkit-transform: skew(10deg);
+  -ms-transform: skew(10deg);
+  transform: skew(10deg);
+  display: inline-block;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  line-height: 2em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.x-toggle-skewed.x-toggle-btn::after {
+  left: -110%;
+  content: attr(data-tg-on);
+}
+
+.x-toggle-skewed.x-toggle-btn::before {
+  left: 0;
+  content: attr(data-tg-off);
+}
+
+.x-toggle-skewed.x-toggle-btn:active {
+  background: #888;
+}
+
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn {
+  background: #86d993;
+}
+
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn::before {
+  left: 100%;
+}
+
+.x-toggle:checked + label > .x-toggle-skewed.x-toggle-btn::after {
+  left: 0;
+}
+
+.x-toggle-skewed.small {
+  width: 3em;
+  height: 1.6em;
+}
+
+.x-toggle-skewed.small::before,
+.x-toggle-skewed.small::after {
+  line-height: 2.2em;
+  font-size: 0.8em;
+}
+
+.x-toggle-skewed.medium {
+  width: 4em;
+  height: 2.1em;
+  padding: 3px;
+}
+
+.x-toggle-skewed.medium::before,
+.x-toggle-skewed.medium::after {
+  line-height: 1.9em;
+}
+
+.x-toggle-skewed.large {
+  width: 4.7em;
+  height: 2.1em;
+  padding: 4px;
+}
+
+.x-toggle-skewed.large::before,
+.x-toggle-skewed.large::after {
+  line-height: 1.7em;
+  font-size: 1.1em;
+}

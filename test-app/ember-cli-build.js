@@ -22,20 +22,10 @@ module.exports = function (defaults) {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticHelpers: true,
-    staticComponents: true,
+    staticEmberSource: true,
     skipBabel: [
       {
         package: 'qunit',
-      },
-    ],
-    packageRules: [
-      {
-        package: 'test-app',
-        components: {
-          '<XToggle/>': { safeToIgnore: true },
-          '<XToggleLabel/>': { safeToIgnore: true },
-          '<XToggleSwitch/>': { safeToIgnore: true },
-        },
       },
     ],
   });

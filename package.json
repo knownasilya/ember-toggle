@@ -12,11 +12,14 @@
     "test": "yarn workspace test-app test:ember"
   },
   "volta": {
-    "node": "16.14.2",
+    "node": "24.18.0",
     "yarn": "1.22.17"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": ">= 16"
+  },
+  "resolutions": {
+    "@babel/traverse": "^7.29.7"
   },
   "dependencies": {}
 }
