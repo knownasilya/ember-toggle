@@ -1,25 +1,27 @@
 {
   "private": true,
-  "workspaces": [
-    "ember-toggle",
-    "test-app"
-  ],
   "repository": "https://github.com/knownasilya/ember-toggle",
   "license": "MIT",
   "author": "Ilya Radchenko",
   "scripts": {
-    "build": "yarn workspace ember-toggle build",
-    "test": "yarn workspace test-app test:ember"
+    "build": "pnpm --filter ember-toggle build",
+    "test": "pnpm --filter test-app test:ember"
   },
   "volta": {
-    "node": "24.18.0",
-    "yarn": "1.22.17"
+    "node": "24.18.0"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 20.19"
   },
   "resolutions": {
     "@babel/traverse": "^7.29.7"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "packageManager": "pnpm@10.18.2",
+  "pnpm": {
+    "overrides": {
+      "@babel/traverse": "^7.29.7",
+      "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    }
+  }
 }

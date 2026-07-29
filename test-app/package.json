@@ -24,15 +24,13 @@
   },
   "dependencies": {
     "ember-gesture-modifiers": "^6.1.0",
-    "ember-toggle": "*"
+    "ember-toggle": "workspace:*"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
     "@ember/optional-features": "^3.0.0",
     "@ember/test-helpers": "^5.4.3",
-    "@embroider/compat": "^3.9.4",
-    "@embroider/core": "^3.5.10",
     "@embroider/test-setup": "^4.0.0",
-    "@embroider/webpack": "^4.1.2",
     "@glimmer/component": "^2.1.1",
     "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
