@@ -1,6 +1,6 @@
 {
   "name": "ember-toggle",
-  "version": "9.0.3",
+  "version": "10.0.0-beta.0",
   "description": "Checkbox based toggle switch component for Ember.js",
   "repository": "https://github.com/knownasilya/ember-toggle",
   "license": "MIT",
